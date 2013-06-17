@@ -1,0 +1,2422 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"content_for  (function)"
+			],
+			[
+				"configs_",
+				"configs_bootloader_path"
+			],
+			[
+				"configs",
+				"configs_qual_path"
+			],
+			[
+				"actual",
+				"actual_start_time"
+			],
+			[
+				"if",
+				"ife	if … else … end"
+			],
+			[
+				"do",
+				"do"
+			],
+			[
+				"li",
+				"lic	link_to (controller)"
+			],
+			[
+				"ready",
+				"ready	$(document).ready"
+			],
+			[
+				"race_id",
+				"race_id"
+			],
+			[
+				"it",
+				"it	it \"should description\" do … end"
+			],
+			[
+				"start",
+				"start_time-test"
+			],
+			[
+				"actu",
+				"actualStartTimeInZone"
+			],
+			[
+				"in",
+				"in_time_zone"
+			],
+			[
+				"va",
+				"validates_presence_of"
+			],
+			[
+				"extract",
+				"extract_drivers_list"
+			],
+			[
+				"sess",
+				"session_id"
+			],
+			[
+				"q",
+				"qualDisplay"
+			],
+			[
+				"find_",
+				"find_or_initialize_by_session_type"
+			],
+			[
+				"mod",
+				"mod	module .. end"
+			],
+			[
+				"mo",
+				"mod	module .. ClassMethods .. end"
+			],
+			[
+				"set",
+				"setDirToRoot"
+			],
+			[
+				"proper",
+				"properties_to_model_attributes"
+			],
+			[
+				"properti",
+				"properties_files_extract"
+			],
+			[
+				"start_times",
+				"start_times_extract"
+			],
+			[
+				"lo",
+				"logd	logger.debug"
+			],
+			[
+				"properties",
+				"properties_file_path"
+			],
+			[
+				"Comm",
+				"CommunicationsController"
+			],
+			[
+				"P",
+				"Pconsole"
+			],
+			[
+				"File",
+				"File	File.open(\"..\") { |file| .. }"
+			],
+			[
+				"nas",
+				"nascar_points"
+			],
+			[
+				"displa",
+				"display_name"
+			],
+			[
+				"drive",
+				"driver_count"
+			],
+			[
+				"instance",
+				"instance_variable_get"
+			],
+			[
+				"rep",
+				"rep	redirect_to (path)"
+			],
+			[
+				"Fil",
+				"File	File.open(\"..\") { |file| .. }"
+			],
+			[
+				"p",
+				"p	print"
+			],
+			[
+				"print",
+				"printHashTable"
+			],
+			[
+				"info",
+				"info_prime"
+			],
+			[
+				"square",
+				"squares_prime"
+			],
+			[
+				"marked",
+				"marked_neighbors"
+			],
+			[
+				"unprob",
+				"unprobed_neighbors"
+			],
+			[
+				"el",
+				"el	else"
+			],
+			[
+				"DFS-Sea",
+				"DFS-Search-For-Node"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"def",
+				"defs	Method"
+			],
+			[
+				"be",
+				"befs	before_save"
+			],
+			[
+				"weight",
+				"weighted_purity"
+			],
+			[
+				"av",
+				"avg_purity"
+			],
+			[
+				"furth",
+				"furthest_index"
+			],
+			[
+				"dist",
+				"distance_metric"
+			],
+			[
+				"centr",
+				"centroids"
+			],
+			[
+				"tota",
+				"total_lengths  (variable)"
+			],
+			[
+				"po_bigram",
+				"pos_bigram"
+			],
+			[
+				"len",
+				"len_bin"
+			],
+			[
+				"lens_in",
+				"lens_in_neg"
+			],
+			[
+				"lens",
+				"lens_in_pos  (variable)"
+			],
+			[
+				"pos_",
+				"pos_lens"
+			],
+			[
+				"words",
+				"words_in_neg"
+			],
+			[
+				"total",
+				"total_words"
+			],
+			[
+				"total_",
+				"total_words"
+			],
+			[
+				"correc",
+				"correct_neg"
+			],
+			[
+				"pos",
+				"positive"
+			],
+			[
+				"words_in",
+				"words_in_pos"
+			],
+			[
+				"neg",
+				"neg_words"
+			],
+			[
+				"script",
+				"SCRIPT"
+			],
+			[
+				"confirm",
+				"confirmation_code"
+			],
+			[
+				"should",
+				"should_not"
+			],
+			[
+				"sub",
+				"subj	subject { }"
+			],
+			[
+				"d",
+				"def	def … end"
+			],
+			[
+				"pad",
+				"padding-left:   (property)"
+			],
+			[
+				"background-",
+				"background-origin"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"a",
+				"ass	assert_same(..)"
+			],
+			[
+				"backgroun",
+				"background-origin"
+			],
+			[
+				"div",
+				"DIV"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/jeloi/middbites/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1233,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jeloi/middbites/Guardfile",
+			"settings":
+			{
+				"buffer_size": 2535,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jeloi/middbites/spec/spec_helper.rb",
+			"settings":
+			{
+				"buffer_size": 1998,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jeloi/middbites/spec/models/recipe_spec.rb",
+			"settings":
+			{
+				"buffer_size": 94,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "20130617033752_create_recipes.rb",
+			"settings":
+			{
+				"buffer_size": 179,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 217.0,
+		"selected_items":
+		[
+			[
+				"git",
+				"Git: Gui"
+			],
+			[
+				"pack in",
+				"Package Control: Install Package"
+			],
+			[
+				"emmet sele",
+				"Emmet: Select Next Item"
+			],
+			[
+				"emmet nex",
+				"Emmet: Select Next Item"
+			],
+			[
+				"reflec",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"emmet reflec",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"refle",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"reflect",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"emmet ref",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"pack remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack en",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack li",
+				"Package Control: List Packages"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"packag lis",
+				"Package Control: List Packages"
+			],
+			[
+				"remove pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"in pac",
+				"Package Control: Install Package"
+			],
+			[
+				"scope",
+				"Scope Hunter: Show Scope Under Cursor(s)"
+			],
+			[
+				"in pa",
+				"Package Control: Install Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"tag lint",
+				"Tag: Lint Selection or Document"
+			],
+			[
+				"tag indent",
+				"Tag: Lint Selection or Document"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"snippet dob",
+				"Snippet: Insert do |variable| … end"
+			],
+			[
+				"relative",
+				"File: New File Relative to Current View"
+			],
+			[
+				"next ed",
+				"Emmet: Next Edit Point"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"script",
+				"Simple Rails Navigator: List javascript files"
+			],
+			[
+				"guard",
+				"Guard: Start Guard"
+			],
+			[
+				"package lis",
+				"Package Control: List Packages"
+			],
+			[
+				"relat",
+				"File: New File Relative to Current View"
+			],
+			[
+				"gem",
+				"Gem Browser: List Gems"
+			],
+			[
+				"snippet fl	",
+				"Snippet: flash[…]"
+			],
+			[
+				"instal pac",
+				"Package Control: Install Package"
+			],
+			[
+				"in pack",
+				"Package Control: Install Package"
+			],
+			[
+				"nav",
+				"Simple Rails Navigator: List views"
+			],
+			[
+				"in package",
+				"Package Control: Install Package"
+			],
+			[
+				"list pac",
+				"Package Control: List Packages"
+			],
+			[
+				"package remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"gist",
+				"Gist: Create Public Gist"
+			],
+			[
+				"",
+				"BracketHighlighter: Match Brackets (ignore threshold)"
+			],
+			[
+				"convert",
+				"Convert Case: Upper Case"
+			],
+			[
+				"tag",
+				"Snippet: image_submit_tag"
+			],
+			[
+				"snippet if else",
+				"Snippet: if … else … end"
+			],
+			[
+				"ruby ",
+				"RubyEval: ruby_eval"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pakc inst",
+				"Package Control: Install Package"
+			],
+			[
+				"snippet te",
+				"Snippet: form_for text_field"
+			],
+			[
+				"snippet",
+				"Snippet: form_tag"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"toggle op",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"toggle open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"visi",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"bracket",
+				"BracketHighlighter: Match Brackets (ignore threshold)"
+			],
+			[
+				"codeinte",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Gist: Update File"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"update ",
+				"Gist: Update File"
+			],
+			[
+				"instal ",
+				"Package Control: Install Package"
+			],
+			[
+				"remo pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"pack list",
+				"Package Control: List Packages"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"emmet refe",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"emmet reflect",
+				"Emmet: Reflect CSS Value"
+			],
+			[
+				"create publ",
+				"Gist: Create Public Gist"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"Snippet: ",
+				"Snippet: \\item[description]"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"paack ",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 588.0
+	},
+	"console":
+	{
+		"height": 236.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/jeloi/middbites/.rspec",
+		"/home/jeloi/sample_app/config/application.rb",
+		"/home/jeloi/sample_app/spec/requests/user_pages_spec.rb",
+		"/home/jeloi/sample_app/spec/models/micropost_spec.rb",
+		"/home/jeloi/sample_app/spec/requests/authentication_pages_spec.rb",
+		"/home/jeloi/sample_app/app/views/layouts/application.html.erb",
+		"/home/jeloi/sample_app/app/helpers/application_helper.rb",
+		"/home/jeloi/hartl/spec/spec_helper.rb",
+		"/home/jeloi/hartl/config/environments/test.rb",
+		"/home/jeloi/hartl/config/environments/production.rb",
+		"/home/jeloi/hartl/config/environments/development.rb",
+		"/home/jeloi/hartl/Procfile.txt",
+		"/home/jeloi/hartl/Procfile",
+		"/home/jeloi/hartl/README.md",
+		"/home/jeloi/hartl/config/application.rb",
+		"/home/jeloi/hartl/app/models/micropost.rb",
+		"/home/jeloi/hartl/app/models/user.rb",
+		"/home/jeloi/hartl/db/schema.rb",
+		"/home/jeloi/hartl/app/controllers/microposts_controller.rb",
+		"/home/jeloi/hartl/db/migrate/20130616194026_create_microposts.rb",
+		"/home/jeloi/hartl/Gemfile",
+		"/home/jeloi/.gemrc",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/jeloi/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/bootstrap.css",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/session.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/events_controller.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/event.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/layouts/application.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/schema.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/configs_controller.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/application_controller.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/sessions_controller.rb",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/My Snippets/Rails/ife-in-erb.sublime-snippet",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/communications_controller.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/config/routes.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/_selectFile.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130612235443_remove_winner_from_events.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/lib/modules/writing.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/config/environment.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/config/application.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/lib/modules/extracting.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/_select_file_box.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/_file_selection.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/main.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/start_time.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/mystyle.css",
+		"/home/jeloi/.config/sublime-text-2/Packages/Rails Related Files/Default (Linux).sublime-keymap",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/configs/race.html.erb",
+		"/home/jeloi/.config/sublime-text-2/Packages/Emmet/Emmet.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Emmet.sublime-settings",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/events/show.html.erb",
+		"/home/jeloi/.config/sublime-text-2/Packages/PHP/if(-).sublime-snippet",
+		"/home/jeloi/.config/sublime-text-2/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/HTMLBeautify.sublime-settings",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/Guardfile",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/bootstrap_and_overrides.css.less",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/sessions.css.scss",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/Gemfile",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/helpers/application_helper.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/config/main.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/controllers/config_controller.rb",
+		"/home/jeloi/.config/sublime-text-2/Packages/Guard/Guard.sublime-settings",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/slatebootstrap.css.less",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/slatevariables.css.less",
+		"/home/jeloi/Dropbox/bootstrap.css",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/application.css",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/scaffolds.css.scss",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/assets/stylesheets/slate.css.less",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/working/RVC_6_0/build/apache-ant-1.8.3/manual/api/deprecated-list.html",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/connection_helper.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/spec/requests/test_pages_spec.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/spec/spec_helper.rb",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/Theme - Soda/Soda Dark.sublime-theme",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/.rspec",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/Gemfile.lock",
+		"/home/jeloi/.config/sublime-text-2/Packages/Theme - Default/Widget.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/RubyTest/RubyTest.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/RubyTest/Widget.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/syntax_highlighting.py",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Ruby on Rails.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Package Control.sublime-settings",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/syntax_highlighting.pyc",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/spec/models/anything_spec.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/anything.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/sessions/show.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/driverslist.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130601072050_create_events.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/working/RVC_6_0/projects/web/common/cup/xml/start_time.xml",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/working/RVC_6_0/build/flash_sdk_460/frameworks/projects/mobilecomponents/src/spark/components/supportClasses/ViewNavigatorApplicationBase.as",
+		"/home/jeloi/.config/sublime-text-2/Settings/Session.sublime_session",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130603075409_create_sessions.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130607183305_create_driverslists.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/config/database.yml",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/Snippets/Rails/gem.sublime-snippet",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/entry.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/lib/modules/extraction.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/lib/writing.rb",
+		"/home/jeloi/.config/sublime-text-2/Packages/User/JSON.sublime-settings",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/working/RVC_6_0/projects/web/common/bg/html/raceview.html",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130607173813_add_drivers_list_to_session.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130607182758_remove_drivers_list_from_session.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130607182652_drop_drivers_list_from_session.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130607001259_add_start_times_to_sessions.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/helpers/sessions_helper.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/config/svn_config.yml",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/helpers/extraction_helper.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/views/events/index.html.erb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/development.sqlite3",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/helper",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/db/migrate/20130603075409_create_comps.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/app/models/comp.rb",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/tmp/pids/server.pid",
+		"/home/jeloi/mint/sportvision/producer_console/pconsole/working/RVC_6_0/build/flash_sdk_460/frameworks/projects/mx/src/mx/containers/ApplicationControlBar.as",
+		"/home/jeloi/mint/sportvision/producer_console/svn-test.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/controllers/communications_controller.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/config/routes.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/views/layouts/application.html.erb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/views/events/index.html.erb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/models/event.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/config/svn_config.yml",
+		"/home/jeloi/Dropbox/sportvision/producer_console/svn-test.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/svn_config.yml",
+		"/home/jeloi/Dropbox/sportvision/producer_console/ymltest.rb",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/log/development.log",
+		"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/views/communications/commit.html.erb"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"require",
+			"by_10",
+			"by_1",
+			"shift+alt+",
+			"alt+shift",
+			"increment_number",
+			"div",
+			"active",
+			"td",
+			"winner",
+			"edit_event_path",
+			"li.active > a:hover",
+			", :class => cp()",
+			"path",
+			"li.active",
+			"active",
+			"#c8c8c8",
+			"btn",
+			"button",
+			"buttonBack",
+			"btn",
+			"#484d51",
+			"tab_label",
+			"label",
+			"guard",
+			"User",
+			"guard",
+			"comp",
+			"race_num_laps",
+			"%>\n",
+			"comp",
+			"%>\n",
+			"comp",
+			"2012",
+			"2013",
+			"2012",
+			"qual",
+			"gmt",
+			"actual_zone_start_time",
+			"actualStartTimeInZone",
+			"# FIX",
+			"gmt_to_zone",
+			"raceid",
+			"text",
+			"'",
+			"integer",
+			"float",
+			"Subway",
+			"2013002",
+			"M",
+			"race",
+			"helper",
+			"the",
+			"race",
+			"Comp",
+			"comp",
+			"comps",
+			"comp",
+			"Comp",
+			"@comp",
+			"comp",
+			"comps",
+			"@comps",
+			"html",
+			"@comps",
+			"session",
+			"comp",
+			"comps",
+			"SessionsController",
+			"Show",
+			"puts",
+			"condition",
+			"2013100",
+			"booga",
+			"'form'",
+			"form",
+			"yconf",
+			", :name => \"submit\"",
+			":id => \"submit\",",
+			"id => \"submit\",",
+			"_path",
+			"get",
+			"sportvision",
+			"ruby",
+			"props",
+			"doc",
+			"$",
+			"\n",
+			"f",
+			"LPStrategy",
+			"t",
+			"SingplePointStrategy",
+			"500",
+			"99",
+			"22",
+			"CSP",
+			"guess",
+			"mean_win_guesses",
+			"win_guesses",
+			"wins",
+			"mean_guesses",
+			"sum_guesses",
+			"-n",
+			"guesses",
+			"-n",
+			"GUESS",
+			"beginner",
+			"rows",
+			"look",
+			"true",
+			"print",
+			"new set",
+			"info",
+			"squares",
+			"squares_prime",
+			"info_prime",
+			"finished =",
+			"finished",
+			"mark",
+			"null",
+			"dictionary",
+			"o_new",
+			"dictionary",
+			"new_o",
+			"first()",
+			"Dictionary",
+			"                if (search(squares, info, i, o, true) == true) {\n                    m.probe(x, y);\n                    moved = true;\n                }\n                //Guessing the cell didn't have a mine led to a contradiction, so we can mark it\n                if (search(squares, info, i, o, false) == true) {\n                    m.mark(x, y);\n                    moved = true;\n                }\n            }\n            if (moved == false) {   //if no move was made by the search\n                int q = m.probe(m.pick(m.rows()), m.pick(m.columns())); //probe a random point\n                if (Map.BOOM == q) { //Oops! Bad guess\n                    return;\n                }\n            }\n        }\n    \n    }\n\n    // Returns true if a contradiction is found, meaning the inverse move\n    // to the one attempted in the search can  be safely performed\n    private static boolean search(Dicti",
+			"Dictionary"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"better",
+			"dont",
+			"ctrl+space",
+			"hello"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/jeloi/middbites/Gemfile",
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1233,
+								1233
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/jeloi/middbites/Guardfile",
+					"settings":
+					{
+						"buffer_size": 2535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/jeloi/middbites/spec/spec_helper.rb",
+					"settings":
+					{
+						"buffer_size": 1998,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								963,
+								963
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/jeloi/middbites/spec/models/recipe_spec.rb",
+					"settings":
+					{
+						"buffer_size": 94,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								83,
+								83
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/RSpec/RSpec.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "20130617033752_create_recipes.rb",
+					"settings":
+					{
+						"buffer_size": 179,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								179,
+								179
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 301.0
+	},
+	"output.git":
+	{
+		"height": 120.0
+	},
+	"output.guard":
+	{
+		"height": 427.0
+	},
+	"output.scope_viewer":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"migrat",
+				"db/migrate/20130617033752_create_recipes.rb"
+			],
+			[
+				"rspec",
+				".rspec"
+			],
+			[
+				"spec",
+				"spec/spec_helper.rb"
+			],
+			[
+				"guard",
+				"Guardfile"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"applica",
+				"config/application.rb"
+			],
+			[
+				"authe",
+				"spec/requests/authentication_pages_spec.rb"
+			],
+			[
+				"helper",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"specstat",
+				"spec/requests/static_pages_spec.rb"
+			],
+			[
+				"test",
+				"config/environments/test.rb"
+			],
+			[
+				"prod",
+				"config/environments/production.rb"
+			],
+			[
+				"test.r",
+				"config/environments/test.rb"
+			],
+			[
+				"de",
+				"config/environments/development.rb"
+			],
+			[
+				"proc",
+				"Procfile.txt"
+			],
+			[
+				"script/rails",
+				"script/rails"
+			],
+			[
+				"lock",
+				"Gemfile.lock"
+			],
+			[
+				"product",
+				"config/environments/production.rb"
+			],
+			[
+				"readme",
+				"README.md"
+			],
+			[
+				"deve",
+				"config/environments/development.rb"
+			],
+			[
+				"appl",
+				"config/application.rb"
+			],
+			[
+				"app",
+				"config/application.rb"
+			],
+			[
+				"production",
+				"config/environments/production.rb"
+			],
+			[
+				"gemfil",
+				"Gemfile"
+			],
+			[
+				"environpro",
+				"config/environments/production.rb"
+			],
+			[
+				"environment",
+				"config/environments/development.rb"
+			],
+			[
+				"sche",
+				"db/schema.rb"
+			],
+			[
+				"mic",
+				"app/controllers/microposts_controller.rb"
+			],
+			[
+				"dbmigra",
+				"db/migrate/20130616194026_create_microposts.rb"
+			],
+			[
+				"appli",
+				"config/application.rb"
+			],
+			[
+				"gemfile",
+				"/home/jeloi/hartl/Gemfile"
+			],
+			[
+				"extra",
+				"lib/modules/extracting.rb"
+			],
+			[
+				"event",
+				"app/models/event.rb"
+			],
+			[
+				"my",
+				"app/assets/stylesheets/mystyle.css"
+			],
+			[
+				"style",
+				"app/assets/stylesheets/bootstrap.css"
+			],
+			[
+				"selec",
+				"app/views/configs/_selectFile.html.erb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"schema",
+				"db/schema.rb"
+			],
+			[
+				"envi",
+				"config/environment.rb"
+			],
+			[
+				"writing",
+				"lib/modules/writing.rb"
+			],
+			[
+				"apprb",
+				"config/application.rb"
+			],
+			[
+				"migra",
+				"db/migrate/20130612235443_remove_winner_from_events.rb"
+			],
+			[
+				"applicat",
+				"config/application.rb"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"main",
+				"app/views/configs/main.html.erb"
+			],
+			[
+				"configs",
+				"app/controllers/configs_controller.rb"
+			],
+			[
+				"viewconfigmain",
+				"app/views/configs/main.html.erb"
+			],
+			[
+				"roue",
+				"config/routes.rb"
+			],
+			[
+				"appcon",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"applicationhelper",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"configmain",
+				"app/views/config/main.html.erb"
+			],
+			[
+				"apphtml",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"spechel",
+				"spec/spec_helper.rb"
+			],
+			[
+				"anythin",
+				"/home/jeloi/mint/sportvision/producer_console/pconsole/spec/models/anything_spec.rb"
+			],
+			[
+				"guar",
+				"Guardfile"
+			],
+			[
+				"anything_spec",
+				"spec/models/anything_spec.rb"
+			],
+			[
+				"anything",
+				"app/models/anything.rb"
+			],
+			[
+				"gemlock",
+				"Gemfile.lock"
+			],
+			[
+				"session.rb",
+				"app/models/session.rb"
+			],
+			[
+				"show",
+				"app/views/sessions/show.html.erb"
+			],
+			[
+				"sessshow",
+				"app/views/sessions/show.html.erb"
+			],
+			[
+				"start_time",
+				"working/RVC_6_0/projects/web/common/cup/xml/start_time.xml"
+			],
+			[
+				"applicationbase",
+				"working/RVC_6_0/build/flash_sdk_460/frameworks/projects/mobilecomponents/src/spark/components/supportClasses/ViewNavigatorApplicationBase.as"
+			],
+			[
+				"envir",
+				"config/environment.rb"
+			],
+			[
+				"migrateven",
+				"db/migrate/20130601072050_create_events.rb"
+			],
+			[
+				"event.rb",
+				"app/models/event.rb"
+			],
+			[
+				"application",
+				"config/application.rb"
+			],
+			[
+				"session",
+				"app/models/session.rb"
+			],
+			[
+				"applicationrb",
+				"config/application.rb"
+			],
+			[
+				"coomunica",
+				"app/controllers/communications_controller.rb"
+			],
+			[
+				"controll",
+				"app/controllers/events_controller.rb"
+			],
+			[
+				"dbdriverslist",
+				"db/migrate/20130607183305_create_driverslists.rb"
+			],
+			[
+				"",
+				"Gemfile"
+			],
+			[
+				"show.",
+				"app/views/events/show.html.erb"
+			],
+			[
+				"view.html",
+				"working/RVC_6_0/projects/web/common/bg/html/raceview.html"
+			],
+			[
+				"driverslist",
+				"app/models/driverslist.rb"
+			],
+			[
+				"db/driver",
+				"db/migrate/20130607183305_create_driverslists.rb"
+			],
+			[
+				"db/add",
+				"db/migrate/20130607173813_add_drivers_list_to_session.rb"
+			],
+			[
+				"dbadddr",
+				"db/migrate/20130607173813_add_drivers_list_to_session.rb"
+			],
+			[
+				"dbremove",
+				"db/migrate/20130607182758_remove_drivers_list_from_session.rb"
+			],
+			[
+				"migratedrop",
+				"db/migrate/20130607182652_drop_drivers_list_from_session.rb"
+			],
+			[
+				"entry",
+				"app/models/entry.rb"
+			],
+			[
+				"databse",
+				"config/database.yml"
+			],
+			[
+				"conectionhel",
+				"app/models/connection_helper.rb"
+			],
+			[
+				"entr",
+				"app/models/entry.rb"
+			],
+			[
+				"dbmigrate",
+				"db/migrate/20130607001259_add_start_times_to_sessions.rb"
+			],
+			[
+				"db/migr",
+				"db/migrate/20130607001259_add_start_times_to_sessions.rb"
+			],
+			[
+				"database",
+				"config/database.yml"
+			],
+			[
+				"applicationhelp",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"eventcon",
+				"app/controllers/events_controller.rb"
+			],
+			[
+				"eventsc",
+				"app/controllers/events_controller.rb"
+			],
+			[
+				"appcontr",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"eventindex",
+				"app/views/events/index.html.erb"
+			],
+			[
+				"eventshow",
+				"app/views/events/show.html.erb"
+			],
+			[
+				"applicationcontr",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"server",
+				"tmp/pids/server.pid"
+			],
+			[
+				"evencontr",
+				"app/controllers/events_controller.rb"
+			],
+			[
+				"eventinde",
+				"app/views/events/index.html.erb"
+			],
+			[
+				"applicationcon",
+				"working/RVC_6_0/build/flash_sdk_460/frameworks/projects/mx/src/mx/containers/ApplicationControlBar.as"
+			],
+			[
+				"comp.",
+				"app/models/comp.rb"
+			],
+			[
+				"svn",
+				"config/svn_config.yml"
+			],
+			[
+				"model",
+				"app/models/event.rb"
+			],
+			[
+				"commun",
+				"app/controllers/communications_controller.rb"
+			],
+			[
+				"serv",
+				"producer_console/pconsole/tmp/pids/server.pid"
+			],
+			[
+				"svn-",
+				"producer_console/svn-test.rb"
+			],
+			[
+				"commuc",
+				"producer_console/pconsole/app/controllers/communications_controller.rb"
+			],
+			[
+				"applhtml",
+				"producer_console/pconsole/app/views/layouts/application.html.erb"
+			],
+			[
+				"svnconfig",
+				"producer_console/svn_config.yml"
+			],
+			[
+				"sn-te",
+				"producer_console/svn-test.rb"
+			],
+			[
+				"commit",
+				"producer_console/pconsole/app/views/communications/commit.html.erb"
+			],
+			[
+				"log",
+				"producer_console/pconsole/log/development.log"
+			],
+			[
+				"config",
+				"producer_console/svn_config.yml"
+			],
+			[
+				"svc",
+				"producer_console/pconsole/config/svn_config.yml"
+			],
+			[
+				"viewcomm",
+				"producer_console/pconsole/app/views/communications/checkout.html.erb"
+			],
+			[
+				"controller",
+				"producer_console/pconsole/app/controllers/communications_controller.rb"
+			],
+			[
+				"migr",
+				"producer_console/pconsole/db/migrate/20130601072050_create_events.rb"
+			],
+			[
+				"index",
+				"producer_console/pconsole/app/views/events/index.html.erb"
+			],
+			[
+				"wrap",
+				"producer_console/pconsole/config/initializers/wrap_parameters.rb"
+			],
+			[
+				"gemfi",
+				"producer_console/pconsole/Gemfile"
+			],
+			[
+				"loc",
+				"producer_console/pconsole/Gemfile.lock"
+			],
+			[
+				"seed",
+				"producer_console/pconsole/db/seeds.rb"
+			],
+			[
+				"logg",
+				"producer_console/pconsole/log/development.log"
+			],
+			[
+				"environ",
+				"producer_console/pconsole/config/environment.rb"
+			],
+			[
+				"homecon",
+				"producer_console/pconsole/app/controllers/home_controller.rb"
+			],
+			[
+				"main.",
+				"/home/jeloi/Dropbox/sportvision/producer_console/pconsole/app/views/main_controller/main.html.erb"
+			],
+			[
+				"main.html",
+				"producer_console/pconsole/app/views/main_controller/main.html.erb"
+			],
+			[
+				"csp",
+				"pgms project/src/csp/CSPStrategy.java"
+			],
+			[
+				"single",
+				"pgms project/src/sp/SinglePointStrategy.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/jeloi/Sublime Projects/sandbox.sublime-project"
+			],
+			[
+				"san",
+				"/home/jeloi/Sublime Projects/sandbox.sublime-project"
+			],
+			[
+				"sa",
+				"/home/jeloi/Sublime Projects/sandbox.sublime-project"
+			],
+			[
+				"mid",
+				"/home/jeloi/Sublime Projects/middbyte.sublime-project"
+			],
+			[
+				"fron",
+				"/home/jeloi/Sublime Projects/Front-end development.sublime-project"
+			],
+			[
+				"rail",
+				"/home/jeloi/Sublime Projects/rails tutorial.sublime-project"
+			],
+			[
+				"rtorial",
+				"/home/jeloi/Sublime Projects/rtutorial.sublime-project"
+			],
+			[
+				"r",
+				"/home/jeloi/Sublime Projects/rtutorial.sublime-project"
+			],
+			[
+				"rails",
+				"/home/jeloi/Sublime Projects/rails tutorial.sublime-project"
+			],
+			[
+				"numi",
+				"/home/jeloi/Sublime Projects/numina.sublime-project"
+			],
+			[
+				"rt",
+				"/home/jeloi/Sublime Projects/rtutorial.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true
+}
