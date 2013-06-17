@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20130617051834) do
 
   create_table "recipes", force: true do |t|
     t.text     "directions"
+    t.string   "title"
+    t.string   "blurb"
     t.integer  "user_id"
     t.integer  "recipe_category_id"
     t.datetime "created_at"

@@ -15,7 +15,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' },
   watch(%r{features/support/}) { :cucumber }
 end
 
-guard 'rspec', after_all_pass: false, cli: '--drb' do
+guard 'rspec', :all_after_pass => false, :all_on_start => false, cli: '--drb' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -49,5 +49,13 @@ guard 'rspec', after_all_pass: false, cli: '--drb' do
   end
   watch(%r{^app/controllers/sessions_controller\.rb$}) do |m|                                                                                                  
     "spec/requests/authentication_pages_spec.rb"                                                                                                               
+  end
+
+  watch(%r{^spec/factories/(.+)\.rb$}) do |m|
+    %W[
+      spec/models/#{m[1].singularize}_spec.rb
+      spec/controllers/#{m[1]}_controller_spec.rb
+      spec/requests/#{m[1]}_spec.rb
+    ]
   end
 end
