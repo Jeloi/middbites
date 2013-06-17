@@ -13,6 +13,7 @@
 class Recipe < ActiveRecord::Base
 	# Associations
 	belongs_to :user
-	belongs_to :recipe_category
-	
+	# belongs_to :recipe_category
+	has_many :ingredients
+	has_many :items, through: :ingredients
 end
