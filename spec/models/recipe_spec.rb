@@ -13,7 +13,5 @@
 require 'spec_helper'
 
 describe Recipe do
-  it "should make 3 equal 3" do
-  	3 == 3
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -16,4 +16,7 @@
 #
 
 class User < ActiveRecord::Base
+	# Associations
+	has_many :recipes
+	
 end

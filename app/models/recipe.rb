@@ -11,4 +11,8 @@
 #
 
 class Recipe < ActiveRecord::Base
+	# Associations
+	belongs_to :user
+	belongs_to :recipe_category
+	
 end
