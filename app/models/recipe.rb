@@ -20,5 +20,6 @@ class Recipe < ActiveRecord::Base
 	has_many :items, through: :ingredients
 
 	# Validations
+	validates_uniqueness_of :title, on: :create, message: "That name is already taken!"
 	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
 end

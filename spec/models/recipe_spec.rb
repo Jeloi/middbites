@@ -16,12 +16,14 @@ require 'spec_helper'
 
 describe Recipe do
   
+  # Validations
   it "has a valid factory" do
     expect(FactoryGirl.build(:recipe)).to be_valid #without Factory Girl syntax shortening
   end
 
   it "is invalid without a title" do
-		expect(build(:recipe, title: nil)).to have(1).errors_on(:title)
+		expect(build(:recipe, title: nil)).to \
+			have(1).errors_on(:title)
   end
 
   it "is invalid without a description" do
@@ -31,13 +33,16 @@ describe Recipe do
     expect(build(:recipe, blurb: nil)).to have(1).errors_on(:blurb)
   end
 
+	it "is invalid if the title is not unique" do
+		create(:recipe)
+		expect(build :recipe).to have(1).errors_on(:title)
+	end
+
+	# Associations
+	it {should have_many(:items).through(:ingredients)}
+	it {should belong_to(:user)}
+	it {should belong_to(:recipe_category)}
+	it {should have_many(:comments)}
+	it {should have_many(:ratings)}
 	
-
-	it "description" do
-		  
-		end	
-	it "description" do
-	  
-	end	
-
 end
