@@ -1,0 +1,80 @@
+@import 'foundation_and_overrides';
+
+/* Page Formatting
+-------------------------------------------------------------*/
+#body {
+	min-height: 500px;
+}
+#pagewrap {
+	width: $medium-screen;
+	max-width: 95%;
+	margin: 50px auto;
+	position: relative;
+	min-height: 100%;
+}
+
+#content {
+	background: #D4D4D4;
+}
+
+#sidebar {
+	background: blue;
+}
+
+#heading {
+	background-color: #FAEC62;
+	h1 { 
+		line-height: 1.8; 
+		padding-left: 0.7em;
+		margin: 0;
+	}
+}
+
+#footer .footer-col {
+	background-color: grey;
+}
+
+
+/* Styles for screens that are at least 1100px (large screens)
+-------------------------------------------------------------*/
+
+/* Styles for screens that are bigger than $small-screen (768px)
+-------------------------------------------------------------*/
+@media only screen and (min-width: $small-screen) {
+
+$sidebar-width: 240px;
+	
+#content-wrap {
+	margin-right: -$sidebar-width;
+	float: left;
+	width: 100%;
+}
+
+#content {
+	margin-right: $sidebar-width;
+	padding-right: 2%;
+}
+
+#sidebar {
+	float: right;
+	width: $sidebar-width;
+}
+
+} // end media query
+
+/* Styles for screens that are bigger than $small-screen (768px)
+-------------------------------------------------------------*/
+@media only screen and (min-width: $medium-screen) {
+$header-bar-width: 215px;
+#header {
+	width: $header-bar-width;
+	background: #20F2B9;
+	position: fixed;
+	height: 400px;
+}
+
+#body {
+	margin-left: $header-bar-width;
+}	
+
+} // end media query

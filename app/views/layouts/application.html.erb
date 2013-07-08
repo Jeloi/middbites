@@ -1,14 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Middbites</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-<%= yield %>
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-</body>
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "middbites" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id="pagewrap"> 
+      <header id="header">
+        bites @ midd 
+      </header>
+      <div id="body">
+        <div id="content-wrap" class="clear">
+          <div id="content">
+            <div id="heading">
+              <h1><%= content_for?(:heading) ? yield(:heading) : "Heading" %></h1>
+            </div>
+            <%= yield %>
+          </div> 
+        </div>
+        <div id="sidebar" class="clear">Sidebar</div>
+
+        <div style="clear: both"></div>
+
+        <footer class="row" id="footer">
+          <div class="column small-4">
+            <div class="footer-col">
+              Footer Col 1
+            </div>
+          </div>
+          <div class="column small-4">
+            <div class="footer-col">
+              Footer Col 2
+            </div>
+          </div>
+          <div class="column small-4">
+            <div class="footer-col">
+              Footer Col 3
+            </div>
+          </div>
+        </footer>
+      </div>
+      
+    </div>
+
+    
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
