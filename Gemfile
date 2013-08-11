@@ -13,7 +13,7 @@ gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec'
   gem 'spork-rails', github: 'railstutorial/spork-rails'
