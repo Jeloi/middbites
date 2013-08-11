@@ -15,12 +15,15 @@ group :development, :test do
   gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
-  gem 'guard-rspec', '2.5.0'
+  gem 'guard-rspec'
   gem 'spork-rails', github: 'railstutorial/spork-rails'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'annotate'
   gem 'shoulda'
+
+  gem 'guard-zeus'
+  gem 'zeus' 
 end
 
 group :test do
