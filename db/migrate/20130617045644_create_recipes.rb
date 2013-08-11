@@ -5,7 +5,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.string :title
       t.string :blurb
       t.references :user
-      t.references :recipe_category
 
       t.timestamps
     end
