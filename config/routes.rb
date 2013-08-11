@@ -1,10 +1,11 @@
 Middbites::Application.routes.draw do
+  
+  root 'pages#home'
+
   get "pages/home"
   get "pages/about"
   get "pages/menus"
   resources :recipes
-
-  root 'pages#home'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

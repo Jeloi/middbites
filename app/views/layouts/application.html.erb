@@ -25,18 +25,44 @@
   <body>
     <div id="pagewrap"> 
       <header id="header">
-        bites @ midd 
+        <div id="logo-container"></div>
+        <div id="header-content-container">
+          <form method="get" id="search-form" action="" >
+            <div id="search">
+              <input class="field" type="text" value="Search anything.." name="search" id="search-input" />
+              <input class="submit" id="search-submit" type="submit" value=" " />
+              <div style="clear: both;"></div>
+            </div>        
+          </form>
+          
+          <nav>
+            <ul>
+              <li><a href="">create</a></li>
+              <li><a href="">menus</a></li>
+              <li><a href="">recipes</a></li>
+              <li><a href="">tags</a></li>
+              <li><a href="">ingredients</a></li>
+            </ul>
+          </nav>
+
+          <hr id="hr1">
+          <div id="current-user-text">
+            <a id="sign-in" href="">Sign in with <span>Facebook</span></a>
+          </div>
+        </div>
       </header>
+
       <div id="body">
         <div id="content-wrap" class="clear">
           <div id="content">
-            <div id="heading">
-              <h1><%= content_for?(:heading) ? yield(:heading) : "Heading" %></h1>
+            <div id="heading" class="">
+              <h1><%= content_for?(:heading) ? yield(:heading) : "head" %></h1>
             </div>
             <%= yield %>
           </div> 
         </div>
-        <div id="sidebar" class="clear">Sidebar</div>
+        <div id="sidebar" class="clear">Sidebar
+        </div>
 
         <div style="clear: both"></div>
 

@@ -1,7 +1,15 @@
 @import 'foundation_and_overrides';
+@import 'colors';
 
 /* Page Formatting
 -------------------------------------------------------------*/
+$title-padding-left: 0.7em;
+
+body {
+	// background-image: url(/assets/bg-pattern.png)
+	background-color: $darkey;
+}
+
 #body {
 	min-height: 500px;
 }
@@ -14,19 +22,22 @@
 }
 
 #content {
-	background: #D4D4D4;
+	// background: #D4D4D4;
 }
 
 #sidebar {
-	background: blue;
+	background: $mintGreen;
 }
 
 #heading {
 	background-color: #FAEC62;
+	margin-bottom: 15px;
 	h1 { 
-		line-height: 1.8; 
-		padding-left: 0.7em;
+		line-height: 1.8;
+		padding-left: $title-padding-left;
 		margin: 0;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
 	}
 }
 
@@ -35,8 +46,48 @@
 }
 
 
-/* Styles for screens that are at least 1100px (large screens)
+/* Structure Styling
 -------------------------------------------------------------*/
+
+@mixin box {
+	background: $box_bg;
+}
+
+.box {
+	@include box;
+	margin-bottom: 15px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.box .title {
+	h1, h2, h3 {
+		padding-left: $title-padding-left;
+		color: $white;
+		margin: 0;
+		-webkit-border-radius: 5px 5px 0px 0px;
+		border-radius: 5px 5px 0px 0px;
+	}
+}
+
+.recipe-box {
+	@extend .box;
+	.title {
+		h2 {
+			line-height: 2.3;
+			background-color: $grapefruit;
+		}
+	}
+}
+
+.comments-box {
+
+}
+
+
+
+
+
 
 /* Styles for screens that are bigger than $small-screen (768px)
 -------------------------------------------------------------*/
@@ -60,21 +111,98 @@ $sidebar-width: 240px;
 	width: $sidebar-width;
 }
 
+
+#header {
+
+
+	#search input {
+		height: 30px;
+	}
+
+	input#search-submit {
+		width: 34px;
+		float: right;
+		background-color: $mintGreen;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		border: none;
+	}
+
+	input#search-input {
+		float: left;
+		width: 151px;
+		margin: 0;
+	}
+	
+	#current-user-text {
+		text-align: center;
+		font-size: 70%;
+		line-height: 1.8;
+		#sign-in {
+			color: $lightGrey;
+			span {
+				color: $facebook;
+			}
+		}
+		
+	}
+}
+
+
 } // end media query
 
-/* Styles for screens that are bigger than $small-screen (768px)
+/* Styles for screens that are bigger than $medium-screen (1140px)
 -------------------------------------------------------------*/
 @media only screen and (min-width: $medium-screen) {
+
 $header-bar-width: 215px;
+
+#content {
+	padding-left: 2%;
+}
+
 #header {
 	width: $header-bar-width;
-	background: #20F2B9;
+	background: $white;
 	position: fixed;
-	height: 400px;
+
+	#logo-container {
+		background: $blueFaded;
+		height: 200px;
+	}
+
+	#header-content-container {
+	padding: 20px 15px;
+	}
+	
+	nav {
+		padding-left: 30px;
+		ul {
+			list-style: none;
+			margin: 0;
+			li {
+				display: block;
+				a {
+					font-family: "Bree Serif", "Helvetica", Helvetica, Arial, sans-serif;
+					font-size: 21px;
+					color: $darkGrey;
+				}
+			}
+		}
+	}
+
+	#hr1 {
+		margin-top: 20px;
+		margin-bottom: 5px;
+	}
+
 }
 
 #body {
 	margin-left: $header-bar-width;
-}	
+}
+
+	
 
 } // end media query
