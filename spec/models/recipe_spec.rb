@@ -38,6 +38,12 @@ describe Recipe do
 		expect(build :recipe).to have(1).errors_on(:title)
 	end
 
+  it "performs title uniqueness validation, case insensitive" do
+    create(:recipe)
+    puts Recipe.first.title
+    expect(build :recipe, title: "the classic").to have(1).errors_on(:title)
+  end
+
 	# Associations
 	it {expect(subject).to have_many(:items).through(:ingredients)}
 	it {should have_many(:items).through(:ingredients)}

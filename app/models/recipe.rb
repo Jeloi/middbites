@@ -23,12 +23,16 @@ class Recipe < ActiveRecord::Base
 	has_many :items, through: :ingredients
 
 	# Validations
-	validates_uniqueness_of :title, on: :create, message: "That name is already taken!"
+	validates_uniqueness_of :title, on: :create, message: "That name is already taken!", case_sensitive: false
 	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
-  
+
   # Friendly_Id generate new slug
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
+  end
+
+  def display_title
+    title.downcase.titlecase
   end
 
 end

@@ -15,7 +15,7 @@ describe RecipesController do
       before(:each) do
         create(:recipe)
       end
-      it {expect(get("/recipes/1-the-classic")).to route_to("recipes#show", :id => "1")}
+      it {expect(get("/recipes/the-classic")).to route_to("recipes#show", :id => "the-classic")}
       it {expect(get("/recipes/1")).to route_to("recipes#show", :id => "1")}
     end
 
