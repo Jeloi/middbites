@@ -8,11 +8,15 @@ describe RecipesController do
     end
 
     it "routes to #new" do
-      get("/recipes/new").should route_to("recipes#new")
+      get("/recipes/create").should route_to("recipes#new")
     end
 
-    it "routes to #show" do
-      get("/recipes/1").should route_to("recipes#show", :id => "1")
+    describe "routes to #show" do
+      before(:each) do
+        create(:recipe)
+      end
+      it {expect(get("/recipes/1-the-classic")).to route_to("recipes#show", :id => "1")}
+      it {expect(get("/recipes/1")).to route_to("recipes#show", :id => "1")}
     end
 
     it "routes to #edit" do

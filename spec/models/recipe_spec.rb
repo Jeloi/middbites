@@ -35,11 +35,22 @@ describe Recipe do
 
 	it "is invalid if the title is not unique" do
 		create(:recipe)
-		# expect(build :recipe).to have(1).errors_on(:title)
+		expect(build :recipe).to have(1).errors_on(:title)
 	end
 
 	# Associations
+	it {expect(subject).to have_many(:items).through(:ingredients)}
 	it {should have_many(:items).through(:ingredients)}
 	it {should belong_to(:user)}
 	
+  # Instance Methods
+  describe "Instance Methods" do
+    describe "to_param" do
+      before(:each) do
+        @recipe = create(:recipe)
+      end
+      it { expect(@recipe.to_param).to eql("1-the-classic")}
+      it { expect(Recipe.find("1-the-classic")).to eql(@recipe) }
+    end    
+  end
 end

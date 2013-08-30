@@ -21,4 +21,9 @@ class Recipe < ActiveRecord::Base
 	# Validations
 	validates_uniqueness_of :title, on: :create, message: "That name is already taken!"
 	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
+  
+  # Returns a parameterized version of the recipe title, with a slug prefix
+  def to_param
+    [id, title.parameterize].join("-")
+  end
 end
