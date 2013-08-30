@@ -45,12 +45,13 @@ describe Recipe do
 	
   # Instance Methods
   describe "Instance Methods" do
-    describe "to_param" do
+    describe "friendly_id and to_param working" do
       before(:each) do
         @recipe = create(:recipe)
       end
-      it { expect(@recipe.to_param).to eql("1-the-classic")}
+      it { expect(@recipe.to_param).to eql("the-classic")}
       it { expect(Recipe.find("1-the-classic")).to eql(@recipe) }
+      it { expect(Recipe.friendly.find("the-classic")).to eql(@recipe) }
     end    
   end
 end

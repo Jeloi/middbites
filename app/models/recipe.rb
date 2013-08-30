@@ -13,6 +13,10 @@
 #
 
 class Recipe < ActiveRecord::Base
+  extend FriendlyId
+  # Friendly_id gem use database slug
+  friendly_id :title, :use => :slugged
+
 	# Associations
 	belongs_to :user
 	has_many :ingredients
@@ -22,8 +26,9 @@ class Recipe < ActiveRecord::Base
 	validates_uniqueness_of :title, on: :create, message: "That name is already taken!"
 	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
   
-  # Returns a parameterized version of the recipe title, with a slug prefix
-  def to_param
-    [id, title.parameterize].join("-")
+  # Friendly_Id generate new slug
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
   end
+
 end

@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'zurb-foundation'
 gem 'omniauth-facebook'
+gem 'friendly_id', '5.0.0.beta4'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
