@@ -13,6 +13,16 @@ body {
 #body {
 	min-height: 500px;
 }
+
+#header nav ul li a {
+	&.active {
+		color: $grapefruit;
+	}
+	&:hover {
+		color: $blueFaded;
+	}
+}
+
 #pagewrap {
 	width: $medium-screen;
 	max-width: 95%;

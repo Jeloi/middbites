@@ -4,8 +4,6 @@
   <thead>
     <tr>
       <th>Directions</th>
-      <th>References</th>
-      <th>References</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,8 +14,6 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.directions %></td>
-        <td><%= recipe.references %></td>
-        <td><%= recipe.references %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>

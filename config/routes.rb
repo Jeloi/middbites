@@ -5,8 +5,12 @@ Middbites::Application.routes.draw do
   get "pages/home"
   get "pages/about"
   get "pages/menus"
-  resources :recipes
 
+  # Recipe routes
+  get 'recipes/create' => 'recipes#new', as: 'new_recipe'
+  resources :recipes, except: :new
+
+  
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
