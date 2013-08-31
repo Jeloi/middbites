@@ -11,6 +11,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'zurb-foundation'
 gem 'omniauth-facebook'
 gem 'friendly_id', '5.0.0.beta4'
+gem 'hirb'
+gem 'quiet_assets'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
@@ -26,6 +28,11 @@ group :development, :test do
   gem 'guard-zeus'
   gem 'zeus' 
   gem 'factory_girl_rails'
+
+  # Performance testing gems. Need to troubleshoot
+  # gem 'rails-perftest'
+  # gem 'ruby-prof'
+  # gem 'test-unit'
 end
 
 group :test do
