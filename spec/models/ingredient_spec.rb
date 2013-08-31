@@ -13,5 +13,16 @@
 require 'spec_helper'
 
 describe Ingredient do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe "has a valid factory with an item" do
+    it {expect(build(:ingredient)).to be_valid}
+    it { expect(build(:ingredient).quantity).to eql("1") }
+  end
+  describe "Instance Methods - " do
+  	
+  	it "name" do
+  	  @ingredient = create(:ingredient)
+  	  expect(@ingredient.name).to eql("A Test Item")
+  	end
+  end
 end

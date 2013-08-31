@@ -2,5 +2,15 @@
 	<div class="title">
 		<h2><%= @recipe.display_title %></h2>
 	</div>
-	<p>Find me in app/views/pages/home.html.erb</p>
+	<div class="padded-wrap">
+		<center class="blurb"><%= @recipe.blurb %></center>
+		<h4 class="mintGreen">Ingredients</h4>
+		<ul>
+			<% @recipe.ingredients.each do |ingredient| %>
+			<li><%= ingredient.quantity %></li>
+			<% end -%>
+		</ul>
+		<h4 class="mintGreen">Directions</h4>
+		<p><%= @recipe.directions %></p>
+	</div>
 </div>

@@ -14,4 +14,8 @@ class Ingredient < ActiveRecord::Base
 	# Associations
 	belongs_to :recipe
 	belongs_to :item
+
+	def name
+		item.name
+	end
 end

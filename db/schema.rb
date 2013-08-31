@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20130830175830) do
     t.string   "title"
     t.string   "blurb"
     t.integer  "user_id"
-    t.integer  "recipe_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"

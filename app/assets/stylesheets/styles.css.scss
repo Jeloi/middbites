@@ -3,7 +3,7 @@
 
 /* Page Formatting
 -------------------------------------------------------------*/
-$title-padding-left: 0.7em;
+$title-padding-left: 3%;
 
 body {
 	// background-image: url(/assets/bg-pattern.png)
@@ -91,6 +91,18 @@ body {
 }
 
 .comments-box {
+
+}
+
+.padded-wrap {
+	padding: 10px 3%;
+}
+
+.blurb {
+	font-size: 0.95em;
+	font-style: italic;
+	font-weight: bold;
+	color: $darkGrey;
 
 }
 
