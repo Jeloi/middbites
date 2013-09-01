@@ -17,6 +17,7 @@
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'>
@@ -29,7 +30,7 @@
         <div id="header-content-container">
           <form method="get" id="search-form" action="" >
             <div id="search">
-              <input class="field" type="text" value="Search anything.." name="search" id="search-input" />
+              <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
               <input class="submit" id="search-submit" type="submit" value=" " />
               <div style="clear: both;"></div>
             </div>        
@@ -37,7 +38,7 @@
           
           <nav>
             <ul>
-              <li><a href="" >create</a></li>
+              <li><%= link_to "create", new_recipe_path %></li>
               <li><a href="">menus</a></li>
               <li><%= link_to "recipes", recipes_path, class: "active" %></li>
               <li><a href="">tags</a></li>
@@ -55,9 +56,9 @@
       <div id="body">
         <div id="content-wrap" class="clear">
           <div id="content">
-            <div id="heading" class="">
-              <h1><%= content_for?(:heading) ? yield(:heading) : "Header" %></h1>
-            </div>
+            <%- if content_for?(:heading) -%> 
+                      <h2 id="heading" class="shadow <%= yield(:heading).downcase.split(" ").join("-") %>"><%= yield :heading %></h2>
+            <%- end -%> 
             <%= yield %>
           </div> 
         </div>
@@ -88,6 +89,5 @@
     </div>
 
     
-    <%= javascript_include_tag "application" %>
 <div class="box"><%= debug(params) if Rails.env.development? %></div>  </body>
 </html>

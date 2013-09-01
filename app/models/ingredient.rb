@@ -15,7 +15,17 @@ class Ingredient < ActiveRecord::Base
 	belongs_to :recipe
 	belongs_to :item
 
-	def name
-		item.name
+	# Callbacks
+	before_save :set_name
+
+
+	
+
+
+private
+	
+	# Set the ingredient name with it's associated item's name
+	def set_name
+		self.name = item.name
 	end
 end

@@ -1,16 +1,17 @@
+<%= provide :heading, "Recipe" %>
 <div class="recipe-box box">
 	<div class="title">
 		<h2><%= @recipe.display_title %></h2>
 	</div>
 	<div class="padded-wrap">
 		<center class="blurb"><%= @recipe.blurb %></center>
-		<h4 class="mintGreen">Ingredients</h4>
-		<ul>
+		<h4 class="blue">Ingredients</h4>
+		<ul class="ingredient-list">
 			<% @recipe.ingredients.each do |ingredient| %>
-			<li><%= ingredient.name %></li>
+			<li><div><%= ingredient.name %></div></li>
 			<% end -%>
 		</ul>
-		<h4 class="mintGreen">Directions</h4>
+		<h4 class="mint">Directions</h4>
 		<p><%= @recipe.directions %></p>
 	</div>
 </div>

@@ -8,7 +8,7 @@ FactoryGirl.define do
 		
   		after(:build) do |recipe|
   			[:jelly, :peanut_butter, :bread].each do |item|
-  				recipe.ingredients << Ingredient.new(quantity: "1", item: FactoryGirl.build(item))
+  				recipe.ingredients << Ingredient.new(quantity: "2", item: FactoryGirl.build(item))
   			end
   		end
 
