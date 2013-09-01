@@ -23,6 +23,8 @@ class Recipe < ActiveRecord::Base
 	has_many :items, through: :ingredients
 
 	# Validations
+  TITLE_LENGTH = 40
+  BLURB_LENGTH = 100
 	validates_uniqueness_of :title, on: :create, message: "That name is already taken!", case_sensitive: false
 	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
 

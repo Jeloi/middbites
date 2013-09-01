@@ -18,11 +18,28 @@ describe Ingredient do
     it {expect(build(:ingredient)).to be_valid}
     it { expect(build(:ingredient).quantity).to eql("1") }
   end
-  describe "Instance Methods - " do
+  describe "set_name callback," do
   	
-  	it "name" do
-  	  @ingredient = create(:ingredient)
-  	  expect(@ingredient.name).to eql("A Test Item")
-  	end
+    before(:each) do
+      @ingredient = create(:ingredient)
+      @item = @ingredient.item
+    end
+
+    it { expect(@ingredient.name).to eql("A Test Item") }
+    it { expect(@ingredient.name).to eql(@ingredient.item.name) }
+
+    it "should change name on item change" do
+      @ingredient.item = create(:jelly)
+      @ingredient.save
+      expect(@ingredient.name).to eql("Jelly")
+    end
+
+    it "should change name on item name change" do
+      @item.update_attributes(name: "Jam")
+      @ingredient.save
+      expect(@ingredient.name).to eql("Jam")
+    end
+
   end
+
 end

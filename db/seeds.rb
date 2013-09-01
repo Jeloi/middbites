@@ -185,5 +185,5 @@ items.sort!
 
 items.each do |item|
 	name = item.gsub(/_/, " ")
-	Item.create(name: name)
+	Item.find_or_create_by(name: name)
 end

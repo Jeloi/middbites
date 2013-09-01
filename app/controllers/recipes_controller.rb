@@ -20,10 +20,12 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @items_json = Item.all.pluck(:name).to_json.html_safe
   end
 
   # GET /recipes/1/edit
   def edit
+    @items_json = Item.all.pluck(:name).to_json.html_safe
   end
 
   # POST /recipes
@@ -74,6 +76,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:directions, :references, :references)
+      params.require(:recipe).permit(:directions, :title, :blurb)
     end
 end

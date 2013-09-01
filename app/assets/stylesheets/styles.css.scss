@@ -6,8 +6,8 @@
 $title-padding-left: 3%;
 
 body {
-	// background-image: url(/assets/bg-pattern.png)
-	background-color: $darkey;
+	// background-image: url(/assets/bg-pattern.png);
+	background-color: $background;
 }
 
 #body {
@@ -16,16 +16,16 @@ body {
 
 #header nav ul li a {
 	&.active {
-		color: $grapefruit;
+		color: $mint;
 	}
 	&:hover {
-		color: $blueFaded;
+		// color: $mint;
 	}
 }
 
 #pagewrap {
-	width: $medium-screen;
-	max-width: 95%;
+	width: 1140px;
+	max-width: 92%;
 	margin: 50px auto;
 	position: relative;
 	min-height: 100%;
@@ -36,19 +36,30 @@ body {
 }
 
 #sidebar {
-	background: $mintGreen;
+	background: $mint;
 }
 
-#heading {
-	background-color: #FAEC62;
-	margin-bottom: 15px;
-	h1 { 
-		line-height: 1.8;
-		padding-left: $title-padding-left;
-		margin: 0;
-		-webkit-border-radius: 5px;
-		border-radius: 5px;
+h2#heading {
+	&.edit-recipe {
+		background-color: $mint;
+		color: $white;
 	}
+	&.recipe {
+		background-color: $yellowFaded;
+		color: $darkGrey;	
+	}
+	&.create-a-recipe {
+		background-color: $grapefruit;
+		color: $white;	
+	}
+
+	margin-bottom: 15px;
+	margin-top: 0;
+	line-height: 1.6;
+	padding-left: $title-padding-left;
+	// border-top: 10px solid $darkey;
+	// -webkit-border-radius: 5px;
+	// border-radius: 5px;
 }
 
 #footer .footer-col {
@@ -64,24 +75,25 @@ body {
 }
 
 .box {
-	@include box;
+	@include box; //inserts a mixin's css rules
+	@extend .shadow; //a box inherits all the .shadow class styles
 	margin-bottom: 15px;
-	-webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.box .title {
-	h1, h2, h3 {
-		padding-left: $title-padding-left;
-		color: $white;
-		margin: 0;
-		-webkit-border-radius: 5px 5px 0px 0px;
-		border-radius: 5px 5px 0px 0px;
-	}
+	// -webkit-border-radius: 5px;
+ //    border-radius: 5px;
+    // border: 1px solid $lightGrey;
+    .title {
+    	h1, h2, h3 {
+    		padding-left: $title-padding-left;
+    		color: $white;
+    		margin: 0;
+    		// -webkit-border-radius: 5px 5px 0px 0px;
+    		// border-radius: 5px 5px 0px 0px;
+    	}
+    }
+    
 }
 
 .recipe-box {
-	@extend .box;
 	.title {
 		h2 {
 			line-height: 2.3;
@@ -90,20 +102,34 @@ body {
 	}
 }
 
-.comments-box {
-
-}
-
-.padded-wrap {
+#content .box .padded-wrap {
 	padding: 10px 3%;
 }
 
-.blurb {
+// For recipe#show
+.recipe-box  {
+	.blurb {
 	font-size: 0.95em;
 	font-style: italic;
 	font-weight: bold;
 	color: $darkGrey;
+	}
+	ul.ingredient-list {
+		padding-left: 3%;
+		list-style: none;
+		li {
+			font-size: 1em;
+		}
+	}
+}
 
+
+/* Theme Styling
+-------------------------------------------------------------*/
+.shadow {
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -144,7 +170,7 @@ $sidebar-width: 240px;
 	input#search-submit {
 		width: 34px;
 		float: right;
-		background-color: $mintGreen;
+		background-color: $mint;
 		padding: 0;
 		margin: 0;
 		cursor: pointer;
@@ -188,9 +214,12 @@ $header-bar-width: 215px;
 	width: $header-bar-width;
 	background: $white;
 	position: fixed;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 
 	#logo-container {
-		background: $blueFaded;
+		background: $blue;
 		height: 200px;
 	}
 

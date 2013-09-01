@@ -19,8 +19,6 @@ group :development, :test do
   gem 'rspec-rails'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec'
-  gem 'spork-rails', github: 'railstutorial/spork-rails'
-  gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'annotate'
   gem 'shoulda'
@@ -41,15 +39,9 @@ group :test do
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 
-  # Uncomment this line on OS X.
-  # gem 'growl', '1.0.3'
-
-  # Uncomment these lines on Linux.
+  # Notifications on Linux
   gem 'libnotify', '0.8.0'
 
-  # Uncomment these lines on Windows.
-  # gem 'rb-notifu', '0.0.4'
-  # gem 'win32console', '1.3.2'
 end
 
 gem 'sass-rails', '4.0.0.rc2'
