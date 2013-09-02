@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to @recipe, notice: 'Your recipe was successfully created.' }
         format.json { render action: 'show', status: :created, location: @recipe }
       else
         format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to @recipe, notice: 'Your recipe was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -76,6 +76,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:directions, :title, :blurb)
+      params.require(:recipe).permit(:directions, :title, :blurb, ingredients_attributes: [:item_id, :quantity, :_destroy, :id])
     end
 end
