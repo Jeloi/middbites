@@ -123,6 +123,39 @@ h2#heading {
 	}
 }
 
+// For recipe#create and recipe#edit
+.format-recipe-box {
+	#ingredients-section {
+		.fields {
+			// float: left;
+			max-width: 400px;
+			overflow: hidden;
+			margin-bottom: 3px;
+			@mixin float_height {
+				float: left;
+				height: 32px;
+			}
+			select {
+				@include float_height;
+				width: auto;
+				margin: 0;
+			}
+			input.quantity {
+				@include float_height;
+				width: 100px;
+				margin: 0;
+			}
+			span {
+				@include float_height;
+				width: 32px;
+				background: $grapefruit;
+				// border-radius: 50%;
+
+			}
+		}
+	}
+}
+
 
 /* Theme Styling
 -------------------------------------------------------------*/
@@ -131,6 +164,8 @@ h2#heading {
 	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
+
+.clear {clear: both;}
 
 
 

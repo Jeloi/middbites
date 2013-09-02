@@ -1,0 +1,7 @@
+<div class="flash_holder">
+  <% flash.each do |key, value| %>
+	<div class="alert-box alert-<%= key %>"><%= value %>
+		<a class="close">&times;</a>
+	</div>
+	<% end %>
+</div>

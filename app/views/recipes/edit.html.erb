@@ -1,6 +1,60 @@
-<h1>Editing recipe</h1>
+<%= provide :heading, "Edit a Recipe" %>
 
-<%= render 'form' %>
+<div class="format-recipe-box box">
+	<div class="padded-wrap">
+	<%= nested_form_for(@recipe) do |f| %>
+	<% if @recipe.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+	      <ul>
+	      <% @recipe.errors.each do |attribute, msg| %>
+
+	        <li><%= attribute.to_s.capitalize + "-" + msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	<% end %>
+		
+	<div class="field">
+	    <%= f.label :title do %><br>
+		<h4 class="grapefruit">Title</h4>
+	    <% end -%>
+	    <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH %>
+	</div>	
+
+    <div class="field">
+      <%= f.label :blurb do %><br>
+  	<h4 class="darkGrey">Blurb</h4>
+      <% end -%>
+      <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
+    </div>
+
+    <div class="ingredients-section field">
+		<h4 class="blue">Ingredients</h4>
+		<%= f.fields_for :ingredients do |ingredient_form| %>
+			<%= ingredient_form.select :item_id, Item.all.collect {|i| [i.name, i.id]} %>
+			<%= ingredient_form.text_field :quantity, placeholder: "Three Scoops, A Dallop" %>
+			<%= ingredient_form.link_to_remove "Remove this Ingredient" %>
+		<% end -%>
+		<%= f.link_to_add "Add an ingredient", :ingredients %>
+    </div>
+
+	<div class="field">
+	    <%= f.label :directions do %><br>
+		<h4 class="mint">Directions</h4>
+	    <% end -%>
+	    <%= f.text_area :directions %>
+	</div>
+	<div class="actions">
+	    <%= f.submit "Create Recipe!" %>
+	</div>
+	<% end %>
+
+	</div>
+</div>
+
+<script>
+	var items = <%= @items_json %>;
+	console.log(items);
+</script>

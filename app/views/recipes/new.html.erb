@@ -1,8 +1,8 @@
 <%= provide :heading, "Create a Recipe" %>
 
-<div class="create-box box">
+<div class="format-recipe-box box">
 	<div class="padded-wrap">
-	<%= form_for(@recipe) do |f| %>
+	<%= nested_form_for(@recipe) do |f| %>
 	<% if @recipe.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -30,8 +30,16 @@
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
-    <div class="field">
+    <div id="ingredients-section" class="field">
 		<h4 class="blue">Ingredients</h4>
+		<%= f.fields_for :ingredients do |ingredient_form| %>
+			<%= ingredient_form.select :item_id, Item.all.collect {|i| [i.name, i.id]}, {:include_blank => '- Select an ingredient -'} %>
+			<%= ingredient_form.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
+			<%= ingredient_form.link_to_remove do %>
+			<span> </span>
+			<% end -%>
+		<% end -%>
+		<%= f.link_to_add "Add an ingredient", :ingredients %>
     </div>
 
 	<div class="field">
@@ -40,9 +48,7 @@
 	    <% end -%>
 	    <%= f.text_area :directions %>
 	</div>
-	<div class="actions">
-	    <%= f.submit "Create Recipe!" %>
-	</div>
+	<%= f.submit "Create Recipe!", id: :create_recipe %>
 	<% end %>
 
 	</div>

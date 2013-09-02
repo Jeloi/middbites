@@ -11,6 +11,9 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'zurb-foundation'
 gem 'omniauth-facebook'
 gem 'friendly_id', '5.0.0.beta4'
+gem 'nested_form'
+
+# For making development life better
 gem 'hirb'
 gem 'quiet_assets'
 
