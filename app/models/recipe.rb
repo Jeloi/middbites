@@ -27,8 +27,8 @@ class Recipe < ActiveRecord::Base
 	# Validations
   TITLE_LENGTH = 40
   BLURB_LENGTH = 100
-	validates_uniqueness_of :title, on: :create, message: "That name is already taken!", case_sensitive: false
-	validates_presence_of :title, :blurb, :directions, on: :create, message: "can't be blank"
+	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
+	validates_presence_of :title, :blurb, :directions, message: "can't be blank"
 
   # Friendly_Id generate new slug
   def should_generate_new_friendly_id?
