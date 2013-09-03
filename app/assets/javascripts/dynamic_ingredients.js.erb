@@ -1,23 +1,90 @@
-var id; // Global variable
-var screen_width = $(window).width();
-$(window).resize(function() {
-    clearTimeout(id);
-    id = setTimeout(
-    	doneResizing, 800);
-    
-});
-
-// Resize functionality after its done resizing
-function doneResizing(){
-	// if the width of the window changed only
-	if ($(window).width() != screen_width) {
-		$('.ingredient-fields').css("transform","translateX("+0+"px)");
-		screen_width = $(window).width();
-	};
-	console.log("Window Resized");
-}
 
 
+// $(document).ready(function() {
+// 	// Setup: Fix displaying ingredient text in edit/rerendered form page
+// 	$('.ingredient-fields').show(); 
+// 	$('.ingredient-text').each(function() {
+// 		var val = $(this).prev("input[type=hidden][data-attribute=destroy]").val();
+// 		$(this).text(items_hash[val])
+// 	});
+
+// 	//Add ingredient using select_tag
+// 	$('#ingredient_selector').change(function() {
+// 		var text = $("#ingredient_selector option:selected").text();
+// 		var value = $("#ingredient_selector option:selected").val();
+// 		console.log(text + value);
+// 		if (value != null) {
+// 			create_ingredient_fields(this, text, value);
+// 		};
+// 	});
+
+
+// 	// Fancy recursive remove all ingredients functionality
+// 	$('#ingredients-section').on("click", "#remove-all", function() {
+// 		console.log("clicked #remove-all");
+// 		console.log($("#ingredients-section"));
+// 		var last = $(".ingredient-fields").last();
+// 		recursive_remove(last, ".ingredient-fields");
+// 		return false;
+// 	});
+
+// 	// Remove all ingredients functionality
+// 	$('#ingredients-section').on("click", "#remove-all", function() {
+// 		$("input[type=hidden][data-attribute=destroy]").val("1");
+// 		$('.ingredient-fields').hide();
+// 		return false;
+// 	});
+
+
+// 	// Remove single Ingredient functionality
+// 	$('#ingredients-section').on("click", ".remove.btn", function() {
+// 		$(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
+// 		$(this).closest(".ingredient-fields").hide();
+// 		return false;
+// 	});
+
+// 	// Individual sliding functionality	
+// 	$("#ingredients-section").on("click", ".go-right", function() {
+// 		var wrap = $('#ingredients-section').width()
+// 		$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+// 	});
+
+// 	$("#ingredients-section").on("click", ".go-left", function() {
+// 		var wrap = $('#ingredients-section').width()
+// 		$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+// 	});
+// 	// All Ingredients sliding functionality
+// 	$("#ingredients-section").on("click", ".all-right", function() {
+// 		var wrap = $('#ingredients-section').width()
+// 		$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+// 	});
+
+// 	$("#ingredients-section").on("click", ".all-left", function() {
+// 		var wrap = $('#ingredients-section').width()
+// 		$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+// 	});
+// });
+
+// function add_ingredient_fields(link, association, content) {
+//   var new_id = new Date().getTime();
+//   var regexp = new RegExp("new_" + association, "g")
+//   $("#list-container").prepend(content.replace(regexp, new_id));
+// };
+
+
+
+// function add_fields(link, association, content) {
+//   var new_id = new Date().getTime();
+//   var regexp = new RegExp("new_" + association, "g")
+//   $(link).after(content.replace(regexp, new_id));
+// };
+
+// function recursive_remove (element, selector) {
+// 	console.log(element);
+// 	element.hide();
+// 	var prev = element.prev(".ingredient-fields");
+// 	// recursive_remove(prev);
+// }
 
 
 

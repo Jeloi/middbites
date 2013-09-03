@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_items, only: [:new, :create, :update, :edit]
 
   # GET /recipes
   # GET /recipes.json
@@ -20,12 +21,10 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    @items_json = Item.all.pluck(:name).to_json.html_safe
   end
 
   # GET /recipes/1/edit
   def edit
-    @items_json = Item.all.pluck(:name).to_json.html_safe
   end
 
   # POST /recipes
@@ -72,6 +71,16 @@ class RecipesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.friendly.find(params[:id])
+    end
+
+    def set_items
+      @items_json = Item.all.pluck(:name).to_json.html_safe
+      items = Item.all.collect {|i| [i.id, i.name]}
+      @items_hash = {}
+      items.each do |pair|
+        @items_hash[pair[0]] = pair[1]
+      end
+      @items_hash = @items_hash.to_json.html_safe
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

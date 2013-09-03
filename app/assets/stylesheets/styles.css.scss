@@ -8,6 +8,7 @@ $title-padding-left: 3%;
 body {
 	// background-image: url(/assets/bg-pattern.png);
 	background-color: $background;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 #body {
@@ -131,10 +132,10 @@ h2#heading {
 		width: 200%;
 		overflow: hidden;
 		margin-bottom: 3px;
-		-webkit-transition:all 0.7s ease-in-out;
-		-moz-transition:all 0.7s ease-in-out;
-		-o-transition:all 0.7s ease-in-out;
-		transition:all 0.7s ease-in-out;
+		-webkit-transition:all 0.4s ease-in-out;
+		-moz-transition:all 0.4s ease-in-out;
+		-o-transition:all 0.4s ease-in-out;
+		transition:all 0.4s ease-in-out;
 		.btn {
 			width: 32px;
 			height: 32px;
@@ -143,21 +144,18 @@ h2#heading {
 			&.go-left { background: $blue; }
 			&.arrows { background: $mint; }
 		}
-		.field {
-			background: $lightGrey;
-		}
 
 		.wrap {
 			width: 50%;
 			float: left;
 			position: relative;
 
-			.remove, .go-left {
+			.remove, .arrows {
 				position: absolute;
 				left:0;
 				top:0;
 			}
-			.arrows, .go-right {
+			.go-left, .go-right {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -319,4 +317,6 @@ $header-bar-width: 215px;
 } // end media query
 
 // To disable iPhone form zoom
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { font-size: 1em; }
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+ font-size: 1em;
+  }

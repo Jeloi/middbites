@@ -18,3 +18,22 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+var id; // Global variable
+var screen_width = $(window).width();
+$(window).resize(function() {
+    clearTimeout(id);
+    id = setTimeout(
+    	doneResizing, 800);
+    
+});
+
+// Resize functionality after its done resizing
+function doneResizing(){
+	// if the width of the window changed only
+	if ($(window).width() != screen_width) {
+		$('.ingredient-fields').css("transform","translateX("+0+"px)");
+		screen_width = $(window).width();
+	};
+	console.log("Window Resized");
+}
