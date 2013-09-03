@@ -6,16 +6,28 @@ feature "Creating a Recipe," do
 	  visit new_recipe_path
 	end
 
-	scenario "without filling in proper fields" do
-	  click_button("create_recipe")
-	  expect(page).to have_content "can't be blank"
+	context "without filling in proper fields or selecting an Ingredient" do
+		before(:each) do
+			click_button("create_recipe")
+		end
+		
+	  it {expect(page).to have_content "can't be blank"}
+	  it {expect(page).to have_content "at least one ingredient"}
 	end
 
-	scenario "adding recipes" do
-		fill_in_text_fields
-		click_button("create_recipe")
-		expect(page).to have_content "successfully"
+
+	context "filling in the fields" do
+		before(:each) do
+		  fill_in_text_fields
+		end
+		
+		it "should successfully create a recipe" do
+			click_button("create_recipe")
+			expect(page).to have_content "successfully"
+		end
 	end
+
+
 
 	def fill_in_text_fields
 		within(:css, "div.format-recipe-box") do
@@ -24,5 +36,7 @@ feature "Creating a Recipe," do
 			fill_in "recipe_directions", with: "Get pasta. Add sauce. Add Garlic. Mix."
 		end
 	end
+
+
 
 end

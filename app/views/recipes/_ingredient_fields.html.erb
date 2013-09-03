@@ -1,0 +1,17 @@
+<div class="ingredient-fields">
+			<div class="wrap">
+				<%= f.hidden_field(:_destroy) %>
+				<div class="remove btn"></div>
+				<div class="field name">
+				<%= f.select :item_id, Item.all.collect {|i| [i.name, i.id]}, {:include_blank => '- Select an ingredient -'} %>
+				</div>
+				<div class="go-right btn "></div>
+			</div>
+			<div class="wrap">
+				<div class="go-left btn "></div>
+				<div class="field quantity ">
+				<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
+				</div>
+				<div class="arrows btn "></div>
+			</div>
+		</div>

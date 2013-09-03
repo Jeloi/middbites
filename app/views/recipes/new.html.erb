@@ -2,7 +2,7 @@
 
 <div class="format-recipe-box box">
 	<div class="padded-wrap">
-	<%= nested_form_for(@recipe) do |f| %>
+	<%= form_for(@recipe) do |f| %>
 	<% if @recipe.errors.any? %>
 	    <div id="error_explanation">
 	      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -30,17 +30,16 @@
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
-    <div id="ingredients-section" class="field">
+    <div id="ingredients-section" class="field" >
 		<h4 class="blue">Ingredients</h4>
+
+		<%= link_to "Add Ingredient", "#", class: "add-ingredient" %>
 		<%= f.fields_for :ingredients do |ingredient_form| %>
-			<%= ingredient_form.select :item_id, Item.all.collect {|i| [i.name, i.id]}, {:include_blank => '- Select an ingredient -'} %>
-			<%= ingredient_form.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
-			<%= ingredient_form.link_to_remove do %>
-			<span> </span>
-			<% end -%>
+			<%= render 'ingredient_fields', f: ingredient_form %>
 		<% end -%>
-		<%= f.link_to_add "Add an ingredient", :ingredients %>
+		
     </div>
+	<% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
 
 	<div class="field">
 	    <%= f.label :directions do %><br>
@@ -56,5 +55,45 @@
 
 <script>
 	var items = <%= @items_json %>;
-	console.log(items);
+	$(document).ready(function() {
+		// Add ingredient functionality
+		$('#ingredients-section').on("click", ".add-ingredient", function() {
+			add_fields(this, "ingredients", "<%= escape_javascript(@ingredient_fields_content) %>")
+		    return false;
+		  });
+		
+		function add_fields(link, association, content) {
+		  var new_id = new Date().getTime();
+		  var regexp = new RegExp("new_" + association, "g")
+		  $(link).after(content.replace(regexp, new_id));
+		};
+
+		// Remove Ingredient functionality
+		$('#ingredients-section').on("click", ".remove.btn", function() {
+			$(this).prev("input[type=hidden]").val("1");
+			$(this).closest(".ingredient-fields").hide();
+			return false;
+		});
+
+		// Individual sliding functionality	
+		$("#ingredients-section").on("click", ".go-right", function() {
+			var wrap = $('#ingredients-section').width()
+			$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+		});
+
+		$("#ingredients-section").on("click", ".go-left", function() {
+			var wrap = $('#ingredients-section').width()
+			$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+		});
+		// All Ingredients sliding functionality
+		$("#ingredients-section").on("click", ".all-right", function() {
+			var wrap = $('#ingredients-section').width()
+			$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+		});
+
+		$("#ingredients-section").on("click", ".all-left", function() {
+			var wrap = $('#ingredients-section').width()
+			$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+		});
+	});
 </script>
