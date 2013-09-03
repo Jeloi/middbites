@@ -25,7 +25,7 @@ body {
 
 #pagewrap {
 	width: 1140px;
-	max-width: 92%;
+	max-width: 95%;
 	margin: 50px auto;
 	position: relative;
 	min-height: 100%;
@@ -53,7 +53,7 @@ h2#heading {
 		color: $white;	
 	}
 
-	margin-bottom: 15px;
+	// margin-bottom: 15px;
 	margin-top: 0;
 	line-height: 1.6;
 	padding-left: $title-padding-left;
@@ -198,6 +198,10 @@ h2#heading {
 @media only screen and (min-width: $small-screen) {
 
 $sidebar-width: 240px;
+
+#pagewrap {
+	max-width: 92%;
+}
 	
 #content-wrap {
 	margin-right: -$sidebar-width;
@@ -313,3 +317,6 @@ $header-bar-width: 215px;
 	
 
 } // end media query
+
+// To disable iPhone form zoom
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] { font-size: 1em; }
