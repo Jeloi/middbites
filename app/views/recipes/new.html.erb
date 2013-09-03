@@ -30,23 +30,29 @@
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
-    <div id="ingredients-section" class="field" >
-		<h4 class="blue">Ingredients</h4>
+    <div class="field">
+        <%= f.label :directions do %><br>
+    	<h4 class="mint">Directions</h4>
+        <% end -%>
+        <%= f.text_area :directions %>
+    </div>
 
-		<%= link_to "Add Ingredient", "#", class: "add-ingredient" %>
+	<h4 class="blue">Ingredients</h4>
+    <div id="ingredients-section" class="field" >
+		
+		<%= select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
+		<%= link_to "Remove All", "#", id: "remove-all" %>
+		<div id="list-container">
 		<%= f.fields_for :ingredients do |ingredient_form| %>
 			<%= render 'ingredient_fields', f: ingredient_form %>
 		<% end -%>
+		</div>
 		
     </div>
 	<% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
 
-	<div class="field">
-	    <%= f.label :directions do %><br>
-		<h4 class="mint">Directions</h4>
-	    <% end -%>
-	    <%= f.text_area :directions %>
-	</div>
+	
+
 	<%= f.submit "Create Recipe!", id: :create_recipe %>
 	<% end %>
 
@@ -55,22 +61,80 @@
 
 <script>
 	// var items = <%= @items_json %>;
+	var items_hash = <%= @items_hash %>;
+	
 	$(document).ready(function() {
-		// Add ingredient functionality
-		$('#ingredients-section').on("click", ".add-ingredient", function() {
-			add_fields(this, "ingredients", "<%= escape_javascript(@ingredient_fields_content) %>")
-		    return false;
-		  });
-		
+		// Setup: Fix displaying ingredient text in edit/rerendered form page
+		$('.ingredient-fields').show(); 
+		$('.ingredient-text').each(function() {
+			var val = $(this).prev("input[type=hidden][data-attribute=destroy]").val();
+			$(this).text(items_hash[val])
+		});
+
+		//Add ingredient using select_tag
+		$('#ingredient_selector').change(function() {
+			var text = $("#ingredient_selector option:selected").text();
+			var value = $("#ingredient_selector option:selected").val();
+			console.log(text + value);
+			if (value != null) {
+				create_ingredient_fields(this, text, value);
+			};
+		});
+
+		function create_ingredient_fields (link, text, value) {
+			var content = "<%= escape_javascript(@ingredient_fields_content) %>"
+			add_ingredient_fields(link, "ingredients", content);
+			// console.log($('#ingredient_selector').siblings('.ingredient-fields .name input').attr('name'));
+			$('#list-container .name input').first().val(value);
+			$('#list-container .ingredient-text').first().text(text);
+			// $(link).find('.ingredient-fields').first().show();
+		}
+
+		function add_ingredient_fields(link, association, content) {
+		  var new_id = new Date().getTime();
+		  var regexp = new RegExp("new_" + association, "g")
+		  $("#list-container").prepend(content.replace(regexp, new_id));
+		};
+
+		// Add ingredient using link functionality - Old
+		// $('#ingredients-section').on("click", ".add-ingredient", function() {
+		// 	add_fields(this, "ingredients", "<%= escape_javascript(@ingredient_fields_content) %>")
+		//     return false;
+		//   });
+
 		function add_fields(link, association, content) {
 		  var new_id = new Date().getTime();
 		  var regexp = new RegExp("new_" + association, "g")
 		  $(link).after(content.replace(regexp, new_id));
 		};
 
-		// Remove Ingredient functionality
+		function recursive_remove (element, selector) {
+			console.log(element);
+			element.hide();
+			var prev = element.prev(".ingredient-fields");
+			// recursive_remove(prev);
+		}
+
+		// Fancy recursive remove all ingredients functionality
+		$('#ingredients-section').on("click", "#remove-all", function() {
+			console.log("clicked #remove-all");
+			console.log($("#ingredients-section"));
+			var last = $(".ingredient-fields").last();
+			recursive_remove(last, ".ingredient-fields");
+			return false;
+		});
+
+		// Remove all ingredients functionality
+		$('#ingredients-section').on("click", "#remove-all", function() {
+			$("input[type=hidden][data-attribute=destroy]").val("1");
+			$('.ingredient-fields').hide();
+			return false;
+		});
+
+
+		// Remove single Ingredient functionality
 		$('#ingredients-section').on("click", ".remove.btn", function() {
-			$(this).prev("input[type=hidden]").val("1");
+			$(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
 			$(this).closest(".ingredient-fields").hide();
 			return false;
 		});
