@@ -123,39 +123,60 @@ h2#heading {
 	}
 }
 
-// For recipe#create and recipe#edit
-.format-recipe-box {
-	#ingredients-section {
-		.fields {
-			// float: left;
-			max-width: 400px;
-			overflow: hidden;
-			margin-bottom: 3px;
-			@mixin float_height {
-				float: left;
-				height: 32px;
+
+#ingredients-section {
+	// background: $darkey;
+	overflow: hidden;
+	.ingredient-fields {
+		width: 200%;
+		overflow: hidden;
+		margin-bottom: 3px;
+		-webkit-transition:all 0.7s ease-in-out;
+		-moz-transition:all 0.7s ease-in-out;
+		-o-transition:all 0.7s ease-in-out;
+		transition:all 0.7s ease-in-out;
+		.btn {
+			width: 32px;
+			height: 32px;
+			&.remove { background: $grapefruit; }
+			&.go-right { background: $blue; }
+			&.go-left { background: $blue; }
+			&.arrows { background: $mint; }
+		}
+		.field {
+			background: $lightGrey;
+		}
+
+		.wrap {
+			width: 50%;
+			float: left;
+			position: relative;
+
+			.remove, .go-left {
+				position: absolute;
+				left:0;
+				top:0;
+			}
+			.arrows, .go-right {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			.field.name, .field.quantity {
+				margin: 0 32px;
+			}
+			div {
+				margin: 0;
+				padding: 0;
+				height: 2em;
+				line-height: 2em;
 			}
 			select {
-				@include float_height;
-				width: auto;
-				margin: 0;
-			}
-			input.quantity {
-				@include float_height;
-				width: 100px;
-				margin: 0;
-			}
-			span {
-				@include float_height;
-				width: 32px;
-				background: $grapefruit;
-				// border-radius: 50%;
-
+				height: 100%;
 			}
 		}
 	}
 }
-
 
 /* Theme Styling
 -------------------------------------------------------------*/
