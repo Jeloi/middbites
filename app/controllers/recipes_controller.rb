@@ -20,7 +20,6 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    3.times { @recipe.ingredients.build }
     @items_json = Item.all.pluck(:name).to_json.html_safe
   end
 
@@ -39,7 +38,7 @@ class RecipesController < ApplicationController
         format.html { redirect_to @recipe, notice: 'Your recipe was successfully created.' }
         format.json { render action: 'show', status: :created, location: @recipe }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'new' }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
