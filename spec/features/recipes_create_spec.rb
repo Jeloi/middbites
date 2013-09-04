@@ -1,32 +1,54 @@
 require 'spec_helper'
 
 
-feature "Creating a Recipe," do
+feature "Creating a Recipe" do
 	before(:each) do
-	  visit new_recipe_path
+		create_item_factories
+		visit new_recipe_path
 	end
 
-	context "without filling in proper fields or selecting an Ingredient" do
+	it { expect(Item.count).to eql 3 }
+
+	describe "| without filling in proper fields or selecting an Ingredient" do
 		before(:each) do
 			click_button("create_recipe")
 		end
-		
-	  it {expect(page).to have_content "can't be blank"}
-	  it {expect(page).to have_content "at least one ingredient"}
+
+		it {expect(page).to have_content "can't be blank"}
+		it {
+			save_and_open_page
+			expect(page).to have_content "at least one ingredient"
+		}
 	end
 
 
-	context "filling in the fields" do
+	context "| filling in the fields and selecting an ingredient", js: true do
 		before(:each) do
-		  fill_in_text_fields
+			fill_in_text_fields
+			select('Jelly', from: 'ingredient_selector')
+			select('Peanut Butter', from: 'ingredient_selector')
+			select('Bread', from: 'ingredient_selector')
+			click_button("create_recipe")
 		end
 		
-		it "should successfully create a recipe" do
-			click_button("create_recipe")
-			expect(page).to have_content "successfully"
+		# # Multiple expects in one example, bad practice but only workaround to the overhead in before(:each)
+		it "| should successfully create a recipe and be at the right path" do
+			@new_recipe = Recipe.first
+			expect(page).to have_content "successfully" 
+			expect(current_path).to eql '/recipes/a-good-recipe' 
+			expect(Recipe.count).to eql(1) 
+			expect(@new_recipe.title).to eql "A Good Recipe"  
+			expect(@new_recipe.ingredients.count).to eql 3
+			expect(@new_recipe.ingredients.pluck(:name)).to include("Jelly", "Peanut Butter", "Bread") 
 		end
+
 	end
 
+	def create_item_factories
+		[:jelly, :peanut_butter, :bread].each do |item|
+			FactoryGirl.create(item)
+		end
+	end
 
 
 	def fill_in_text_fields

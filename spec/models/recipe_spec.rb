@@ -18,7 +18,7 @@ describe Recipe do
   
   # Validations
   it "has a valid factory" do
-    expect(FactoryGirl.build(:recipe)).to be_valid #without Factory Girl syntax shortening
+    expect(FactoryGirl.build(:recipe_with_ingredients)).to be_valid #without Factory Girl syntax shortening
   end
 
   it "is invalid without a title" do
@@ -34,13 +34,12 @@ describe Recipe do
   end
 
 	it "is invalid if the title is not unique" do
-		create(:recipe)
+		create(:recipe_with_ingredients)
 		expect(build :recipe).to have(1).errors_on(:title)
 	end
 
   it "performs title uniqueness validation, case insensitive" do
-    create(:recipe)
-    puts Recipe.first.title
+    create(:recipe_with_ingredients)
     expect(build :recipe, title: "the classic").to have(1).errors_on(:title)
   end
 
@@ -53,7 +52,7 @@ describe Recipe do
   describe "Instance Methods" do
     describe "friendly_id and to_param working" do
       before(:each) do
-        @recipe = create(:recipe)
+        @recipe = create(:recipe_with_ingredients)
       end
       it { expect(@recipe.to_param).to eql("the-classic")}
       it { expect(Recipe.find("1-the-classic")).to eql(@recipe) }

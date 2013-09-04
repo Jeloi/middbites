@@ -17,24 +17,24 @@
 	<% end %>
 		
 	<div class="field">
-	    <%= f.label :title do %><br>
+	    <%= f.label :title do %>
 		<h4 class="grapefruit">Title</h4>
 	    <% end -%>
 	    <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH %>
 	</div>	
 
     <div class="field">
-      <%= f.label :blurb do %><br>
+      <%= f.label :blurb do %>
   	<h4 class="darkGrey">Blurb</h4>
       <% end -%>
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
     <div class="field">
-        <%= f.label :directions do %><br>
+        <%= f.label :directions do %>
     	<h4 class="mint">Directions</h4>
         <% end -%>
-        <%= f.text_area :directions %>
+        <%= f.text_area :directions, rows: 4 %>
     </div>
 
 	<h4 class="blue">Ingredients</h4>

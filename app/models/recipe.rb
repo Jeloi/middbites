@@ -29,6 +29,12 @@ class Recipe < ActiveRecord::Base
   BLURB_LENGTH = 100
 	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
 	validates_presence_of :title, :blurb, :directions, message: "can't be blank"
+  validate :validate_ingredients_count
+
+  def validate_ingredients_count
+    errors.add(:ingredient, "too many!") if ingredients.length > 10
+    errors.add(:ingredient, "recipe needs at least one ingredient") if ingredients.length == 0
+  end
 
   # Friendly_Id generate new slug
   def should_generate_new_friendly_id?

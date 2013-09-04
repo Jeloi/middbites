@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/bmabey/database_cleaner.git
-  revision: dd7c12ca0bee753e285a55c5399ac577a284ea12
-  specs:
-    database_cleaner (1.1.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,6 +25,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.5)
     annotate (2.5.0)
       rake
     arel (4.0.0)
@@ -45,6 +40,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     coderay (1.0.9)
@@ -65,6 +63,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    database_cleaner (1.0.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
@@ -108,6 +107,8 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    launchy (2.3.0)
+      addressable (~> 2.3)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
     listen (1.3.0)
@@ -189,6 +190,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rubyzip (0.9.9)
     sass (3.2.10)
     sass-rails (4.0.0.rc2)
       railties (>= 4.0.0.beta, < 5.0)
@@ -197,6 +199,11 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    selenium-webdriver (2.35.1)
+      childprocess (>= 0.2.5)
+      multi_json (~> 1.0)
+      rubyzip (< 1.0.0)
+      websocket (~> 1.0.4)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
@@ -227,6 +234,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    websocket (1.0.7)
     will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -243,10 +251,11 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-will_paginate (= 0.0.9)
   capybara
+  capybara-webkit
   childprocess (= 0.3.6)
   coffee-rails (= 4.0.0)
   cucumber-rails (= 1.3.0)
-  database_cleaner!
+  database_cleaner (= 1.0.1)
   factory_girl_rails
   faker (= 1.1.2)
   friendly_id (= 5.0.0.beta4)
@@ -255,6 +264,7 @@ DEPENDENCIES
   hirb
   jbuilder (= 1.0.2)
   jquery-rails (= 2.2.1)
+  launchy
   libnotify (= 0.8.0)
   nested_form
   omniauth-facebook
@@ -264,6 +274,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (= 4.0.0.rc2)
   sdoc (= 0.3.20)
+  selenium-webdriver
   shoulda
   sqlite3 (= 1.3.7)
   turbolinks (= 1.1.1)

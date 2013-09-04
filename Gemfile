@@ -38,9 +38,13 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'selenium-webdriver' # for integration js testing
+  gem 'capybara-webkit'
+  gem 'launchy' # preview web pages during tests
+  gem 'factory_girl_rails' # generate factories for test data
+
   gem 'cucumber-rails', '1.3.0', :require => false
-  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'database_cleaner', '1.0.1'
 
   # Notifications on Linux
   gem 'libnotify', '0.8.0'
