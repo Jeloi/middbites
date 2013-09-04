@@ -3,13 +3,13 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 # gem 'bootstrap-sass', '2.3.1.0'
-gem 'bcrypt-ruby', '3.0.1'
-gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 gem 'zurb-foundation'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'
 gem 'nested_form'
 
