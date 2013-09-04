@@ -11,7 +11,7 @@
 		<h4 class="blue">Ingredients</h4>
 		<ul class="ingredient-list">
 			<% @recipe.ingredients.each do |ingredient| %>
-			<li><div><%= ingredient.name %> - <%= ingredient.quantity %></div></li>
+			<li><div><%= ingredient.name %>, <%= ingredient.quantity %></div></li>
 			<% end -%>
 		</ul>
 		<h4 class="mint">Directions</h4>
