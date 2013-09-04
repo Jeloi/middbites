@@ -48,7 +48,13 @@
 
           <hr id="hr1">
           <div id="current-user-text">
-            <a id="sign-in" href="">Sign in with <span>Facebook</span></a>
+            <% if logged_in? %>
+            <div>Hello, <%= current_user.first_name %></div>
+            <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
+            <% else %>
+            <span id="sign_in">JS signin</span>
+            <div>Sign in with <span ><%= link_to "Facebook", "auth/facebook" %></span></div>
+            <% end -%>
           </div>
         </div>
       </header>
