@@ -1,18 +1,18 @@
 <div class="ingredient-fields" >
-			<div class="wrap">
-				<%= f.hidden_field :_destroy, data: {:attribute => "destroy"} %>
-				<div class="remove btn"></div>
-				<div class="field name">
-				<%= f.hidden_field :item_id, data: {:attribute => "destroy"} %>
-				<div class="ingredient-text"></div>
-				</div>
-				<div class="go-right btn "></div>
-			</div>
-			<div class="wrap">
-				<div class="arrows btn "></div>
-				<div class="field quantity ">
-				<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
-				</div>
-				<div class="go-left btn "></div>
-			</div>
+	<div class="wrap">
+		<%= f.hidden_field :_destroy, data: {:attribute => "destroy"} %>
+		<div class="remove btn custom-action"></div>
+		<div class="field name">
+			<%= f.hidden_field :item_id, data: {:attribute => "destroy"} %>
+			<div class="ingredient-text"></div>
 		</div>
+		<div class="slide down btn custom-action"></div>
+	</div>
+	<div class="wrap quantity">
+		<div class="move-up btn custom-action"></div>
+		<div class="field quantity ">
+			<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
+		</div>
+		<div class="move-down btn custom-action"></div>
+	</div>
+</div>	

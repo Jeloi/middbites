@@ -1,6 +1,6 @@
 <%= provide :heading, "Create a Recipe" %>
 
-<div class="format-recipe-box box">
+<div class="recipe-form box">
 	<div class="padded-wrap">
 	<%= form_for(@recipe) do |f| %>
 	<% if @recipe.errors.any? %>
@@ -18,30 +18,34 @@
 		
 	<div class="field">
 	    <%= f.label :title do %>
-		<h4 class="grapefruit">Title</h4>
+		<h4 class="grapefruit">title</h4>
 	    <% end -%>
 	    <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH %>
 	</div>	
 
     <div class="field">
       <%= f.label :blurb do %>
-  	<h4 class="darkGrey">Blurb</h4>
+  		<h4>blurb</h4>
       <% end -%>
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
     <div class="field">
-        <%= f.label :directions do %>
-    	<h4 class="mint">Directions</h4>
-        <% end -%>
+    	<h4 class="">directions</h4>
         <%= f.text_area :directions, rows: 4 %>
     </div>
 
-	<h4 class="blue">Ingredients</h4>
+	<h4>ingredients</h4>
     <div id="ingredients-section" class="field" >
 		
 		<%= select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
-		<%= link_to "Remove All", "#", id: "remove-all" %>
+		<div class="all-actions">
+			
+			<span class="custom-action" id="remove-all">Remove all</span>
+			All Actions
+			<span class="custom-action down" id="slide-all">Drop all</span>
+		</div>
+
 		<div id="list-container">
 		<%= f.fields_for :ingredients do |ingredient_form| %>
 			<%= render 'ingredient_fields', f: ingredient_form %>
@@ -139,25 +143,59 @@
 			return false;
 		});
 
+		// Show/hide quantity dropdown section
+		$('#ingredients-section').on("click", ".slide", function() {
+		    // allPanels.slideUp();
+		    // if it is pointed down
+		    if ($(this).hasClass('down')) {
+		    	$(this).parent().next('div.wrap.quantity').slideDown("fast");
+		    	$(this).removeClass('down');
+		    	$(this).addClass('up');
+		    }
+		    else if ($(this).hasClass('up')) {
+		    	$(this).parent().next('div.wrap.quantity').slideUp("fast");
+		    	$(this).removeClass('up');
+		    	$(this).addClass('down');
+		    };
+		    return false;
+		  });
+
+		// Show/hide quantity dropdown section
+		$('#ingredients-section').on("click", "#slide-all", function() {
+		    // allPanels.slideUp();
+		    // if it is pointed down
+		    if ($(this).hasClass('down')) {
+		    	$('div.wrap.quantity').slideDown("fast").addClass('up').removeClass('down');
+		    	$(this).removeClass('down');
+		    	$(this).addClass('up');
+		    }
+		    else if ($(this).hasClass('up')) {
+		    	$('div.wrap.quantity').slideUp("fast").addClass('down').removeClass('up');
+		    	$(this).removeClass('up');
+		    	$(this).addClass('down');
+		    };
+		    return false;
+		  });
+
 		// Individual sliding functionality	
-		$("#ingredients-section").on("click", ".go-right", function() {
-			var wrap = $('#ingredients-section').width()
-			$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
-		});
+		// $("#ingredients-section").on("click", ".go-right", function() {
+		// 	var wrap = $('#ingredients-section').width()
+		// 	$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+		// });
 
-		$("#ingredients-section").on("click", ".go-left", function() {
-			var wrap = $('#ingredients-section').width()
-			$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
-		});
-		// All Ingredients sliding functionality
-		$("#ingredients-section").on("click", ".all-right", function() {
-			var wrap = $('#ingredients-section').width()
-			$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
-		});
+		// $("#ingredients-section").on("click", ".go-left", function() {
+		// 	var wrap = $('#ingredients-section').width()
+		// 	$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+		// });
+		// // All Ingredients sliding functionality
+		// $("#ingredients-section").on("click", ".all-right", function() {
+		// 	var wrap = $('#ingredients-section').width()
+		// 	$(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
+		// });
 
-		$("#ingredients-section").on("click", ".all-left", function() {
-			var wrap = $('#ingredients-section').width()
-			$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
-		});
+		// $("#ingredients-section").on("click", ".all-left", function() {
+		// 	var wrap = $('#ingredients-section').width()
+		// 	$(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
+		// });
 	});
 </script>
