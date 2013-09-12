@@ -28,6 +28,9 @@
       <header id="header">
         <div id="logo-container"></div>
         <div id="header-content-container">
+
+          <h1 class="header-title">middbites</h1>
+
           <form method="get" id="search-form" action="" >
             <div id="search">
               <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
@@ -36,17 +39,7 @@
             </div>        
           </form>
           
-          <nav>
-            <ul>
-              <li><%= link_to "create", new_recipe_path %></li>
-              <li><a href="">menus</a></li>
-              <li><%= link_to "recipes", recipes_path, class: "active" %></li>
-              <li><a href="">tags</a></li>
-              <li><a href="">ingredients</a></li>
-            </ul>
-          </nav>
-
-          <hr id="hr1">
+          <!-- <hr id="hr1"> -->
           <div id="current-user-text">
             <% if logged_in? %>
             <div>Hello, <%= current_user.first_name %></div>
@@ -56,6 +49,17 @@
             <div>Sign in with <span ><%= link_to "Facebook", "auth/facebook" %></span></div>
             <% end -%>
           </div>
+
+          <nav class="main-nav">
+            <ul>
+              <li class="link-1"><%= link_to "recipes", recipes_path, class: "active" %></li>
+              <li class="link-2"><a href="">menus</a></li>
+              <li class="link-3"><%= link_to "create", new_recipe_path %></li>
+              <li class="link-4"><a href="">tags</a></li>
+              <li class="link-5"><a href="">ingredients</a></li>
+            </ul>
+          </nav>
+
         </div>
       </header>
 
