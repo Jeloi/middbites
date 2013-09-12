@@ -22,6 +22,30 @@ class User < ActiveRecord::Base
 	# Associations
 	has_many :recipes
 	
+
+	# Instance Methods
+
+
+ ####### UNTESTED METHODS FOR USERS' SCORES #####
+
+	# Returns all favorites that have been made on a recipe this user owns
+	def favorites_on_owned_recipes
+		Favorite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	end
+	
+	# Returns all bites that have been made on a recipe this user owns
+	def bites_on_owned_recipes
+		Bite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	end
+
+	# Returns all comments that have been made on a recipe this user owns
+	def comments_on_owned_recipes
+		Comment.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	end
+
+
+	# Class Methods
+
 	# Omniauth
 	def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

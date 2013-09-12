@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830175830) do
+ActiveRecord::Schema.define(version: 20130908152357) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -74,5 +74,17 @@ ActiveRecord::Schema.define(version: 20130830175830) do
     t.string   "last_name"
     t.string   "image"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.integer  "recipe_owner_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["recipe_id"], name: "index_votes_on_recipe_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
