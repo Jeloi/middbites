@@ -21,6 +21,8 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
-  it {expect(subject).to respond_to(:anything)}
+
+  # Associations
+  it {expect(subject).to have_many(:recipes)}
+  
 end

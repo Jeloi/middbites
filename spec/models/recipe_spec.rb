@@ -47,7 +47,11 @@ describe Recipe do
 	it {expect(subject).to have_many(:items).through(:ingredients)}
 	it {should have_many(:items).through(:ingredients)}
 	it {should belong_to(:user)}
-	
+  it { should have_many(:votes) }
+  it { should have_many(:bites) }
+	it { should have_many(:favorites) }
+
+
   # Instance Methods
   describe "Instance Methods" do
     describe "friendly_id and to_param working" do

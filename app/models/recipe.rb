@@ -21,6 +21,9 @@ class Recipe < ActiveRecord::Base
 	belongs_to :user
 	has_many :ingredients
 	has_many :items, through: :ingredients
+  has_many :votes
+  has_many :bites
+  has_many :favorites
   accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:item_id].blank? }, :allow_destroy => true
 
 

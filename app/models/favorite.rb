@@ -1,0 +1,3 @@
+class Favorite < Vote
+
+end
