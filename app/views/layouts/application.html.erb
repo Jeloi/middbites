@@ -23,7 +23,7 @@
     <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
+  <body id="<%= params[:controller] + '_' + params[:action] %>">
     <div id="pagewrap"> 
       <header id="header">
         <div id="logo-container"></div>
@@ -78,21 +78,7 @@
         <div style="clear: both"></div>
 
         <footer class="row" id="footer">
-          <div class="column small-4">
-            <div class="footer-col">
-              Footer Col 1
-            </div>
-          </div>
-          <div class="column small-4">
-            <div class="footer-col">
-              Footer Col 2
-            </div>
-          </div>
-          <div class="column small-4">
-            <div class="footer-col">
-              Footer Col 3
-            </div>
-          </div>
+          <hr>
         </footer>
       </div>
       

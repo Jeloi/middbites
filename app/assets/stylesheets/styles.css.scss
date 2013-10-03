@@ -9,7 +9,7 @@ $title-padding-left: 3%;
 
 body {
 	// background-image: url(/assets/bg-pattern.png);
-	background-color: $background;
+	background-color: #f5f5f5;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -21,16 +21,38 @@ body {
          url(font-path('Airstream-webfont.svg') + "#Airstream") format('svg');
 }
 
+// html { 
+//   background: url(images/bg.jpg) no-repeat center center fixed; 
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+
 #body {
 	min-height: 500px;
+}
+
+#header {
+	h1.header-title {
+		color: $grapefruit;
+		font-family: 'Airstream';
+		font-size: emCalc(80px);
+		text-shadow: 1px 1px 0 $navblue,2px 2px 0 $navblue,3px 3px 0 $navblue,4px 4px 0 $navblue;
+		text-align: center;
+		// background: #def1df;
+	}
 }
 
 nav.main-nav {
 	ul { 
 		display: block; width: 100%;
-		margin: 0; padding: 0 2%;
-		background: $navblue;
+		margin: 0; padding: 8px 2%;
+		// background: #39657E;
+		background: $blue;
 		overflow: hidden;
+		// border-bottom: 10px solid $navblue;
+		// border-top: 2px solid white;
 		// border: 1px solid rgba(69,69,71,0.3);
 	 }
 	li {
@@ -39,12 +61,15 @@ nav.main-nav {
 		 margin: 0; 
 		 line-height: 2em;
 		 text-align: center;
-		 font-family: $header-font-family;
+		 // font-family: $header-font-family;
 		 font-size: emCalc(19px);
 		 a {
-		 	color: white;
-		 	text-shadow: 2px 2px rgba(51,51,51,0.5);
-		 	&:hover {  }
+		 	color: $white;
+		 	// text-shadow: 2px 2px rgba(51,51,51,0.5);
+		 	&:hover { 
+		 		// color: #385355;
+		 		color: $mint;
+		 	 }
 		 }
 
 		 width: 33%;
@@ -57,16 +82,7 @@ nav.main-nav {
 	 }
 }
 
-#header {
-	h1.header-title {
-		color: $darkey;
-		font-family: 'Airstream';
-		font-size: emCalc(80px);
-		text-shadow: 1px 1px 0 $grapefruit,2px 2px 0 $grapefruit,3px 3px 0 $grapefruit,4px 4px 0 $grapefruit;
-		text-align: center;
-		// background: #def1df;
-	}
-}
+
 
 
 #pagewrap {
@@ -92,7 +108,7 @@ h2#heading {
 	}
 	&.recipe {
 		background-color: $yellowFaded;
-		color: $darkGrey;	
+		color: $body-font-color;	
 	}
 	&.create-a-recipe {
 		background-color: $grapefruit;
@@ -116,9 +132,8 @@ h2#heading {
 /* Theme Styling
 -------------------------------------------------------------*/
 .shadow {
-	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
 }
 
 .clear {clear: both;}
@@ -143,7 +158,7 @@ h2#heading {
 
 .box {
 	@include box; //inserts a mixin's css rules
-	@extend .shadow; //a box inherits all the .shadow class styles
+	// @extend .shadow; //a box inherits all the .shadow class styles
 	margin-bottom: 15px;
 	// -webkit-border-radius: 5px;
  //    border-radius: 5px;
@@ -157,9 +172,14 @@ h2#heading {
 
 // For recipe#show
 .recipe-info  {
+	// border-top: 3px solid #354E83;
 	h2 {
-		font-weight: bold;
-		color: $grapefruit;
+		margin: 0;
+		padding: 0.2em 0;
+		color: $white;
+		padding-left: 3%;
+		// font-weight: bold;
+		background: $grapefruit;
 		// text-shadow: 1px 1px 0 rgba(51,51,51,0.7),2px 2px 0 rgba(51,51,51,0.7),3px 3px 0 rgba(51,51,51,0.7);
 	}
 	.blurb {
@@ -171,20 +191,39 @@ h2#heading {
 	hr {
 		margin: 12px 0 0 0;
 	}
-	ul.ingredient-list {
-		padding-left: 3%;
-		list-style: none;
-		li {
-			font-size: 1em;
-		}
+	.votes { 
+		// width: 100%;
+	 	position: relative;
+	 	overflow: hidden;
+	  }
+	.vote {
+		width: 33.33333333%;
+		float: left;
+		height: 25px;
+		// border-right: 1px solid $darkey;
+		background: $roxo;
+		margin: 0;
+		padding: 0;
+		display: block;
 	}
+
 }
 
 .recipe-content {
-	@include rounded;
+	// @include rounded;
 	max-width: 93%;
 	margin: 0 auto;
-
+	padding: 10px 5%;
+	h3 {
+		color: $blue;
+	}
+	ul.ingredient-list {
+		padding-left: 30px;
+		// list-style: none;
+		li {
+			font-size: 0.85em;
+		}
+	}
 	p.directions {
 		text-indent: 3%;
 		padding-left: 3%;
@@ -208,7 +247,7 @@ h2#heading {
 		margin: 0 6px 6px 0;
 		padding: 0 10px;
 		line-height: 21px;
-		background: #d2d2d2;
+		background: $mint;
 		// font-size: .9em;
 		color: #444;
 		-webkit-border-radius: 2px;
@@ -317,7 +356,7 @@ h2#heading {
 
 
 
-/* Styles for screens that are bigger than 
+/* Styles for screens that are bigger than 400px
 -------------------------------------------------------------*/
 @media only screen and (min-width: 400px ) {
 
@@ -329,8 +368,30 @@ h2#heading {
 	max-width: 100%;
 }
 
+.recipe-content { padding: 10px 3%; }
+
 
 } // end media query
+
+/* Styles for screens that are bigger than 400px
+-------------------------------------------------------------*/
+@media only screen and (min-width: 500px ) {
+
+	.recipe-info {
+		#photo-container {
+			height: 200px;
+			background: grey;
+			width: 47%;
+			display: inline-block;
+		}
+		#info-text {
+			width: 47%;
+			display: inline-block;
+		}
+	}
+
+} // end media query
+
 
 /* Styles for screens that are bigger than $small-screen (768px)
 -------------------------------------------------------------*/
@@ -364,16 +425,6 @@ $sidebar-width: 240px;
 }
 
 
-#header {
-
-
-	#search input {
-		height: 30px;
-	}
-}
-
-
-
 nav.main-nav {
 	ul li {
 	width: 20%;
@@ -381,6 +432,8 @@ nav.main-nav {
 	&.link-5 { display: block; }
 	}
 }
+
+
 
 
 } // end media query
