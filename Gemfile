@@ -7,6 +7,7 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'cancan'
 
 gem 'zurb-foundation'
 gem 'omniauth-facebook', '1.4.0'
