@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 	# Associations
 	has_many :recipes
 	
+	# Validations
+	validates_presence_of :name, message: "can't be blank"
 
 	# Instance Methods
 
