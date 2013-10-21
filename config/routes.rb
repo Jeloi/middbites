@@ -4,7 +4,7 @@ Middbites::Application.routes.draw do
 
   get "pages/home"
   get "pages/about"
-  get "pages/menus"
+  get "menus(/:date)", to: 'pages#menus', as: 'menus'
 
   # Recipe routes
   get 'recipes/create' => 'recipes#new', as: 'new_recipe'
