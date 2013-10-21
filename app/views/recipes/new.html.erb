@@ -1,7 +1,7 @@
-<%= provide :heading, "Create a Recipe" %>
-
-<div class="recipe-form box">
+<div class="recipe-form">
 	<div class="padded-wrap">
+	<h2>Create a Recipe</h2>
+
 	<%= form_for(@recipe) do |f| %>
 	<% if @recipe.errors.any? %>
 	    <div id="error_explanation">
@@ -16,40 +16,43 @@
 	    </div>
 	<% end %>
 		
-	<div class="field">
+	<div class="field title">
 	    <%= f.label :title do %>
-		<h4 class="grapefruit">title</h4>
+		<h4>title</h4>
 	    <% end -%>
 	    <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH %>
 	</div>	
 
-    <div class="field">
+    <div class="field blurb">
       <%= f.label :blurb do %>
   		<h4>blurb</h4>
       <% end -%>
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
-    <div class="field">
-    	<h4 class="">directions</h4>
+    <div class="field directions">
+    	<%= f.label :directions do %>
+    	<h4>directions</h4>
+    	<% end -%>
         <%= f.text_area :directions, rows: 4 %>
     </div>
 
-	<h4>ingredients</h4>
+	<h4 class="ingredients">ingredients</h4>
     <div id="ingredients-section" class="field" >
 		
 		<%= select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
-		<div class="all-actions">
-			
-			<span class="custom-action" id="remove-all">Remove all</span>
-			All Actions
-			<span class="custom-action down" id="slide-all">Drop all</span>
-		</div>
+
 
 		<div id="list-container">
 		<%= f.fields_for :ingredients do |ingredient_form| %>
 			<%= render 'ingredient_fields', f: ingredient_form %>
 		<% end -%>
+		</div>
+
+		<div class="all-actions">
+			<span class="icon-font" id="remove-all">&#xf14d</span>
+			<span class="text">All Ingredients</span>
+			<span class="icon-font down" id="slide-all">&#xf149</span>
 		</div>
 		
     </div>

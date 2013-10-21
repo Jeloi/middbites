@@ -30,6 +30,14 @@ $header-bottom-margin: .2em;
 @import 'foundation_and_overrides';
 @import 'colors';
 
+@font-face {
+    font-family: 'Batch';
+    src: url(font-path('batch-icons-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('batch-icons-webfont.woff')) format('woff'), 
+         url(font-path('batch-icons-webfont.ttf'))  format('truetype'),
+         url(font-path('batch-icons-webfont.svg') + "#Batch") format('svg');
+}
+
 body {
 	background-color: $blue_background;
 }
@@ -91,6 +99,8 @@ nav.main-nav {
 	overflow: hidden;
 }
 
+// Global Styles
+
 .padded-wrap {
 	padding: 10px 4%;
 }
@@ -104,6 +114,10 @@ nav.main-nav {
 	font-size: 0;
 	clear: both;
 	visibility: hidden;
+}
+
+.icon-font {
+	font-family: Batch;
 }
 
 // To disable iPhone form zoom

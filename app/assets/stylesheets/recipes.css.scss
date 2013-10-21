@@ -1,8 +1,10 @@
 @import 'foundation_and_overrides';
 @import 'colors';
 
+$recipe-box-background: white;
+
 .recipe-box {
-	background: white;
+	background: $recipe-box-background;
 	h2.title {
 		font-family: "Montserrat";
 		font-weight: 700;
@@ -18,19 +20,48 @@
 	.ingredient-list {
 		list-style: none;
 		padding: 0 1em;
-		// max-width: 500px;
 		.name {
 			float: left;
 			font-weight: bold;
-			// padding-right: 10px;
 		}
 		.quantity {
-			// font-style: italic;
 			font-weight: 300;
 			float: left;
 			margin-left: 0.5em;
 		}
 	}
 	hr { margin: 3px 0;}
+
+	.icon-font.tag {
+		margin-right: 5px;
+	}
+
+
+}
+
+.recipe-form {
+	background: $recipe-box-background;
+	h2 { color: $grapefruit; margin-bottom: 10px; }
+	.directions h4, h4.ingredients {
+		color: $mint;
+	}
+	.directions label {
+		font-size: 1em;
+	}
+
+	#ingredients-section {
+		.icon-font {
+			cursor: pointer;
+			font-size: 1.3em;
+		}
+		.all-actions {
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+			span {vertical-align: middle;}
+			.text { margin: 0 10px}
+		}
+	}
+
 }
 

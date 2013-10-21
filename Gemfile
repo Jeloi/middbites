@@ -8,7 +8,7 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'cancan'
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 
 gem 'zurb-foundation'
 gem 'omniauth-facebook', '1.4.0'
