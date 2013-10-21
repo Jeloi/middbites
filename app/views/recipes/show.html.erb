@@ -1,45 +1,46 @@
 
 <%= render "shared/flash_holder" %>
 
-<div class="recipe-info box">
-		<h2><%= @recipe.display_title %></h2>
+<div class="recipe-box">
 	<div class="padded-wrap">
-		<div id="photo-container"></div>
-		<div id="info-text">
-			<p class="blurb"><%= @recipe.blurb %></p>
-			<div class="tags">
-				<span>Tags:</span>
-				<a href="#">Yummy</a>
-				<a href="#">Breakfast</a>
-				<a href="#">Sandwich</a>
-				<a href="#">Hot</a>
-			</div>
-			<hr>
-			<%- if @recipe.created_at == @recipe.updated_at -%> 
-				<small>created: <%= @recipe.created_at.strftime('%b%e, %Y') %></small><br>
-			<%- else -%> 
-				<small>edited: <%= @recipe.updated_at.strftime('%b%e, %Y') %></small>
-			<%- end -%>
+		<h2 class="title"><%= @recipe.display_title %></h2>
+		<p class="blurb"><%= @recipe.blurb %></p>
+		<div class="tags">
+			<span>Tags:</span>
+			<a href="#">Yummy</a>
+			<a href="#">Breakfast</a>
+			<a href="#">Sandwich</a>
+			<a href="#">Hot</a>
 		</div>
-		 
+		<div id="photo-container"></div>
+		<hr>
+		<h3>ingredients</h3>
+		<ul class="ingredient-list">
+			<% @recipe.ingredients.each do |ingredient| %>
+			<li class="clrfix">
+				<span class = "name"><%= ingredient.name %></span>
+				
+				<span class="quantity">
+					<%= ingredient.quantity %></span>
+
+			</li>
+			<% end -%>
+		</ul>
+		<h3>directions</h3>
+		<p class="directions"><%= @recipe.directions %></p>
+		<hr>
+		<%- if @recipe.created_at == @recipe.updated_at -%> 
+			<small>created: <%= @recipe.created_at.strftime('%b%e, %Y') %></small><br>
+		<%- else -%> 
+			<small>edited: <%= @recipe.updated_at.strftime('%b%e, %Y') %></small>
+		<%- end -%>
+		
 	</div>
 	<div class="votes">
 		<div class="vote"></div>
 		<div class="vote"></div>
 		<div class="vote"></div>
 	</div>
-</div>
-
-
-<div class="recipe-content box">
-	<h3>Ingredients</h3>
-	<ul class="ingredient-list">
-		<% @recipe.ingredients.each do |ingredient| %>
-		<li><%= ingredient.name %><%= ingredient.quantity %></li>
-		<% end -%>
-	</ul>
-	<h3>Directions</h3>
-	<p class="directions"><%= @recipe.directions %></p>
 </div>
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>

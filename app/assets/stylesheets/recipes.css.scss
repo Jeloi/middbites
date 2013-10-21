@@ -1,3 +1,36 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'foundation_and_overrides';
+@import 'colors';
+
+.recipe-box {
+	background: white;
+	h2.title {
+		font-family: "Montserrat";
+		font-weight: 700;
+	}
+	.blurb {
+		font-style: italic;
+	}
+	h3 {
+		// font-family: 
+		color: $mint;
+	}
+
+	.ingredient-list {
+		list-style: none;
+		padding: 0 1em;
+		// max-width: 500px;
+		.name {
+			float: left;
+			font-weight: bold;
+			// padding-right: 10px;
+		}
+		.quantity {
+			// font-style: italic;
+			font-weight: 300;
+			float: left;
+			margin-left: 0.5em;
+		}
+	}
+	hr { margin: 3px 0;}
+}
+

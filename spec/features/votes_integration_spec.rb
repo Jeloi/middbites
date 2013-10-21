@@ -5,7 +5,7 @@ feature "Voting on a recipe" do
 	shared_examples "a Vote subclass" do |vote, a_param|
 	  
 		it "description" do
-		  pending
+			puts a_param
 		end
 
 	end
@@ -17,5 +17,5 @@ describe Bite do
 end
 
 describe Favorite do
-  it_should_behave_like "a Vote subclass", Favorite, 3
+  it_should_behave_like "a Vote subclass", Favorite, 2
 end

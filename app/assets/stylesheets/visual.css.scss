@@ -1,0 +1,149 @@
+// My global styles
+$main-width: 1000px;
+
+// Foundation Various global styles
+
+$body-font-color: #444444;
+// $body-font-color: #343434;
+$body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+
+// Heading font styles
+
+$header-font-family: "Montserrat", Helvetica, Arial, sans-serif;
+$header-font-weight: normal;
+// $header-font-style: normal;
+$header-font-color: $body-font-color;
+// $header-line-height: 1.4;
+// $header-top-margin: .2em;
+$header-bottom-margin: .2em;
+// $header-text-rendering: optimizeLegibility;
+
+// Heading font sizes
+
+// $h1-font-size: emCalc(44px);
+// $h2-font-size: emCalc(37px);
+// $h3-font-size: emCalc(27px);
+// $h4-font-size: emCalc(23px);
+// $h5-font-size: emCalc(18px);
+// $h6-font-size: 1em
+
+@import 'foundation_and_overrides';
+@import 'colors';
+
+body {
+	background-color: $blue_background;
+}
+//Header styles
+
+// Header title
+header#header {
+	background: white;
+	text-align: center;
+	.header-title {
+		display: inline-block;
+		font-family: 'Montserrat Alternates';
+		font-weight: 700;
+		font-size: emCalc(40px);
+		line-height: 80px;
+		margin: auto;
+	}
+}
+
+// Main Nav bar
+nav.main-nav {
+	background: white;
+	ul {
+		border-top: 1px solid #dddddd;
+		width: 100%;
+		max-width: $main-width; 
+		display: block; 
+		padding: 0px 10px ; margin: 0 auto;
+		overflow: hidden;
+	}
+
+	li {
+		list-style: none;
+		float: left;
+		margin: 0; 
+		line-height: 2.2em;
+		text-align: center;
+		// font-size: emCalc(19px);
+		 a {
+		 	color: $body-font-color;
+		 	// font-weight: 300;
+		 	&:hover { 
+		 		// color: $mint;
+		 	}
+		 }
+
+		 width: 33%;
+		 padding: 0;
+		 &.nav-4 { display: none; }
+		 &.nav-5 { display: none; }
+	 }
+}
+
+// Body Content
+#body-content {
+	width: $main-width;
+	max-width: 93%;
+	margin: 18px auto;
+	overflow: hidden;
+}
+
+.padded-wrap {
+	padding: 10px 4%;
+}
+
+.clrfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	width: 0;
+	line-height: 0;
+	font-size: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+// To disable iPhone form zoom
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+ font-size: 1em;
+  }
+
+ /* Styles for screens that are bigger than $small-screen (768px)
+ -------------------------------------------------------------*/
+ @media only screen and (min-width: $small-screen) {
+
+ $sidebar-width: 280px;
+ 	
+ #content-wrap {
+ 	margin-right: -$sidebar-width;
+ 	float: left;
+ 	width: 100%;
+ }
+
+ #content {
+ 	margin-right: $sidebar-width;
+ 	padding-right: 2%;
+ }
+
+ #sidebar {
+ 	float: right;
+ 	width: $sidebar-width;
+ 	background: $mint;
+ }
+
+
+ nav.main-nav {
+ 	ul li {
+ 	width: 20%;
+ 	&.nav-4 { display: block; }
+ 	&.nav-5 { display: block; }
+ 	}
+ }
+
+
+
+
+ } // end media quer

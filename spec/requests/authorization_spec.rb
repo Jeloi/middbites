@@ -5,7 +5,9 @@ describe "Authorization" do
 	
 	# shared examples must be loaded before the contexts that use them
 	shared_examples "not authorized" do
-		it { expect(1).to eql(1) }	
+		describe "description" do
+			
+		end
 	end
 
 
