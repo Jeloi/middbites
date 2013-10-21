@@ -41,7 +41,7 @@ $recipe-box-background: white;
 
 .recipe-form {
 	background: $recipe-box-background;
-	h2 { color: $grapefruit; margin-bottom: 10px; }
+	h2 { color: $grapefruit; margin-bottom: 10px; font-weight: bold; }
 	.directions h4, h4.ingredients {
 		color: $mint;
 	}

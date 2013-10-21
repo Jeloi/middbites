@@ -39,7 +39,7 @@ $header-bottom-margin: .2em;
 }
 
 body {
-	background-color: $blue_background;
+	background-color: $background_west;
 }
 //Header styles
 
@@ -80,7 +80,7 @@ nav.main-nav {
 		 	color: $body-font-color;
 		 	// font-weight: 300;
 		 	&:hover { 
-		 		// color: $mint;
+		 		color: $navblue;
 		 	}
 		 }
 
@@ -160,4 +160,4 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 
 
- } // end media quer
+ } // end media query

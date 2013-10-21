@@ -269,6 +269,7 @@ DEPENDENCIES
   launchy
   libnotify (= 0.8.0)
   nested_form
+  nokogiri
   omniauth-facebook (= 1.4.0)
   pg (= 0.15.1)
   quiet_assets

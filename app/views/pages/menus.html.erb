@@ -1,2 +1,14 @@
-<h1>Pages#menus</h1>
-<p>Find me in app/views/pages/menus.html.erb</p>
+<h1>Menus</h1>
+<% @menus_hash.each_pair do |key, value| %>
+	<h2><%= key %></h2>
+	<% value.each_pair do |k, v| %>
+		<% if !v.empty? %>
+			<h3><%= k %></h3>
+			<ul>
+			<% v.each do |meal| %>
+				<li><%= meal %></li>
+			<% end -%>
+			</ul>
+		<% end -%>
+	<% end -%>
+<% end -%>
