@@ -1,18 +1,13 @@
-<div class="ingredient-fields" >
+<div class="ingredient-fields clrfix" >
 	<div class="wrap">
 		<%= f.hidden_field :_destroy, data: {:attribute => "destroy"} %>
-		<div class="remove btn custom-action"></div>
-		<div class="field name">
-			<%= f.hidden_field :item_id, data: {:attribute => "destroy"} %>
-			<div class="ingredient-text"></div>
-		</div>
-		<div class="slide down btn custom-action"></div>
+		<span class="remove icon-font custom-action">&#xf14d</span>
+		<%= f.hidden_field :item_id, data: {:attribute => "destroy"} %>
+		<span class="ingredient-text"></span>
 	</div>
-	<div class="wrap quantity">
-		<div class="move-up btn custom-action"></div>
-		<div class="field quantity ">
-			<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
-		</div>
-		<div class="move-down btn custom-action"></div>
-	</div>
+
+	<div class="slide down icon-font custom-action"></div>
+	
+	<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
+
 </div>	

@@ -1,14 +1,37 @@
-<h1>Menus</h1>
+<!-- <h1>Menus</h1> -->
+<% index = 0 %>
 <% @menus_hash.each_pair do |key, value| %>
-	<h2><%= key %></h2>
-	<% value.each_pair do |k, v| %>
-		<% if !v.empty? %>
-			<h3><%= k %></h3>
-			<ul>
-			<% v.each do |meal| %>
-				<li><%= meal %></li>
+	<div class="menu-section">
+	<h3 class="section"><%= key %>:</h3>
+		
+		<div id="bxpager<%= index %>" class="pager">
+			<% value.each_with_index do |(k, v), i| %>
+				<% if !v.empty? %>
+					<a data-slide-index="<%= i %>" href="#"><%= k %></a>
+				<% end -%>
 			<% end -%>
-			</ul>
-		<% end -%>
-	<% end -%>
+		</div>
+
+		<ul id="bxslider<%= index %>">
+			<% value.each_pair do |k, v| %>
+				<% if !v.empty? %>
+				<li id="<%= k %>">
+					<h4 class="group"><%= k %></h4>
+					<ul class="meals">
+						<% v.each do |meal| %>
+						<li><%= meal %></li>
+						<% end -%>
+					</ul>
+				</li>
+				<% end -%>
+			<% end -%>
+		
+		</ul>
+
+
+
+	</div>
+<% index = index + 1 %>
 <% end -%>
+
+

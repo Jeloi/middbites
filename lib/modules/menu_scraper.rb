@@ -28,22 +28,19 @@ module MenuScraper
 			dining_halls[key] = meal_times_hash
 		end
 		
-		# Transpose this hash so that meal time is the top level key
-		meal_times = Hash.new{ |h,k| h[k] = {} }	# new hash, default values are empty hashes
-		dining_halls.each_pair do |hall, meal_hash|
-			meal_hash.each_pair do |meal_time, meal|
-				meal_times[meal_time][hall] = meal
-			end
-		end
-
 			
 		if sort_by == "dining_hall"
 			return dining_halls
 		else	# sorted_by dining hall
+			# Transpose this hash so that meal time is the top level key
+			meal_times = Hash.new{ |h,k| h[k] = {} }	# new hash, default values are empty hashes
+			dining_halls.each_pair do |hall, meal_hash|
+				meal_hash.each_pair do |meal_time, meal|
+					meal_times[meal_time][hall] = meal
+				end
+			end
 			return meal_times
 		end
-
 	end
-
 
 end

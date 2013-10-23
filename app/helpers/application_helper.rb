@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+	# Helper method to return string "current" if params[:controller] equals given parameter
+	def current?(path)
+		"current" if current_page?(path)
+	end
+
 	# Returns content for dynamically generated nested form element
   def add_fields_helper(form_builder, association)
     new_object = form_builder.object.class.reflect_on_association(association).klass.new

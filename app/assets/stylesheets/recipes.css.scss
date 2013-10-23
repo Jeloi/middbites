@@ -4,6 +4,7 @@
 $recipe-box-background: white;
 
 .recipe-box {
+	// border: 1px solid #e5e5e5;
 	background: $recipe-box-background;
 	h2.title {
 		font-family: "Montserrat";
@@ -40,6 +41,7 @@ $recipe-box-background: white;
 }
 
 .recipe-form {
+	border: 1px solid #eaedf2;
 	background: $recipe-box-background;
 	h2 { color: $grapefruit; margin-bottom: 10px; font-weight: bold; }
 	.directions h4, h4.ingredients {
@@ -50,18 +52,43 @@ $recipe-box-background: white;
 	}
 
 	#ingredients-section {
+		span {vertical-align: middle;}
 		.icon-font {
 			cursor: pointer;
 			font-size: 1.3em;
+			// color: $grapefruit;
 		}
 		.all-actions {
-			text-align: center;
 			height: 30px;
 			line-height: 30px;
-			span {vertical-align: middle;}
-			.text { margin: 0 10px}
+			font-size: 0.9em;
+			#remove-all {float: left; }
+			#slide-all {float: right; }
+			#remove-all, #slide-all { cursor: pointer }
+			.toggle-all { margin-left: 5px;}
+		}
+		.ingredient-fields {
+			line-height: 30px;
+			.wrap { float: left; }
+			span.remove { margin-right: 5px; }
+			input.quantity {
+				margin: 0;
+				font-size: 0.8em;
+				vertical-align: middle;
+				// float: right;
+				// width: 40%;
+			}
 		}
 	}
 
+}
+
+@media only screen and (min-width: 400px) {
+	.ingredient-fields {
+		input.quantity {
+			float: right;
+			width: 40%;
+		}
+	}
 }
 

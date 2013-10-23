@@ -22,14 +22,19 @@
     <!-- Google Fonts -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'> -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>">
     <div id="pagewrap"> 
+
+
       <header id="header">
+          <div class="header-logo"></div>
           <div class="header-title">
             middbites
           </div>
+          <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
 <!-- 
           <form method="get" id="search-form" action="" >
             <div id="search">
@@ -39,18 +44,23 @@
             </div>        
           </form> -->
           
-
+          <nav class="main-nav">
+            <ul>
+              <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+              <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if current_page?(menus_path)) %></li>
+              <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
+              <li class="nav-4"><a href="">tags</a></li>
+              <li class="nav-5"><a href="">ingredients</a></li>
+            </ul>
+          </nav>
       </header>
 
-      <nav class="main-nav">
-        <ul>
-          <li class="nav-1"><%= link_to "recipes", recipes_path, class: "active" %></li>
-          <li class="nav-2"><%= link_to "menus", menus_path %></li>
-          <li class="nav-3"><%= link_to "create", new_recipe_path %></li>
-          <li class="nav-4"><a href="">tags</a></li>
-          <li class="nav-5"><a href="">ingredients</a></li>
-        </ul>
-      </nav>
+     
+
+
+      <!-- <div class="toolbar"></div> -->
+
+
 
       <div id="body-content">
         <div id="content-wrap" class="clear">
@@ -65,23 +75,23 @@
 
         <div style="clear: both"></div>
 
-        <footer class="row" id="footer">
-          <div id="current-user-text">
-            <% if logged_in? %>
-            <div>Hello, <%= current_user.first_name %></div>
-            <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
-            <% else %>
-            <span id="sign_in">JS signin</span>
-            <div>Sign in with <span ><%= link_to "Facebook", "/auth/facebook" %></span></div>
-            <% end -%>
-          </div>
-        </footer>
         
       </div>
+      <footer id="footer">
+        <div id="current-user-text">
+          <% if logged_in? %>
+          <div>Hello, <%= current_user.first_name %></div>
+          <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
+          <% else %>
+          <span id="sign_in">JS signin</span>
+          <div>Sign in with <span ><%= link_to "Facebook", "/auth/facebook" %></span></div>
+          <% end -%>
+        </div>
+      </footer>
       
     </div>
 
     
-<div class="box"><%#= debug(params) if Rails.env.development? %></div>
+<div class="box"><%= debug(params) if Rails.env.development? %></div>
 </body>
 </html>

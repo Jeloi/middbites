@@ -39,9 +39,14 @@
 
 	<h4 class="ingredients">ingredients</h4>
     <div id="ingredients-section" class="field" >
+
+    	<div class="all-actions clrfix">
+    		<span id="remove-all"><span class="icon-font">&#xf14d</span> Remove All </span>
+    		
+    		<span class="up" id="slide-all">Show Quantities<span class="icon-font toggle-all">&#xf149</span></span>
+    	</div>
 		
 		<%= select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
-
 
 		<div id="list-container">
 		<%= f.fields_for :ingredients do |ingredient_form| %>
@@ -49,11 +54,7 @@
 		<% end -%>
 		</div>
 
-		<div class="all-actions">
-			<span class="icon-font" id="remove-all">&#xf14d</span>
-			<span class="text">All Ingredients</span>
-			<span class="icon-font down" id="slide-all">&#xf149</span>
-		</div>
+
 		
     </div>
 	<% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
@@ -83,7 +84,7 @@
 			var text = $("#ingredient_selector option:selected").text();
 			var value = $("#ingredient_selector option:selected").val();
 			console.log(text + value);
-			if (value != null) {
+			if (value != null && text != "Add an Ingredient") {
 				create_ingredient_fields(this, text, value);
 			};
 		});
@@ -140,7 +141,7 @@
 
 
 		// Remove single Ingredient functionality
-		$('#ingredients-section').on("click", ".remove.btn", function() {
+		$('#ingredients-section').on("click", ".remove.icon-font", function() {
 			$(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
 			$(this).closest(".ingredient-fields").hide();
 			return false;
@@ -168,12 +169,12 @@
 		    // allPanels.slideUp();
 		    // if it is pointed down
 		    if ($(this).hasClass('down')) {
-		    	$('div.wrap.quantity').slideDown("fast").addClass('up').removeClass('down');
+		    	$('input.quantity').slideDown("800").addClass('up').removeClass('down');
 		    	$(this).removeClass('down');
 		    	$(this).addClass('up');
 		    }
 		    else if ($(this).hasClass('up')) {
-		    	$('div.wrap.quantity').slideUp("fast").addClass('down').removeClass('up');
+		    	$('input.quantity').slideUp("800").addClass('down').removeClass('up');
 		    	$(this).removeClass('up');
 		    	$(this).addClass('down');
 		    };

@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+// require foundation
 //= require jquery_nested_form
 //= require turbolinks
+//= require bxslider/jquery.bxslider.min
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+// $(function(){ $(document).foundation(); });
 
 var id; // Global variable
 var screen_width = $(window).width();
