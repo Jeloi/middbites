@@ -6,15 +6,15 @@ ready = ->
     dataType: 'script'
     cache: true
 
-  $('#sign_in').click (e) ->
-    e.preventDefault()
-    FB.login (response) ->
-      window.location = '/auth/facebook/callback?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse
+  # $('#sign_in').click (e) ->
+  #   e.preventDefault()
+  #   FB.login (response) ->
+  #     window.location = '/auth/facebook/callback?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse
 
-  $('#sign_out').click (e) ->
-    FB.getLoginStatus (response) ->
-      FB.logout() if response.authResponse
-    true
+  # $('#sign_out').click (e) ->
+  #   FB.getLoginStatus (response) ->
+  #     FB.logout() if response.authResponse
+  #   true
 
 
 window.fbAsyncInit = ->
@@ -25,12 +25,12 @@ window.fbAsyncInit = ->
     FB.login (response) ->
       window.location = '/auth/facebook/callback?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse
 
-  $('#sign_out').click (e) ->
-    FB.getLoginStatus (response) ->
-      FB.logout() if response.authResponse
-    true
+  # $('#sign_out').click (e) ->
+  #   FB.getLoginStatus (response) ->
+  #     FB.logout() if response.authResponse
+  #   true
 
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
-# $(document).on('page:load', window.fbAsyncInit)
+$(document).on('page:load', window.fbAsyncInit)
