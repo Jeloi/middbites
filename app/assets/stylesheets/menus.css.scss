@@ -65,6 +65,9 @@
 			list-style: square;
 			padding-left: 0.3em;
 		}
+		.bx-clone {	// fix, hopefully
+		  display: none;
+		}
 	}
 
 	 /* Styles for screens that are bigger than $small-screen (768px)
