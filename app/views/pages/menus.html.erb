@@ -1,6 +1,13 @@
-<h1>Menus</h1>
+<div class="top-chunk">
+	<h1>Menus</h1>
+	<span class="sort_by">
+		<span>View by: </span>
+		<%= link_to "Meal", params.merge(sort_by: ""), class: ("active" unless params[:sort_by] == "dining_hall") %>
+		<%= link_to "Dining Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
+	</span>
+</div>
 <% index = 0 %>
-<div id="sliders_counter" data-numsliders="<%= @menus_hash.keys.size %>"></div>
+<div id="sliders_counter" class="clrfix" data-numsliders="<%= @menus_hash.keys.size %>"></div>
 <% @menus_hash.each_pair do |key, value| %>
 	<div class="menu-section">
 	<h3 class="section"><%= key %>:</h3>

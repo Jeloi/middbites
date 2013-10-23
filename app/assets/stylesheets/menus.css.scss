@@ -10,6 +10,28 @@
 		color: $mint;
 		margin-right: 10px;
 	}
+	.top-chunk {
+		overflow: hidden;
+		h1 {float: left; vertical-align: middle;}
+		.sort_by {
+			float: right;
+			vertical-align: middle;
+			line-height: 100%;
+			a {
+				padding: 2px 7px; line-height: 1.8em;
+				border-radius: 4px;
+				font-weight: bold;
+				font-size: 0.95em;
+				color: rgb(159, 159, 165);
+				background: rgba(32, 121, 155, 0.1);
+				&.active {
+					background: rgba(32, 121, 155, 0.5);
+					color: white;
+				}
+			}
+		}
+	}
+
 	.menu-section {
 
 		.pager {
@@ -25,7 +47,6 @@
 				color: rgb(159, 159, 165);
 				&.active { 
 					background: rgba(32, 121, 155, 0.5);
-					font-weight: bold;
 					color: white;
 				}
 			}
