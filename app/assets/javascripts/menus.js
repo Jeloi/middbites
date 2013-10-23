@@ -19,11 +19,10 @@ function doneResizing(){
 
 var menuSlider;
 menuSlider = function() {
-	console.log("menuSlider!");
-	for (var i = 0; i < 6; i++) {
+	var numSliders = $('#sliders_counter').data("numsliders");
+	for (var i = 0; i < numSliders; i++) {
 		var slider = '#bxslider' + i;
 		var pager = '#bxpager' + i;
-		console.log(pager);
 		$(slider).bxSlider({
 			slideWidth: 320,
 			minSlides: 1,
