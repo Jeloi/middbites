@@ -1,5 +1,6 @@
 <!-- <h1>Menus</h1> -->
 <% index = 0 %>
+<div id="sliders_counter" data-numsliders="<%= @menus_hash.keys.size %>"></div>
 <% @menus_hash.each_pair do |key, value| %>
 	<div class="menu-section">
 	<h3 class="section"><%= key %>:</h3>
