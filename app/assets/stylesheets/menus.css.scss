@@ -45,4 +45,10 @@
 			padding-left: 0.3em;
 		}
 	}
+
+	 /* Styles for screens that are bigger than $small-screen (768px)
+	 -------------------------------------------------------------*/
+	@media only screen and (min-width: $small-screen) {
+		
+	}	
 }
