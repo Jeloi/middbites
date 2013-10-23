@@ -17,7 +17,7 @@ menuSlider = function() {
 			var slider = '#bxslider' + i;
 			var pager = '#bxpager' + i;
 			var slider_obj = $(slider).bxSlider({
-				slideWidth: 600,
+				slideWidth: 1000,
 				minSlides: 1,
 				maxSlides: 1,
 				moveSlides: 1,
@@ -37,7 +37,7 @@ menuSlider = function() {
 				slideWidth: 400,
 				minSlides: 2,
 				maxSlides: 2,
-				moveSlides: 1,
+				moveSlides: 2,
 				infiniteLoop: true,
 				controls: false,
 				pagerCustom: pager,
@@ -82,7 +82,7 @@ function doneResizing(){
 		if ($(window).width() < oneSlide) {
 			for (var i = 0; i < sliders_array.length; i++) {
 				sliders_array[i].reloadSlider({
-					slideWidth: 600,
+					slideWidth: 1000,
 					minSlides: 1,
 					maxSlides: 1,
 					moveSlides: 1,
@@ -98,7 +98,7 @@ function doneResizing(){
 					slideWidth: 400,
 					minSlides: 2,
 					maxSlides: 2,
-					moveSlides: 1,
+					moveSlides: 2,
 					infiniteLoop: true,
 					controls: false,
 					pagerCustom: pager_array[i],

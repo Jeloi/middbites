@@ -6,16 +6,17 @@
 		<%= link_to "Dining Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
 	</span>
 </div>
-<% index = 0 %>
 <div id="sliders_counter" class="clrfix" data-numsliders="<%= @menus_hash.keys.size %>"></div>
-<% @menus_hash.each_pair do |key, value| %>
+<% @menus_hash.each_with_index do |(key, value), index| %>
 	<div class="menu-section">
 	<h3 class="section"><%= key %>:</h3>
 		
 		<div id="bxpager<%= index %>" class="pager">
+			<% ii = 0 %>
 			<% value.each_with_index do |(k, v), i| %>
 				<% if !v.empty? %>
-					<a data-slide-index="<%= i %>" href="#"><%= k %></a>
+					<a data-slide-index="<%= ii %>" href="#"><%= k %></a>
+					<% ii = ii + 1 %>
 				<% end -%>
 			<% end -%>
 		</div>
@@ -23,7 +24,7 @@
 		<ul id="bxslider<%= index %>">
 			<% value.each_pair do |k, v| %>
 				<% if !v.empty? %>
-				<li id="<%= k %>">
+				<li>
 					<h4 class="group"><%= k %></h4>
 					<ul class="meals">
 						<% v.each do |meal| %>
@@ -36,10 +37,7 @@
 		
 		</ul>
 
-
-
 	</div>
-<% index = index + 1 %>
 <% end -%>
 
 
