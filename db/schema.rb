@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20130908152357) do
   create_table "ingredients", force: true do |t|
     t.integer  "recipe_id"
     t.integer  "item_id"
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20130908152357) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
