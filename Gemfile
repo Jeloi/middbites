@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
@@ -52,6 +52,7 @@ group :test do
 
   # Notifications on Linux
   gem 'libnotify', '0.8.0'
+  gem 'terminal-notifier-guard'
 
 end
 
