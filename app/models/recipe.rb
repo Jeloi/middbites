@@ -35,8 +35,8 @@ class Recipe < ActiveRecord::Base
   validate :validate_ingredients_count
 
   def validate_ingredients_count
-    errors.add(:ingredient, "too many!") if ingredients.length > 10
-    errors.add(:ingredient, "recipe needs at least one ingredient") if ingredients.length == 0
+    errors.add(:ingredient, "too many!") if ingredients.size > 10
+    errors.add(:ingredient, "recipe needs at least one ingredient") if ingredients.size == 0
   end
 
   # Friendly_Id generate new slug
