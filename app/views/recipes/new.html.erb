@@ -93,7 +93,7 @@
 			var content = "<%= escape_javascript(@ingredient_fields_content) %>"
 			add_ingredient_fields(link, "ingredients", content);
 			// console.log($('#ingredient_selector').siblings('.ingredient-fields .name input').attr('name'));
-			$('#list-container .name input').first().val(value);
+			$('#list-container input.item_id').val(value);
 			$('#list-container .ingredient-text').first().text(text);
 			// $(link).find('.ingredient-fields').first().show();
 		}
