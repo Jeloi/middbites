@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :set_items, only: [:new, :create, :update, :edit]
+  before_action :user_logged_in?, only: [:edit, :create, :vote, :unvote, :destroy]
 
   # GET /recipes
   # GET /recipes.json
@@ -30,7 +31,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     respond_to do |format|
       if @recipe.save
@@ -65,6 +66,16 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url }
       format.json { head :no_content }
     end
+  end
+
+  # POST /recipes/1/vote
+  def vote
+    
+  end
+
+  # DELETE /
+  def unvote
+    
   end
 
   private
