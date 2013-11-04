@@ -21,7 +21,9 @@
 class User < ActiveRecord::Base
 	# Associations
 	has_many :recipes
-	
+	has_many :votes
+	has_many :bites
+	has_many :favorites
 	# Validations
 	validates_presence_of :name, message: "can't be blank"
 

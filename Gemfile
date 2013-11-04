@@ -51,7 +51,7 @@ group :test do
   gem 'database_cleaner', '1.0.1'
 
   # Notifications on Linux
-  gem 'libnotify', '0.8.0'
+  # gem 'libnotify', '0.8.0'
   gem 'terminal-notifier-guard'
 
 end
