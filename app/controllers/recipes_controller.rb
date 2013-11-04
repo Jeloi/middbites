@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]
   before_action :user_logged_in?, only: [:edit, :create, :vote, :unvote, :destroy]
 
@@ -70,12 +70,25 @@ class RecipesController < ApplicationController
 
   # POST /recipes/1/vote
   def vote
-    
+    @association = params[:association]
+    @dom_id = params[:dom_id]
+    respond_to do |format|
+      if current_user.send(params[:association]).create(recipe_id: @recipe.id, recipe_owner_id: @recipe.user_id)
+        format.js { render "vote" }
+      end
+    end
   end
 
   # DELETE /
   def unvote
-    
+    @association = params[:association]
+    @dom_id = params[:dom_id]
+    @vote = current_user.send(params[:association]).where(recipe_id: @recipe).first
+    respond_to do |format|
+      if @vote.destroy
+        format.js { render "vote" }
+      end
+    end
   end
 
   private
