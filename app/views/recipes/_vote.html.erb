@@ -1,0 +1,17 @@
+<% if current_user.voted_on?(@recipe, association) %>
+	<%= link_to(unvote_recipe_path(@recipe, association: association, dom_id: dom_id), remote: true, method: :delete ) do %>
+		<% if association == "bites" %>
+			<div class="icon-font bite voted">unbite!</div>
+		<% elsif association == "favorites" %>
+			<div class="icon-font favorite voted">unfavorite!</div>
+		<% end -%>
+	<% end %>
+<% else %>
+	<%= link_to(vote_recipe_path(@recipe, association: association, dom_id: dom_id), remote: true, method: :post ) do %>
+		<% if association == "bites" %>
+			<div class="icon-font bite voted">bite!</div>
+		<% elsif association == "favorites" %>
+			<div class="icon-font favorite voted">favorite!</div>
+		<% end -%>
+	<% end %>
+<% end %>

@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####
 
+ 	# Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite)
+ 	def voted_on? recipe, association
+ 		!self.send(association).where("recipe_id = #{recipe.id}").empty?
+ 	end
+
 	# Returns all favorites that have been made on a recipe this user owns
 	def favorites_on_owned_recipes
 		Favorite.joins(:recipe).joins(:user).where(recipes: {user_id: id})

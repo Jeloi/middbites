@@ -17,6 +17,8 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'
 gem 'nested_form'
 
+gem 'mysql2'
+
 # For making development life better
 gem 'hirb'
 gem 'quiet_assets'
