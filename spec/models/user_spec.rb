@@ -24,5 +24,8 @@ describe User do
 
   # Associations
   it {expect(subject).to have_many(:recipes)}
+  it { expect(subject).to have_many(:votes)}
+  it { expect(subject).to have_many(:favorites)}
+  it { expect(subject).to have_many(:bites)}
   
 end

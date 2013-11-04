@@ -64,6 +64,7 @@
 
       <div id="body-content">
         <div id="content-wrap" class="clear">
+          <%= render 'shared/flash_holder' %>
           <div id="content">
             <%- if content_for?(:heading) -%> 
                       <h2 id="heading" class="shadow <%= yield(:heading).downcase.split(" ").join("-") %>"><%= yield :heading %></h2>

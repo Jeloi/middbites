@@ -8,7 +8,12 @@ Middbites::Application.routes.draw do
 
   # Recipe routes
   get 'recipes/create' => 'recipes#new', as: 'new_recipe'
-  resources :recipes, except: :new
+  resources :recipes, except: :new 
+  post 'recipes/:id/vote' => 'recipes#vote'
+  delete 'recipes/:id/unvote' => 'recipes#unvote'
+
+
+
 
   # Omniauth routes
   get 'auth/:provider/callback', to: 'sessions#create'

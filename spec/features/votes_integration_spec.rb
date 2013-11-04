@@ -10,12 +10,11 @@ feature "Voting on a recipe" do
 
 	end
 
-end
+	describe Bite do
+		it_should_behave_like "a Vote subclass", Bite, 3
+	end
 
-describe Bite do
-  it_should_behave_like "a Vote subclass", Bite, 3
-end
-
-describe Favorite do
-  it_should_behave_like "a Vote subclass", Favorite, 2
+	describe Favorite do
+		it_should_behave_like "a Vote subclass", Favorite, 2
+	end
 end

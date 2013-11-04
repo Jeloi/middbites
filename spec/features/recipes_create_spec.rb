@@ -16,7 +16,7 @@ feature "Creating a Recipe" do
 
 		it {expect(page).to have_content "can't be blank"}
 		it {
-			save_and_open_page
+			#save_and_open_page
 			expect(page).to have_content "at least one ingredient"
 		}
 	end
@@ -52,7 +52,7 @@ feature "Creating a Recipe" do
 
 
 	def fill_in_text_fields
-		within(:css, "div.format-recipe-box") do
+		within(:css, "div.recipe-form") do
 			fill_in "recipe_title", with: "A Good Recipe"
 			fill_in "recipe_blurb", with: "A very tasty recipe you should try!"
 			fill_in "recipe_directions", with: "Get pasta. Add sauce. Add Garlic. Mix."
