@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 20130908152357) do
   end
 
   create_table "votes", force: true do |t|
-    t.integer  "recipe_id"
-    t.integer  "user_id"
-    t.integer  "recipe_owner_id"
+    t.integer  "recipe_id",       null: false
+    t.integer  "user_id",         null: false
+    t.integer  "recipe_owner_id", null: false
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
