@@ -2,6 +2,9 @@
 @import 'visual';
 
 #pages-menus {
+	#body-content {
+		width: 900px;
+	}
 	h1, h2, h3 { margin: 0;}
 	h1 { margin-bottom: 0.1em;}
 	h3.section {

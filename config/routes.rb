@@ -1,5 +1,6 @@
 Middbites::Application.routes.draw do
   
+ 
   root 'pages#home'
 
   get "pages/home"
@@ -12,7 +13,10 @@ Middbites::Application.routes.draw do
   post 'recipes/:id/vote' => 'recipes#vote', as: 'vote_recipe'
   resources :recipes, except: :new 
 
-
+  # Item routes
+  get "ingredients" => 'items#all', as: 'all_items'
+  get 'ingredients/:item_category' => 'items#item_category', as: 'item_category'
+  get "ingredient/:id" => 'items#show', as: 'item'
 
 
   # Omniauth routes
