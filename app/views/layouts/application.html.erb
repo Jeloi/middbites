@@ -50,7 +50,7 @@
               <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
               <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
               <li class="nav-4"><a href="">tags</a></li>
-              <li class="nav-5"><a href="">ingredients</a></li>
+              <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
             </ul>
           </nav>
       </header>

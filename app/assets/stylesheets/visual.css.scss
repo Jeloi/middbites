@@ -171,10 +171,10 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  -------------------------------------------------------------*/
 @media only screen and (min-width: $small-screen) {
 
- 	$sidebar-width: 280px;
+ 	$sidebar-width: 250px;
 
  	#body-content {
- 		margin: 0px auto;
+ 		margin: 18px auto;
  	}
  	
  	#content-wrap {
