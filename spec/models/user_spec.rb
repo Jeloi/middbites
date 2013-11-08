@@ -21,11 +21,45 @@
 require 'spec_helper'
 
 describe User do
-
+  let(:user) { create(:user) } 
+  let(:recipe) { create(:recipe, :with_ingredients, :owned) } 
   # Associations
-  it {expect(subject).to have_many(:recipes)}
-  it { expect(subject).to have_many(:votes)}
-  it { expect(subject).to have_many(:favorites)}
-  it { expect(subject).to have_many(:bites)}
+  it { expect(subject).to have_many(:recipes) }
+  it { expect(subject).to have_many(:votes) }
+  it { expect(subject).to have_many(:favorites) }
+  it { expect(subject).to have_many(:bites) }
+  it { expect(subject).to have_many(:favorite_recipes) }
+  it { expect(subject).to have_many(:bit_recipes) }
+
+  # Instance Methods
+  describe "Voting instance methods," do
+    before(:each) do
+      unless example.metadata[:skip_before]
+        user.vote(recipe, "bites")
+        user.vote(recipe, "favorites")
+      end
+    end
+    it "should be able to vote on a recipe, if given a proper association", skip_before: true do
+      expect { 
+        user.vote(recipe, "bites") 
+        user.vote(recipe, "favorites")
+       }.to change { Vote.count }.from(0).to(2)
+       expect{ user.vote(recipe, "ingredients") }.to raise_error
+    end
+    # Unvoting
+    it { expect { user.unvote(recipe, "bites") }.to change {Vote.count}.from(2).to(1) }
+    it { expect { user.unvote(recipe, "bites") }.to change {user.bites.count}.from(1).to(0) }
+    it { expect { user.unvote(recipe, "bites") }.to change {user.bit_recipes.count}.from(1).to(0) }
+
+    it "should not be able to vote on same recipe twice" do
+      a = user.vote(recipe, "bites")
+      b = user.vote(recipe, "favorites")
+      expect(a).not_to be_valid
+      expect(b).not_to be_valid
+    end
+    it "voted_on? should return the whether or not" do
+      expect(user.voted_on?(recipe, "bites")).to be_true
+    end
+  end
   
 end

@@ -37,7 +37,7 @@ menuSlider = function() {
 				slideWidth: 400,
 				minSlides: 2,
 				maxSlides: 2,
-				moveSlides: 2,
+				moveSlides: 1,
 				infiniteLoop: true,
 				controls: false,
 				pagerCustom: pager,

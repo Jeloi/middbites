@@ -16,7 +16,7 @@ def set_omniauth(opts = {})
  
   OmniAuth.config.test_mode = true
  
-  OmniAuth.config.mock_auth[provider] = {
+  OmniAuth.config.mock_auth[provider] = OmniAuth::AuthHash.new({
     'uid' => credentials[:uuid],
     "extra" => {
     "user_hash" => {
@@ -26,7 +26,7 @@ def set_omniauth(opts = {})
       "gender" => user_hash[:gender]
       }
     }
-  }
+  })
 end
  
 def set_invalid_omniauth(opts = {})

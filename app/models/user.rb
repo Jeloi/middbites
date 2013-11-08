@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
 	has_many :votes
 	has_many :bites
 	has_many :favorites
+	has_many :favorite_recipes, through: :favorites, source: :recipe
+	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
 	validates_presence_of :name, message: "can't be blank"
 
@@ -32,10 +34,31 @@ class User < ActiveRecord::Base
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####
 
- 	# Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite)
+ 	#! Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite)
  	def voted_on? recipe, association
  		!self.send(association).where("recipe_id = #{recipe.id}").empty?
  	end
+
+ 	# Accept a recipe and association (votes), and create a new vote for this user on the recipe
+ 	def vote recipe, association
+ 		if ["bites", "favorites"].include? association
+ 			self.send(association).create(recipe_id: recipe.id, recipe_owner_id: recipe.user_id)
+ 		else
+ 			raise "Wrong type of association provided"
+ 		end
+ 	end
+
+ 	# Accept a recipe and association (votes), and deletes the vote for this user on the recipe
+ 	def unvote recipe, association
+ 		if ["bites", "favorites"].include? association
+ 			self.send(association).destroy(recipe.id)
+ 		else
+ 			raise "Wrong type of association provided"
+ 		end
+ 	end
+
+ 	# Maybe use these for ratings. Consider refactoring to just have one calculation for rating
+ 	# dynamically change rating on 
 
 	# Returns all favorites that have been made on a recipe this user owns
 	def favorites_on_owned_recipes
@@ -70,8 +93,4 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	def anything
-		
-	end
-	
 end

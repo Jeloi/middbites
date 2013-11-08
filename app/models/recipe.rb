@@ -2,14 +2,14 @@
 #
 # Table name: recipes
 #
-#  id                 :integer          not null, primary key
-#  directions         :text
-#  title              :string(255)
-#  blurb              :string(255)
-#  user_id            :integer
-#  recipe_category_id :integer
-#  created_at         :datetime
-#  updated_at         :datetime
+#  id         :integer          not null, primary key
+#  directions :text
+#  title      :string(255)
+#  blurb      :string(255)
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  slug       :string(255)
 #
 
 class Recipe < ActiveRecord::Base

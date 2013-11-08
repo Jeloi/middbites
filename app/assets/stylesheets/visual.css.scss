@@ -1,5 +1,5 @@
 // My global styles
-$main-width: 900px;
+$main-width: 700px;
 
 // Foundation Various global styles
 
@@ -46,7 +46,8 @@ body {
 
 // Header title
 header#header {
-	background: rgba(32, 121, 155, 0.25);
+	background: rgba(64, 173, 214, 0.31);
+	// background: rgba(32, 121, 155, 0.25);
 	margin: 0 auto;
 	text-align: center;
 	overflow: auto;
@@ -75,6 +76,7 @@ header#header {
 nav.main-nav {
 	// background: $blue;
 	margin: 0 auto;
+	padding-bottom: 5px;
 	ul {
 		max-width: 700px;
 		width: 100%;
@@ -138,9 +140,6 @@ footer#footer {
 	color: white;
 }
 
-.main-width {
-
-}
 
 // Global Styles
 
@@ -175,7 +174,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  	$sidebar-width: 280px;
 
  	#body-content {
- 		margin: 18px auto;
+ 		margin: 0px auto;
  	}
  	
  	#content-wrap {
