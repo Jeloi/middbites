@@ -18,6 +18,10 @@ $recipe-box-background: white;
 		color: $mint;
 	}
 
+	p.directions {
+		padding: 0 1em;
+	}
+
 	.ingredient-list {
 		list-style: none;
 		padding: 0 1em;
@@ -37,6 +41,11 @@ $recipe-box-background: white;
 		margin-right: 5px;
 	}
 
+	.creator-info {
+		overflow: auto;
+		min-height: 1em;
+	}
+
 
 }
 
@@ -52,17 +61,24 @@ $recipe-box-background: white;
 	}
 
 	#ingredients-section {
+		
 		span {vertical-align: middle;}
 		.icon-font {
 			cursor: pointer;
 			font-size: 1.3em;
-			// color: $grapefruit;
+			// opacity: 0.8;
+			&:hover {
+				opacity: 0.8;
+			}
+						// color: $grapefruit;
 		}
 		.all-actions {
 			height: 30px;
 			line-height: 30px;
-			font-size: 0.9em;
-			#remove-all {float: left; }
+			// font-size: 0.9em;
+			#remove-all {float: left;
+				&:hover { color: $blue; transition: all .2s ease-in;}
+			 }
 			#slide-all {float: right; }
 			#remove-all, #slide-all { cursor: pointer }
 			.toggle-all { margin-left: 5px;}

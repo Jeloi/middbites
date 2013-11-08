@@ -17,6 +17,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    logger.debug { "PARAM" }
+    logger.debug { params[:id].class }
   end
 
   # GET /recipes/new

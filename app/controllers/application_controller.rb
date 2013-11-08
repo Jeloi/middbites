@@ -20,7 +20,12 @@ class ApplicationController < ActionController::Base
 
   def user_logged_in?
     unless logged_in?
-      redirect_to root_path, notice: "You must be signed in to do that!"
+      respond_to do |wants|
+        logger.debug { "message" } 
+        wants.html { redirect_to root_path, notice: "You must be signed in to do that!" }
+        wants.js { render :js => "window.location.href = '#{recipes_path}'" }
+      end
+
     end
   end
 

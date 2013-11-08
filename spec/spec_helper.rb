@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 # require 'rspec/autorun'
 require 'omniauth'
+
 # require 'capybara/rspec'
 
 # Capybara.javascript_driver = :default
@@ -62,5 +63,21 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  # Omniauth
+  OmniAuth.config.test_mode = true
+    
+  omniauth_hash = { 'uid' => '12345', 'nickname' => 'testuser', 'credentials' => { 'token' => 'umad', 'secret' => 'bro?', 'expires_at' => Time.at(Time.now) } }
+  facebook_hash = {
+                 :email => "example_man@example.com",
+                 :first_name => "Jeremy",
+                 :last_name => "Ho",
+                 :name => "Jeremy Ho"
+               }
+    
+  OmniAuth.config.add_mock(:twitter, omniauth_hash)
+  OmniAuth.config.add_mock(:foursquare, omniauth_hash)
+  OmniAuth.config.add_mock(:facebook, omniauth_hash.merge('info'=> facebook_hash)) # Facebook has 'real-user' attributes, add them here if need be
+   
+  # config.include Devise::TestHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
 end

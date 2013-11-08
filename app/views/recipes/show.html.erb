@@ -2,15 +2,11 @@
 	<div class="padded-wrap">
 		<h2 class="title"><%= @recipe.display_title %></h2>
 		<p class="blurb"><%= @recipe.blurb %></p>
-		<div class="tags">
-			<span class="icon-font tag">&#xf0ab</span>
-			<a href="#">Yummy</a>
-			<a href="#">Breakfast</a>
-			<a href="#">Sandwich</a>
-			<a href="#">Hot</a>
-		</div>
-		<div id="photo-container"></div>
-		<hr>
+		
+	<!-- 	<div id="photo-container">
+			<hr>
+		</div> -->
+		
 		<h3>ingredients</h3>
 		<ul class="ingredient-list">
 			<% @recipe.ingredients.each do |ingredient| %>
@@ -25,24 +21,35 @@
 		</ul>
 		<h3>directions</h3>
 		<p class="directions"><%= @recipe.directions %></p>
+		<div class="tags">
+			<span class="icon-font tag">&#xf0ab</span>
+			<a href="#">Yummy</a>
+			<a href="#">Breakfast</a>
+			<a href="#">Sandwich</a>
+			<a href="#">Hot</a>
+		</div>
 		<hr>
-		<%- if @recipe.created_at == @recipe.updated_at -%> 
-			<small>created: <%= @recipe.created_at.strftime('%b%e, %Y') %></small><br>
-		<%- else -%> 
-			<small>edited: <%= @recipe.updated_at.strftime('%b%e, %Y') %></small>
-		<%- end -%>
+		<div class="creator-info clrfix">
+			<%- if @recipe.created_at == @recipe.updated_at -%> 
+				<small class="left">created: <%= @recipe.created_at.strftime('%b%e, %Y') %></small><br>
+			<%- else -%> 
+				<small class="left">edited: <%= @recipe.updated_at.strftime('%b%e, %Y') %></small>
+			<%- end -%>
+			
+			<small class="right"><%= @recipe.user.name %></small>
+		</div>
 		
 	</div>
+</div>
 	<div class="engage-actions">
 		<div class="vote bites" id="bite_<%= @recipe.id %>">
-			<%= render "vote", association: "bites", dom_id: "#bite_"+@recipe.id.to_s %>	
+			<%= render "vote", association: "bites", dom_id: "bite_"+@recipe.id.to_s %>	
 		</div>
 		<div class="vote favorites" id="favorite_<%= @recipe.id %>">
-			<%= render "vote", association: "favorites", dom_id: "#favorite_"+@recipe.id.to_s %>	
+			<%= render "vote", association: "favorites", dom_id: "favorite_"+@recipe.id.to_s %>	
 		</div>
 		<div class="vote favorite"></div>
 		<div class="comment"></div>
 	</div>
-</div>
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>

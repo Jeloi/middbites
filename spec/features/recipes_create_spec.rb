@@ -4,6 +4,7 @@ require 'spec_helper'
 feature "Creating a Recipe" do
 	before(:each) do
 		create_item_factories
+		login_with_oauth
 		visit new_recipe_path
 	end
 
