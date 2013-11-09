@@ -105,7 +105,11 @@ nav.main-nav {
 		 	// font-weight: 300;
 		 	padding: 4px 7px;
 		 	border-radius: 4px;
-		 	&:hover {	color: $white; }
+		 	transition: all .2s ease;
+		 	&:hover {	
+		 		color: $white;
+		 		transition: all .2s ease;
+		 		 }
 		 	&.active {
 		 		color: $white;
 		 		background-color: rgba(32, 121, 155, 0.25);
@@ -169,6 +173,22 @@ footer#footer {
 // To disable iPhone form zoom
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
 	font-size: 1em;
+}
+
+ /* Styles for screens that are bigger than $small-screen (768px)
+ -------------------------------------------------------------*/
+@media only screen and (min-width: 500px) {
+	$main-width: 400px;
+	$max-width: 80%;
+	#body-content {
+		// width: $main-width;
+		max-width: $max-width;
+	}
+	// nav.main-nav ul {
+	// 	width: $main-width;
+	// 	max-width: $max-width;
+	// }
+
 }
 
  /* Styles for screens that are bigger than $small-screen (768px)

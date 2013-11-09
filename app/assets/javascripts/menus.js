@@ -34,7 +34,7 @@ menuSlider = function() {
 			var slider = '#bxslider' + i;
 			var pager = '#bxpager' + i;
 			var slider_obj = $(slider).bxSlider({
-				slideWidth: 400,
+				slideWidth: 1000,
 				minSlides: 2,
 				maxSlides: 2,
 				moveSlides: 1,
@@ -51,7 +51,7 @@ menuSlider = function() {
 			var slider = '#bxslider' + i;
 			var pager = '#bxpager' + i;
 			var slider_obj = $(slider).bxSlider({
-				slideWidth: 400,
+				slideWidth: 1000,
 				minSlides: 3,
 				maxSlides: 3,
 				moveSlides: 1,

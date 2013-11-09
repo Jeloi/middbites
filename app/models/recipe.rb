@@ -16,6 +16,7 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   # Friendly_id gem use database slug
   friendly_id :title, :use => :slugged
+  acts_as_taggable
 
 	# Associations
 	belongs_to :user

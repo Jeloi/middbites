@@ -18,6 +18,9 @@ Middbites::Application.routes.draw do
   get 'ingredients/:item_category' => 'items#item_category', as: 'item_category'
   get "ingredient/:id" => 'items#show', as: 'item'
 
+  # Tags routes
+  get 'tags/:tag', to: 'recipes#all', as: :tag
+
 
   # Omniauth routes
   get 'auth/:provider/callback', to: 'sessions#create'
