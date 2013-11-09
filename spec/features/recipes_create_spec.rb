@@ -26,9 +26,9 @@ feature "Creating a Recipe" do
 	context "| filling in the fields and selecting an ingredient", js: true do
 		before(:each) do
 			fill_in_text_fields
-			select('Jelly', from: 'ingredient_selector')
-			select('Peanut Butter', from: 'ingredient_selector')
-			select('Bread', from: 'ingredient_selector')
+			select_from_chosen('Jelly', from: 'ingredient_selector')
+			# select('Peanut Butter', from: 'ingredient_selector')
+			# select('Bread', from: 'ingredient_selector')
 			click_button("create_recipe")
 		end
 		
@@ -49,6 +49,12 @@ feature "Creating a Recipe" do
 		[:jelly, :peanut_butter, :bread].each do |item|
 			FactoryGirl.create(item)
 		end
+	end
+
+	def select_from_chosen(item_text, options)
+	  field = find_field(options[:from], visible: false)
+	  option_value = page.evaluate_script("$(\"##{field[:id]} option:contains('#{item_text}')\").val()")
+	  page.execute_script("$('##{field[:id]}').val('#{option_value}')")
 	end
 
 

@@ -9,6 +9,8 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'cancan'
 gem 'nokogiri'
+gem 'acts-as-taggable-on'
+gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquery-autocomplete'
 
 # gem 'jquery-turbolinks'
 
