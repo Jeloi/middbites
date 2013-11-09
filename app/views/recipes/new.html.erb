@@ -30,12 +30,7 @@
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
     </div>
 
-    <div class="field directions">
-    	<%= f.label :directions do %>
-    	<h4>directions</h4>
-    	<% end -%>
-        <%= f.text_area :directions, rows: 4 %>
-    </div>
+
 
 	<h4 class="ingredients">ingredients</h4>
     <div id="ingredients-section" class="field" >
@@ -46,16 +41,23 @@
     		<span class="up" id="slide-all">Show Quantities<span class="icon-font toggle-all">&#xf149</span></span>
     	</div>
 		
-		<%= select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
+		<%# select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
+		<div class="selector_container"><%= select_tag :ingredient_selector, grouped_options_for_select(@grouped_item_options), data: {:placeholder =>'Add an Ingredient'}, class: 'chosen-select' -%></div>
 
 		<div id="list-container">
 		<%= f.fields_for :ingredients do |ingredient_form| %>
 			<%= render 'ingredient_fields', f: ingredient_form %>
 		<% end -%>
 		</div>
-
-
-		
+    </div>
+    <div class="field directions">
+    	<%= f.label :directions do %>
+    	<h4>directions</h4>
+    	<% end -%>
+        <%= f.text_area :directions, rows: 4 %>
+    </div>
+    <div class="field tags">
+    	
     </div>
 	<% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
 
@@ -68,10 +70,11 @@
 </div>
 
 <script>
-	// var items = <%= @items_json %>;
 	var items_hash = <%= @items_hash %>;
 	
 	$(document).ready(function() {
+
+		// $("#ingredient_selector").select2();
 		// Setup: Fix displaying ingredient text in edit/rerendered form page
 		$('.ingredient-fields').show(); 
 		$('.ingredient-text').each(function() {

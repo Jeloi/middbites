@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(version: 20130908152357) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",             null: false
+    t.integer  "item_category_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -27,7 +27,7 @@ $recipe-box-background: white;
 		padding: 0 1em;
 		.name {
 			float: left;
-			font-weight: bold;
+			// font-weight: bold;
 		}
 		.quantity {
 			font-weight: 300;
@@ -59,7 +59,6 @@ $recipe-box-background: white;
 	.directions label {
 		font-size: 1em;
 	}
-
 	#ingredients-section {
 		
 		span {vertical-align: middle;}

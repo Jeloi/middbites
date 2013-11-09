@@ -19,11 +19,13 @@ class RecipesController < ApplicationController
   def show
     logger.debug { "PARAM" }
     logger.debug { params[:id].class }
+    logger.debug { "message" }
   end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    logger.debug { @grouped_item_options }
   end
 
   # GET /recipes/1/edit
@@ -107,6 +109,10 @@ class RecipesController < ApplicationController
         @items_hash[pair[0]] = pair[1]
       end
       @items_hash = @items_hash.to_json.html_safe
+      @grouped_item_options = ItemCategory.all. map do |cat|
+        [cat.name, cat.items.collect {|i| [i.name, i.id]}]
+      end
+      @grouped_item_options.unshift ["", ["",""]]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -183,7 +183,18 @@ items = %w{ Asparagus
 									}
 items.sort!
 
+@a = ItemCategory.find_or_create_by(name: "Category 1")
+@b = ItemCategory.find_or_create_by(name: "Category 2")
+
+def rand_category
+	if rand(10) >= 5
+		@a
+	else
+		@b
+	end
+end
+
 items.each do |item|
 	name = item.gsub(/_/, " ")
-	Item.find_or_create_by(name: name)
+	Item.find_or_create_by(name: name, item_category: rand_category)
 end
