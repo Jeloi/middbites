@@ -9,9 +9,11 @@ module MenuScraper
 		
 		h2_nodes = doc.css(".content h2").to_ary.reject! {|node| node.text == "Grille"}	# filter out the Grille
 		dining_halls = {}
-		h2_nodes.each do |hall|
+		h2_nodes.each do |hall|	# Build the keys of the hash, with raw nodes as values
 			dining_halls[hall.text] = hall.parent
 		end
+
+		
 		
 		# Build the nested hash, with dining hall being the top level key
 		dining_halls.each do |key, node|
@@ -27,6 +29,10 @@ module MenuScraper
 			end
 			dining_halls[key] = meal_times_hash
 		end
+
+		
+		# Custom sort the keys of the dining hall hash
+		dining_halls =  sort_hash_by_array(dining_halls)
 		
 			
 		if sort_by == "dining_hall"
@@ -43,4 +49,8 @@ module MenuScraper
 		end
 	end
 
+	HALL_SORT = ["Atwater", "Proctor", "Ross"]
+	def self.sort_hash_by_array(hash, array=HALL_SORT)
+		Hash[hash.sort_by{|k, _| array.index(k) || 0 }]
+	end
 end
