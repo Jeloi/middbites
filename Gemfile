@@ -16,6 +16,10 @@ gem 'zurb-foundation'
 gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'
 gem 'nested_form'
+# gem 'chosen-rails', github: 'Jeloi/chosen-rails'
+gem 'chosen-rails'
+gem 'compass-rails', github: 'Compass/compass-rails'
+# gem 'select2-rails'
 
 gem 'mysql2'
 

@@ -16,6 +16,7 @@
 //= require jquery_nested_form
 //= require turbolinks
 //= require bxslider/jquery.bxslider
+//= require chosen-jquery
 //= require_tree .
 
 // $(function(){ $(document).foundation(); });
