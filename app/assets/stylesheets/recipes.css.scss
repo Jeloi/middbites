@@ -59,8 +59,9 @@ $recipe-box-background: white;
 	.directions h4, h4.ingredients {
 		color: $mint;
 	}
-	.directions label {
-		font-size: 1em;
+	.directions {
+		label { font-size: 1em; }
+		textarea { height: 150px; line-height: 1.1em; }
 	}
 	#ingredients-section {
 		
