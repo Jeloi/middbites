@@ -15,6 +15,8 @@ class Item < ActiveRecord::Base
 	belongs_to :item_category
 	before_save :set_item_category
 
+	validates_uniqueness_of :name, message: "must be unique!"
+
 	# Sets the this item's item_category to "Other" if one is not specified
 	def set_item_category
 		if self.item_category.nil?

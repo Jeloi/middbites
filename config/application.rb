@@ -26,6 +26,7 @@ module Middbites
     # config.i18n.default_locale = :de
 
 
+    config.autoload_paths += Dir["#{Rails.root}/lib/classes"]
     config.autoload_paths += Dir["#{Rails.root}/lib/modules"]
   end
 end

@@ -139,7 +139,8 @@
 		// Remove all ingredients functionality
 		$('#ingredients-section').on("click", "#remove-all", function() {
 			$("input[type=hidden][data-attribute=destroy]").val("1");
-			$('.ingredient-fields').hide();
+			$('.ingredient-fields').slideUp("fast");
+			chosen_items = [];
 			return false;
 		});
 

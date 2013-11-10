@@ -1,7 +1,9 @@
 require 'open-uri'
 
 module MenuScraper
-	
+	HALL_SORT = [ "Proctor", "Ross", "Atwater"]
+
+	# Visits the given base_url + date_param and scrapes middlebury menu info, optionally sorted by dining_hall
 	def self.scrape_midd_menus(base_url, date_param="", sort_by="")
 
 		url = (!date_param.blank? ? base_url + "/" + date_param : base_url) # append date_param if it isn't blank
@@ -49,8 +51,28 @@ module MenuScraper
 		end
 	end
 
-	HALL_SORT = ["Atwater", "Proctor", "Ross"]
+	# Sorts a given hash by its keys, on the given array. Keys that aren't in the array are put at the end
+	# note keys not in array are given 99 as sort value. Shouldn't be an issue with this data.
 	def self.sort_hash_by_array(hash, array=HALL_SORT)
-		Hash[hash.sort_by{|k, _| array.index(k) || 0 }]
+		Hash[hash.sort_by{|k, _| array.index(k) || 99 }]
+	end
+
+	# TODO: TEST this function for duplicate items, make sure uniqueness is case insensitvie
+	# Goes through all menus.middlebury.edu meals for a given day, and creates an item for each 
+	# 	meal if it doesn't already exist (based off meal name)
+	def self.generate_items_from_meals(base_url, date_param="")
+		menu_hash = MenuScraper.scrape_midd_menus(base_url, date_param)
+		# puts menu_hash
+		menu_hash.each do |time, time_hash|
+			# puts time_hash
+			time_hash.each do |hall, hall_array|
+				# pp hall_array
+				hall_array.each do |meal|
+					if Item.find_by(name: meal).nil?
+						Item.create(name: meal)
+					end
+				end
+			end
+		end
 	end
 end
