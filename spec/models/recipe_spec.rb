@@ -49,7 +49,9 @@ describe Recipe do
 	it {should belong_to(:user)}
   it { should have_many(:votes) }
   it { should have_many(:bites) }
-	it { should have_many(:favorites) }
+  it { should have_many(:favorites) }
+  it { should have_many(:taggings) }
+	it { should have_many(:tags).through(:taggings) }
 
 
   # Instance Methods

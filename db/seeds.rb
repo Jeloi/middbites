@@ -198,3 +198,9 @@ items.each do |item|
 	name = item.gsub(/_/, " ")
 	Item.find_or_create_by(name: name, item_category: rand_category)
 end
+
+tags = %w{ tasty yummy lunch dinner tangy sweet dessert }
+a = TagCategory.find_or_create_by(name: "Tag Category 1")
+tags.each do |tag|
+	Tag.find_or_create_by(name: tag, tag_category: a)
+end

@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    logger.debug { @grouped_item_options }
+    # logger.debug { @grouped_item_options }
   end
 
   # GET /recipes/1/edit
@@ -102,13 +102,13 @@ class RecipesController < ApplicationController
     end
 
     def set_items
-      @items_json = Item.all.pluck(:name).to_json.html_safe
-      items = Item.all.collect {|i| [i.id, i.name]}
-      @items_hash = {}
-      items.each do |pair|
-        @items_hash[pair[0]] = pair[1]
-      end
-      @items_hash = @items_hash.to_json.html_safe
+      # @items_json = Item.all.pluck(:name).to_json.html_safe
+      # items = Item.all.collect {|i| [i.id, i.name]}
+      # @items_hash = {}
+      # items.each do |pair|
+      #   @items_hash[pair[0]] = pair[1]
+      # end
+      # @items_hash = @items_hash.to_json.html_safe
       @grouped_item_options = ItemCategory.all. map do |cat|
         [cat.name, cat.items.collect {|i| [i.name, i.id]}]
       end
@@ -117,6 +117,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:directions, :title, :blurb, :tag_list, ingredients_attributes: [:item_id, :quantity, :_destroy, :id])
+      params.require(:recipe).permit(:directions, :title, :blurb, :tag_list, ingredients_attributes: [:item_id, :quantity, :_destroy, :id], taggings_attributes: [:_destroy, :tag_id])
     end
 end
