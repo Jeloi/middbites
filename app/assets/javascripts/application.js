@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 // require foundation
-//= require jquery_nested_form
 //= require turbolinks
 //= require bxslider/jquery.bxslider
 //= require chosen-jquery

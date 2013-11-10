@@ -16,7 +16,6 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   # Friendly_id gem use database slug
   friendly_id :title, :use => :slugged
-  acts_as_taggable
 
 	# Associations
 	belongs_to :user
@@ -25,7 +24,10 @@ class Recipe < ActiveRecord::Base
   has_many :votes
   has_many :bites
   has_many :favorites
+  has_many :taggings
+  has_many :tags, through: :taggings
   accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:item_id].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :taggings, :reject_if => lambda { |a| a[:tag_id].blank? }, :allow_destroy => true
 
 
 	# Validations
@@ -34,6 +36,10 @@ class Recipe < ActiveRecord::Base
 	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
 	validates_presence_of :title, :blurb, :directions, message: "can't be blank"
   validate :validate_ingredients_count
+
+  def tag_list
+    tags.map(&:name).join(", ")
+  end
 
   def validate_ingredients_count
     errors.add(:ingredient, "too many!") if ingredients.size > 10
@@ -48,5 +54,6 @@ class Recipe < ActiveRecord::Base
   def display_title
     title.downcase.titlecase
   end
+
 
 end

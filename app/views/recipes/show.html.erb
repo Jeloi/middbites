@@ -23,7 +23,9 @@
 		<p class="directions"><%= @recipe.directions %></p>
 		<div class="tags">
 			<span class="icon-font tag">&#xf0ab</span>
-			<%= raw @recipe.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+			<% @recipe.tags.each do |tag| %>
+					<%= tag.name %> <br>
+				<% end %>	
 		</div>
 		<hr>
 		<div class="creator-info clrfix">

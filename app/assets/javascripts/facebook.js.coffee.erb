@@ -7,9 +7,12 @@ ready = ->
     cache: true
 
   # enable chosen js
-  $('.chosen-select').chosen
+  $('#ingredient_selector').chosen
     no_results_text: 'No ingredients matched'
     # width: '250px'
+
+  $('#tag_selector').chosen
+    no_results_text: 'No tags matched'
 
   # $('#sign_in').click (e) ->
   #   e.preventDefault()
