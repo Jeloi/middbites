@@ -35,15 +35,15 @@ describe RecipesController do
     login_with_oauth
   end
 
-  describe "GET show" do
-    it "should do something" do
-      get :show, {:id => @recipe.to_param}
-      # subject.send(:current_user).should be_nil
-      assigns(:recipe).should eq(@recipe)
-      # assigns(:current_user).should be_kind_of(User)
-      expect(subject.current_user).not_to be_nil
-    end
-  end
+  # describe "GET show" do
+  #   it "should do something" do
+  #     get :show, {:id => @recipe.to_param}
+  #     # subject.send(:current_user).should be_nil
+  #     assigns(:recipe).should eq(@recipe)
+  #     # assigns(:current_user).should be_kind_of(User)
+  #     expect(subject.current_user).not_to be_nil
+  #   end
+  # end
 
   # describe "GET index" do
   #   it "assigns all recipes as @recipes" do

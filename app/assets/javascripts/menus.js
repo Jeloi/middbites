@@ -5,7 +5,7 @@ var pager_array = [];
 
 // screen width variables for number of slides
 var oneSlide = 515;
-var twoSlides = 800;
+var twoSlides = 930;
 // var 3slides = 800;
 
 // Initial Sliders set and stored in array. Respective pagers are stored in an array in same order.
@@ -29,7 +29,7 @@ menuSlider = function() {
 			sliders_array.push(slider_obj); //add the slider_obj to the array
 			pager_array.push(pager); //add the slider_obj to the array
 		};
-	} else if ($(window).width() < 800) {
+	} else if ($(window).width() < twoSlides) {
 		for (var i = 0; i < numSliders; i++) {
 			var slider = '#bxslider' + i;
 			var pager = '#bxpager' + i;
