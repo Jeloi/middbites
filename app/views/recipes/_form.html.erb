@@ -38,7 +38,7 @@
     
     <%# select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
     <div class="selector_container"><%= select_tag :ingredient_selector, grouped_options_for_select(@grouped_item_options), data: {:placeholder =>'Add an Ingredient'} -%></div>
-
+    <%#= grouped_collection_select "", "", ItemCategory.all, :items, :name, :id, :name, {}, {multiple: true, id: 'ingredient_selector'} -%>
     <div class="all-actions clrfix">
       <span id="remove-all"><span class="icon-font">&#xf14d</span> Remove All </span>
       
@@ -60,7 +60,7 @@
     </div>
     <div class="field tags">
       <h4 class="tags">tags</h4>
-      <div><%= grouped_collection_select "", "", TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector'} -%></div>
+      <div><%= f.grouped_collection_select "tag_ids", TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector'} -%></div>
       <div id="tag_field_container">
         <%= f.fields_for :taggings do |tag_form| %>
         <%= render 'tagging_fields', f: tag_form -%>      
@@ -108,16 +108,16 @@
     });
 
     // Setup: Fix displaying selected tags in chosen after edit/rerendering form page
-    var initial_chosen_tag_vals = []
-    $('#tag_field_container input.tag_id').each(function() {
-      var val = $(this).val();
-      initial_chosen_tag_vals.push(val);
-    });
-    $('#tag_selector').val(initial_chosen_tag_vals);
+    // var initial_chosen_tag_vals = []
+    // $('#tag_selector').val().each(function() {
+    //   var val = $(this).val();
+    //   initial_chosen_tag_vals.push(val);
+    // });
+    // $('#tag_selector').val(initial_chosen_tag_vals);
     $('#tag_selector').trigger("chosen:updated");
 
     //Add ingredient using select_tag
-    $('#ingredient_selector').change(function() {
+    $('#ingredients-section').on("change", "#ingredient_selector", function() {
       var text = $("#ingredient_selector option:selected").text();
       var value = $("#ingredient_selector option:selected").val();
       console.log(text + value);
@@ -171,21 +171,21 @@
       $(link).after(content.replace(regexp, new_id));
     };
 
-    function recursive_remove (element, selector) {
-      console.log(element);
-      element.hide();
-      var prev = element.prev(".ingredient-fields");
-      // recursive_remove(prev);
-    }
+    // function recursive_remove (element, selector) {
+    //   console.log(element);
+    //   element.hide();
+    //   var prev = element.prev(".ingredient-fields");
+    //   // recursive_remove(prev);
+    // }
 
-    // Fancy recursive remove all ingredients functionality
-    $('#ingredients-section').on("click", "#remove-all", function() {
-      console.log("clicked #remove-all");
-      console.log($("#ingredients-section"));
-      var last = $(".ingredient-fields").last();
-      recursive_remove(last, ".ingredient-fields");
-      return false;
-    });
+    // // Fancy recursive remove all ingredients functionality
+    // $('#ingredients-section').on("click", "#remove-all", function() {
+    //   console.log("clicked #remove-all");
+    //   console.log($("#ingredients-section"));
+    //   var last = $(".ingredient-fields").last();
+    //   recursive_remove(last, ".ingredient-fields");
+    //   return false;
+    // });
 
     // Remove all ingredients functionality
     $('#ingredients-section').on("click", "#remove-all", function() {
@@ -197,7 +197,7 @@
 
 
     // Remove single Ingredient functionality
-    $('#ingredients-section').on("click", ".remove.icon-font", function() {
+    $('#ingredients-section').on("click", ".remove", function() {
       $(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
       $(this).closest(".ingredient-fields").hide();
       var val = $(this).next("input.item_id").val()

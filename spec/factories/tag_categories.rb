@@ -2,6 +2,14 @@
 
 FactoryGirl.define do
   factory :tag_category do
-    name "MyString"
+
+  	factory :tastes do
+	    name "Tastes"
+	    after(:build) do |tag_category|
+	    	["Tangy", "Sweet", "Salty"].each do |tag|
+	      	tag_category.tags << Tag.new(name: tag)
+	    	end
+	    end
+  	end
   end
 end

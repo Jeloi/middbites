@@ -68,8 +68,14 @@
 		// font-size: 0.95em;
 		h4.group { color: $blue; margin: 0; }
 		ul.meals {
-			list-style: square;
+			list-style: none;
+			list-style-position: inside;
+			text-indent: -1em;
 			padding-left: 0.3em;
+			a {
+				color: $body-font-color;
+				&:hover { color: $grapefruit; }
+			}
 		}
 		.bx-clone {	// fix, hopefully
 		  display: none;
