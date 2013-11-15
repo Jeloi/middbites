@@ -9,8 +9,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'cancan'
 gem 'nokogiri'
-gem 'acts-as-taggable-on'
-gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquery-autocomplete'
+gem 'acts_as_commentable'
 
 # gem 'jquery-turbolinks'
 
@@ -77,4 +76,5 @@ end
 
 group :production do
   gem 'pg', '0.15.1'
+  gem 'rails_12factor'
 end
