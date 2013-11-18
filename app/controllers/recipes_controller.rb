@@ -77,7 +77,7 @@ class RecipesController < ApplicationController
     @association = params[:association]
     @dom_id = params[:dom_id]
     respond_to do |format|
-      if current_user.send(params[:association]).create(recipe_id: @recipe.id, recipe_owner_id: @recipe.user_id)
+      if current_user.vote(@recipe, @association)
         format.js { render "vote" }
       end
     end
@@ -87,9 +87,8 @@ class RecipesController < ApplicationController
   def unvote
     @association = params[:association]
     @dom_id = params[:dom_id]
-    @vote = current_user.send(params[:association]).where(recipe_id: @recipe).first
     respond_to do |format|
-      if @vote.destroy
+      if current_user.unvote(@recipe, @association)
         format.js { render "vote" }
       end
     end

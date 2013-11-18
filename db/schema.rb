@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115051356) do
+ActiveRecord::Schema.define(version: 20131118054625) do
 
   create_table "comments", force: true do |t|
     t.string   "title",            limit: 50, default: ""
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20131115051356) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20131115051356) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "ingredients", force: true do |t|
     t.integer  "recipe_id"
@@ -71,9 +71,12 @@ ActiveRecord::Schema.define(version: 20131115051356) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "bites_count",     default: 0
+    t.integer  "favorites_count", default: 0
+    t.integer  "comments_count",  default: 0
   end
 
-  add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true, using: :btree
+  add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true
 
   create_table "tag_categories", force: true do |t|
     t.string   "name"
@@ -88,8 +91,8 @@ ActiveRecord::Schema.define(version: 20131115051356) do
     t.datetime "updated_at"
   end
 
-  add_index "taggings", ["recipe_id"], name: "index_taggings_on_recipe_id", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["recipe_id"], name: "index_taggings_on_recipe_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
   create_table "tags", force: true do |t|
     t.string   "name"
@@ -123,7 +126,7 @@ ActiveRecord::Schema.define(version: 20131115051356) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["recipe_id"], name: "index_votes_on_recipe_id", using: :btree
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["recipe_id"], name: "index_votes_on_recipe_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

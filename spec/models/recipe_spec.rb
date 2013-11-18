@@ -66,4 +66,23 @@ describe Recipe do
       it { expect(Recipe.friendly.find("the-classic")).to eql(@recipe) }
     end    
   end
+
+  describe "Commenting cache column" do
+    let(:user) { create(:user) } 
+    let(:recipe) { create(:recipe, :with_ingredients, :owned) } 
+    it "should update upon comment creation" do
+      recipe.comments.create(comment: "This is a test comment", user_id: user.id)
+      recipe.reload
+      expect(recipe.comments.count).to eql  1
+      expect(recipe.comments_count).to eql 1
+    end
+
+    it "should update upon destroying comment" do
+      recipe.comments.create(comment: "This is a test comment", user_id: user.id)
+      comment_id = recipe.comments.first.id
+      user.comments.where(commentable_id: recipe.id).destroy(comment_id)
+      expect(recipe.comments.count).to eql  0
+      expect(recipe.comments_count).to eql 0
+    end
+  end
 end
