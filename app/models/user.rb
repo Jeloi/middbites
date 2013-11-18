@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
  	#! Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite)
  	def voted_on? recipe, association
- 		!self.send(association).where("recipe_id = #{recipe.id}").empty?
+ 		!self.send(association).where(recipe_id: recipe.id).empty?
  	end
 
  	# Accept a recipe and association (votes), and create a new vote for this user on the recipe
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
  	# Accept a recipe and association (votes), and deletes the vote for this user on the recipe
  	def unvote recipe, association
  		if ["bites", "favorites"].include? association
- 			self.send(association).destroy(recipe.id)
+ 			self.send(association).where(recipe_id: recipe.id).destroy_all
  		else
  			raise "Wrong type of association provided"
  		end

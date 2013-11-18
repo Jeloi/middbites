@@ -12,5 +12,5 @@
 #
 
 class Bite < Vote
-
+	belongs_to :recipe, counter_cache: true
 end
