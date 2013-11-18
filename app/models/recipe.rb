@@ -13,6 +13,7 @@
 #
 
 class Recipe < ActiveRecord::Base
+  acts_as_commentable
   extend FriendlyId
   # Friendly_id gem use database slug
   friendly_id :title, :use => :slugged

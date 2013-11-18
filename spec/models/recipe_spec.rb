@@ -52,6 +52,7 @@ describe Recipe do
   it { should have_many(:favorites) }
   it { should have_many(:taggings) }
 	it { should have_many(:tags).through(:taggings) }
+  it { should have_many(:comments) }
 
 
   # Instance Methods

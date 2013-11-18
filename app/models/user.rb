@@ -21,6 +21,7 @@
 class User < ActiveRecord::Base
 	# Associations
 	has_many :recipes
+	has_many :comments
 	has_many :votes
 	has_many :bites
 	has_many :favorites
