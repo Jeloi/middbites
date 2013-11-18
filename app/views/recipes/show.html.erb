@@ -24,15 +24,15 @@
 		<div class="tags">
 			<span class="icon-font tag">&#xf0ab</span>
 			<% @recipe.tags.each do |tag| %>
-					<%= tag.name %> <br>
+					<span><%= tag.name %></span>
 				<% end %>	
 		</div>
 		<hr>
 		<div class="creator-info clrfix">
 			<%- if @recipe.created_at == @recipe.updated_at -%> 
-				<small class="left">created: <%= @recipe.created_at.strftime('%b%e, %Y') %></small>
+				<small class="left">created: <%= @recipe.created_at.strftime('%b %e, %Y') %></small>
 			<%- else -%> 
-				<small class="left">edited: <%= @recipe.updated_at.strftime('%b%e, %Y') %></small>
+				<small class="left">edited: <%= @recipe.updated_at.strftime('%b %e, %Y') %></small>
 			<%- end -%>
 			
 			<small class="right"><%= @recipe.user.name %></small>
