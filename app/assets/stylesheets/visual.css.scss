@@ -9,11 +9,13 @@ $em-base: 16px !default;
 }
 $body-font-color: #444444;
 // $body-font-color: #343434;
-$body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "proxima-nova", "Helvetica", Helvetica, Arial, sans-serif;
 
 // Heading font styles
 
-$header-font-family: "Montserrat", Helvetica, Arial, sans-serif;
+$header-font-family: "omnes-pro", Helvetica, Arial, sans-serif;
+// $header-font-family: "Montserrat", Helvetica, Arial, sans-serif;
 $header-font-weight: normal;
 // $header-font-style: normal;
 $header-font-color: $body-font-color;
@@ -57,9 +59,10 @@ header#header {
 	overflow: auto;
 	// width: $main-width;
 	.header-logo  {
-		background-image: url(/assets/logo.gif);
-		height: 42px;
-		width: 42px;
+		background-image: url(/assets/logo.png);
+		background-size: contain;
+		height: 50px;
+		width: 50px;
 		margin: 0 auto;
 		margin-top: 15px;
 		margin-bottom: -30px;
@@ -67,7 +70,8 @@ header#header {
 	.header-title {
 		display: inline-block;
 		// font-family: 'Montserrat Alternates';
-		font-family: 'Lobster';
+		font-family: "omnes-pro",sans-serif;
+		font-style: italic;
 		font-weight: 700;
 		font-size: emCalc(40px);
 		line-height: 80px;
@@ -82,7 +86,7 @@ nav.main-nav {
 	margin: 0 auto;
 	padding-bottom: 5px;
 	ul {
-		max-width: 700px;
+		max-width: 550px;
 		width: 100%;
 		display: block; 
 		padding: 0px 10px ; margin: 0 auto;
@@ -100,9 +104,9 @@ nav.main-nav {
 		 	color: $body-font-color;
 		 	// text-transform: uppercase;
 		 	font-size: emCalc(16px);
-		 	font-family: "Montserrat";
+		 	font-family: "omnes-pro";
 		 	// font-weight: bold;
-		 	// font-weight: 300;
+		 	font-weight: 600;
 		 	padding: 4px 7px;
 		 	border-radius: 4px;
 		 	transition: all .2s ease;
@@ -168,6 +172,18 @@ footer#footer {
 
 .icon-font {
 	font-family: Batch;
+	&.favorite.not_voted:before {
+		content: "\f04b";
+	}
+	&.favorite.voted:before {
+		content: "\f049";
+	}
+	&.bite.not_voted:before {
+		content: url(/assets/bite.png)
+	}
+	&.bite.voted:before {
+		content: url(/assets/bit.png)
+	}
 }
 
 // To disable iPhone form zoom
@@ -229,7 +245,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  	}
 
  	header#header {
- 		padding-top: 40px;
+ 		padding-top: 10px;
  	}
 
 

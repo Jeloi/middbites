@@ -7,8 +7,7 @@ $recipe-box-background: white;
 	// border: 1px solid #e5e5e5;
 	background: $recipe-box-background;
 	h2.title {
-		font-family: "Montserrat";
-		font-weight: 700;
+		font-weight: 500;
 	}
 	.blurb {
 		font-style: italic;
@@ -50,7 +49,6 @@ $recipe-box-background: white;
 }
 
 .recipe-form {
-	border: 1px solid #eaedf2;
 	background: $recipe-box-background;
 	h2 { color: $grapefruit; margin-bottom: 10px; font-weight: bold; }
 	.chosen-container {
