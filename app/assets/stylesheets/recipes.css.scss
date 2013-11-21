@@ -8,12 +8,12 @@ $recipe-box-background: white;
 	background: $recipe-box-background;
 	h2.title {
 		font-weight: 500;
+		line-height: 1.1em;
 	}
 	.blurb {
 		font-style: italic;
 	}
 	h3 {
-		// font-family: 
 		color: $mint;
 	}
 
@@ -25,13 +25,12 @@ $recipe-box-background: white;
 		list-style: none;
 		padding: 0 1em;
 		.name {
-			float: left;
+			// float: left;
 			// font-weight: bold;
 		}
 		.quantity {
 			font-weight: 300;
-			float: left;
-			margin-left: 0.5em;
+			margin-left: 0.2em;
 		}
 	}
 	hr { margin: 3px 0;}
@@ -94,12 +93,37 @@ $recipe-box-background: white;
 				margin: 0;
 				font-size: 0.8em;
 				vertical-align: middle;
-				// float: right;
-				// width: 40%;
 			}
 		}
 	}
 
+}
+
+#recipes-show {
+	#comments-section {
+		.comment {
+			padding: 18px 0px;
+			border-top: 1px solid #ddd;
+			.comment-body {
+				margin-top: 0.625em;
+				margin-bottom: 0;
+			}
+			.meta {
+				font-family: "omnes-pro";
+				.user-name {
+					font-size: 0.9em;
+					float: left;
+					color: $blue;
+				}
+				.time-ago {
+					float: right;
+					margin-top: 0.3em;
+					font-size: 0.7em;
+					color: #818181;
+				}
+			}
+		}
+	}
 }
 
 @media only screen and (min-width: 400px) {

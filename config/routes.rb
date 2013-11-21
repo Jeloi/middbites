@@ -1,6 +1,8 @@
 Middbites::Application.routes.draw do
   
  
+  get "comments/create"
+  get "comments/destroy"
   root 'pages#home'
 
   get "pages/home"
@@ -12,6 +14,9 @@ Middbites::Application.routes.draw do
   delete 'recipes/:id/unvote' => 'recipes#unvote', as: 'unvote_recipe'
   post 'recipes/:id/vote' => 'recipes#vote', as: 'vote_recipe'
   resources :recipes, except: :new 
+
+  # Comment Routes
+  resources :comments, only: [:create, :destroy]
 
   # Item routes
   get "ingredients" => 'items#all', as: 'all_items'

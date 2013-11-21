@@ -1,0 +1,2 @@
+$('#new_comment').hide();
+$('<%= escape_javascript render("comments/comment", comment: @comment) %>').prependTo('#comments-section');
