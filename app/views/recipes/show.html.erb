@@ -11,35 +11,42 @@
 		<ul class="ingredient-list">
 			<% @recipe.ingredients.each do |ingredient| %>
 			<li class="clrfix">
-				<span class = "name"><%= ingredient.name %></span>
+				<span class = "name"></span>
+				<%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
+				<% if !ingredient.quantity.blank? %>
+					<span class="quantity"> 
+						<%= ingredient.quantity %></span>
+				<% end %>
 				
-				<span class="quantity">
-					<%= ingredient.quantity %></span>
 
 			</li>
 			<% end -%>
 		</ul>
 		<h3>directions</h3>
 		<p class="directions"><%= @recipe.directions %></p>
-		<div class="tags">
-			<span class="icon-font tag">&#xf0ab</span>
-			<% @recipe.tags.each do |tag| %>
-					<span><%= tag.name %></span>
-				<% end %>	
-		</div>
-		<hr>
-		<div class="creator-info clrfix">
-			<%- if @recipe.created_at == @recipe.updated_at -%> 
-				<small class="left">created: <%= @recipe.created_at.strftime('%b %e, %Y') %></small>
-			<%- else -%> 
-				<small class="left">edited: <%= @recipe.updated_at.strftime('%b %e, %Y') %></small>
-			<%- end -%>
-			
-			<small class="right"><%= @recipe.user.name %></small>
-		</div>
+
+
 		
 	</div>
 </div>
+	
+	<div class="creator-info clrfix">
+		<%- if @recipe.created_at == @recipe.updated_at -%> 
+			<small class="left">created: <%= @recipe.created_at.strftime('%b %e, %Y') %></small>
+		<%- else -%> 
+			<small class="left">edited: <%= @recipe.updated_at.strftime('%b %e, %Y') %></small>
+		<%- end -%>
+		
+		<small class="right"><%= @recipe.user.name %></small>
+	</div>
+
+	<div class="tags">
+		<span class="icon-font tag">&#xf0ab</span>
+		<% @recipe.tags.each do |tag| %>
+				<span><%= tag.name %></span>
+			<% end %>	
+	</div>
+
 	<div class="engage-actions">
 		<div class="vote bites" id="bite_<%= @recipe.id %>">
 			<%= render "vote", association: "bites", dom_id: "bite_"+@recipe.id.to_s %>	
@@ -52,3 +59,12 @@
 	</div>
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>
+
+<h3>Comments (<%= @recipe.comments_count %>)</h3>
+<div id="comments-section">
+	<%= render 'comments/comments_form', comment: @comment %>
+	<% @recipe.comments.limit(10).order("created_at DESC").each do |comment| %>
+		<%= render 'comments/comment', comment: comment %>
+	<% end %>
+</div>
+

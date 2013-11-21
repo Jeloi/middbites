@@ -17,9 +17,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-    logger.debug { "PARAM" }
+    @comment = @recipe.comments.build
     logger.debug { params[:id].class }
-    logger.debug { "message" }
   end
 
   # GET /recipes/new
