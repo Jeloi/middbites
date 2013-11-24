@@ -1,8 +1,9 @@
 /* Colors
 -------------------------------------------------------------*/
 $white: #ffffff;
-$mint: #93d06d;
-$grapefruit: #ee6557;
+// $mint: #93d06d;
+// $grapefruit: #f37e7a;
+// $grapefruit: #ee6557;
 // $grapefruit: #cd6538;
 // $grapefruit: #df531c;
 // $grapefruit: #d75734;
@@ -30,15 +31,21 @@ $facebook: #405d9b;
 
 $box_bg: #ffffff;
 
-.mint { color: $mint }
-.grapefruit { color: $grapefruit }
-.blue { color: $blue }
-.darkGrey { color: $darkGrey }
-.turquoise { color: $turquoise }
-
-
-
 // New 
 $blue_background: rgba(186,212,251,0.6);
 $background_west: #eaedf2;
 $background_carrot: #edede9;
+
+// KathyChampion Palette
+$baby_blue: rgb(184, 225, 242); // #B8E1F2
+$link_blue: rgb(36, 154, 167);	// #249AA7
+$green: rgb(171, 210, 94); // #ABD25E
+$yellow: rgb(248, 200, 48); //
+$grapefruit: rgb(241, 89, 74); // #F1594A
+
+// Foundation Overrides
+$primary-color: $link_blue;
+// $secondary-color: #e9e9e9;
+// $alert-color: #c60f13;
+// $success-color: #5da423;
+

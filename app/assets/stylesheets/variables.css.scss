@@ -1,7 +1,7 @@
 // My global styles
 $main-width: 700px;
 
-// Foundation Various global styles
+// Foundation Override Styles
 // Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
 $em-base: 16px !default;
 @function emCalc($pxWidth) {
@@ -32,3 +32,6 @@ $h2-font-size: emCalc(37px);
 // $h4-font-size: emCalc(23px);
 // $h5-font-size: emCalc(18px);
 // $h6-font-size: 1em
+
+$medium-screen: 500px;
+$main-screen: 768px;

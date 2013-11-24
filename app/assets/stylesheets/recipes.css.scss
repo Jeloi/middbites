@@ -1,29 +1,44 @@
-@import 'foundation_and_overrides';
 @import 'colors';
+@import 'variables';
+@import 'foundation_and_overrides';
 
-$recipe-box-background: white;
+.top-show-section {
+	position: relative;
+	display: table;
+	width: 100%;
+}
 
-.recipe-box {
-	// border: 1px solid #e5e5e5;
-	background: $recipe-box-background;
+.recipe-info {
+	// border: 1px solid #dddddd;
+	text-align: center;
 	h2.title {
-		font-weight: 500;
+		font-weight: 400;
+		font-size: emCalc(30px);
 		line-height: 1.1em;
+		text-align: center;
 	}
 	.blurb {
+		text-align: center;
 		font-style: italic;
+		color: #818181;
 	}
+
+}
+.recipe-box {
 	h3 {
-		color: $mint;
+		color: $green;
 	}
 
 	p.directions {
 		padding: 0 1em;
 	}
 
-	.ingredient-list {
+	ul.ingredient-list {
 		list-style: none;
-		padding: 0 1em;
+		list-style-position: inside;
+		text-indent: -1em;
+		margin-left: 1em;
+		padding-left: 0.8em;
 		.name {
 			// float: left;
 			// font-weight: bold;
@@ -39,22 +54,15 @@ $recipe-box-background: white;
 		margin-right: 5px;
 	}
 
-	.creator-info {
-		overflow: auto;
-		min-height: 1em;
-	}
-
-
 }
 
 .recipe-form {
-	background: $recipe-box-background;
 	h2 { color: $grapefruit; margin-bottom: 10px; font-weight: bold; }
 	.chosen-container {
 		width: 100%;
 	}
 	.directions h4, h4.ingredients {
-		color: $mint;
+		color: $green;
 	}
 	.directions {
 		label { font-size: 1em; }
@@ -113,7 +121,7 @@ $recipe-box-background: white;
 				.user-name {
 					font-size: 0.9em;
 					float: left;
-					color: $blue;
+					// color: $grapefruit;
 				}
 				.time-ago {
 					float: right;
@@ -132,6 +140,36 @@ $recipe-box-background: white;
 			float: right;
 			width: 40%;
 		}
+	}
+}
+
+@media only screen and (min-width: $main-screen) {
+	#body-section:before {
+		// background-color: #f6f6f6;
+		content: "";
+		height: 180px;
+		// height: 16.6875rem;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	.recipe-info {
+		padding: 0 10%;
+		display: table-cell;
+		vertical-align: middle;
+		border: 1px solid #dddddd;
+		h2.title {
+			font-weight: 300;
+			font-size: 2.5em;
+		}
+	}
+
+	.top-show-section {
+		background: white;
+		min-height: 240px;
+		margin-bottom: 15px;
 	}
 }
 
