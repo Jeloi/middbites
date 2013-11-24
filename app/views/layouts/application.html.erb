@@ -31,7 +31,7 @@
   <body id="<%= params[:controller] + '-' + params[:action] %>">
     <div id="pagewrap"> 
 
-
+      
       <header id="header">
           <%= link_to(root_path, class: "logo clrfix") do %>
             <div class="header-logo"></div>
@@ -50,22 +50,17 @@
           </form> -->
           
       </header>
-          <nav class="main-nav">
-            <ul>
-              <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-              <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-              <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
-              <li class="nav-4"><a href="">tags</a></li>
-              <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
-            </ul>
-          </nav>
-
-     
-
-
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+          <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+          <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
+          <li class="nav-4"><a href="">tags</a></li>
+          <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
+        </ul>
+      </nav>
       <!-- <div class="toolbar"></div> -->
-
-
+      
 
       <div id="body-section">
         <div id="body-content">

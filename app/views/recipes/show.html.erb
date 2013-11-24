@@ -7,6 +7,9 @@
 			<p class="blurb"><%= @recipe.blurb %></p>
 
 		</div>
+		<div class="recipe-image">
+			<%= image_tag @recipe.image_url if @recipe.image? %>
+		</div>
 	</div>
 </div>
 <% end -%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118054625) do
+ActiveRecord::Schema.define(version: 20131124020753) do
 
   create_table "comments", force: true do |t|
     t.string   "title",            limit: 50, default: ""
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20131118054625) do
     t.integer  "bites_count",     default: 0
     t.integer  "favorites_count", default: 0
     t.integer  "comments_count",  default: 0
+    t.string   "image"
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true

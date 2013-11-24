@@ -2,14 +2,18 @@
 #
 # Table name: recipes
 #
-#  id         :integer          not null, primary key
-#  directions :text
-#  title      :string(255)
-#  blurb      :string(255)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
+#  id              :integer          not null, primary key
+#  directions      :text
+#  title           :string(255)
+#  blurb           :string(255)
+#  user_id         :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  slug            :string(255)
+#  bites_count     :integer          default(0)
+#  favorites_count :integer          default(0)
+#  comments_count  :integer          default(0)
+#  image           :string(255)
 #
 
 require 'spec_helper'
