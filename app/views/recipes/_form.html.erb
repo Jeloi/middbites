@@ -2,7 +2,7 @@
   <div class="padded-wrap">
   <h2><%= heading %></h2>
 
-  <%= form_for(@recipe) do |f| %>
+  <%= form_for @recipe, :html => {:multipart => true}  do |f| %>
   <% if @recipe.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -71,7 +71,7 @@
   <% @tag_fields_content = add_fields_helper(f, :taggings) %>
 
   
-
+  <%= f.file_field :image %>
   <%= f.submit submit_text, id: :create_recipe %>
   <% end %>
 
