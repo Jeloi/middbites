@@ -1,6 +1,6 @@
 <div class="comment">
 	<div class="meta clrfix">
-		<span class="user-name"><%= comment.user.name %></span>
+		<%= link_to comment.user.name, root_path, class: "user-name" %>
 		<span class="time-ago"><%= time_ago_in_words(comment.created_at) %> ago</span>
 	</div>
 	<p class="comment-body"><%= comment.comment %></p>

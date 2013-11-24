@@ -1,6 +1,6 @@
 @import 'variables';
-@import 'foundation_and_overrides';
 @import 'colors';
+@import 'foundation_and_overrides';
 
 @font-face {
     font-family: 'Batch';
@@ -11,38 +11,66 @@
 }
 
 body {
-	background-color: #f1f4f9;
+	// background-color: #f1f4f9;
+	// background-color: #F5F7FA;
+	// background-color: rgba(245, 247, 250, 0.8);
+	// background-color: $baby_blue;
 	// background-color: rgba(32, 121, 155, 0.1);
 }
 //Header styles
 
 // Header title
 header#header {
-	background: rgba(64, 173, 214, 0.31);
-	// background: rgba(32, 121, 155, 0.25);
+	background: #DAEFF8;
 	margin: 0 auto;
 	text-align: center;
 	overflow: auto;
+	a.logo {
+		margin: 15px 0; 
+		color: $body-font-color;
+		display: inline-block;
+	}
 	// width: $main-width;
-	.header-logo  {
+	// .header-logo  {
+	// 	background-image: url(/assets/logo.png);
+	// 	background-size: contain;
+	// 	height: 50px;
+	// 	width: 50px;
+	// 	margin: 0 auto;
+	// 	margin-top: 15px;
+	// 	margin-bottom: -30px;
+	// }
+	// .header-title {
+	// 	display: inline-block;
+	// 	// font-family: 'Montserrat Alternates';
+	// 	font-family: "omnes-pro",sans-serif;
+	// 	font-style: italic;
+	// 	font-weight: 600;
+	// 	// color: $baby_blue;
+	// 	font-size: emCalc(40px);
+	// 	line-height: 80px;
+	// 	margin: auto;
+	// 	margin-top: 10px;
+	// }
+	.header-logo {
+		display: inline-block;
 		background-image: url(/assets/logo.png);
-		background-size: contain;
 		height: 50px;
 		width: 50px;
-		margin: 0 auto;
-		margin-top: 15px;
-		margin-bottom: -30px;
+		vertical-align: top;
+		margin-top: 0px;
+		margin-right: 3px;
+		background-size: contain;
 	}
 	.header-title {
 		display: inline-block;
 		// font-family: 'Montserrat Alternates';
 		font-family: "omnes-pro",sans-serif;
 		font-style: italic;
-		font-weight: 700;
-		font-size: emCalc(40px);
-		line-height: 80px;
-		margin: auto;
-		margin-top: 10px;
+		font-weight: 600;
+		// color: $baby_blue;
+		font-size: emCalc(35px);
+		line-height: 50px;
 	}
 }
 
@@ -51,6 +79,7 @@ nav.main-nav {
 	// background: $blue;
 	margin: 0 auto;
 	padding-bottom: 5px;
+	border-bottom: 1px solid #dddddd;
 	ul {
 		max-width: 550px;
 		width: 100%;
@@ -67,22 +96,19 @@ nav.main-nav {
 		text-align: center;
 		// font-size: emCalc(19px);
 		 a {
-		 	color: $body-font-color;
-		 	// text-transform: uppercase;
+			color: $body-font-color;
 		 	font-size: emCalc(16px);
 		 	font-family: "omnes-pro";
-		 	// font-weight: bold;
-		 	font-weight: 600;
+		 	font-weight: 500;
+		 	// text-transform: Capitalize;
 		 	padding: 4px 7px;
-		 	border-radius: 4px;
 		 	transition: all .2s ease;
-		 	&:hover {	
-		 		color: $white;
+		 	&:hover {
+		 		color: $grapefruit;
 		 		transition: all .2s ease;
-		 		 }
+		 	}
 		 	&.active {
-		 		color: $white;
-		 		background-color: rgba(32, 121, 155, 0.25);
+		 		font-weight: 600;
 		 	}
 		 }
 
@@ -101,13 +127,19 @@ nav.main-nav {
 	margin: 0 auto;
 }
 
+#body-section {
+	position: relative;
+}
 // Body Content
 #body-content {
+	padding-top: 18px;
+	position: relative;
 	width: $main-width;
 	max-width: 93%;
-	margin: 10px auto;
+	margin: 0 auto;
 	// overflow: hidden;
 }
+
 
 footer#footer {
 	border-top: 1px solid #dddddd;
@@ -156,30 +188,31 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	font-size: 1em;
 }
 
- /* Styles for screens that are bigger than $small-screen (768px)
+ /* Styles for screens that are bigger than $medium-screen (500px)
  -------------------------------------------------------------*/
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: $medium-screen) {
 	$main-width: 400px;
 	$max-width: 80%;
 	#body-content {
-		// width: $main-width;
 		max-width: $max-width;
 	}
-	// nav.main-nav ul {
-	// 	width: $main-width;
-	// 	max-width: $max-width;
-	// }
+
+	header#header {
+		.header-title {
+			font-size: emCalc(40px);
+		}
+	}
 
 }
 
- /* Styles for screens that are bigger than $small-screen (768px)
+ /* Styles for screens that are bigger than $main-screen (768px)
  -------------------------------------------------------------*/
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $main-screen) {
 
  	$sidebar-width: 250px;
 
  	#body-content {
- 		margin: 18px auto;
+ 		
  	}
  	
  	#content-wrap {
@@ -196,7 +229,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  	#sidebar {
  		float: right;
  		width: $sidebar-width;
- 		background: $white;
+ 		// background: $grapefruit;
  		height: 400px;
  	}
 

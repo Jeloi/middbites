@@ -1,51 +1,47 @@
-<div class="recipe-box">
-	<div class="padded-wrap">
-		<h2 class="title"><%= @recipe.display_title %></h2>
-		<p class="blurb"><%= @recipe.blurb %></p>
-		
-	<!-- 	<div id="photo-container">
-			<hr>
-		</div> -->
-		
-		<h3>ingredients</h3>
-		<ul class="ingredient-list">
-			<% @recipe.ingredients.each do |ingredient| %>
-			<li class="clrfix">
-				<span class = "name"></span>
-				<%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
-				<% if !ingredient.quantity.blank? %>
-					<span class="quantity"> 
-						<%= ingredient.quantity %></span>
-				<% end %>
-				
+<!-- TODO. CONDITION ON IMAGE -->
+<%= content_for :recipe_info do %> 
+<div class="recipe-top">
+	<div class="top-show-section">
+		<div class="recipe-info">
+			<h2 class="title"><%= @recipe.display_title %></h2>
+			<p class="blurb"><%= @recipe.blurb %></p>
 
-			</li>
-			<% end -%>
-		</ul>
-		<h3>directions</h3>
-		<p class="directions"><%= @recipe.directions %></p>
-
-
-		
+		</div>
 	</div>
 </div>
-	
-	<div class="creator-info clrfix">
-		<%- if @recipe.created_at == @recipe.updated_at -%> 
-			<small class="left">created: <%= @recipe.created_at.strftime('%b %e, %Y') %></small>
-		<%- else -%> 
-			<small class="left">edited: <%= @recipe.updated_at.strftime('%b %e, %Y') %></small>
-		<%- end -%>
-		
-		<small class="right"><%= @recipe.user.name %></small>
-	</div>
+<% end -%>
 
+<div class="recipe-box">
+	<h3>ingredients</h3>
+	<ul class="ingredient-list">
+		<% @recipe.ingredients.each do |ingredient| %>
+		<li class="clrfix">
+			<span class = "name"></span>
+			• <%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
+			<% if !ingredient.quantity.blank? %>
+				<span class="quantity"> 
+					<%= ingredient.quantity %></span>
+			<% end %>
+			
+	
+		</li>
+		<% end -%>
+	</ul>
+	<h3>directions</h3>
+	<p class="directions"><%= @recipe.directions %></p>
+</div>
+	
 	<div class="tags">
 		<span class="icon-font tag">&#xf0ab</span>
 		<% @recipe.tags.each do |tag| %>
 				<span><%= tag.name %></span>
 			<% end %>	
 	</div>
+
+	<div class="creator-info">
+		<small>Created by <%= link_to @recipe.user.name, root_path %></small>
+	</div>
+	<div><small><%= @recipe.created_at.strftime('%b %e, %Y') %></small></div>
 
 	<div class="engage-actions">
 		<div class="vote bites" id="bite_<%= @recipe.id %>">
@@ -60,7 +56,7 @@
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>
 
-<h3>Comments (<%= @recipe.comments_count %>)</h3>
+<h3 id="comments">Comments ( <%= @recipe.comments_count %> )</h3>
 <div id="comments-section">
 	<%= render 'comments/comments_form', comment: @comment %>
 	<% @recipe.comments.limit(10).order("created_at DESC").each do |comment| %>
