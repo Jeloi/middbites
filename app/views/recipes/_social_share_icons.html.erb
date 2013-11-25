@@ -1,0 +1,48 @@
+<div class="module">
+	<h3>share</h3>
+	<div class="share-icons">
+		<!-- Twitter -->
+		<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+		<div class="inline-unit">
+		<a href="https://twitter.com/intent/tweet?text=<%= url_encode(recipe.title + ': '+recipe.blurb) %>&url=<%= request.original_url %>&hashtags=middbites">
+				<span class="image-wrap">
+					<div class="overlay"></div>
+					<img src="<%= image_path('icons/01_twitter.png') %>" alt="Tweet">
+				</span>
+			</a>
+		</div>
+		<!-- Facebook -->
+		<div class="inline-unit">
+		<a class="facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=<%= request.original_url %>">
+				<span class="image-wrap">
+					<div class="overlay"></div>
+					<img src="<%= image_path('icons/02_facebook.png') %>" alt="Facebook Share">
+				</span>
+			</a>
+		</div>
+		<!-- Pinterest -->
+		<%- if recipe.image? %>
+			<% image_link = url_encode(request.protocol+request.host + recipe.image_url) %>
+		<% end -%>
+		<div class="inline-unit">
+			<a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=&description=<%= image_link %>" data-pin-do="buttonPin" data-pin-config="none" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')">
+				<span class="image-wrap">
+					<div class="overlay"></div>
+					<img src="<%= image_path('icons/13_pinterest.png') %>" alt="Facebook Share">
+				</span>
+			</a>
+		</div>
+		<!-- Mail -->
+		<div class="inline-unit">
+		<a href= "mailto:yourfriend@somewhere.com?subject=Recipe: <%= recipe.title %>&body=" >
+			<span class="image-wrap">
+				<div class="overlay"></div>
+				<img src="<%= image_path('icons/20_sparow.png') %>" alt="Facebook Share">
+			</span>
+		</a>
+		</div>
+		<span class="stretch"></span>
+	</div>
+</div>
+
+

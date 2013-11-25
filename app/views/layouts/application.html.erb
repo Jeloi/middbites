@@ -29,6 +29,8 @@
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>">
+    
+
     <div id="pagewrap"> 
 
       
@@ -76,7 +78,9 @@
               <%= yield %>
             </div> 
           </div>
-          <div id="sidebar">Sidebar</div>
+          <div class="sidebar">
+            <%= yield(:sidebar_content) %>
+          </div>
         
           <div style="clear: both"></div>
         

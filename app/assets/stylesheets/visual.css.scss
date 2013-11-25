@@ -24,35 +24,12 @@ header#header {
 	background: #DAEFF8;
 	margin: 0 auto;
 	text-align: center;
-	border-bottom: 1px solid #dddddd;
 	overflow: auto;
 	a.logo {
 		margin: 15px 0; 
 		color: $body-font-color;
 		display: inline-block;
 	}
-	// width: $main-width;
-	// .header-logo  {
-	// 	background-image: url(/assets/logo.png);
-	// 	background-size: contain;
-	// 	height: 50px;
-	// 	width: 50px;
-	// 	margin: 0 auto;
-	// 	margin-top: 15px;
-	// 	margin-bottom: -30px;
-	// }
-	// .header-title {
-	// 	display: inline-block;
-	// 	// font-family: 'Montserrat Alternates';
-	// 	font-family: "omnes-pro",sans-serif;
-	// 	font-style: italic;
-	// 	font-weight: 600;
-	// 	// color: $baby_blue;
-	// 	font-size: emCalc(40px);
-	// 	line-height: 80px;
-	// 	margin: auto;
-	// 	margin-top: 10px;
-	// }
 	.header-logo {
 		display: inline-block;
 		background-image: url(/assets/logo.png);
@@ -65,11 +42,9 @@ header#header {
 	}
 	.header-title {
 		display: inline-block;
-		// font-family: 'Montserrat Alternates';
 		font-family: "omnes-pro",sans-serif;
 		font-style: italic;
 		font-weight: 600;
-		// color: $baby_blue;
 		font-size: emCalc(35px);
 		line-height: 50px;
 	}
@@ -77,10 +52,9 @@ header#header {
 
 // Main Nav bar
 nav.main-nav {
-	// background: $blue;
 	margin: 0 auto;
-	padding-bottom: 5px;
-	// border-bottom: 1px solid #dddddd;
+	padding: 5px;
+	// background: #f6f6f6;
 	ul {
 		max-width: 550px;
 		width: 100%;
@@ -93,9 +67,8 @@ nav.main-nav {
 		list-style: none;
 		float: left;
 		margin: 0; 
-		line-height: 2.2em;
+		line-height: 1.5em;
 		text-align: center;
-		// font-size: emCalc(19px);
 		 a {
 			color: $body-font-color;
 		 	font-size: emCalc(16px);
@@ -105,7 +78,7 @@ nav.main-nav {
 		 	padding: 4px 7px;
 		 	transition: all .2s ease;
 		 	&:hover {
-		 		color: $grapefruit;
+		 		color: $baby_blue;
 		 		transition: all .2s ease;
 		 	}
 		 	&.active {
@@ -169,6 +142,13 @@ footer#footer {
 	visibility: hidden;
 }
 
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
 .icon-font {
 	font-family: Batch;
 	&.favorite.not_voted:before {
@@ -184,6 +164,48 @@ footer#footer {
 		content: url(/assets/bit.png)
 	}
 }
+
+.share-icons {
+	margin: 0 15px;
+	text-align: justify;
+	height: 40px;
+	.inline-unit { 
+		// width: 25%;
+		width: 40px;
+		height: 40px;
+		vertical-align: top;
+		display: inline-block;
+		*display: inline;
+		zoom: 1;
+	}
+	img { width: 40px; height: 40px; }
+	.image-wrap { display: block; 
+		width: 40px;
+		height: 40px;
+
+		margin: 0 auto; position: relative }
+	.image-wrap:hover .overlay {
+		width:100%;
+		height:100%;
+		position: absolute;
+		background-color:#7e7e7e;
+		opacity:0.1;
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+	}
+}
+
+.sidebar {
+	.module {
+		margin-bottom: 1em;
+		h3 {
+			border-bottom: 1px solid #dddddd;
+			margin-bottom: 0.3em;
+		}
+	}
+}
+
 
 // To disable iPhone form zoom
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -228,7 +250,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  		padding-right: 2%;
  	}
 
- 	#sidebar {
+ 	.sidebar {
  		float: right;
  		width: $sidebar-width;
  		// background: $grapefruit;
