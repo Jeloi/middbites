@@ -6,26 +6,30 @@ module MenuScraper
 	# Visits the given base_url + date_param and scrapes middlebury menu info, optionally sorted by dining_hall
 	def self.scrape_midd_menus(base_url, date_param="", sort_by="")
 
-		url = (!date_param.blank? ? base_url + "/" + date_param : base_url) # append date_param if it isn't blank
+		# url = (!date_param.blank? ? base_url + "/" + date_param : base_url) # append date_param if it isn't blank
+		url = base_url
 		doc = Nokogiri::HTML(open(url))
 		
-		h2_nodes = doc.css(".content h2").to_ary.reject! {|node| node.text == "Grille"}	# filter out the Grille
+		h3_nodes = doc.css(".view-content h3").to_ary.delete_if {|node| node.text == "Grille"}	# filter out the Grille
 		dining_halls = {}
-		h2_nodes.each do |hall|	# Build the keys of the hash, with raw nodes as values
-			dining_halls[hall.text] = hall.parent
+		h3_nodes.each do |hall|	# Build the keys of the hash, with raw nodes as values
+			dining_halls[hall.text] = hall.next_element	# tables
 		end
 
 		
 		
 		# Build the nested hash, with dining hall being the top level key
 		dining_halls.each do |key, node|
-			meals = node.css(".meal")
+
+			meals = node.css("td") # each td (represents a meal)
 			meal_times_hash = {}
 			meals.each do |m|
 				meal = []	# array to hold strings representing that meal
-				meal_time = m.css("h3").text
-				m.css("ul li a").each do |a|
-					meal << a.text
+				meal_time = m.css("span.views-field-field-meal span.field-content").text # e.g "Lunch", "Dinner"
+				foods = m.css("div.views-field-body .field-content p").children.to_ary.delete_if {|node| node.name == "br"} # remove the br tags
+				foods.each do |food| # just text nodes
+					f = food.text.gsub("\n", "") # remove the newline char
+					meal << f
 				end
 				meal_times_hash[meal_time] = meal
 			end
