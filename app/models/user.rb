@@ -31,7 +31,9 @@ class User < ActiveRecord::Base
 	validates_presence_of :name, message: "can't be blank"
 
 	# Instance Methods
-
+	def handle
+		self.read_attribute(:handle) || self.name
+	end
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####
 
@@ -62,19 +64,19 @@ class User < ActiveRecord::Base
  	# dynamically change rating on 
 
 	# Returns all favorites that have been made on a recipe this user owns
-	def favorites_on_owned_recipes
-		Favorite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	end
+	# def favorites_on_owned_recipes
+	# 	Favorite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	# end
 	
-	# Returns all bites that have been made on a recipe this user owns
-	def bites_on_owned_recipes
-		Bite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	end
+	# # Returns all bites that have been made on a recipe this user owns
+	# def bites_on_owned_recipes
+	# 	Bite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	# end
 
-	# Returns all comments that have been made on a recipe this user owns
-	def comments_on_owned_recipes
-		Comment.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	end
+	# # Returns all comments that have been made on a recipe this user owns
+	# def comments_on_owned_recipes
+	# 	Comment.joins(:recipe).joins(:user).where(recipes: {user_id: id})
+	# end
 
 
 	# Class Methods
