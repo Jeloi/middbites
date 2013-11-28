@@ -65,27 +65,20 @@
       
 
       <div id="body-section">
-        <div id="body-content">
           <%= render 'shared/flash_holder' %>
-          <%- if content_for?(:recipe_info) %>
-            <%= yield(:recipe_info) %>
+          <%- if content_for?(:top_section) %>
+          <%= yield(:top_section) %>
           <% end -%>
-          <div id="content-wrap" class="clear">
-            <div id="content">
-              <%- if content_for?(:heading) -%> 
-                        <h2 id="heading" class="shadow <%= yield(:heading).downcase.split(" ").join("-") %>"><%= yield :heading %></h2>
-              <%- end -%> 
-              <%= yield %>
-            </div> 
+          <div id="main-content">
+            <div class="table-col main">
+             <%= yield %> 
+            </div>
+            <% if content_for?(:sidebar_content) %>
+              <div class="table-col sidebar">
+                <%= yield :sidebar_content %>
+              </div>
+            <% end %>
           </div>
-          <div class="sidebar">
-            <%= yield(:sidebar_content) %>
-          </div>
-        
-          <div style="clear: both"></div>
-        
-          
-        </div>
       </div>
       <footer id="footer">
         <div id="current-user-text">

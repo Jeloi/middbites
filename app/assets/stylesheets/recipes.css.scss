@@ -2,14 +2,20 @@
 @import 'variables';
 @import 'foundation_and_overrides';
 
-.top-show-section {
+.recipe-show-top {
+	background: white;
+	padding: 3% 3%;
 	position: relative;
 	display: table;
-	width: 100%;
+	width: $main-width;
+	margin: 20px auto;
 	.recipe-image {
 		max-width: 300px;
 		max-height: 300px;
-		margin: 10px auto;
+		margin: 0px auto;
+		img {
+			box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+		}
 	}
 }
 
@@ -17,8 +23,8 @@
 	// border: 1px solid #dddddd;
 	text-align: center;
 	h2.title {
-		font-weight: 400;
-		font-size: emCalc(30px);
+		font-weight: 600;
+		font-size: emCalc(27px);
 		line-height: 1.1em;
 		text-align: center;
 	}
@@ -151,7 +157,7 @@
 @media only screen and (min-width: $main-screen) {
 	#body-section:before {
 		// background-color: #f6f6f6;
-		content: "";
+		// content: "";
 		height: 180px;
 		// height: 16.6875rem;
 		left: 0;
@@ -160,18 +166,20 @@
 		width: 100%;
 	}
 
-	.top-show-section {
+	.recipe-show-top {
 		background: white;
-		min-height: 240px;
+		padding: 0;
+		height: 250px;
 		margin-bottom: 15px;
-		border: 1px solid #dddddd;
+		box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+		// border: 1px solid #dddddd;
 		.recipe-info {
-			padding: 0 10%;
+			padding: 10px 5%;
 			width: 100%;
 			display: table-cell;
 			vertical-align: middle;
 			h2.title {
-				font-weight: 300;
+				font-weight: 500;
 				font-size: 2.5em;
 			}
 		}
