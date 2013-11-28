@@ -7,7 +7,7 @@ $em-base: 16px !default;
 @function emCalc($pxWidth) {
   @return $pxWidth / $em-base * 1em;
 }
-$body-font-color: #444444;
+$body-font-color: #4B5056;
 // $body-font-color: #343434;
 // $body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-family: "proxima-nova", "Helvetica", Helvetica, Arial, sans-serif;
