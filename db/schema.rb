@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124020753) do
+ActiveRecord::Schema.define(version: 20131128041401) do
 
   create_table "comments", force: true do |t|
     t.string   "title",            limit: 50, default: ""
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131124020753) do
     t.string   "role",                        default: "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_handle"
   end
 
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
@@ -75,6 +76,8 @@ ActiveRecord::Schema.define(version: 20131124020753) do
     t.integer  "favorites_count", default: 0
     t.integer  "comments_count",  default: 0
     t.string   "image"
+    t.float    "score"
+    t.float    "temperature"
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true
@@ -116,6 +119,7 @@ ActiveRecord::Schema.define(version: 20131124020753) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image"
+    t.string   "handle"
   end
 
   create_table "votes", force: true do |t|

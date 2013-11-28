@@ -31,6 +31,18 @@ describe User do
   it { expect(subject).to have_many(:favorite_recipes) }
   it { expect(subject).to have_many(:bit_recipes) }
 
+  describe " custom handle accessor" do
+    it "should default to user's name if blank" do
+      expect(user.read_attribute(:handle)).to be_nil
+      expect(user.handle).to eql user.name
+    end
+
+    it "should return the handle attribute if it exists" do
+      user.handle = "cooldude7"
+      expect(user.handle).to eql "cooldude7"
+    end
+  end
+
   describe "Voting instance methods," do
     let(:vote_on_recipe) do
       user.vote(recipe, "bites")

@@ -16,3 +16,14 @@
 require "spec_helper"
 
 
+describe Comment do
+  it "should set its user_handle on create" do
+  	recipe  = create(:recipe, :with_ingredients, :owned)
+  	User.first.update_attributes(handle: "coolgirl6")
+  	recipe.comments.create(comment: "text comment", user_id: User.first.id)
+  	comment = recipe.comments.first
+  	expect(comment.user_handle).to 	eql "coolgirl6"
+  end
+end
+
+
