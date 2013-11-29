@@ -109,12 +109,11 @@ nav.main-nav {
 }
 
 #body-section {
+	margin: 0 auto;
 	position: relative;
 }
 // Main Content
 #main-content {
-	width: $main-width;
-	max-width: 93%;
 	margin: 17px auto;
 	min-height: 500px;
 }
@@ -131,6 +130,11 @@ footer#footer {
 
 
 // Global Styles
+
+.main-width {
+	max-width: 93%;
+	margin: 0 auto;
+}
 
 .padded-wrap {
 	padding: 10px 4%;
@@ -243,12 +247,16 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  			display: table-cell;
  			vertical-align:top;
  		}
- 		.main {
+ 		.content {
  		
  		}
  		.sidebar {
  			width: 250px;
  		}
+ 	}
+
+ 	.main-width {
+ 		width: $main-width;
  	}
 
 

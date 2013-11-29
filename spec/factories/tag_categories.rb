@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :tag_category do
-
+  	name "Miscellaneous"
   	factory :tastes do
 	    name "Tastes"
 	    after(:build) do |tag_category|

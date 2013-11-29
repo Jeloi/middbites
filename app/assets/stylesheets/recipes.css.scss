@@ -2,13 +2,11 @@
 @import 'variables';
 @import 'foundation_and_overrides';
 
+
+
 .recipe-show-top {
-	background: white;
-	padding: 3% 3%;
 	position: relative;
 	display: table;
-	width: $main-width;
-	margin: 20px auto;
 	.recipe-image {
 		max-width: 300px;
 		max-height: 300px;
@@ -21,6 +19,7 @@
 
 .recipe-info {
 	// border: 1px solid #dddddd;
+	margin-top: 1em;
 	text-align: center;
 	h2.title {
 		font-weight: 600;
@@ -166,7 +165,16 @@
 		width: 100%;
 	}
 
+	#recipes-show {
+		.top-section {
+			background: $bg;
+			padding: 1.5em;
+
+		}
+	}
+
 	.recipe-show-top {
+		padding: 3% 3%;
 		background: white;
 		padding: 0;
 		height: 250px;
