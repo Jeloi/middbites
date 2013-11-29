@@ -14,6 +14,8 @@
 #  favorites_count :integer          default(0)
 #  comments_count  :integer          default(0)
 #  image           :string(255)
+#  score           :float
+#  temperature     :float
 #
 
 require 'spec_helper'
@@ -60,16 +62,14 @@ describe Recipe do
 
 
   # Instance Methods
-  describe "Instance Methods" do
-    describe "friendly_id and to_param working" do
-      before(:each) do
-        @recipe = create(:recipe, :with_ingredients)
-      end
-      it { expect(@recipe.to_param).to eql("the-classic")}
-      it { expect(Recipe.find("1-the-classic")).to eql(@recipe) }
-      it { expect(Recipe.friendly.find("the-classic")).to eql(@recipe) }
-    end    
-  end
+  describe "friendly_id and to_param working" do
+    before(:each) do
+      @recipe = create(:recipe, :with_ingredients)
+    end
+    it { expect(@recipe.to_param).to eql("the-classic")}
+    it { expect(Recipe.find("1-the-classic")).to eql(@recipe) }
+    it { expect(Recipe.friendly.find("the-classic")).to eql(@recipe) }
+  end    
 
   describe "Commenting cache column" do
     let(:user) { create(:user) } 
@@ -87,6 +87,69 @@ describe Recipe do
       user.comments.where(commentable_id: recipe.id).destroy(comment_id)
       expect(recipe.comments.count).to eql  0
       expect(recipe.comments_count).to eql 0
+    end
+  end
+
+  describe "should destroy dependent associations (ingredients, bites, favorites, tags)" do
+    let(:user) { create(:user) } 
+    before(:each) do
+      @recipe = create(:recipe, :with_ingredients, :owned, :with_taggings)
+      user.vote(@recipe, "bites")
+      user.vote(@recipe, "favorites") 
+    end
+    it "should destroy dependent associations" do
+     expect(Ingredient.all.count).to eql 3
+     expect(Tagging.all.count).to eql 3
+     expect(Vote.all.count).to eql 2
+     @recipe.destroy
+     expect(Ingredient.all.count).to eql 0
+     expect(Tagging.all.count).to eql 0
+     expect(Vote.all.count).to eql 0
+    end
+  end
+
+  describe "Calculate score methods" do
+    let(:user) { create(:user) }
+    let(:recipe) { create(:recipe, :with_ingredients, :owned, :with_taggings) } 
+    let(:vote_on_recipe) do
+      user.vote(recipe, "bites")
+      user.vote(recipe, "favorites")
+      recipe.reload
+    end
+    let(:unvote_on_recipe) do
+      user.unvote(recipe, "bites")
+      user.unvote(recipe, "favorites")
+      recipe.reload
+    end
+    it "vote update scores, then unvote update scores" do
+      expect(recipe.score).to eql 0.0
+      recipe.vote_update_score "Bite"
+      recipe.vote_update_score "Favorite"
+      recipe.reload
+      expect(recipe.score).to eql Recipe::BITE_WEIGHT * 1.0 + Recipe::FAV_WEIGHT * 1.0
+      recipe.unvote_update_score "Favorite"
+      expect(recipe.score).to eql Recipe::BITE_WEIGHT * 1.0
+      recipe.unvote_update_score "Bite"
+      expect(recipe.score).to eql 0
+    end
+
+    it "voting on recipe should update recipe score" do
+      expect { 
+        vote_on_recipe
+       }.to change { recipe.score }.by Recipe::BITE_WEIGHT * 1.0 + Recipe::FAV_WEIGHT * 1.0
+    end
+
+    it "unvoting on recipe should udpate recipe score" do
+      vote_on_recipe
+      expect { 
+        unvote_on_recipe
+       }.to change { recipe.score }.by -(Recipe::BITE_WEIGHT * 1.0 + Recipe::FAV_WEIGHT * 1.0)
+    end
+
+    it "calculate_score should not change existing score" do
+      expect(recipe.score).to eql 0.0
+      vote_on_recipe
+      expect{ recipe.calculate_score }.not_to change {recipe.score}
     end
   end
 end

@@ -69,8 +69,8 @@
           <%- if content_for?(:top_section) %>
           <%= yield(:top_section) %>
           <% end -%>
-          <div id="main-content">
-            <div class="table-col main">
+          <div id="main-content" class="main-width">
+            <div class="table-col content">
              <%= yield %> 
             </div>
             <% if content_for?(:sidebar_content) %>

@@ -8,8 +8,8 @@ FactoryGirl.define do
      after(:build) do |recipe|
       recipe.user = FactoryGirl.build(:user)
      end
-
     end
+
   	trait :with_ingredients do
   		after(:build) do |recipe|
   			[:jelly, :peanut_butter, :bread].each do |item|
@@ -17,5 +17,13 @@ FactoryGirl.define do
   			end
   		end
   	end	
+
+    trait :with_taggings do
+      after(:build) do |recipe|
+        [:yummy, :breakfast, :sweet].each do |tag|
+          recipe.taggings << Tagging.new(tag: FactoryGirl.build(tag))
+        end
+      end
+    end
   end
 end

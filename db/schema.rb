@@ -72,12 +72,12 @@ ActiveRecord::Schema.define(version: 20131128041401) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "bites_count",     default: 0
-    t.integer  "favorites_count", default: 0
-    t.integer  "comments_count",  default: 0
+    t.integer  "bites_count",                              default: 0
+    t.integer  "favorites_count",                          default: 0
+    t.integer  "comments_count",                           default: 0
     t.string   "image"
-    t.float    "score"
-    t.float    "temperature"
+    t.decimal  "score",           precision: 18, scale: 6, default: 0.0
+    t.decimal  "temperature",     precision: 18, scale: 6, default: 0.0
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true

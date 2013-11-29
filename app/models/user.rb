@@ -16,6 +16,7 @@
 #  first_name        :string(255)
 #  last_name         :string(255)
 #  image             :string(255)
+#  handle            :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -59,24 +60,6 @@ class User < ActiveRecord::Base
  			raise "Wrong type of association provided"
  		end
  	end
-
- 	# Maybe use these for ratings. Consider refactoring to just have one calculation for rating
- 	# dynamically change rating on 
-
-	# Returns all favorites that have been made on a recipe this user owns
-	# def favorites_on_owned_recipes
-	# 	Favorite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	# end
-	
-	# # Returns all bites that have been made on a recipe this user owns
-	# def bites_on_owned_recipes
-	# 	Bite.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	# end
-
-	# # Returns all comments that have been made on a recipe this user owns
-	# def comments_on_owned_recipes
-	# 	Comment.joins(:recipe).joins(:user).where(recipes: {user_id: id})
-	# end
 
 
 	# Class Methods

@@ -13,4 +13,7 @@
 
 class Bite < Vote
 	belongs_to :recipe, counter_cache: true
+
+	validates_presence_of :recipe_id, :user_id
+	
 end
