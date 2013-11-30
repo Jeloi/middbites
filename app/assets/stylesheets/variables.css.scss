@@ -1,27 +1,25 @@
-// My global styles
-$main-width: 700px;
+
+
 
 // Foundation Override Styles
 // Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
-$body-font-color: #4B5056;
+// $body-font-color: #4B5056;
 // $body-font-color: #343434;
 // $body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
-$body-font-family: "proxima-nova", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-family: "proxima-nova", "Helvetica", Helvetica, Arial, sans-serif;
 
 // Heading font styles
 
 // $header-font-family: "omnes-pro", Helvetica, Arial, sans-serif;
 // $header-font-family: "Montserrat", Helvetica, Arial, sans-serif;
-$header-font-weight: normal;
-// $header-font-style: normal;
-$header-font-color: $body-font-color;
-// $header-line-height: 1.4;
-// $header-top-margin: .2em;
-$header-bottom-margin: .2em;
+// $header-font-weight: normal;
+// // $header-font-style: normal;
+// $header-font-color: $body-font-color;
+// // $header-line-height: 1.4;
+// // $header-top-margin: .2em;
+// $header-bottom-margin: .2em;
 // $header-text-rendering: optimizeLegibility;
 
 // Heading font sizes
 
 
-$medium-screen: 500px;
-$main-screen: 768px;

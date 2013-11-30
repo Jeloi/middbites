@@ -1,25 +1,15 @@
-<%= content_for :top_section do %> 
-<div class="top-section">
-	<div class="recipe-show-top main-width">
-		<div class="recipe-info">
-			<h2 class="title"><%= @recipe.display_title %></h2>
-			<p class="blurb"><%= @recipe.blurb %></p>
-
-		</div>
-		<%- if @recipe.image? %>
-		<div class="recipe-image">
-			<%= image_tag @recipe.image_url %>
-		</div>
-		<% end -%>
-	</div>
-</div>
-<% end -%>
-
 <%= content_for :sidebar_content do %>
 	<%= render 'social_share_icons', recipe: @recipe %>
 <% end -%>
 
-<div class="recipe-box">
+<div class="show-recipe padded-wrap round-box">
+	<h2 class="title"><%= @recipe.display_title %></h2>
+	<p class="blurb"><%= @recipe.blurb %></p>
+	<%- if @recipe.image? %>
+	<div class="recipe-image">
+		<%= image_tag @recipe.image_url %>
+	</div>
+	<% end -%>
 	<h3>ingredients</h3>
 	<ul class="ingredient-list">
 		<% @recipe.ingredients.each do |ingredient| %>
@@ -39,17 +29,16 @@
 	<p class="directions"><%= @recipe.directions %></p>
 </div>
 	
-	<div class="tags">
-		<span class="icon-font tag">&#xf0ab</span>
-		<% @recipe.tags.each do |tag| %>
-				<span><%= tag.name %></span>
-			<% end %>	
-	</div>
+<div class="tags module">
+	<span class="icon-font tag">&#xf0ab</span>
+	<span class="tag">tags:</span>
+	<% @recipe.tags.each do |tag| %>
+	<span><%= tag.name %></span>
+	<% end %>
+</div>
 
-	<div class="creator-info">
-		<small>Created by <%= link_to @recipe.user.name, root_path %></small>
-	</div>
-	<div><small><%= @recipe.created_at.strftime('%b %e, %Y') %></small></div>
+
+
 
 	<div class="engage-actions">
 		<div class="vote bites" id="bite_<%= @recipe.id %>">
@@ -64,11 +53,19 @@
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>
 
-<h3 id="comments">Comments ( <%= @recipe.comments_count %> )</h3>
+<h3 id="comments">
+	<span class="icon-font comment">&#xf003</span>
+	Comments ( <%= @recipe.comments_count %> )
+</h3>
 <div id="comments-section">
 	<%= render 'comments/comments_form', comment: @comment %>
 	<% @recipe.comments.limit(10).order("created_at DESC").each do |comment| %>
 		<%= render 'comments/comment', comment: comment %>
 	<% end %>
 </div>
+
+<div class="creator-info">
+	<small>Created by <%= link_to @recipe.user.name, root_path %></small>
+</div>
+<div><small><%= @recipe.created_at.strftime('%b %e, %Y') %></small></div>
 

@@ -37,7 +37,7 @@
             
           </header>
           <nav class="main-nav">
-            <ul>
+            <ul class="main-width">
               <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
               <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
               <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
@@ -48,20 +48,22 @@
           <!-- <div class="toolbar"></div> -->
 
 
-          <div id="body-section">
+        <div id="body-section">
             <%= render 'shared/flash_holder' %>
             <%- if content_for?(:top_section) %>
             <%= yield(:top_section) %>
             <% end -%>
-            <div id="main-content" class="main-width">
-              <div class="table-col content">
-               <%= yield %> 
-             </div>
-             <% if content_for?(:sidebar_content) %>
-             <div class="table-col sidebar">
-              <%= yield :sidebar_content %>
+          <div class="main-width">
+            <div id="main-content">
+                <div class="table-col content">
+                 <%= yield %> 
+               </div>
+               <% if content_for?(:sidebar_content) %>
+               <div class="table-col sidebar">
+                <%= yield :sidebar_content %>
+              </div>
+              <% end %>
             </div>
-            <% end %>
           </div>
         </div>
         <footer id="footer">
