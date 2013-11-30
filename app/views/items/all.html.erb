@@ -1,6 +1,6 @@
 <h2>Ingredients</h2>
-<div>
+<div class=>
 	<% @items.each do |item| %>
-		<%= item.name %> 	(23)<br>
+		<%= link_to item.name, item_path(item) %><br>
 	<% end %>
 </div>

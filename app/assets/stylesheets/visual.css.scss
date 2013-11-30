@@ -13,12 +13,13 @@
 }
 
 body {
-	background-color: #f8f8f8;
+	background-color: #f6f6f6;
 	// background-color: #f1f4f9;
 	// background-color: #F5F7FA;
 	// background-color: rgba(245, 247, 250, 0.8);
 	// background-color: $baby_blue;
 	// background-color: rgba(32, 121, 155, 0.1);
+	transition: all .2s ease;
 }
 //Header styles
 
@@ -78,17 +79,17 @@ nav.main-nav {
 		 a {
 			color: #eaeaea;
 		 	// font-size: emCalc(16px);
-		 	font-family: "omnes-pro";
+		 	font-family: "omnes-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 		 	font-weight: 500;
 		 	// text-transform: Capitalize;
 		 	padding: 4px 7px;
 		 	transition: all .2s ease;
 		 	&:hover {
-		 		color: $grapefruit;
+		 		color: $green;
 		 		transition: all .2s ease;
 		 	}
 		 	&.active {
-		 		color: $grapefruit;
+		 		color: $green;
 		 		// font-weight: 600;
 		 	}
 		 }
@@ -206,14 +207,23 @@ footer#footer {
 	}
 }
 
-.sidebar {
-	.module {
-		margin-bottom: 1em;
-		h3 {
-			border-bottom: 1px solid #dddddd;
-			margin-bottom: 0.3em;
-		}
+.module {
+	margin-bottom: 1em;
+	h3 {
+		padding-bottom: 0.1em;
+		border-bottom: 2px solid #dddddd;
+		margin-bottom: 0.3em;
 	}
+}
+
+.round-box {
+	background: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 
 
@@ -243,23 +253,20 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  	$sidebar-width: 250px;
 
  	#main-content {
-		display: table;
+ 		display: table;
+ 		width: 100%;
  		.table-col {
  			display: table-cell;
  			vertical-align:top;
  		}
  		.content {
- 		
+ 			
  		}
  		.sidebar {
+ 			padding-left: 1em;
  			width: 250px;
  		}
  	}
-
- 	.main-width {
- 		width: $main-width;
- 	}
-
 
  	nav.main-nav {
  		ul li {
@@ -273,9 +280,8 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  		padding-top: 10px;
  	}
 
-
-
-
-
+ 	.main-width {
+ 		width: $main-width;
+ 	}
 
 } // end media query

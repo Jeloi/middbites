@@ -1,27 +1,54 @@
-<h1>Listing recipes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Directions</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h2>Recipes</h2>
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
     <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.directions %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <li>
+      <%- if recipe.image? %>
+      <div class="grid-recipe round-box with-image">
+        <div class="relative-wrap">
+          <div class="recipe-image">
+            <%= link_to(recipe_path(recipe)) do %>
+              <%= image_tag recipe.image_url %>
+            <% end %>
+          </div>
+          
+          <%= link_to(recipe_path(recipe)) do %>
+          <h3>
+            <%= recipe.title %>
+          </h3>
+          <% end %>
+          
+          <div class="create-info clrfix">
+            <small>
+              <span class="creator left"><%= link_to recipe.user.handle, "#" %></span>
+              <span class="created-at right"><%= recipe.created_at.strftime('%b %e, %Y') %></span>
+            </small>
+          </div>
+        </div>
+      </div>
+      <% else %>
+      <div class="grid-recipe round-box no-image">
+          <div class="relative-wrap">
+            <%= link_to(recipe_path(recipe)) do %>
+            <div class="table">
+              <div class="text-info">
+                <h2> <%= recipe.title %></h2>
+                <div class="blurb"><%= recipe.blurb %></div>
+              </div>
+            </div>
+            <% end %>
+            
+            <div class="create-info clrfix">
+              <small>
+                <span class="created-at right"><%= recipe.created_at.strftime('%b %e, %Y') %></span>
+                <span class="creator left"><%= link_to recipe.user.handle, "#" %></span>
+              </small>
+            </div>
+          </div>
+      </div>
+      <% end -%>
+    </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
