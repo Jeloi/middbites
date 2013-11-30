@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require foundation
+//= require foundation
 //= require turbolinks
 //= require bxslider/jquery.bxslider
 //= require chosen-jquery
@@ -38,3 +38,4 @@
 // 	};
 // 	console.log("Window Resized");
 // }
+$(function(){ $(document).foundation(); });

@@ -3,10 +3,6 @@ $main-width: 700px;
 
 // Foundation Override Styles
 // Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
-$em-base: 16px !default;
-@function emCalc($pxWidth) {
-  @return $pxWidth / $em-base * 1em;
-}
 $body-font-color: #4B5056;
 // $body-font-color: #343434;
 // $body-font-family: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
@@ -14,7 +10,7 @@ $body-font-family: "proxima-nova", "Helvetica", Helvetica, Arial, sans-serif;
 
 // Heading font styles
 
-$header-font-family: "omnes-pro", Helvetica, Arial, sans-serif;
+// $header-font-family: "omnes-pro", Helvetica, Arial, sans-serif;
 // $header-font-family: "Montserrat", Helvetica, Arial, sans-serif;
 $header-font-weight: normal;
 // $header-font-style: normal;
@@ -26,12 +22,6 @@ $header-bottom-margin: .2em;
 
 // Heading font sizes
 
-$h1-font-size: emCalc(45px);
-$h2-font-size: emCalc(37px);
-// $h3-font-size: emCalc(27px);
-// $h4-font-size: emCalc(23px);
-// $h5-font-size: emCalc(18px);
-// $h6-font-size: 1em
 
 $medium-screen: 500px;
 $main-screen: 768px;
