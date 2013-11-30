@@ -1,100 +1,84 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
   <head>
-  	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+    <title><%= content_for?(:title) ? yield(:title) : "middbites" %></title>
 
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  	<title><%= content_for?(:title) ? yield(:title) : "middbites" %></title>
-
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-    <!-- Google Fonts -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,600,300,800' rel='stylesheet' type='text/css'> -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700|Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300|Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
     <script type="text/javascript" src="//use.typekit.net/fgh0qas.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
 
-  <body id="<%= params[:controller] + '-' + params[:action] %>">
+  <body>
+    <%= javascript_include_tag "application" %>
     
 
     <div id="pagewrap"> 
-
-      
       <header id="header">
-          <%= link_to(root_path, class: "logo clrfix") do %>
-            <div class="header-logo"></div>
-            <div class="header-title">
-              middbites
-            </div>
-          <% end %>
-          <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
-<!-- 
-          <form method="get" id="search-form" action="" >
-            <div id="search">
-              <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
-              <input class="submit" id="search-submit" type="submit" value=" " />
-              <div style="clear: both;"></div>
-            </div>        
-          </form> -->
-          
-      </header>
-      <nav class="main-nav">
-        <ul>
-          <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-          <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-          <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
-          <li class="nav-4"><a href="">tags</a></li>
-          <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
-        </ul>
-      </nav>
-      <!-- <div class="toolbar"></div> -->
-      
+        <%= link_to(root_path, class: "logo clrfix") do %>
+        <div class="header-logo"></div>
+        <div class="header-title">
+          middbites
+        </div>
+        <% end %>
+        <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
+  <!-- 
+            <form method="get" id="search-form" action="" >
+              <div id="search">
+                <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
+                <input class="submit" id="search-submit" type="submit" value=" " />
+                <div style="clear: both;"></div>
+              </div>        
+            </form> -->
+            
+          </header>
+          <nav class="main-nav">
+            <ul>
+              <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+              <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+              <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
+              <li class="nav-4"><a href="">tags</a></li>
+              <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
+            </ul>
+          </nav>
+          <!-- <div class="toolbar"></div> -->
 
-      <div id="body-section">
-          <%= render 'shared/flash_holder' %>
-          <%- if content_for?(:top_section) %>
-          <%= yield(:top_section) %>
-          <% end -%>
-          <div id="main-content" class="main-width">
-            <div class="table-col content">
-             <%= yield %> 
+
+          <div id="body-section">
+            <%= render 'shared/flash_holder' %>
+            <%- if content_for?(:top_section) %>
+            <%= yield(:top_section) %>
+            <% end -%>
+            <div id="main-content" class="main-width">
+              <div class="table-col content">
+               <%= yield %> 
+             </div>
+             <% if content_for?(:sidebar_content) %>
+             <div class="table-col sidebar">
+              <%= yield :sidebar_content %>
             </div>
-            <% if content_for?(:sidebar_content) %>
-              <div class="table-col sidebar">
-                <%= yield :sidebar_content %>
-              </div>
             <% end %>
           </div>
-      </div>
-      <footer id="footer">
-        <div id="current-user-text">
-          <% if logged_in? %>
-          <div>Hello, <%= current_user.first_name %></div>
-          <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
-          <% else %>
-          <span id="sign_in">JS signin</span>
-          <div>Sign in with <span ><%= link_to "Facebook", "/auth/facebook" %></span></div>
-          <% end -%>
         </div>
-      </footer>
-      
-    </div>
+        <footer id="footer">
+          <div id="current-user-text">
+            <% if logged_in? %>
+            <div>Hello, <%= current_user.first_name %></div>
+            <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
+            <% else %>
+            <span id="sign_in">JS signin</span>
+            <div>Sign in with <span ><%= link_to "Facebook", "/auth/facebook" %></span></div>
+            <% end -%>
+          </div>
+        </footer>
+        
+      </div>
 
-    
-<div class="box"><%= debug(params) if Rails.env.development? %></div>
-</body>
+      
+      <div class="box"><%= debug(params) if Rails.env.development? %></div>
+    </body>
 </html>

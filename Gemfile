@@ -19,7 +19,8 @@ gem 'rmagick'
 
 # gem 'jquery-turbolinks'
 
-gem 'zurb-foundation'
+# gem 'zurb-foundation'
+gem 'foundation-rails'
 gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'
 # gem 'nested_form'

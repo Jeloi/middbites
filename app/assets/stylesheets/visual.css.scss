@@ -1,6 +1,8 @@
+@import 'foundation_and_overrides';
 @import 'variables';
 @import 'colors';
-@import 'foundation_and_overrides';
+@import 'recipes';
+@import 'menus';
 
 @font-face {
     font-family: 'Batch';
@@ -11,7 +13,7 @@
 }
 
 body {
-	// background-color: #f8f8f8;
+	background-color: #f8f8f8;
 	// background-color: #f1f4f9;
 	// background-color: #F5F7FA;
 	// background-color: rgba(245, 247, 250, 0.8);
@@ -27,7 +29,7 @@ header#header {
 	text-align: center;
 	overflow: auto;
 	a.logo {
-		margin: 15px 0; 
+		margin: 25px 0; 
 		color: $body-font-color;
 		display: inline-block;
 	}
@@ -46,8 +48,8 @@ header#header {
 		color: #444444;
 		font-family: "omnes-pro",sans-serif;
 		font-style: italic;
-		font-weight: 600;
-		font-size: emCalc(35px);
+		font-weight: 700;
+		font-size: rem-calc(40px);
 		line-height: 50px;
 	}
 }
@@ -58,8 +60,7 @@ nav.main-nav {
 	padding: 5px;
 	background: white;
 	box-shadow: 0px 1px 4px -2px rgba(0,0,0,.2);
-	// background: #DAEFF8;
-	// background: #f6f6f6;
+	background: #464e54;
 	ul {
 		max-width: 550px;
 		width: 100%;
@@ -75,8 +76,8 @@ nav.main-nav {
 		line-height: 1.5em;
 		text-align: center;
 		 a {
-			color: $body-font-color;
-		 	font-size: emCalc(16px);
+			color: #eaeaea;
+		 	// font-size: emCalc(16px);
 		 	font-family: "omnes-pro";
 		 	font-weight: 500;
 		 	// text-transform: Capitalize;
@@ -87,8 +88,8 @@ nav.main-nav {
 		 		transition: all .2s ease;
 		 	}
 		 	&.active {
-		 		// color: $green;
-		 		font-weight: 600;
+		 		color: $grapefruit;
+		 		// font-weight: 600;
 		 	}
 		 }
 
@@ -227,7 +228,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	
 	header#header {
 		.header-title {
-			font-size: emCalc(40px);
+			// font-size: emCalc(40px);
 		}
 	}
 

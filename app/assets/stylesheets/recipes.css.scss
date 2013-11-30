@@ -1,6 +1,6 @@
 @import 'colors';
 @import 'variables';
-@import 'foundation_and_overrides';
+// @import 'foundation_and_overrides';
 
 
 
@@ -23,7 +23,7 @@
 	text-align: center;
 	h2.title {
 		font-weight: 600;
-		font-size: emCalc(27px);
+		// font-size: emCalc(27px);
 		line-height: 1.1em;
 		text-align: center;
 	}
