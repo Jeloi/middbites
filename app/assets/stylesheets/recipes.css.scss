@@ -2,62 +2,83 @@
 @import 'variables';
 // @import 'foundation_and_overrides';
 
+.table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.recipes-grid {
+	.create-info {
+		margin: 2px 0;
+	}
+}
+
+
 
 .grid-recipe {
 	padding: 0 5%;
 	padding-top: 5%;
-
-	height: 340px;
+	width: 100%;
+	// height: 340px;
 	.relative-wrap {
 		position: relative;
 		height: 100%;
+		padding-bottom: 21px;
 	}
-	.create-info {
+	.table {
+		margin: 2px auto;
+	}
+	h3 {
+		padding: 0.4em 0;
+		width: 900px;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		font-weight: 500;
+		font-size: rem-calc(25);
+		transition: all .2s ease;
+	}
+	.misc-info {
 		position: absolute;
-		bottom: 4px;
-		left: 0;
+		bottom: 2px;
 		right: 0;
-		// .creator { left: 0 }
-		// .created-at { margin-left: -5px}
 	}
+
 	&.with-image {
 		.recipe-image {
 			// max-width: 200px;
+			display: table-row;
+			position: relative;
 			max-height: 250px;
 			overflow: hidden;
 			margin: 0 auto;
 			img {
 				box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
 			}
-		}
-		h3 {
-			font-weight: 500;
-			font-size: rem-calc(20);
-			line-height: 1;
-			text-align: center;
-			transition: all .2s ease;
-		}
+		}	
+
 	}
 	&.no-image {
 
-		.table {
-			display: table;
-			width: 100%;
-			.text-info {
-				display: table-cell;
-				vertical-align: middle;
-				height: 250px;
-				text-align: center;
-				h2 {
-					font-weight: 500;
-					font-size: rem-calc(32);
-					transition: all .2s ease;
-				}
+
+		.text-info {
+			display: table-cell;
+			vertical-align: middle;
+			height: 250px;
+			text-align: center;
+			h2 {
+				font-weight: 500;
+				font-size: rem-calc(29);
+				transition: all .2s ease;
 			}
-			&:hover h2 { color: $green; transition: all .2s ease; } 
+			.blurb {
+				font-size: rem-calc(13);
+			}	
 		}
+		&:hover h2 { color: $grapefruit; transition: all .2s ease; } 
 		.creator {
-			margin-right: 4px;
+			// margin-right: 4px;
 		}
 	}
 }
@@ -211,12 +232,21 @@
 	}
 }
 
-@media only screen and (min-width: $main-screen) {
+@media #{$medium-up} {
+	.grid-recipe {
+		height: 360px;
+		h3 {
+			font-size: rem-calc(20);
+			padding: 0.1em 0;
+			line-height: 1em;
+		}
+	}
+}
+
+@media #{$large-up} {
 
 	.grid-recipe {
-		padding: 0 5%;
-		padding-top: 5%;
-		height: 300px;
+		height: 290px;
 	}
 
 	#body-section:before {
