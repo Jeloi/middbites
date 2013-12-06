@@ -13,11 +13,11 @@
 }
 
 body {
-	background-color: #f2f2f2;
-	// background-color: #f1f4f9;
+	background-color: #f6f6f6;
+	// background-image: url(/assets/BG_tile_linen_gray.gif);
+	// background-color: #f4f5f7;
 	// background-color: #F5F7FA;
 	// background-color: rgba(245, 247, 250, 0.8);
-	// background-color: $baby_blue;
 	// background-color: rgba(32, 121, 155, 0.1);
 	transition: all .2s ease;
 }
@@ -25,10 +25,14 @@ body {
 
 // Header title
 header#header {
+	// border-top: 8px solid #464e54;
 	background: #DAEFF8;
+	// background: white;
 	margin: 0 auto;
 	text-align: center;
 	overflow: auto;
+	// box-shadow: 0px 1px 4px -2px rgba(0,0,0,.2);
+	// border-bottom: 1px solid #d8dde1;
 	a.logo {
 		margin: 25px 0; 
 		color: $body-font-color;
@@ -47,6 +51,7 @@ header#header {
 	.header-title {
 		display: inline-block;
 		color: #444444;
+		// span { color: white }
 		font-family: "omnes-pro",sans-serif;
 		font-style: italic;
 		font-weight: 700;
@@ -60,8 +65,8 @@ nav.main-nav {
 	margin: 0 auto;
 	padding: 5px;
 	background: white;
-	box-shadow: 0px 1px 4px -2px rgba(0,0,0,.2);
-	background: #464e54;
+	
+	// background: #464e54;
 	ul {
 		max-width: 550px;
 		width: 100%;
@@ -77,19 +82,19 @@ nav.main-nav {
 		line-height: 1.5em;
 		text-align: center;
 		 a {
-			color: #eaeaea;
+			color: #444444;
 		 	// font-size: emCalc(16px);
 		 	font-family: "omnes-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 		 	font-weight: 500;
-		 	// text-transform: Capitalize;
+		 	text-transform: Capitalize;
 		 	padding: 4px 7px;
 		 	transition: all .2s ease;
 		 	&:hover {
-		 		color: $green;
+		 		color: $grapefruit;
 		 		transition: all .2s ease;
 		 	}
 		 	&.active {
-		 		color: $green;
+		 		// color: $grapefruit;
 		 		// font-weight: 600;
 		 	}
 		 }
@@ -101,9 +106,11 @@ nav.main-nav {
 	 }
 }
 
-.toolbar {
+
+
+#support-bar {
 	// max-width: $main-width;
-	height: 20px;
+	// height: 40px;
 	// background-color: #f6f6f6;
 	background-color: white;
 	// background-color: rgba(147, 208, 109, 0.64);
@@ -118,6 +125,10 @@ nav.main-nav {
 #main-content {
 	margin: 17px auto;
 	min-height: 500px;
+}
+
+.section-header {
+	margin-bottom: 0.4em;
 }
 
 
@@ -153,11 +164,24 @@ footer#footer {
 	visibility: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	word-break: break-word;
+.inline-unit { 
+	vertical-align: top;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
 }
 
+
+
 .stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.ib-container:after {
+    content: '';
     width: 100%;
     display: inline-block;
     font-size: 0;
@@ -184,15 +208,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 25px;
 	text-align: justify;
 	height: 40px;
-	.inline-unit { 
-		// width: 25%;
-		width: 35px;
-		height: 35px;
-		vertical-align: top;
-		display: inline-block;
-		*display: inline;
-		zoom: 1;
-	}
+
 	img { width: 35px; height: 35px; }
 	.image-wrap { display: block; 
 		width: 35px;
@@ -222,13 +238,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .round-box {
 	background: #fff;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-	// border: 1px solid #ddd;
+	// border-radius: 6px;
+	// box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	border: 2px solid #eee;
 }
 
 
@@ -289,8 +301,122 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
  		width: $main-width;
  	}
 
- 	// .recipes-grid-width {
- 	// 	width: 900px;
- 	// }
-
 } // end media query
+
+@media #{$xlarge-up} {
+	.recipes-grid-width {
+		width: 900px;
+	}
+}
+
+/* Below Variables added to make this work in Codepen, individually, without including Foundation
+* http://codepen.io/rvinay88/pen/Gbvua
+*/
+@import "compass";
+@mixin clearfix {
+  clear: both;
+}
+$default-float: left;
+$include-html-classes: true;
+/*End Variable Declaration*/
+ 
+//
+// Block Grid Variables
+//
+$include-html-grid-classes: $include-html-classes !default;
+ 
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+$block-grid-default-spacing: 10px !default;
+ 
+// Enables media queries for block-grid classes. Set to false if writing semantic HTML.
+$block-grid-media-queries: true !default;
+ 
+//
+// Block Grid Mixins
+//
+ 
+// We use this mixin to create different block-grids. You can apply per-row and spacing options.
+// Setting $base-style to false will ommit default styles.
+@mixin block-grid($per-row:false, $spacing:$block-grid-default-spacing, $base-style:true) {
+ 
+  @if $base-style {
+    display: block;
+    padding: 0;
+    // margin: 0 ($spacing/2);
+    @include clearfix;
+ 
+    &>li {
+      display: inline;
+      height: auto;
+      float: $default-float;
+      padding: 0 ($spacing/2) $spacing;
+    }
+  }
+ 
+  @if $per-row {
+    &>li {
+      width: 100%/$per-row;
+      padding: 0 ($spacing/2) $spacing;
+ 
+      &:nth-of-type(n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+    }
+  }
+ 
+ 
+}
+ 
+@if $include-html-grid-classes {
+  /* Foundation Block Grids for below small breakpoint */
+  
+  /* Add your media query names and breakpoints here */
+ 
+  $breakingpoint-names:  xs, small, medium, large, xl;
+  $breakingpoint-widths: 300px, 300px, 530px, 700px, 1120px;
+ 
+  $bp-prev: false;
+  $query: ();
+  
+  @for $bp-name from 1 through length($breakingpoint-names) {
+   
+     $name:  nth($breakingpoint-names, $bp-name); 
+     $width: nth($breakingpoint-widths, $bp-name); 
+     $query: " screen and (min-width: #{$width})";
+     
+     /* Mobile First Styles */
+    
+     @if ($bp-name == 1) {
+      @media only screen {
+        [class*="block-grid-"] { @include block-grid; }
+      
+        @for $i from 1 through $block-grid-elements {
+          .#{$name}-block-grid-#{($i)} {
+            @include block-grid($i,$block-grid-default-spacing,false);
+          }
+        }
+      }
+    }
+ 
+  /* Extending styles for >mobile breakpoint */
+ 
+    @else {
+      @media #{$query}
+      {
+        @for $i from 1 through $block-grid-elements {
+          $a: nth($breakingpoint-names, $bp-name);
+          .#{$a}-block-grid-#{$i} {
+            @include block-grid($i,$block-grid-default-spacing,false);
+          }
+        }
+        @each $bpn in $breakingpoint-names {
+          @if $bpn != $name {
+            @for $j from 1 through $block-grid-elements {
+              .#{$bpn}-block-grid-#{$j} > li:nth-of-type(#{$j}n+1) { clear: none; }
+            }
+          }
+        }
+      }
+    }
+  }
+}

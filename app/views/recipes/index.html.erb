@@ -1,30 +1,48 @@
-<h2>Recipes</h2>
+<h2 class="section-header">recipes</h2>
   <% provide :alternate_width, "recipes-grid-width" %>
   <div class="recipes-grid">
-    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 xl-block-grid-4">
       <% @recipes.each do |recipe| %>
       <li>
         <%- if recipe.image? %>
         <div class="grid-recipe round-box with-image">
           <div class="relative-wrap">
             <div class="table">
+
               <div class="recipe-image">
                 <%= link_to(recipe_path(recipe)) do %>
                   <%= image_tag recipe.image_url %>
                 <% end %>
               
               </div>
+              <div class="misc-info clrfix">
+                <small>
+                <span class="creator left"><%= link_to recipe.user.handle, "#" %></span>
+                <span class="created-at right"><%= recipe.created_at.strftime('%b %e, %Y') %></span>
+                </small>
+              </div>
               <%= link_to(recipe_path(recipe)) do %>
                 <h3>
                   <%= recipe.title %>
                 </h3>
               <% end %>
+              
             </div>
-            <div class="misc-info clrfix">
-              <small>
-                <span class="create-info"><%= link_to recipe.user.handle, "#" %>   •   <%= recipe.created_at.strftime('%b %e, %Y') %></span>
-              </small>
+            <div class="interactive-actions">
+              <div class="wrap ib-container">
+                <div class="bite inline-unit">
+                  <span class="bite"></span>
+                  <span class="number"><%= recipe.favorites_count %></span>
+                </div>      
+                <div class="fav inline-unit">
+                 <span class="icon-font fav">&#xf049</span><span class="number"> <%= recipe.favorites_count %></span>
+                </div>
+                <div class="commment inline-unit">
+                  <span class="icon-font">&#xf003</span><span class="number"> <%= recipe.comments_count %></span>
+                </div> 
+              </div>
             </div>
+
           </div>
         </div>
 
@@ -49,6 +67,7 @@
             </div>
         </div>
         <% end -%>
+
       </li>
       <% end %>
     </ul>

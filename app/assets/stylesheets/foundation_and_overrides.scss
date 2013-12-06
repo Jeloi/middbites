@@ -173,8 +173,8 @@ $body-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", Helvetica, Ari
 // Media Query Ranges
 $small-range: (0em, 31.25em);
 $medium-range: (31.25em, 43.75em);
-$large-range: (43.75em, 90em);
-// $xlarge-range: (90.063em, 120em);
+$large-range: (43.75em, 70em);
+$xlarge-range: (70.063em, 120em);
 // $xxlarge-range: (120.063em);
 
 $screen: "only screen";
@@ -191,8 +191,8 @@ $medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max
 $large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
 $large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})";
 
-// $xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
-// $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
 
 // $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 // $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";

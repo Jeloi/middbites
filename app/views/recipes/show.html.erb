@@ -10,6 +10,7 @@
 		<%= image_tag @recipe.image_url %>
 	</div>
 	<% end -%>
+
 	<h3>ingredients</h3>
 	<ul class="ingredient-list">
 		<% @recipe.ingredients.each do |ingredient| %>
@@ -47,7 +48,6 @@
 		<div class="vote favorites" id="favorite_<%= @recipe.id %>">
 			<%= render "vote", association: "favorites", dom_id: "favorite_"+@recipe.id.to_s %>	
 		</div>
-		<div class="vote favorite"></div>
 		<div class="comment"></div>
 	</div>
 
