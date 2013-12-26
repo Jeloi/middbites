@@ -48,6 +48,8 @@ group :development, :test do
   gem 'zeus' 
   gem 'factory_girl_rails'
 
+  gem 'capistrano'
+
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'
   # gem 'ruby-prof'
