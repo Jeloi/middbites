@@ -54,8 +54,8 @@
 <%= link_to "Edit", edit_recipe_path(@recipe) %>
 
 <h3 id="comments">
-	<span class="icon-font comment">&#xf003</span>
 	Comments ( <%= @recipe.comments_count %> )
+	<span class="icon-font comment">&#xf003</span>
 </h3>
 <div id="comments-section">
 	<%= render 'comments/comments_form', comment: @comment %>

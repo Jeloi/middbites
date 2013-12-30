@@ -31,11 +31,51 @@ $rem-base: 16px;
 // $include-print-styles: true;
 // $include-html-global-classes: $include-html-classes;
 
+// Grid
+
+// $include-html-grid-classes: $include-html-classes;
+
+$row-width: rem-calc(1100);
+// $column-gutter: rem-calc(30);
+// $total-columns: 12;
+
+// We use these to control various global styles
+// $body-bg: #fff;
+$body-font-color: #464e54;
+$body-font-family: "museo-sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-weight: normal;
+// $body-font-style: normal;
+
+// We use this to control font-smoothing
+// $font-smoothing: antialiased;
+
+// We use these to control text direction settings
+// $text-direction: ltr;
+// $opposite-direction: right;
+// $default-float: left;
+
+// We use these as default colors throughout
+$primary-color: #3aafe3;
+// $secondary-color: #e7e7e7;
+// $alert-color: #f04124;
+// $success-color: #43AC6A;
+
+// We use these to make sure border radius matches unless we want it different.
+// $global-radius: 3px;
+// $global-rounded: 1000px;
+
+// We use these to control inset shadow shiny edges and depressions.
+// $shiny-edge-size: 0 1px 0;
+// $shiny-edge-color: rgba(#fff, .5);
+// $shiny-edge-active-color: rgba(#000, .2);
+
 // Type
+
 // $include-html-type-classes: $include-html-classes;
 
 // // We use these to control header font styles
-$header-font-family: "omnes-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: "museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $header-font-family: "ff-enzo-web", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $header-font-weight: normal;
 // $header-font-style: normal;
 $header-font-color: #464e54;
@@ -81,8 +121,8 @@ $paragraph-margin-bottom: rem-calc(15);
 
 // // We use these to style anchors
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+$anchor-font-color: $primary-color;
+$anchor-font-color-hover: darken($primary-color, 10%);
 
 // // We use these to style the hr element
 // $hr-border-width: 1px;
@@ -132,49 +172,11 @@ $paragraph-margin-bottom: rem-calc(15);
 // $microformat-abbr-font-weight: bold;
 // $microformat-abbr-font-decoration: none;
 
-// Grid
-
-// $include-html-grid-classes: $include-html-classes;
-
-// $row-width: rem-calc(1000);
-// $column-gutter: rem-calc(30);
-// $total-columns: 12;
-
-// We use these to control various global styles
-// $body-bg: #fff;
-$body-font-color: #464e54;
-$body-font-family: "proxima-nova", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
-// $body-font-style: normal;
-
-// We use this to control font-smoothing
-// $font-smoothing: antialiased;
-
-// We use these to control text direction settings
-// $text-direction: ltr;
-// $opposite-direction: right;
-// $default-float: left;
-
-// We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-
-// We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
-// $global-rounded: 1000px;
-
-// We use these to control inset shadow shiny edges and depressions.
-// $shiny-edge-size: 0 1px 0;
-// $shiny-edge-color: rgba(#fff, .5);
-// $shiny-edge-active-color: rgba(#000, .2);
-
 // Media Query Ranges
-$small-range: (0em, 31.25em);
-$medium-range: (31.25em, 43.75em);
-$large-range: (43.75em, 70em);
-$xlarge-range: (70.063em, 120em);
+$small-range: (0em, 31.24em); //500px
+$medium-range: (31.25em, 43.75em);	//700px
+$large-range: (43.76em, 70em);		//1120px
+$xlarge-range: (70.1em, 120em);	//1920px
 // $xxlarge-range: (120.063em);
 
 $screen: "only screen";
@@ -266,7 +268,7 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
-$block-grid-default-spacing: rem-calc(15);
+$block-grid-default-spacing: rem-calc(30);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 $block-grid-media-queries: true;
@@ -357,15 +359,15 @@ $block-grid-media-queries: true;
 // $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
-// $f-dropdown-triangle-color: #fff;
-// $f-dropdown-triangle-side-offset: 10px;
+$f-dropdown-triangle-size: 0px;
+$f-dropdown-triangle-color: #fff;
+$f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
 // $f-dropdown-font-color: #555;
 // $f-dropdown-font-size: rem-calc(14);
-// $f-dropdown-list-padding: rem-calc(5, 10);
+$f-dropdown-list-padding: rem-calc(4);
 // $f-dropdown-line-height: rem-calc(18);
 // $f-dropdown-list-hover-bg: #eeeeee  ;
 // $dropdown-mobile-default-float: 0;

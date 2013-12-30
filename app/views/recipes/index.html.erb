@@ -1,77 +1,22 @@
-<h2 class="section-header">recipes</h2>
-  <% provide :alternate_width, "recipes-grid-width" %>
-  <div class="recipes-grid">
-    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 xl-block-grid-4">
-      <% @recipes.each do |recipe| %>
-      <li>
-        <%- if recipe.image? %>
-        <div class="grid-recipe round-box with-image">
-          <div class="relative-wrap">
-            <div class="table">
+<%# render 'old_grid_recipes' %>
 
-              <div class="recipe-image">
-                <%= link_to(recipe_path(recipe)) do %>
-                  <%= image_tag recipe.image_url %>
-                <% end %>
-              
-              </div>
-              <div class="misc-info clrfix">
-                <small>
-                <span class="creator left"><%= link_to recipe.user.handle, "#" %></span>
-                <span class="created-at right"><%= recipe.created_at.strftime('%b %e, %Y') %></span>
-                </small>
-              </div>
-              <%= link_to(recipe_path(recipe)) do %>
-                <h3>
-                  <%= recipe.title %>
-                </h3>
-              <% end %>
-              
-            </div>
-            <div class="interactive-actions">
-              <div class="wrap ib-container">
-                <div class="bite inline-unit">
-                  <span class="bite"></span>
-                  <span class="number"><%= recipe.favorites_count %></span>
-                </div>      
-                <div class="fav inline-unit">
-                 <span class="icon-font fav">&#xf049</span><span class="number"> <%= recipe.favorites_count %></span>
-                </div>
-                <div class="commment inline-unit">
-                  <span class="icon-font">&#xf003</span><span class="number"> <%= recipe.comments_count %></span>
-                </div> 
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <% else %>
-        <div class="grid-recipe round-box no-image">
-            <div class="relative-wrap">
-              <%= link_to(recipe_path(recipe)) do %>
-              <div class="table">
-                <div class="text-info">
-                  <h2> <%= recipe.title %></h2>
-                  <div class="blurb"><%= recipe.blurb %></div>
-                </div>
-              </div>
-              <% end %>
-
-              <div class="misc-info clrfix">
-                <small>
-                  <span class="create-info"><%= link_to recipe.user.handle, "#" %>   •   <%= recipe.created_at.strftime('%b %e, %Y') %></span>
-                </small>
-              </div>
-            </div>
-        </div>
-        <% end -%>
-
-      </li>
-      <% end %>
-    </ul>
+<div class="row">
+  <div class="header-title text-center">
+    <h1>All Recipes</h1>
   </div>
+</div>
 
-<br>
+<div class="row display-options">
+ <%= link_to "list", params.merge(view: "list") %> 
+ <%= link_to "tile", params.merge(view: "tiles") %>
+ <%= link_to "default", params.merge(view: "") %>
+</div>
 
+<% view = params[:view] %>
+<% if view == "detailed" || view.blank? %>
+  <%= render  "detailed_recipes", recipes: @recipes %>
+<% elsif view == "tiles" %>
+  <%= render  "tile_recipes", recipes: @recipes %>
+<% elsif view == "list" %>
+  <%= render  "list_recipes", recipes: @recipes %>
+<% end %>
