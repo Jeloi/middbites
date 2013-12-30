@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'Batch';
+    src: url(font-path('batch-icons-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('batch-icons-webfont.woff')) format('woff'), 
+         url(font-path('batch-icons-webfont.ttf'))  format('truetype'),
+         url(font-path('batch-icons-webfont.svg') + "#Batch") format('svg');
+}
+
+body {
+	transition: all .2s ease;
+}
+
+// Header title
+header#header {
+	text-align: center;
+	h1.header-title {
+		font-weight: 500;
+		font-family: "reklame-script";
+		color: black;
+		margin-top: 20px;
+		margin-bottom: 0;
+		// line-height: 2em;
+	}
+}
+
+// Main Nav bar
+#sticky_navigation_wrapper {
+	width: 100%;
+	height: 50px;
+}
+
+nav.main-nav {
+	border-bottom: 1px solid #ddd;
+	background: white; z-index: 99999;
+	margin: 0 auto;
+	width: 100%;
+	height: 50px;
+	a { 
+		color: #444444;
+		font-size: rem-calc(14);
+	}
+	ul#main-nav {
+		margin: 0 auto;
+		text-align: center;
+		width: 500px;
+		line-height: 50px;
+	}
+	ul#main-nav > li {
+		// font-family: $header-font-family;
+		font-weight: 500;
+		display: inline-block;
+		margin-right: 15px;
+		padding-right: 15px;
+		text-transform: uppercase;
+		&:last-child {
+			margin-right: 0;
+			padding-right: 0;
+		}
+		span.search { margin-right: 20px; }
+	 }
+
+}
+ul#user_hover {
+	margin: 0;
+	z-index: 10000;
+	.hello {
+		padding: 0.25rem;
+	}
+	hr {
+		margin: 2px 0;
+	}
+}
+
+
+.header-title {
+	h1 {
+		font-family: $body-font-family;
+		font-weight: 600;
+		line-height: 2em;
+		margin: 0;
+	}
+}
+
+
+
+footer#footer {
+	border-top: 1px solid #dddddd;
+	min-height: 400px;
+	// background-color: $blue;
+	max-width: $main-width;
+	margin: 0 auto;
+}
+
+
+// Global Styles
+
+.main-width {
+	max-width: 93%;
+	margin: 0 auto;
+}
+
+.padded-wrap {
+	padding: 10px 4%;
+}
+
+.clrfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	width: 0;
+	line-height: 0;
+	font-size: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.inline-unit { 
+	vertical-align: top;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+
+
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.ib-container:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.icon-font {
+	font-family: Batch;
+	&.favorite.not_voted:before {
+		content: "\f04b";
+	}
+	&.favorite.voted:before {
+		content: "\f049";
+	}
+	&.bite.not_voted:before {
+		content: url(/assets/bite.png)
+	}
+	&.bite.voted:before {
+		content: url(/assets/bit.png)
+	}
+}
+
+.share-icons {
+	margin: 0 25px;
+	text-align: justify;
+	height: 40px;
+
+	img { width: 35px; height: 35px; }
+	.image-wrap { display: block; 
+		width: 35px;
+		height: 35px;
+
+		margin: 0 auto; position: relative }
+	.image-wrap:hover .overlay {
+		width:100%;
+		height:100%;
+		position: absolute;
+		background-color:#ffffff;
+		opacity:0.1;
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+	}
+}
+
+.module {
+	margin-bottom: 1em;
+	h3 {
+		padding-bottom: 0.1em;
+		border-bottom: 2px solid #dddddd;
+		margin-bottom: 0.3em;
+	}
+}
+
+
+
+// To disable iPhone form zoom
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+	font-size: 1em;
+}
+
+
+
+ /* Styles for screens that are bigger than $main-screen (768px)
+ -------------------------------------------------------------*/
+@media only screen and (min-width: $main-screen) {
+
+ 	$sidebar-width: 250px;
+
+ 	#main-content {
+ 		display: table;
+ 		width: 100%;
+ 		.table-col {
+ 			display: table-cell;
+ 			vertical-align:top;
+ 		}
+ 		.content {
+ 			
+ 		}
+ 		.sidebar {
+ 			padding-left: 1em;
+ 			width: 250px;
+ 		}
+ 	}
+
+ 	.main-width {
+ 		width: $main-width;
+ 	}
+
+} // end media query
+
+@media #{$xlarge-up} {
+	.recipes-grid-width {
+		width: 900px;
+	}
+
+	.grid-recipe {
+		height: 380px;
+	}
+}
+
+/* Below Variables added to make this work in Codepen, individually, without including Foundation
+* http://codepen.io/rvinay88/pen/Gbvua
+*/
+

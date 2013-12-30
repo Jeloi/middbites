@@ -17,9 +17,10 @@ gem 'rmagick'
 # gem 'sidekiq'
 
 
-# gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'
 
 # gem 'zurb-foundation'
+# gem 'foundation-rails', github: 'ahacking/foundation-rails'
 gem 'foundation-rails'
 gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'

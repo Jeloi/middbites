@@ -22,9 +22,9 @@
       <header id="header">
         <%= link_to(root_path, class: "logo clrfix") do %>
         <div class="header-logo"></div>
-        <div class="header-title">
-          <span>midd</span>bites
-        </div>
+        <h1 class="header-title">
+          middbites
+        </h1>
         <% end %>
         <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
   <!-- 
@@ -36,46 +36,47 @@
               </div>        
             </form> -->
       </header>
-      <nav class="main-nav">
-        <ul class="main-width">
-          <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-          <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-          <li class="nav-3"><%= link_to "create", new_recipe_path, class: ("active" if current_page?(new_recipe_path)) %></li>
-          <li class="nav-4"><a href="">tags</a></li>
-          <li class="nav-5"><%= link_to "ingredients", all_items_path, class: ("active" if params[:controller] == "items") %></li>
-        </ul>
-      </nav>
+      <div id="sticky_navigation_wrapper">
+        <nav id="sticky_navigation" class="main-nav">
+          <ul id="main-nav" class="row" >
+            <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+            <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+            <li class="nav-3"><a href="">Other</a></li>
+            <li class="nav-4">
+              <span class="icon-font search">&#xf094</span>
+              <%= link_to() do %>
+              <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
+                &#xf170
+              </span>
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+      </div> 
+      <ul id="user_hover" class="f-dropdown" data-dropdown-content>
+        <% if !logged_in? %>
+          <li><%= link_to "Sign up", "#" %></li>
+          <li>
+            <%= link_to "/auth/facebook" do %>
+              Sign in with <span class="facebook_blue">Facebook</span>
+            <% end %>
+          </li>
+        <% else %>
+            <li class="hello">Hello, <%= current_user.first_name %></li>
+            <hr>
+            <li><a href="">Account</a></li>
+            <li><a href="">Favorited Recipes</a></li>
+            <li><a href="">Bit Recipes</a></li>
+            <hr>
+            <li><%= link_to "Log Out", signout_path %></li>
+        <% end %>
+      </ul>
 
       <div id="support-bar"></div>
 
-        <div id="body-section">
-            <%= render 'shared/flash_holder' %>
-            <%- if content_for?(:top_section) %>
-            <%= yield(:top_section) %>
-            <% end -%>
-          <div class="main-width <%= yield(:alternate_width) %>">
-            <div id="main-content">
-                <div class="table-col content">
-                 <%= yield %> 
-               </div>
-               <% if content_for?(:sidebar_content) %>
-               <div class="table-col sidebar">
-                <%= yield :sidebar_content %>
-              </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
+      <%= yield %>
         <footer id="footer">
-          <div id="current-user-text">
-            <% if logged_in? %>
-            <div>Hello, <%= current_user.first_name %></div>
-            <div id="sign_out"><%= link_to "Sign Out", signout_path %></div>
-            <% else %>
-            <span id="sign_in">JS signin</span>
-            <div>Sign in with <span ><%= link_to "Facebook", "/auth/facebook" %></span></div>
-            <% end -%>
-          </div>
+          
         </footer>
         
       </div>
