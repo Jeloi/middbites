@@ -49,7 +49,10 @@ group :development, :test do
   gem 'zeus' 
   gem 'factory_girl_rails'
 
-  gem 'capistrano'
+  # gem 'capistrano', '~>2.15'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'
@@ -85,6 +88,6 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor'
+  # gem 'pg', '0.15.1'
+  # gem 'rails_12factor'
 end
