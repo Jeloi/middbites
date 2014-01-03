@@ -54,8 +54,10 @@ $(function () {
 	    // otherwise change it back to relative
 	    if (scroll_top > sticky_navigation_offset_top) { 
 	        $('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+	        $('.fixed-appear').fadeIn('400');
 	    } else {
 	        $('#sticky_navigation').css({ 'position': 'relative' }); 
+	        $('.fixed-appear').fadeOut('100');
 	    }   
 	};
 	 

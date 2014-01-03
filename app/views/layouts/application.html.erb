@@ -15,73 +15,95 @@
 
   <body id="<%= params[:controller] + '-' + params[:action] %>">
     <%= javascript_include_tag "application" %>
-    
-
-    <div id="pagewrap"> 
-      
-      <header id="header">
-        <%= link_to(root_path, class: "logo clrfix") do %>
-        <div class="header-logo"></div>
-        <h1 class="header-title">
-          middbites
-        </h1>
-        <% end %>
-        <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
-  <!-- 
-            <form method="get" id="search-form" action="" >
-              <div id="search">
-                <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
-                <input class="submit" id="search-submit" type="submit" value=" " />
-                <div style="clear: both;"></div>
-              </div>        
-            </form> -->
-      </header>
-      <div id="sticky_navigation_wrapper">
-        <nav id="sticky_navigation" class="main-nav">
-          <ul id="main-nav" class="row" >
-            <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-            <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-            <li class="nav-3"><a href="">Other</a></li>
-            <li class="nav-4">
-              <span class="icon-font search">&#xf094</span>
-              <%= link_to() do %>
-              <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
-                &#xf170
-              </span>
-              <% end %>
-            </li>
+    <div class="off-canvas-wrap">
+      <div class="inner-wrap">
+        <!-- Off-canvas Menu -->
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Foundation</label></li>
+            <li><a href="#">The Psychohistorians</a></li>
           </ul>
-        </nav>
-      </div> 
-      <ul id="user_hover" class="f-dropdown" data-dropdown-content>
-        <% if !logged_in? %>
-          <li><%= link_to "Sign up", "#" %></li>
-          <li>
-            <%= link_to "/auth/facebook" do %>
-              Sign in with <span class="facebook_blue">Facebook</span>
-            <% end %>
-          </li>
-        <% else %>
-            <li class="hello">Hello, <%= current_user.first_name %></li>
-            <hr>
-            <li><a href="">Account</a></li>
-            <li><a href="">Favorited Recipes</a></li>
-            <li><a href="">Bit Recipes</a></li>
-            <hr>
-            <li><%= link_to "Log Out", signout_path %></li>
-        <% end %>
-      </ul>
-
-      <div id="support-bar"></div>
-
-      <%= yield %>
-        <footer id="footer">
-          
-        </footer>
+        </aside>
         
-      </div>
+        <!-- Main Content, i.e not off-canvas -->
+        <section class="main-section">
+         
+          <header id="header" class="show-for-large-up">
+             <%= link_to(root_path, class: "logo clrfix") do %>
+             <div class="header-logo"></div>
+             <h1 class="middbites">
+               middbites
+             </h1>
+             <% end %>
+             <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
+             <!-- 
+                 <form method="get" id="search-form" action="" >
+                   <div id="search">
+                     <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
+                     <input class="submit" id="search-submit" type="submit" value=" " />
+                     <div style="clear: both;"></div>
+                   </div>        
+                 </form> -->
 
+            <div id="sticky_navigation_wrapper">
+              <div id="sticky_navigation">
+                <div class="row">
+                  <nav  class="main-nav columns">
+                    <div class="middbites fixed-appear">middbites</div>
+                    <div class="social-icons fixed-appear">tweet like instagram</div>
+                    <ul id="main-nav" class="" >
+                      <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+                      <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+                      <li class="nav-3"><a href="">Other</a></li>
+                      <li class="nav-4">
+                        <span class="icon-font search">&#xf094</span>
+                        <%= link_to() do %>
+                        <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
+                          &#xf170
+                        </span>
+                        <% end %>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div> 
+          </header>
+
+          <nav class="hide-for-large-up fixed">
+            <a class="left-off-canvas-toggle" >Menu</a>
+          </nav>
+          
+          <ul id="user_hover" class="f-dropdown" data-dropdown-content>
+            <% if !logged_in? %>
+              <li><%= link_to "Sign up", "#" %></li>
+              <li>
+                <%= link_to "/auth/facebook" do %>
+                  Sign in with <span class="facebook_blue">Facebook</span>
+                <% end %>
+              </li>
+            <% else %>
+                <li class="hello">Hello, <%= current_user.first_name %></li>
+                <hr>
+                <li><a href="">Account</a></li>
+                <li><a href="">Favorited Recipes</a></li>
+                <li><a href="">Bit Recipes</a></li>
+                <hr>
+                <li><%= link_to "Log Out", signout_path %></li>
+            <% end %>
+          </ul>
+
+          <%= yield %>
+
+          <footer id="footer">
+
+          </footer>
+
+       </section>
+        
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
       
-      <div class="box"><%#= debug(params) if Rails.env.development? %></div>
     </body>
 </html>

@@ -6,13 +6,22 @@
   </div>
 </div>
 
+<% view = params[:view] %>
+
 <div class="row display-options">
- <%= link_to "list", params.merge(view: "list") %> 
- <%= link_to "tile", params.merge(view: "tiles") %>
- <%= link_to "default", params.merge(view: "") %>
+  <%= link_to url_for(params.merge(view: "")), class: "icon-font #{'active' if view == ""}" do %>
+    <span class="icon-font">&#xf028</span>
+  <% end %>
+  <%= link_to url_for(params.merge(view: "tiles")), class: "icon-font #{'active' if view == "tiles"}" do %>
+    <span class="icon-font">&#xf026</span>
+  <% end %>
+  <%= link_to url_for(params.merge(view: "list")), class: "icon-font #{'active' if view == "list"}" do %>
+    <span class="icon-font">&#xf0A9</span>
+  <% end %>
 </div>
 
-<% view = params[:view] %>
+<div class="recipe-listings">
+  
 <% if view == "detailed" || view.blank? %>
   <%= render  "detailed_recipes", recipes: @recipes %>
 <% elsif view == "tiles" %>
@@ -20,3 +29,5 @@
 <% elsif view == "list" %>
   <%= render  "list_recipes", recipes: @recipes %>
 <% end %>
+
+</div>
