@@ -15,12 +15,14 @@ set :stage, :production
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '162.243.221.34:1026', user: 'deployer', roles: %w{web app}, my_property: :my_value
+server '162.243.221.34:1026', user: 'deployer', roles: %w{web app db}, my_property: :my_value
 
 set :rvm_type, :user                     # Defaults to: :auto
-set :rvm_ruby_version, '2.0.0-p353@middbites_production'      # Defaults to: 'default'
+set :rvm_ruby_version, '2.0.0-p353'      # Defaults to: 'default'
 
-set :bundle_path, '/home/deployer/.rvm/gems/ruby-2.0.0-p353@middbites_production'
+# set :bundle_path, '/home/deployer/.rvm/gems/ruby-2.0.0-p353@middbites_production'
+# set :bundle_path, -> { '/home/deployer/.rvm/gems/ruby-2.0.0-p353@middbites_production' }
+# set :bundle_path, -> { shared_path.join('bundlesauce') }
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

@@ -49,10 +49,10 @@ group :development, :test do
   gem 'zeus' 
   gem 'factory_girl_rails'
 
-  # gem 'capistrano', '~>2.15'
+  gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm'
-  gem 'capistrano-bundler'
+  gem 'capistrano-bundler', '>= 1.1.0'
+  gem 'capistrano-rvm', git: 'git@github.com:capistrano/rvm.git'
 
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'
