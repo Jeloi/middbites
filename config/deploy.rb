@@ -9,8 +9,8 @@ set :branch, 'live'
 set :deploy_to,    "/var/rails/#{fetch(:domain)}"
 set :scm, :git
 
-# set :format, :pretty
-# set :log_level, :debug
+set :format, :pretty
+set :log_level, :debug
 # set :pty, true
 
 set :linked_files, %w{config/database.yml}
