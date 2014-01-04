@@ -70,9 +70,14 @@
             </div> 
           </header>
 
-          <nav class="hide-for-large-up fixed">
-            <a class="left-off-canvas-toggle" >Menu</a>
-          </nav>
+<div class="hide-for-large" id="mobile-nav-wrapper">
+  <nav class="hide-for-large-up fixed">
+    <div id="mobile-nav">
+      
+    </div>
+    <a class="left-off-canvas-toggle" >Menu</a>
+  </nav>
+</div>
           
           <ul id="user_hover" class="f-dropdown" data-dropdown-content>
             <% if !logged_in? %>

@@ -13,6 +13,7 @@ body {
 // Header title
 header#header {
 	text-align: center;
+	background: #f7f7f7;
 	h1.middbites {
 		font-weight: 500;
 		font-family: "reklame-script";
@@ -33,7 +34,8 @@ header#header {
 	#sticky_navigation {
 		width: 100%;
 		border-bottom: 1px solid #ddd;
-		background: white; z-index: 99999;
+		z-index: 99999;
+		background: #f7f7f7; 
 	}
 	.middbites {
 		font-weight: 500;
@@ -63,6 +65,9 @@ nav.main-nav {
 	a { 
 		color: #444444;
 		font-size: rem-calc(14);
+		&:hover {
+			color: $blue;
+		}
 	}
 	ul#main-nav {
 		margin: 0 auto;
@@ -110,7 +115,7 @@ ul#user_hover {
 
 
 footer#footer {
-	border-top: 1px solid #dddddd;
+	// border-top: 1px solid #dddddd;
 	min-height: 400px;
 	// background-color: $blue;
 	max-width: $main-width;

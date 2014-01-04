@@ -1,12 +1,8 @@
-<div class="row tile-recipes">
-	<ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
-	<% recipes.each do |recipe| %>
-		<li class="recipe-item">
-			<div class="image">
-				<%= image_tag recipe.image_url %>
-			</div>
-			<%= link_to recipe.title, recipe_path(recipe), class: "title" %>
-		</li>
-	<% end -%>	
-	</ul>
-</div>
+<% recipes.each do |recipe| %>
+	<li class="recipe-item">
+		<div class="image">
+			<%= image_tag recipe.image_url(:thumb) %>
+		</div>
+		<%= link_to recipe.title, recipe_path(recipe), class: "title" %>
+	</li>
+<% end -%>	

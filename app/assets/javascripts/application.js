@@ -57,7 +57,7 @@ $(function () {
 	        $('.fixed-appear').fadeIn('400');
 	    } else {
 	        $('#sticky_navigation').css({ 'position': 'relative' }); 
-	        $('.fixed-appear').fadeOut('100');
+	        $('.fixed-appear').hide();
 	    }   
 	};
 	 

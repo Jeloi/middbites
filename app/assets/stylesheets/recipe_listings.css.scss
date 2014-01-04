@@ -117,6 +117,7 @@
 	li.recipe-item {
 		padding-bottom: 10px !important;
 		.title {
+			font-weight: 600;
 			margin-top: 3px;
 			height: 2.4em;
 			line-height: 1.1em;
@@ -182,10 +183,13 @@
 	}
 }
 
+
+// View selection options (e.g grid, detailed, list)
 .display-options {
 	font-size: rem-calc(30);
 	text-align: center;
-	line-height: 1.5em;
+	// line-height: 1.5em;
+	padding: 8px 0;
 	a {
 		color: $body-font-color;
 		&:hover, &.active {
@@ -193,6 +197,86 @@
 		}
 	}
 }
+
+@mixin flat-button($color) {
+	padding: 12px;
+	display: inline-block;
+	vertical-align: middle;
+	// border: 2px solid $black;
+	// color: black;
+	font-weight: 700;
+	text-transform: uppercase;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 4px;
+	font-size: 14px !important;
+	transition: .3s;
+	-webkit-transition: .3s;
+	// border: 2px solid $turq;
+	background: $color;
+	color: white;
+	a { color: white }
+	&:hover {
+		color: white;
+		background: darken($color, 5)
+	}
+}
+
+
+
+a.red-button {
+	@include flat-button($red);
+}
+
+// Load More button
+#load_more {
+	max-width: 600px;
+	@include flat-button($red);
+}
+
+// Pagination
+div.pagination {
+	padding: 20px 15px;
+	max-width: 600px;
+}
+ul.pagination {
+	margin: 0 auto;
+	height: 50px;
+	position: relative; text-align: center;
+	font-size: 20px;
+	li.prev {
+		position: absolute; left: 0; display: inline-block !important;
+		a { @include flat-button($turq); }
+	}	
+	li.next {
+		position: absolute; right: 0; display: inline-block !important;
+		a { @include flat-button($turq); }
+	}
+	li {
+		display: none;
+		vertical-align: -webkit-baseline-middle;
+		text-align: center;
+		font-weight: 100;
+		margin-left: 10px;
+		a { color: black; }
+		&.active{
+			a {color: $turq;}
+			font-weight: 700;
+		}
+		&:hover {
+			font-weight: 700;
+		}
+
+	}
+
+	@media #{$medium-up} {
+		li {
+			display: inline-block;
+		}
+	}
+}
+
+
 
 .interactive-actions {
 	color: #7D7F81;
