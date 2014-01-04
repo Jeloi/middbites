@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require bxslider/jquery.bxslider
 //= require chosen-jquery
+//= require pushy/js/pushy.min.js
+//= require pushy/js/vendor/modernizr-2.6.2.min.js
 //= require_tree .
 
 // $(function(){ $(document).foundation(); });

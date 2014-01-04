@@ -115,11 +115,51 @@ ul#user_hover {
 
 
 footer#footer {
-	// border-top: 1px solid #dddddd;
-	min-height: 400px;
-	// background-color: $blue;
-	max-width: $main-width;
-	margin: 0 auto;
+	background: #2E3236;
+	font-size: rem-calc(14px);
+	font-weight: 200;
+	color: #E0E4E9;
+	padding: 1em 0;
+	ul { margin-bottom: 0.7em; }
+	h5 {
+		font-weight: 500;
+		color: white;
+		font-size: rem-calc(28px);
+		font-family: "reklame-script";
+	}
+	a { color: #E0E4E9; font-size: rem-calc(14px); &:hover { color: $blue } }
+	text-align: center;
+	.inline-nav {
+		li {
+			list-style: none;
+			display: inline-block;
+			.nav-sep {
+				// font-weight: bold;
+				padding: 0px 4px 0px 5px;
+			}
+		}
+	}
+	// font-family: $header-font-family;
+	h6 {
+		color: #888;
+	}
+
+	.copyright {
+		// font-weight: 300;
+		font-size: rem-calc(12px);
+		text-align: center;
+		color: #888;
+	}
+	.built-by {
+		font-size: rem-calc(12px);
+		padding-bottom: 1em;
+		// color: white;
+	}
+	@media #{$small-only} {
+		.inline-nav li.hide-small {
+			display: none;
+		}
+	}
 }
 
 

@@ -272,6 +272,9 @@ ul.pagination {
 		}
 
 	}
+	li.active {
+		display: inline-block;
+	}
 
 	@media #{$medium-up} {
 		li {

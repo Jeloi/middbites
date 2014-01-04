@@ -15,100 +15,113 @@
 
   <body id="<%= params[:controller] + '-' + params[:action] %>">
     <%= javascript_include_tag "application" %>
-    <div class="off-canvas-wrap">
-      <div class="inner-wrap">
-        <!-- Off-canvas Menu -->
-        <aside class="left-off-canvas-menu">
-          <ul class="off-canvas-list">
-            <li><label>Foundation</label></li>
-            <li><a href="#">The Psychohistorians</a></li>
-          </ul>
-        </aside>
-        
-        <!-- Main Content, i.e not off-canvas -->
-        <section class="main-section">
-         
-          <header id="header" class="show-for-large-up">
-             <%= link_to(root_path, class: "logo clrfix") do %>
-             <div class="header-logo"></div>
-             <h1 class="middbites">
-               middbites
-             </h1>
-             <% end %>
-             <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
-             <!-- 
-                 <form method="get" id="search-form" action="" >
-                   <div id="search">
-                     <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
-                     <input class="submit" id="search-submit" type="submit" value=" " />
-                     <div style="clear: both;"></div>
-                   </div>        
-                 </form> -->
+    
+    <!-- Off-canvas Menu -->
+    <nav class="pushy pushy-left">
+      <ul>
+        <li>Some</li>
+        <li>Content</li>
+      </ul>
+    </nav>
 
-            <div id="sticky_navigation_wrapper">
-              <div id="sticky_navigation">
-                <div class="row">
-                  <nav  class="main-nav columns">
-                    <div class="middbites fixed-appear">middbites</div>
-                    <div class="social-icons fixed-appear">tweet like instagram</div>
-                    <ul id="main-nav" class="" >
-                      <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-                      <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-                      <li class="nav-3"><a href="">Other</a></li>
-                      <li class="nav-4">
-                        <span class="icon-font search">&#xf094</span>
-                        <%= link_to() do %>
-                        <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
-                          &#xf170
-                        </span>
-                        <% end %>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div> 
-          </header>
+    <div class="site-overlay"></div>
 
-<div class="hide-for-large" id="mobile-nav-wrapper">
-  <nav class="hide-for-large-up fixed">
-    <div id="mobile-nav">
-      
-    </div>
-    <a class="left-off-canvas-toggle" >Menu</a>
-  </nav>
-</div>
-          
-          <ul id="user_hover" class="f-dropdown" data-dropdown-content>
-            <% if !logged_in? %>
-              <li><%= link_to "Sign up", "#" %></li>
-              <li>
-                <%= link_to "/auth/facebook" do %>
-                  Sign in with <span class="facebook_blue">Facebook</span>
-                <% end %>
-              </li>
-            <% else %>
-                <li class="hello">Hello, <%= current_user.first_name %></li>
-                <hr>
-                <li><a href="">Account</a></li>
-                <li><a href="">Favorited Recipes</a></li>
-                <li><a href="">Bit Recipes</a></li>
-                <hr>
-                <li><%= link_to "Log Out", signout_path %></li>
-            <% end %>
-          </ul>
+    <!-- Main Content, i.e not off-canvas -->
+    <div id="container">
+      <header id="header" class="show-for-large-up">
+         <%= link_to(root_path, class: "logo clrfix") do %>
+         <div class="header-logo"></div>
+         <h1 class="middbites">
+           middbites
+         </h1>
+         <% end %>
+         <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
+         <!-- 
+             <form method="get" id="search-form" action="" >
+               <div id="search">
+                 <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
+                 <input class="submit" id="search-submit" type="submit" value=" " />
+                 <div style="clear: both;"></div>
+               </div>        
+             </form> -->
 
-          <%= yield %>
+        <div id="sticky_navigation_wrapper">
+          <div id="sticky_navigation">
+            <div class="row">
+              <nav  class="main-nav columns">
+                <div class="middbites fixed-appear">middbites</div>
+                <div class="social-icons fixed-appear">tweet like instagram</div>
+                <ul id="main-nav" class="" >
+                  <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+                  <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+                  <li class="nav-3"><a href="">Other</a></li>
+                  <li class="nav-4">
+                    <span class="icon-font search">&#xf094</span>
+                    <%= link_to() do %>
+                    <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
+                      &#xf170
+                    </span>
+                    <% end %>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div> 
+      </header>
 
-          <footer id="footer">
-
-          </footer>
-
-       </section>
-        
-        <a class="exit-off-canvas"></a>
+      <div class="hide-for-large" id="mobile-nav-wrapper">
+        <nav class="hide-for-large-up fixed">
+          <div id="mobile-nav">
+            
+          </div>
+          <a class="menu-btn" >Menu</a>
+        </nav>
       </div>
-    </div>
       
+      <ul id="user_hover" class="f-dropdown" data-dropdown-content>
+        <% if !logged_in? %>
+          <li><%= link_to "Sign up", "#" %></li>
+          <li>
+            <%= link_to "/auth/facebook" do %>
+              Sign in with <span class="facebook_blue">Facebook</span>
+            <% end %>
+          </li>
+        <% else %>
+            <li class="hello">Hello, <%= current_user.first_name %></li>
+            <hr>
+            <li><a href="">Account</a></li>
+            <li><a href="">Favorited Recipes</a></li>
+            <li><a href="">Bit Recipes</a></li>
+            <hr>
+            <li><%= link_to "Log Out", signout_path %></li>
+        <% end %>
+      </ul>
+
+      <%= yield %>
+
+      <footer id="footer">
+        <h5>middbites</h5>
+        <ul class="inline-nav">
+          <span class="nav-sep"></span>
+          <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
+          <li class="hide-small"><%= link_to "Create", new_recipe_path %><span class="nav-sep">・</span></li>
+          <li class="hide-small"><%= link_to "Tags", root_path %><span class="nav-sep">・</span></li>
+          <li class="hide-small"><%= link_to "Ingredients", all_items_path %><span class="nav-sep">・</span></li>
+          <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
+          <li><%= link_to "Contact", recipes_path %></li>
+          <li></li>
+        </ul>
+        <div class="built-by">
+          Designed and built by Jeloi.
+        </div>
+        <div class="copyright">
+          © 2014 Middbites. All Rights Reserved.
+        </div>
+      </footer>
+
+             
+    </div>
+
     </body>
 </html>

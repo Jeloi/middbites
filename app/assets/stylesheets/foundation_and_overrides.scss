@@ -489,7 +489,7 @@ $f-dropdown-list-padding: rem-calc(4);
 
 // Inline Lists
 
-// $include-html-inline-list-classes: $include-html-classes;
+$include-html-inline-list-classes: false;
 
 // We use this to control the margins and padding of the inline list.
 // $inline-list-top-margin: 0;
@@ -503,11 +503,11 @@ $f-dropdown-list-padding: rem-calc(4);
 // $inline-list-overflow: hidden;
 
 // We use this to control the list items
-// $inline-list-display: block;
+// $inline-list-display: inline-block;
 
 // We use this to control any elments within list items
-// $inline-list-children-display: block;
-
+// $inline-list-children-display: inline;
+// 
 // Joyride
 
 // $include-html-joyride-classes: $include-html-classes;
