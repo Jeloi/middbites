@@ -1,6 +1,6 @@
 <% recipes.each do |recipe| %>
 	<div class="medium-10 large-10 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
-		<div class="clrfix recipe-item">
+		<div class="clrfix recipe-item invisible">
 			<div class="image" style="background-image: url('<%= "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}"%>')">
 			</div>
 			<div class="info vert-align">

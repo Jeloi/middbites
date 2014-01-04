@@ -166,6 +166,10 @@
 	background: #f8f9fa;
 	padding-top: 30px;
 }
+
+.invisible {
+	visibility: hidden;
+}
 .recipe-item {
 	&.columns {
 		// padding: 0;
