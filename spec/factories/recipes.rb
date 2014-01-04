@@ -1,8 +1,18 @@
 FactoryGirl.define do
   factory :recipe do
+
     title "The Classic"
+
     blurb "A sandwich so good you'll never forget it"
-  	directions "Get two pieces of bread. Spread peanut butter on one, jelly on the other. Stick the two pieces together"
+    directions "Get two pieces of bread. Spread peanut butter on one, jelly on the other. Stick the two pieces together"
+
+    # factory :multiple_recipes do
+    #   sequence(:title) do |n|
+    #     ["A Delcious Holiday Soup", "Morning Egger", "Rock Climber's Panini"].sample + n.to_s
+    #   end
+    #   user_id User.first.id
+    #   image Recipe.first.image
+    # end
 
     trait :owned do
      after(:build) do |recipe|

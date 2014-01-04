@@ -682,7 +682,7 @@ $f-dropdown-list-padding: rem-calc(4);
 
 // Pagination
 
-// $include-html-nav-classes: $include-html-classes;
+$include-html-nav-classes: false;
 
 // We use these to control the pagination container
 // $pagination-height: rem-calc(24);

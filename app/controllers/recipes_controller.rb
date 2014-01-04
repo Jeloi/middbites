@@ -6,7 +6,13 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    per_page = 24
+    @header = "All Recipes"
+    @recipes = Recipe.all.paginate(:page => params[:page], :per_page => per_page)
+    respond_to do |wants|
+      wants.html { render "render_recipes.html.erb" }
+      wants.js { render "render_recipes" }
+    end
   end
 
   # GET /recipes/all
@@ -110,7 +116,7 @@ class RecipesController < ApplicationController
       @grouped_item_options = ItemCategory.all. map do |cat|
         [cat.name, cat.items.collect {|i| [i.name, i.id]}]
       end
-      @grouped_item_options.unshift ["", ["",""]]
+      @grouped_item_options.unshift ["", ["",""]] # add a blank pair at the beginning
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

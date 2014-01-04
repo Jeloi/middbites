@@ -1,15 +1,9 @@
-<div class="row list-recipes">
-	<table class="">
-		<tbody>
-			<% recipes.each do |recipe| %>
-				<tr class="recipe-item">
-					<td class="title"><%= link_to recipe.title, recipe_path(recipe) %></td>
-					<td>
-						<%= render 'actions', recipe: recipe %>
-					</td>
-					<td class="date"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
+<% recipes.each do |recipe| %>
+<tr class="recipe-item">
+	<td class="title"><%= link_to recipe.title, recipe_path(recipe) %></td>
+	<td>
+		<%= render 'actions', recipe: recipe %>
+	</td>
+	<td class="date"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
+</tr>
+<% end %>

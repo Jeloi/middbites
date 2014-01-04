@@ -1,20 +1,18 @@
-<div class="row detailed-recipes">
-	<% recipes.each do |recipe| %>
-		<div class="medium-10 large-10 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
-			<div class="clrfix recipe-item">
-				<div class="image" style="background-image: url('<%= "#{request.protocol}#{request.host_with_port}#{recipe.image}"%>')">
+<% recipes.each do |recipe| %>
+	<div class="medium-10 large-10 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
+		<div class="clrfix recipe-item">
+			<div class="image" style="background-image: url('<%= "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}"%>')">
+			</div>
+			<div class="info vert-align">
+				<%= link_to recipe.title, recipe_path(recipe), class: "small-font-secondary title" %>
+				<div class="show-for-large-up">
+					<div class="blurb"><%= recipe.blurb %></div>
 				</div>
-				<div class="info vert-align">
-					<%= link_to recipe.title, recipe_path(recipe), class: "small-font-secondary title" %>
-					<div class="show-for-large-up">
-						<div class="blurb"><%= recipe.blurb %></div>
-					</div>
-					<%#= render 'actions', recipe: recipe %>
-					<div class="create-info">
-						By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
-					</div>
+				<%#= render 'actions', recipe: recipe %>
+				<div class="create-info">
+					By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
 				</div>
 			</div>
 		</div>
-	<% end -%>
-</div>
+	</div>
+<% end -%>
