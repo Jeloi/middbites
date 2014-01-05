@@ -1,6 +1,7 @@
 Middbites::Application.routes.draw do
   
  
+
   get "comments/create"
   get "comments/destroy"
   root 'pages#home'
@@ -25,6 +26,8 @@ Middbites::Application.routes.draw do
 
   # Tags routes
   get 'tags/:tag', to: 'recipes#all', as: :tag
+  get "tags" => 'tags#all_tags'
+  get "tags/grouped_tags"
 
 
   # Omniauth routes
