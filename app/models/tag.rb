@@ -10,7 +10,9 @@
 #
 
 class Tag < ActiveRecord::Base
-	has_many :taggings
+	has_many :taggings, dependent: :destroy
 	has_many :recipes, :through => :taggings
 	belongs_to :tag_category
+
+	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
 end
