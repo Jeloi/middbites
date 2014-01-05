@@ -13,7 +13,7 @@ body {
 // Header title
 header#header {
 	text-align: center;
-	background: #f7f7f7;
+	// background: #f7f7f7;
 	h1.middbites {
 		font-weight: 500;
 		font-family: "reklame-script";
@@ -34,8 +34,8 @@ header#header {
 	#sticky_navigation {
 		width: 100%;
 		border-bottom: 1px solid #ddd;
-		z-index: 99999;
-		background: #f7f7f7; 
+		z-index: 1000;
+		background: white; 
 	}
 	.middbites {
 		font-weight: 500;
@@ -69,13 +69,13 @@ nav.main-nav {
 			color: $blue;
 		}
 	}
-	ul#main-nav {
+	ul {
 		margin: 0 auto;
 		text-align: center;
 		width: 500px;
 		line-height: 50px;
 	}
-	ul#main-nav > li {
+	ul > li {
 		// font-family: $header-font-family;
 		font-weight: 500;
 		display: inline-block;
@@ -92,7 +92,7 @@ nav.main-nav {
 }
 ul#user_hover {
 	margin: 0;
-	z-index: 10000;
+	z-index: 1001;
 	.hello {
 		padding: 0.25rem;
 	}
@@ -115,7 +115,7 @@ ul#user_hover {
 
 
 footer#footer {
-	background: #2E3236;
+	background: $darkey;
 	font-size: rem-calc(14px);
 	font-weight: 200;
 	color: #E0E4E9;
@@ -252,15 +252,20 @@ footer#footer {
 	}
 }
 
-.module {
-	margin-bottom: 1em;
-	h3 {
-		padding-bottom: 0.1em;
-		border-bottom: 2px solid #dddddd;
-		margin-bottom: 0.3em;
+// Pushy styles
+
+// Container for Pushy 0ff-canvas nav
+#container { position: relative }
+.pushy {
+	background: $darkey;
+	.middbites h5 {
+		font-weight: 500;
+		color: white;
+		font-size: rem-calc(28px);
+		font-family: "reklame-script";
+		text-align: center;
 	}
 }
-
 
 
 // To disable iPhone form zoom
@@ -270,43 +275,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 
 
- /* Styles for screens that are bigger than $main-screen (768px)
- -------------------------------------------------------------*/
-@media only screen and (min-width: $main-screen) {
-
- 	$sidebar-width: 250px;
-
- 	#main-content {
- 		display: table;
- 		width: 100%;
- 		.table-col {
- 			display: table-cell;
- 			vertical-align:top;
- 		}
- 		.content {
- 			
- 		}
- 		.sidebar {
- 			padding-left: 1em;
- 			width: 250px;
- 		}
- 	}
-
- 	.main-width {
- 		width: $main-width;
- 	}
-
-} // end media query
-
-@media #{$xlarge-up} {
-	.recipes-grid-width {
-		width: 900px;
-	}
-
-	.grid-recipe {
-		height: 380px;
-	}
-}
 
 /* Below Variables added to make this work in Codepen, individually, without including Foundation
 * http://codepen.io/rvinay88/pen/Gbvua

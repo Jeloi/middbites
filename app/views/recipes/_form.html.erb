@@ -82,6 +82,15 @@
 </div>
 
 <script>
+  // Enable Chosen Plugin for ingredients and tags
+  $('#ingredient_selector').chosen({
+    no_results_text: 'No ingredients matched'
+  });
+  $('#tag_selector').chosen({
+    no_results_text: 'No tags matched'
+  });
+
+
   var chosen_items = [];
   $(document).ready(function() {
 

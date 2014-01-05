@@ -13,13 +13,12 @@
  *= require chosen
  *= require pushy
  * require foundation_and_overrides
- * require styling
  * require_tree .
  */
 
  @import 'foundation_and_overrides';
  @import 'variables';
  @import 'colors';
- @import 'recipes';
  @import 'styling';
  @import 'recipe_listings';
+ @import 'show_recipe';

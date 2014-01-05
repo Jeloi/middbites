@@ -11,16 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+// require jquery_ujs
 //= require foundation
 //= require turbolinks
 //= require bxslider/jquery.bxslider
 //= require chosen-jquery
-//= require pushy/js/pushy.min.js
-//= require pushy/js/vendor/modernizr-2.6.2.min.js
+// require pushy.min
+// require modernizr-2.6.2.min
 //= require_tree .
 
-// $(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation(); });
 
 // var id; // Global variable
 // var screen_width = $(window).width();
@@ -40,7 +40,6 @@
 // 	};
 // 	console.log("Window Resized");
 // }
-$(function(){ $(document).foundation(); });
 
 $(function () {
 
@@ -89,4 +88,17 @@ $(function () {
 		verticalCenter();
 		$(window).on('load resize facetwp-loaded', verticalCenter);
 	}
+
+
+	// Initialize bamboo off-canvas nav
+	// var site = new Bamboo({
+	//     menu: true,
+	//     swipeToOpen: false,
+	//     breakpoint: 768,
+	//     menuWidth: 265,
+	//     headerHeight: 50,
+	//     resize: function(){
+	//         // function to call on page resize/orientation change
+	//     }
+	// });
 });

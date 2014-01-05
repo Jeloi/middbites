@@ -1,33 +1,45 @@
-<%= content_for :sidebar_content do %>
-	<%= render 'social_share_icons', recipe: @recipe %>
-<% end -%>
-
-<div class="show-recipe padded-wrap round-box">
-	<h2 class="title"><%= @recipe.title %></h2>
-	<p class="blurb"><%= @recipe.blurb %></p>
-	<%- if @recipe.image? %>
-	<div class="recipe-image">
-		<%= image_tag @recipe.image_url %>
+<div class="show-recipe">
+	<div class="row">
+		<div class="small-12 medium-10 large-8 small-centered columns recipe-item">
+			<%- if @recipe.image? %>
+			<div class="image">
+				<%= image_tag @recipe.image_url %>
+			</div>
+			<% end -%>
+			<h2 class="title"><%= @recipe.title %></h2>
+			<div class="create-info">
+				By <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+			</div>	
+		</div>
 	</div>
-	<% end -%>
-
-	<h3>ingredients</h3>
-	<ul class="ingredient-list">
-		<% @recipe.ingredients.each do |ingredient| %>
-		<li class="clrfix">
-			<span class = "name"></span>
-			<%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
-			<% if !ingredient.quantity.blank? %>
-				<span class="quantity"> 
-					<%= ingredient.quantity %></span>
-			<% end %>
-			
 	
-		</li>
-		<% end -%>
-	</ul>
-	<h3>directions</h3>
-	<p class="directions"><%= @recipe.directions %></p>
+	<article class="recipe-info">
+		<div class="row">
+			<div class="small-12 medium-10 large-8 small-centered columns recipe-item">
+				<p class="blurb">"<%= @recipe.blurb %>"</p>
+			
+				<div class="recipe">
+					<h3>Ingredients</h3>
+					<ul class="ingredient-list">
+						<% @recipe.ingredients.each do |ingredient| %>
+						<li class="clrfix">
+							<span class = "name"></span>
+							<%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
+							<% if !ingredient.quantity.blank? %>
+								<span class="quantity"> 
+									<%= ingredient.quantity %></span>
+							<% end %>
+							
+					
+						</li>
+						<% end -%>
+					</ul>
+					<h3>Directions</h3>
+					<p class="directions"><%= @recipe.directions %></p>
+				</div>
+			</div>
+		</div>
+	</article>
 </div>
 	
 <div class="tags module">

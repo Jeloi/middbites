@@ -1,8 +1,13 @@
 <% recipes.each do |recipe| %>
 	<li class="recipe-item invisible">
-		<div class="image">
+		<%= link_to(recipe_path(recipe),  class: "image") do %>
+			<div class="overlay">
+				<div class="content">
+					<div class="blurb"><%#= recipe.blurb %></div>
+				</div>
+			</div>
 			<%= image_tag recipe.image_url(:thumb) %>
-		</div>
+		<% end %>
 		<%= link_to recipe.title, recipe_path(recipe), class: "title" %>
 	</li>
 <% end -%>	

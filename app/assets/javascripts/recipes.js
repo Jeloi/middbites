@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-	// Show all invisible recipe items upon load
-	$('.invisible').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0}).removeClass('invisible');
-	
 	// "Load More" ajax functionality
 	$('.recipe-listings').on('click', '#load_more', function(event) {
 		event.preventDefault();
@@ -12,4 +9,9 @@ $(document).ready(function() {
 		$.getScript(url);
 	});
 	
+});
+
+$('.recipe-listings').ready(function() {
+	// Show all invisible recipe items upon load
+	$('.invisible').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0}).removeClass('invisible');
 });
