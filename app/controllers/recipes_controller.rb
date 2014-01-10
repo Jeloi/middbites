@@ -82,10 +82,9 @@ class RecipesController < ApplicationController
   # POST /recipes/1/vote
   def vote
     @association = params[:association]
-    @recipe_id = params[:id]
-    logger.debug { params[:id] }
     respond_to do |format|
       if current_user.vote(@recipe, @association)
+        @recipe.reload
         format.js { render "vote" }
       end
     end
@@ -94,10 +93,10 @@ class RecipesController < ApplicationController
   # DELETE /
   def unvote
     @association = params[:association]
-    @recipe_id = params[:id]
     respond_to do |format|
       if current_user.unvote(@recipe, @association)
-        format.js { render "vote" }
+        @recipe.reload
+        format.js { render "unvote" }
       end
     end
   end

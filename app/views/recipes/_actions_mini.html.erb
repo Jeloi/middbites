@@ -9,9 +9,9 @@
 	<div class="number"><%= recipe.bites_count %></div>
 	<!-- Favorite -->
 	<% if @user_favs.include? recipe.id  %>
-		<%= link_to ''.html_safe, unvote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :delete, class: "fav icon-font icon voted" %>
+		<%= link_to '', unvote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :delete, class: "fav icon-font icon voted" %>
 	<% else %>	
-		<%= link_to ''.html_safe, vote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :post, class: "fav icon-font icon" %>
+		<%= link_to '', vote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :post, class: "fav icon-font icon" %>
 	<% end %>
 	<div class="number"><%= recipe.favorites_count %></div>
 	<!-- Comment -->
