@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####
 
- 	#! Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite)
+ 	#! Returns a boolean representing whether or not the user voted the given recipe, through the given association (bite, favorite). Does not use eager loading!
  	def voted_on? recipe, association
  		self.send(association).where(recipe_id: recipe.id).any?
  	end

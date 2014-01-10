@@ -17,7 +17,7 @@ header#header {
 	h1.middbites {
 		font-weight: 500;
 		font-family: "reklame-script";
-		color: black;
+		color: $turq;
 		padding-top: 20px;
 		margin-bottom: 0;
 		// line-height: 2em;
@@ -215,18 +215,6 @@ footer#footer {
 
 .icon-font {
 	font-family: Batch;
-	&.favorite.not_voted:before {
-		content: "\f04b";
-	}
-	&.favorite.voted:before {
-		content: "\f049";
-	}
-	&.bite.not_voted:before {
-		content: url(/assets/bite.png)
-	}
-	&.bite.voted:before {
-		content: url(/assets/bit.png)
-	}
 }
 
 .share-icons {

@@ -9,6 +9,8 @@ class RecipesController < ApplicationController
     per_page = 24
     @header = "All Recipes"
     @recipes = Recipe.all.paginate(:page => params[:page], :per_page => per_page)
+    @user_bites = current_user.bites.pluck(:recipe_id)
+    @user_favs = current_user.favorites.pluck(:recipe_id)
     respond_to do |wants|
       wants.html { render "render_recipes.html.erb" }
       wants.js { render "render_recipes" }
@@ -80,7 +82,8 @@ class RecipesController < ApplicationController
   # POST /recipes/1/vote
   def vote
     @association = params[:association]
-    @dom_id = params[:dom_id]
+    @recipe_id = params[:id]
+    logger.debug { params[:id] }
     respond_to do |format|
       if current_user.vote(@recipe, @association)
         format.js { render "vote" }
@@ -91,7 +94,7 @@ class RecipesController < ApplicationController
   # DELETE /
   def unvote
     @association = params[:association]
-    @dom_id = params[:dom_id]
+    @recipe_id = params[:id]
     respond_to do |format|
       if current_user.unvote(@recipe, @association)
         format.js { render "vote" }

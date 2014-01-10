@@ -1,1 +1,5 @@
-$('#<%= @dom_id %>').html('<%= escape_javascript render("vote", association: @association, dom_id: @dom_id) %>');
+<% if @association == "bites" %>
+	$(".actions[data-recipe-id='<%= @recipe_id %>'] .bite ").replaceWith('<%= j link_to "", unvote_recipe_path(@recipe_id, association: "bites"), remote: true, method: :delete, class: "bite icon voted" %>');
+<% elsif @association == "favorites" %>
+	$(".actions[data-recipe-id='<%= @recipe_id %>'] .fav ").replaceWith("<%= j link_to '', unvote_recipe_path(@recipe_id, association: "favorites"), remote: true, method: :delete, class: 'fav icon-font icon voted' %>");
+<% end %>

@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20140105080144) do
     t.string   "user_handle"
   end
 
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20140105080144) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "ingredients", force: true do |t|
     t.integer  "recipe_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140105080144) do
     t.decimal  "temperature",     precision: 18, scale: 6, default: 0.0
   end
 
-  add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true, using: :btree
+  add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true
 
   create_table "tag_categories", force: true do |t|
     t.string   "name"
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 20140105080144) do
     t.datetime "updated_at"
   end
 
-  add_index "taggings", ["recipe_id"], name: "index_taggings_on_recipe_id", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["recipe_id"], name: "index_taggings_on_recipe_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
   create_table "tags", force: true do |t|
     t.string   "name"
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20140105080144) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["recipe_id"], name: "index_votes_on_recipe_id", using: :btree
-  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["recipe_id"], name: "index_votes_on_recipe_id"
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end
