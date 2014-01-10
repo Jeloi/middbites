@@ -1,7 +1,7 @@
 <% recipes.each do |recipe| %>
 <tr class="recipe-item invisible">
 	<td class="title"><%= link_to recipe.title, recipe_path(recipe) %></td>
-	<td>
+	<td class="actions">
 		<%= render 'actions_mini', recipe: recipe %>
 	</td>
 	<td class="date"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
