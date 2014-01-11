@@ -53,15 +53,6 @@
 
 
 
-	<div class="engage-actions">
-		<div class="vote bites" id="bite_<%= @recipe.id %>">
-			<%= render "vote", association: "bites", dom_id: "bite_"+@recipe.id.to_s %>	
-		</div>
-		<div class="vote favorites" id="favorite_<%= @recipe.id %>">
-			<%= render "vote", association: "favorites", dom_id: "favorite_"+@recipe.id.to_s %>	
-		</div>
-		<div class="comment"></div>
-	</div>
 
 <%= link_to "Edit", edit_recipe_path(@recipe) %>
 

@@ -9,8 +9,10 @@ class RecipesController < ApplicationController
     per_page = 24
     @header = "All Recipes"
     @recipes = Recipe.all.paginate(:page => params[:page], :per_page => per_page)
-    @user_bites = current_user.bites.pluck(:recipe_id)
-    @user_favs = current_user.favorites.pluck(:recipe_id)
+    if logged_in?
+      @user_bites = current_user.bites.pluck(:recipe_id)
+      @user_favs = current_user.favorites.pluck(:recipe_id)
+    end
     respond_to do |wants|
       wants.html { render "render_recipes.html.erb" }
       wants.js { render "render_recipes" }

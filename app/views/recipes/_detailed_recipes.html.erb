@@ -8,7 +8,7 @@
 				<div class="create-info">
 					By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
 				</div>
-				<div class="show-for-large-up">
+				<div class="hide-for-medium">
 					<div class="blurb"><%= recipe.blurb %></div>
 				</div>
 				<%= render 'actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>

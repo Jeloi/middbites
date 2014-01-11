@@ -65,7 +65,7 @@
 			font-size: 0.8em;
 		}
 		.create-info {
-			font-weight: 100;
+			font-weight: 300;
 			font-size: 0.7em;
 			margin: 6px 0;
 			span.dot { margin: 0 1em; }
@@ -80,7 +80,7 @@
 		.recipe-item {
 			max-width: 270px;
 			margin: 0 auto;
-			padding-top: 10px;
+			text-align: center;
 		}
 		.info { padding: 0 !important; padding-top: 5px !important; }
 		.actions {
@@ -95,7 +95,9 @@
 			border-top: 1px solid #dbddde;
 			padding-bottom: 20px;
 		}
-		
+		.create-info {
+			font-weight: 100 !important;
+		}		
 
 	}
 
@@ -345,12 +347,13 @@ ul.pagination {
 	.bite {
 		background: url(/assets/bite-outline.svg);
 		background-size: cover;
-		&.voted {
+		&.voted, &:hover {
 			background: url(/assets/bite-fill.svg);
 			background-size: cover;
 		}
 	}
 	.fav {
+		color: rgba(237, 30, 121,0.7);
 		&:after { content: "\f04b"; }
 		&.voted:after {
 			content: "\f049";
