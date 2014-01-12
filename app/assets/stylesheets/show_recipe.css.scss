@@ -6,6 +6,9 @@
 		text-align: center;
 		// background: $turq;
 		// color: white;
+		&:hover {
+			color: $body-font-color;
+		}
 
 	}
 	.blurb {
@@ -34,5 +37,30 @@
 		// background: #f8f9fa;	
 		font-weight: 300;
 		p { font-weight: 300; }
+	}
+
+	.actions.main {
+		max-width: 250px;
+		margin: 0 auto;
+		margin-bottom: 1em;
+		text-align: center;
+		.action {
+			display: block;
+			float: left;
+			width: 33%;
+			color: black;
+			font-weight: 300;
+			// background: blue;
+			.icon {
+				font-size: 25px;
+				margin: 0 auto;
+				display: block;
+				margin-bottom: 4px;
+			}
+			.word {
+				display: inline-block;
+			}
+		}
+
 	}
 }

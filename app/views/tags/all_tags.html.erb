@@ -1,4 +1,6 @@
-<h2>Tags</h2>
+<div class="header-title text-center">
+  <h1>Tags</h1>
+</div>
 <div>
 	<% @tags.each do |tag| %>
 		<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>

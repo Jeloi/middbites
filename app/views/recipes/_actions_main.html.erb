@@ -1,0 +1,36 @@
+<% if logged_in? %>
+<div class="actions main clrfix" data-recipe-id="<%= recipe.id %>">
+	<!-- Bite -->
+	<div class="action">
+		<% if current_user.voted_on?(recipe, "bites") %>
+			<%= link_to "", unvote_recipe_path(recipe.id, association: "bites"), remote: true, method: :delete, class: "bite icon voted" %>
+		<% else %>	
+			<%= link_to "", vote_recipe_path(recipe.id, association: "bites"), remote: true, method: :post, class: "bite icon" %>
+		<% end %>
+		<div class="number"><%= recipe.bites_count %></div>
+		<div class="word">bites</div>
+	</div>
+		<!-- Favorite -->
+	<div class="action">
+		<% if current_user.voted_on?(recipe, "favorites") %>
+			<%= link_to '', unvote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :delete, class: "fav icon-font icon voted" %>
+		<% else %>	
+			<%= link_to '', vote_recipe_path(recipe.id, association: "favorites"), remote: true, method: :post, class: "fav icon-font icon" %>
+		<% end %>
+		<div class="number"><%= recipe.favorites_count %></div>
+		<div class="word">favs</div>
+	</div>
+		<!-- Comment -->
+	<div class="action">
+		<div class="comment icon">
+			<%= link_to '&#xf000;'.html_safe, recipe_path(recipe)+"#comments", class: "icon-font" %>
+		</div>
+		<div class="number"><%= recipe.comments_count %></div>
+		<div class="word">cmts</div>
+	</div>
+</div>
+<% else %>
+<div class="actions main">
+
+</div>
+<% end -%>

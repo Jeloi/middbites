@@ -1,5 +1,5 @@
 <% if logged_in? %>
-<div class="actions actions-mini" data-recipe-id="<%= recipe.id %>">
+<div class="actions mini" data-recipe-id="<%= recipe.id %>">
 	<!-- Bite -->
 	<% if @user_bites.include? recipe.id %>
 		<%= link_to "", unvote_recipe_path(recipe.id, association: "bites"), remote: true, method: :delete, class: "bite icon voted" %>
@@ -21,7 +21,7 @@
 	<div class="number"><%= recipe.comments_count %></div>
 </div>
 <% else %>
-<div class="actions actions-mini">
+<div class="actions mini">
 
 </div>
 <% end -%>

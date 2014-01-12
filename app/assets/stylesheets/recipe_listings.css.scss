@@ -39,7 +39,6 @@
 		&:hover {
 			background: white;
 		}
-		padding-bottom: 20px;
 		.image {
 			float: left;
 			width: 100%;
@@ -55,10 +54,15 @@
 		.actions {
 			margin: 10px 0;
 		}
-		.info {
-			float: left;
-			width: 100%;
-			padding-left: 15px;
+		.info-wrapper {
+				float: left;
+				width: 100%;
+				padding-left: 15px;
+				display: table;
+			.cell {
+				display: table-cell;
+				vertical-align: middle;
+			}
 		}
 		.blurb {
 			margin-top: 3px;
@@ -80,6 +84,7 @@
 		.recipe-item {
 			max-width: 270px;
 			margin: 0 auto;
+			margin-top: 10px;
 			text-align: center;
 		}
 		.info { padding: 0 !important; padding-top: 5px !important; }
@@ -89,11 +94,11 @@
 	}
 	@media #{$medium-up} {
 		.image { width: 40% !important; }
-		.info { width: 60% !important; }
+		.info-wrapper { width: 60% !important; min-height: 150px !important; }
 		.image { min-height: 130px !important; }
 		.recipe-item {
 			border-top: 1px solid #dbddde;
-			padding-bottom: 20px;
+			// padding-bottom: 20px;
 		}
 		.create-info {
 			font-weight: 100 !important;
@@ -105,8 +110,9 @@
 		.title {
 			font-size: 1.2em;
 		}
-		.info {
+		.info-wrapper {
 			padding-left: 30px !important;
+			min-height: 200px !important;
 		}
 		.image {
 			min-height: 180px !important;

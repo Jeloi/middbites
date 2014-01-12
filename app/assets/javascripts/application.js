@@ -71,23 +71,23 @@ $(function () {
 	});
 
 	// Vertically Center Content
-	function verticalCenter() {
-		if ($(window).width() >= 500) {
-			$('.vert-align').each(function() {
-				var $itemHeight = $(this).parent().outerHeight();
-				var $itemTitleHeight = $(this).outerHeight();
-				var $marginTop = ($itemHeight - $itemTitleHeight) / 2;
-				$(this).css('margin-top', $marginTop + "px");
-			});
-		} else {
-			$('.vert-align').css('margin-top', "0px");
-		};
-	}
+	// function verticalCenter() {
+	// 	if ($(window).width() >= 500) {
+	// 		$('.vert-align').each(function() {
+	// 			var $itemHeight = $(this).parent().outerHeight();
+	// 			var $itemTitleHeight = $(this).outerHeight();
+	// 			var $marginTop = ($itemHeight - $itemTitleHeight) / 2;
+	// 			$(this).css('margin-top', $marginTop + "px");
+	// 		});
+	// 	} else {
+	// 		$('.vert-align').css('margin-top', "0px");
+	// 	};
+	// }
 
-	if($('.recipe-item').length) {
-		verticalCenter();
-		$(window).on('load resize facetwp-loaded', verticalCenter);
-	}
+	// if($('.recipe-item').length) {
+	// 	verticalCenter();
+	// 	$(window).on('load resize facetwp-loaded', verticalCenter);
+	// }
 
 
 	// Initialize bamboo off-canvas nav
