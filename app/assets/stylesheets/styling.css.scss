@@ -34,9 +34,14 @@ header#header {
 	height: 50px;
 	#sticky_navigation {
 		width: 100%;
-		border-bottom: 1px solid #ddd;
 		z-index: 1000;
 		background: white; 
+		&.fixed {
+			border-bottom: 1px solid #ddd;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
 	}
 	.middbites {
 		font-weight: 500;
@@ -59,6 +64,8 @@ header#header {
 }
 
 nav.main-nav {
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;

@@ -54,10 +54,12 @@ $(function () {
 	    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
 	    // otherwise change it back to relative
 	    if (scroll_top > sticky_navigation_offset_top) { 
-	        $('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+	        // $('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 });
+	        $('#sticky_navigation').addClass('fixed');
 	        $('.fixed-appear').fadeIn('400');
 	    } else {
-	        $('#sticky_navigation').css({ 'position': 'relative' }); 
+	        $('#sticky_navigation').removeClass('fixed');
+	        // $('#sticky_navigation').css({ 'position': 'relative' }); 
 	        $('.fixed-appear').hide();
 	    }   
 	};
