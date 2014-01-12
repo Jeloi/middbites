@@ -92,9 +92,38 @@ class Recipe < ActiveRecord::Base
     slug.blank? || title_changed?
   end
 
-  def display_title
-    title.downcase.titlecase
+  # --- Class Methods --- #
+
+  # Custom sql query to return recipes that have bites in the last week
+  # Optional parameters for pagination and ordering
+  def self.popular_this_week(page=nil, per_page=nil, order='DESC')
+    time = Time.now.weeks_ago(1).to_s(:db) # database friendly time
+    sql = "SELECT * FROM 
+      (SELECT recipes.*, 
+        (SELECT count(votes.id) FROM votes WHERE votes.type='Bite' and votes.recipe_id=recipes.id and votes.created_at > '#{time}') AS recent_bites
+      FROM recipes ORDER BY recipes.created_at) AS data
+      WHERE recent_bites > 0 ORDER BY recent_bites #{order}"
+    if !page.nil? && !per_page.nil?
+      self.paginate_by_sql(sql, page: page, per_page: per_page)
+    else
+      self.find_by_sql(sql)
+    end
   end
 
+  # Custom sql query to return recipes that have bites in the last month
+  # Optional parameters for pagination and ordering
+  def self.popular_this_month(page=nil, per_page=nil, order='DESC')
+    time = Time.now.months_ago(1).to_s(:db)
+    sql = "SELECT * FROM 
+      (SELECT recipes.*, 
+        (SELECT count(votes.id) FROM votes WHERE votes.type='Bite' and votes.recipe_id=recipes.id and votes.created_at > '#{time}') AS recent_bites
+      FROM recipes ORDER BY recipes.created_at) AS data
+      WHERE recent_bites > 0 ORDER BY recent_bites #{order}"
+    if !page.nil? && !per_page.nil?
+      self.paginate_by_sql(sql, page: page, per_page: per_page)
+    else
+      self.find_by_sql(sql)
+    end
+  end
 
 end
