@@ -175,6 +175,30 @@
 			line-height: 1.1em;
 			text-align: center;
 		}
+		.meta {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			background-color: rgba(68, 68, 68, 0.65);
+			// height: 2em;
+			.actions {
+				color: white;
+				height: 2em;
+				padding-top: 0.2em;
+				text-align: center;
+				.comment {
+					height: 1.3em;
+					a { color: white; }
+				}
+				.fav {
+					color: #EC6DA5;
+					height: 1.3em;
+					&.voted:after {
+						color: #EC6DA5;
+					}
+				}
+			}
+		}
 	}
 	@media #{$small-only} {
 		width: 96%;
@@ -183,6 +207,9 @@
 		}
 		li.recipe-item {
 			padding:  0 5px;
+		}
+		.meta .actions {
+			font-size: 11px;
 		}
 	}
 
@@ -380,5 +407,6 @@ ul.pagination {
 		padding-top: 2px;
 		font-weight: 300;
 	}
+
 }
 
