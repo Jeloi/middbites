@@ -12,9 +12,12 @@ Middbites::Application.routes.draw do
 
   # Recipe routes
   get 'recipes/create' => 'recipes#new', as: 'new_recipe'
+  get 'recipes/popular' => 'recipes#popular', as: 'popular_recipes'
+  get 'recipes/recent' => 'recipes#popular', as: 'recent_recipes'
+
+  resources :recipes, except: :new 
   delete 'recipes/:id/unvote' => 'recipes#unvote', as: 'unvote_recipe'
   post 'recipes/:id/vote' => 'recipes#vote', as: 'vote_recipe'
-  resources :recipes, except: :new 
 
   # Comment Routes
   resources :comments, only: [:create, :destroy]

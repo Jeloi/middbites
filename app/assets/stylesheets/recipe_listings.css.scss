@@ -53,12 +53,13 @@
 		}
 		.actions {
 			margin: 10px 0;
+			margin-bottom: 0;
 		}
 		.info-wrapper {
-				float: left;
-				width: 100%;
-				padding-left: 15px;
-				display: table;
+			float: left;
+			width: 100%;
+			padding: 0 8px 8px 8px;
+			display: table;
 			.cell {
 				display: table-cell;
 				vertical-align: middle;
@@ -73,6 +74,13 @@
 			font-size: 0.7em;
 			margin: 6px 0;
 			span.dot { margin: 0 1em; }
+		}
+		.recent-bites {
+			font-size: 10px;
+			color: $blue;
+			font-weight: 300;
+			margin-top: 10px;
+			.number { font-weight: 500 }
 		}
 	}
 
@@ -94,7 +102,7 @@
 	}
 	@media #{$medium-up} {
 		.image { width: 40% !important; }
-		.info-wrapper { width: 60% !important; min-height: 150px !important; }
+		.info-wrapper { width: 60% !important; min-height: 150px !important; padding: 0 0 0 15px !important; }
 		.image { min-height: 130px !important; }
 		.recipe-item {
 			border-top: 1px solid #dbddde;

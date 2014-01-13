@@ -14,6 +14,13 @@
 				<div class="blurb"><%= recipe.blurb %></div>
 			</div>
 			<%= render 'actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>
+
+			<% if params[:action] == "popular" %>
+			<div class="recent-bites">
+				<span class="number"><%= recipe.recent_bites %></span> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
+			</div>
+			<% end %>
+
 		</div>
 	</div>
 </div>

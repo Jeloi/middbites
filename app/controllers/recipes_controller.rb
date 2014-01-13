@@ -1,14 +1,12 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]
+  before_action :set_per_page, only: [:index, :popular, :recent]
   before_action :user_logged_in?, only: [:edit, :create, :vote, :unvote, :destroy]
 
-  # GET /recipes
-  # GET /recipes.json
   def index
-    per_page = 24
     @header = "All Recipes"
-    @recipes = Recipe.all.paginate(:page => params[:page], :per_page => per_page)
+    @recipes = Recipe.all.paginate(:page => params[:page], :per_page => @per_page)
     if logged_in?
       @user_bites = current_user.bites.pluck(:recipe_id)
       @user_favs = current_user.favorites.pluck(:recipe_id)
@@ -19,9 +17,22 @@ class RecipesController < ApplicationController
     end
   end
 
-  # GET /recipes/all
-  def all
-    @recipes = Recipe.all
+  def popular
+    @header = "Popular Now"
+    order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
+    @recipes = Recipe.popular_this_week(params[:page], @per_page, order)
+    if logged_in?
+      @user_bites = current_user.bites.pluck(:recipe_id)
+      @user_favs = current_user.favorites.pluck(:recipe_id)
+    end
+    respond_to do |wants|
+      wants.html { render "render_recipes.html.erb" }
+      wants.js { render "render_recipes" }
+    end
+  end
+
+  def recent
+    
   end
 
   # GET /recipes/1
@@ -121,6 +132,10 @@ class RecipesController < ApplicationController
         [cat.name, cat.items.collect {|i| [i.name, i.id]}]
       end
       @grouped_item_options.unshift ["", ["",""]] # add a blank pair at the beginning
+    end
+
+    def set_per_page
+      @per_page = 24
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -46,14 +46,19 @@ class Recipe < ActiveRecord::Base
 
 
 	# Validations
-
 	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
 	validates_presence_of :title, :blurb, :directions, message: "can't be blank"
-  validate :validate_ingredients_count
+  validate :validate_ingredients_count, :validate_reserved_names
 
+  # Validates that
   def validate_ingredients_count
     errors.add(:ingredient, "too many!") if ingredients.size > 10
     errors.add(:ingredient, "recipe needs at least one ingredient") if ingredients.size == 0
+  end
+
+  # Verifies that a recipe does not have a reserved name for a title (for routing)
+  def validate_reserved_names
+    errors.add(:title, "cannot have that name") if ["create","popular","recent"].include? title.downcase  
   end
 
   # -- Score instance methods -- 
@@ -82,11 +87,6 @@ class Recipe < ActiveRecord::Base
     self.save
   end
 
-  # -- Hotness instance methods -- 
-  def calculate_hotness
-    
-  end
-
   # Friendly_Id generate new slug
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
@@ -103,11 +103,12 @@ class Recipe < ActiveRecord::Base
         (SELECT count(votes.id) FROM votes WHERE votes.type='Bite' and votes.recipe_id=recipes.id and votes.created_at > '#{time}') AS recent_bites
       FROM recipes ORDER BY recipes.created_at) AS data
       WHERE recent_bites > 0 ORDER BY recent_bites #{order}"
-    if !page.nil? && !per_page.nil?
-      self.paginate_by_sql(sql, page: page, per_page: per_page)
-    else
-      self.find_by_sql(sql)
-    end
+      if !per_page.nil?
+        return self.paginate_by_sql(sql, page: page, per_page: per_page)
+      else
+        return self.find_by_sql(sql)
+      end
+
   end
 
   # Custom sql query to return recipes that have bites in the last month
@@ -119,10 +120,10 @@ class Recipe < ActiveRecord::Base
         (SELECT count(votes.id) FROM votes WHERE votes.type='Bite' and votes.recipe_id=recipes.id and votes.created_at > '#{time}') AS recent_bites
       FROM recipes ORDER BY recipes.created_at) AS data
       WHERE recent_bites > 0 ORDER BY recent_bites #{order}"
-    if !page.nil? && !per_page.nil?
-      self.paginate_by_sql(sql, page: page, per_page: per_page)
+    if !per_page.nil?
+      return self.paginate_by_sql(sql, page: page, per_page: per_page)
     else
-      self.find_by_sql(sql)
+      return self.find_by_sql(sql)
     end
   end
 

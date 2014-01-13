@@ -39,7 +39,9 @@
   </div>
 <% end %>
 
+<% if @recipes.size > @per_page %>
 <a href="#" id="load_more">Load More</a>
+<% end -%>
 
 <%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "row pagination", next_label: "Next", previous_label: "Prev" %>
 
