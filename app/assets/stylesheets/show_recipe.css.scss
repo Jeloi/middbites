@@ -26,11 +26,13 @@
 	}
 
 	.recipe {
-		h3 {
+		h4 {
 			// text-transform: uppercase;
 			font-size: 18px;
 			font-weight: 700;
 		}
+		// border: 1px solid #ddd;
+		// padding: 10px;
 	}
 
 	article.recipe-info {
@@ -43,6 +45,7 @@
 		max-width: 250px;
 		margin: 0 auto;
 		margin-bottom: 1em;
+		margin-top: 1em;
 		text-align: center;
 		.action {
 			display: block;
@@ -62,5 +65,34 @@
 			}
 		}
 
+	}
+
+	
+	h3 {
+		text-align: center;
+	}
+	#comments {
+		.comment {
+			padding: 18px 0px;
+			border-top: 1px solid #ddd;
+			.comment-body {
+				margin-top: 0.625em;
+				margin-bottom: 0;
+			}
+			.meta {
+				font-family: "omnes-pro";
+				.user-name {
+					font-size: 0.9em;
+					float: left;
+					// color: $grapefruit;
+				}
+				.time-ago {
+					float: right;
+					margin-top: 0.3em;
+					font-size: 0.7em;
+					color: #818181;
+				}
+			}
+		}
 	}
 }

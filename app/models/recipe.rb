@@ -25,6 +25,8 @@ class Recipe < ActiveRecord::Base
   friendly_id :title, :use => :slugged
   mount_uploader :image, ImageUploader
 
+  # Scopes
+  scope :in_last_month, where('created_at > ?', Time.now.months_ago(1))
 
   # Constants
   BITE_WEIGHT = 1.0
@@ -93,6 +95,7 @@ class Recipe < ActiveRecord::Base
   end
 
   # --- Class Methods --- #
+
 
   # Custom sql query to return recipes that have bites in the last week
   # Optional parameters for pagination and ordering

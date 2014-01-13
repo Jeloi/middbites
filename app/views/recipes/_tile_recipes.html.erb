@@ -10,8 +10,14 @@
 			<%= image_tag recipe.image_url(:thumb) %>
 			<div class="meta">
 				<%= render 'actions_mini', recipe: recipe %>
+				<% if params[:action] == "popular" %>
+				<div class="recent-bites">
+					<%= recipe.recent_bites %> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
+				</div>
+				<% end %>
 			</div>
 		</div>
 		<%= link_to recipe.title, recipe_path(recipe), class: "title" %>
+
 	</li>
 <% end -%>	
