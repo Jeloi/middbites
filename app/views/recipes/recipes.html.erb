@@ -1,0 +1,68 @@
+<div class="row">
+  <%= link_to "All", recipes_path %>
+  <%= link_to "Recent", recent_recipes_path %>
+  <%= link_to "Top", top_recipes_path %>
+  <%= link_to "Popular", popular_recipes_path %>
+</div>
+
+<div class="row">
+  <div class="header-title text-center">
+    <h1><%= @header %></h1>
+  </div>
+</div>
+
+<% view = @view %>
+<div class="row display-options">
+  <%= link_to url_for(params.merge(view: "detailed")), class: "icon-font #{'active' if view == "detailed"}" do %>
+    <span class="icon-font">&#xf028</span>
+  <% end %>
+  <%= link_to url_for(params.merge(view: "tiles")), class: "icon-font #{'active' if view == "tiles"}" do %>
+    <span class="icon-font">&#xf026</span>
+  <% end %>
+  <%= link_to url_for(params.merge(view: "list")), class: "icon-font #{'active' if view == "list"}" do %>
+    <span class="icon-font">&#xf0A9</span>
+  <% end %>
+</div>
+
+<div class="recipe-listings">
+  
+<% if view == "detailed" || view.blank? %>
+  <div class="row detailed-recipes">
+    <%= render  "detailed_recipes", recipes: @recipes %>
+  </div>
+<% elsif view == "tiles" %>
+  <div class="row tile-recipes">
+    <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
+      <%= render  "tile_recipes", recipes: @recipes %>
+    </ul>
+  </div>
+<% elsif view == "list" %>
+  <div class="row list-recipes">
+    <table class="">
+      <tbody>
+        <%= render  "list_recipes", recipes: @recipes %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+
+<% unless params[:action] == "top" %>
+  <%= @recipes.size %>
+  <%= @per_page %>
+  <%= page_entries_info @recipes %>
+  <% if @recipes.size >= @per_page %>
+  <a href="#" id="load_more">Load More</a>
+  <% end -%>
+
+  <%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "row pagination", next_label: "Next", previous_label: "Prev" %>
+<% end -%>
+
+
+</div>
+
+<div class="have-a-recipe">
+  <div class="row">
+    Have a great recipe?  <%= link_to "Create & Share", new_recipe_path, class: "red-button" %>
+  </div>
+</div>

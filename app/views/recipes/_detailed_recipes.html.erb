@@ -1,7 +1,12 @@
 <% recipes.each do |recipe| %>
 	<div class="medium-10 large-10 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
 		<div class="clrfix recipe-item invisible">
-			<div class="image" style="background-image: url('<%= "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}"%>')">
+			<% if !recipe.image_url(:thumb).nil? %>
+				<% img_url = "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}" %>
+			<% else %>
+				<% img_url = "#{request.protocol}#{request.host_with_port}/assets/default_image.jpg" %>
+			<% end %>			
+			<div class="image" style="background-image: url('<%= img_url %>')">
 			</div>
 <div class="info-wrapper">
 	<div class="cell">

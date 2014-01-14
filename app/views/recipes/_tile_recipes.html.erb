@@ -7,7 +7,11 @@
 			</div>
 			<% end %>
 			
-			<%= image_tag recipe.image_url(:thumb) %>
+			<% if !recipe.image_url(:thumb).nil? %>
+				<%= image_tag recipe.image_url(:thumb) %>
+			<% else %>
+				<%= image_tag "default_image.jpg" %>
+			<% end %>
 			<div class="meta">
 				<%= render 'actions_mini', recipe: recipe %>
 				<% if params[:action] == "popular" %>

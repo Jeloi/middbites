@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
     @view = params[:view] || "tiles"
     @recipes = Recipe.all.paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|
-      wants.html { render "render_recipes.html.erb" }
-      wants.js { render "render_recipes" }
+      wants.html { render "recipes.html.erb" }
+      wants.js { render "recipes.js.erb" }
     end
   end
 
@@ -18,10 +18,10 @@ class RecipesController < ApplicationController
     @header = "Top Recipes"
     @view = params[:view] || "tiles"
     order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
-    @recipes = Recipe.order(score: :desc).limit(50).paginate(:page => params[:page], :per_page => @per_page)
+    @recipes = Recipe.order(score: :desc).limit(30)
     respond_to do |wants|
-      wants.html { render "render_recipes.html.erb" }
-      wants.js { render "render_recipes" }
+      wants.html { render "recipes.html.erb" }
+      wants.js { render "recipes.js.erb" }
     end
   end
 
@@ -31,8 +31,8 @@ class RecipesController < ApplicationController
     order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
     @recipes = Recipe.popular_this_week(params[:page], @per_page, order)
     respond_to do |wants|
-      wants.html { render "render_recipes.html.erb" }
-      wants.js { render "render_recipes" }
+      wants.html { render "recipes.html.erb" }
+      wants.js { render "recipes.js.erb" }
     end
   end
 
@@ -41,8 +41,8 @@ class RecipesController < ApplicationController
     @view = params[:view] || "detailed"
     @recipes = Recipe.in_last_month.order(created_at: :desc).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|
-      wants.html { render "render_recipes.html.erb" }
-      wants.js { render "render_recipes" }
+      wants.html { render "recipes.html.erb" }
+      wants.js { render "recipes.js.erb" }
     end
   end
 

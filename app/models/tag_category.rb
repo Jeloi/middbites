@@ -10,4 +10,5 @@
 
 class TagCategory < ActiveRecord::Base
 	has_many :tags
+	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
 end

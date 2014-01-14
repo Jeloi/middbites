@@ -26,7 +26,7 @@ class Recipe < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   # Scopes
-  scope :in_last_month, where('created_at > ?', Time.now.months_ago(1))
+  scope :in_last_month, -> { where('created_at > ?', Time.now.months_ago(1)) }
 
   # Constants
   BITE_WEIGHT = 1.0
