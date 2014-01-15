@@ -1,25 +1,24 @@
 <div class="show-recipe">
 	<div class="row">
 		<div class="small-12 medium-10 large-8 small-centered columns recipe-item">
+			<h2 class="title"><%= @recipe.title %></h2>
+			<div class="create-info">
+				By <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+			</div>	
+
 			<%- if @recipe.image? %>
 			<div class="image">
 				<%= image_tag @recipe.image_url %>
 			</div>
 			<% end -%>
-			<h2 class="title"><%= @recipe.title %></h2>
-			<div class="create-info">
-				By <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
-			</div>	
 		</div>
 	</div>
 	
 	<article class="recipe-info row">
 		<div class="small-12 medium-10 large-8 small-centered columns recipe-item">
 
-			<%= render 'actions_main', recipe: @recipe %>	
-			<hr>			
 			<div class="recipe">
-				<h3>Recipe</h3>
+				<%= render 'actions_main', recipe: @recipe %>	
 				<p class="blurb">"<%= @recipe.blurb %>"</p>
 				<h4>Ingredients</h4>
 				<ul class="ingredient-list">
@@ -38,21 +37,15 @@
 				</ul>
 				<h4>Directions</h4>
 				<p class="directions"><%= @recipe.directions %></p>
-			</div>
-		</div>
-	</article>
-	<div class="tags row">
-		<div class="small-12 medium-10 large-8 small-centered columns ">
-				<span class="icon-font tag">&#xf0ab</span>
+				<h4>Tags</h4>
+				<!-- <span class="icon-font tag">&#xf0ab</span> -->
 				<% @recipe.tags.each do |tag| %>
 				<span class="tag"><%= tag.name %></span>
 				<% end %>
+
+			</div>
 		</div>
-	</div>
-		
-
-
-
+	</article>
 
 
 	<%= link_to "Edit", edit_recipe_path(@recipe) %>

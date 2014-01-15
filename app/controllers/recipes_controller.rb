@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
     @header = "Top Recipes"
     @view = params[:view] || "tiles"
     order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
-    @recipes = Recipe.order(score: :desc).limit(30)
+    @recipes = Recipe.order(score: :desc, created_at: :asc).limit(30)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
       wants.js { render "recipes.js.erb" }

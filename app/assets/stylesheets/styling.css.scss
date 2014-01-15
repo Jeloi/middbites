@@ -7,13 +7,14 @@
 }
 
 body {
+	// background: #f7f7f7;
 	transition: all .2s ease;
 }
 
 // Header title
 header#header {
 	text-align: center;
-	// background: #f7f7f7;
+	// background: white;
 	h1.middbites {
 		font-weight: 500;
 		font-family: "reklame-script";
@@ -40,7 +41,7 @@ header#header {
 	#sticky_navigation {
 		width: 100%;
 		z-index: 1000;
-		background: white; 
+		background: white;
 		&.fixed {
 			border-bottom: 1px solid #ddd;
 			position: fixed;
@@ -177,7 +178,7 @@ footer#footer {
 
 
 @media #{$large-up} {
-	.header-title h1 { font-size: 60px; }
+	.header-title h1 { font-size: 40px; }
 }
 
 // Global Styles
