@@ -19,7 +19,6 @@ gem 'rmagick'
 
 gem 'jquery-turbolinks'
 
-# gem 'zurb-foundation'
 # gem 'foundation-rails', github: 'ahacking/foundation-rails'
 gem 'foundation-rails'
 gem 'omniauth-facebook', '1.4.0'
@@ -28,15 +27,18 @@ gem 'friendly_id', '5.0.0.beta4'
 # gem 'chosen-rails', github: 'Jeloi/chosen-rails'
 gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
-# gem 'select2-rails'
+
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 gem 'mysql2'
 
-# For making development life better
-gem 'hirb'
-gem 'quiet_assets'
 
 group :development, :test do
+  # For making development life better
+  gem 'hirb'
+  gem 'quiet_assets'
   gem 'sqlite3', '1.3.7'
   gem 'rspec-rails'
   # The following optional lines are part of the advanced setup.

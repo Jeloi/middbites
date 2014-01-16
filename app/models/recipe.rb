@@ -28,6 +28,16 @@ class Recipe < ActiveRecord::Base
   # Scopes
   scope :in_last_month, -> { where('created_at > ?', Time.now.months_ago(1)) }
 
+  # Sunspot Solr Search
+  searchable do
+    text :title, boost: 5
+    text :blurb, boost: 3
+    text :directions
+    text :tags do
+      tags.map { |tag| tag.name }
+    end
+  end
+
   # Constants
   BITE_WEIGHT = 1.0
   FAV_WEIGHT = 1.8

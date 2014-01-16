@@ -15,4 +15,12 @@ class Tag < ActiveRecord::Base
 	belongs_to :tag_category
 
 	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
+
+	# Sunspot Solr Search
+	searchable do
+	  text :name, boost: 2
+	  text :tag_category do
+	    tag_category.name
+	  end
+	end	
 end
