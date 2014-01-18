@@ -19,9 +19,8 @@ gem 'rmagick'
 
 gem 'jquery-turbolinks'
 
-# gem 'zurb-foundation'
-# gem 'foundation-rails', github: 'ahacking/foundation-rails'
-gem 'foundation-rails'
+gem 'foundation-rails', github: 'Jeloi/foundation-rails'
+# gem 'foundation-rails'  # use this when commented xlarge columns is resolved
 gem 'omniauth-facebook', '1.4.0'
 gem 'friendly_id', '5.0.0.beta4'
 # gem 'nested_form'

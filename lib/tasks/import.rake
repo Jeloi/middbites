@@ -18,3 +18,14 @@ task :import_tags => [:environment] do
 		end
 	end
 end
+
+desc "Delete unneccessary tag categories"
+task :delete_tag_categories => [:environment] do
+	TagCategory.where(name: "Miscellaneous").each do |tag_cat|
+		tag_cat.tags.each do |tag|
+			tag.tag_category = TagCategory.first
+			tag.save
+		end
+		tag_cat.destroy
+	end
+end
