@@ -15,4 +15,5 @@ class Tag < ActiveRecord::Base
 	belongs_to :tag_category
 
 	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
+	validates_presence_of :tag_category, message: "can't be blank"
 end
