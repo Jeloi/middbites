@@ -1,14 +1,14 @@
 Meals,Type of Dish,Timing,Season,Health & Diet,Food Descriptors,Other,World Cuisine
 Appetizer,Baked Good ,Easy,Autumn,Allergies,Acidic,Proctor,African 
 Breakfast,Beverage ,Quick,Spring,Gluten-Free,Acrid,Ross,Asian 
-Dessert,Bread ,,Summer,Healthy,Aged,Atwater,Australian 
+Dessert,Bread ,Slow,Summer,Healthy,Aged,Atwater,Australian 
 High Tea,Cake ,,Winter,Low-Carb,Bitter,Battell,British 
-Lunch,Candy ,,,Low-Sugar,Bittersweet,Gifford,Canadian 
+Lunch,Candy ,,Fall,Low-Sugar,Bittersweet,Gifford,Canadian 
 Main Dish,Casserole ,,,Meatless,Bland,Hepburn,Chinese 
 Side Dish,Condiments ,,,Vegan,Burnt,Post-Game,European 
 Supper,Cookie ,,,Vegetarian,Buttery,Post-Workout,French 
 Dinner,Crackers ,,,Organic,Chalky,Pre-Game,German 
-,Jams & Preserved Foods ,,,,Cheesy,Pregame,Greek 
+Second Dinner,Jams,,,,Cheesy,Pregame,Greek 
 ,Panini,,,,Crusty,Alcoholic,Indian 
 ,Pasta ,,,,Chewy,Pikachu,Italian 
 ,Pizza ,,,,Chocolaty,Panther,Japanese 

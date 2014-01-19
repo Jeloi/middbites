@@ -1,8 +1,9 @@
 class TagsController < ApplicationController
-  def all_tags
-  	@tags = Tag.all
+  def all
+  	@tags = Tag.all.order(taggings_count: :desc)
   end
 
-  def grouped_tags
+  def grouped
+  	@tag_categories = TagCategory.all
   end
 end
