@@ -23,16 +23,9 @@
        <!-- <h1 class="middbites"> middbites </h1> -->
        <%= image_tag "logo.png", class: "logo" %>
        <% end %>
-       <!-- <div class="slogan">discover & share the best bites @ midd</div> -->
-       <!-- 
-           <form method="get" id="search-form" action="" >
-             <div id="search">
-               <input class="field" type="text" placeholder="Search anything.." name="search" id="search-input" />
-               <input class="submit" id="search-submit" type="submit" value=" " />
-               <div style="clear: both;"></div>
-             </div>        
-           </form> -->
     
+
+
       <div id="sticky_navigation_wrapper">
         <div id="sticky_navigation">
           <div class="row">
@@ -57,6 +50,12 @@
         </div>
       </div> 
     </header>
+
+    <%= form_tag(search_path, {method: :get, :class => "form"}) do %>
+      <%= text_field_tag :keywords, params[:keywords] %>
+      <%= select_tag :context,  options_for_select(["Everything", "Recipes", "Tags", "Ingredients"], "Everything")%>
+      <%= submit_tag "Search", name: nil %>
+    <% end -%>
     
     <div class="hide-for-large" id="mobile-nav-wrapper">
       <nav class="hide-for-large-up fixed">

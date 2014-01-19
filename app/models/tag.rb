@@ -16,4 +16,12 @@ class Tag < ActiveRecord::Base
 
 	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
 	validates_presence_of :tag_category, message: "can't be blank"
+
+	# Sunspot Solr Search
+	searchable do
+	  text :name, boost: 2
+	  text :tag_category do
+	    tag_category.name
+	  end
+	end	
 end

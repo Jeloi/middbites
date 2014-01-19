@@ -18,6 +18,11 @@ class Item < ActiveRecord::Base
 
 	validates_uniqueness_of :name, message: "must be unique!"
 
+	# Sunspot Solr Search
+	searchable do
+	  text :name
+	end	
+
 	# Sets the this item's item_category to "Other" if one is not specified
 	def set_item_category
 		if self.item_category.nil?
