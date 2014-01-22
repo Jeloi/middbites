@@ -1,5 +1,5 @@
 <% recipes.each do |recipe| %>
-	<div class="medium-10 large-10 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
+	<div class="medium-10 large-9 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
 		<div class="clrfix recipe-item invisible">
 			<% if !recipe.image_url(:thumb).nil? %>
 				<% img_url = "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}" %>
@@ -8,27 +8,27 @@
 			<% end %>			
 			<div class="image" style="background-image: url('<%= img_url %>')">
 			</div>
-<div class="info-wrapper">
-	<div class="cell">
-		<div class="info vert-align">
-			<%= link_to recipe.title, recipe_path(recipe), class: "small-font-secondary title" %>
-			<div class="create-info">
-				By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
-			</div>
-			<div class="hide-for-medium">
-				<div class="blurb"><%= recipe.blurb %></div>
-			</div>
-			<%= render 'actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>
+			<div class="info-wrapper">
+				<div class="cell">
+					<div class="info vert-align">
+						<%= link_to recipe.title, recipe_path(recipe), class: "small-font-secondary title" %>
+						<div class="create-info">
+							By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
+						</div>
+						<div class="hide-for-medium">
+							<div class="blurb"><%= recipe.blurb %></div>
+						</div>
+						<%= render 'recipes/actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>
 
-			<% if params[:action] == "popular" %>
-			<div class="recent-bites">
-				<%= recipe.recent_bites %> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
-			</div>
-			<% end %>
+						<% if params[:action] == "popular" %>
+						<div class="recent-bites">
+							<%= recipe.recent_bites %> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
+						</div>
+						<% end %>
 
-		</div>
-	</div>
-</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 <% end -%>

@@ -38,20 +38,20 @@
   <% end %>
 </div>
 
-<div class="recipe-listings">
+<div class="row recipe-listings">
   
 <% if view == "detailed" || view.blank? %>
-  <div class="row detailed-recipes">
+  <div class="detailed-recipes">
     <%= render  "detailed_recipes", recipes: @recipes %>
   </div>
 <% elsif view == "tiles" %>
-  <div class="row tile-recipes">
+  <div class="tile-recipes">
     <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
       <%= render  "tile_recipes", recipes: @recipes %>
     </ul>
   </div>
 <% elsif view == "list" %>
-  <div class="row list-recipes">
+  <div class="list-recipes">
     <table class="">
       <tbody>
         <%= render  "list_recipes", recipes: @recipes %>
@@ -65,7 +65,7 @@
   <%= @recipes.size %>
   <%= @per_page %>
   <%= page_entries_info @recipes %>
-  <% if @recipes.size >= @per_page %>
+  <% if @recipes.total_pages > 1 %>
   <a href="#" id="load_more">Load More</a>
   <% end -%>
 

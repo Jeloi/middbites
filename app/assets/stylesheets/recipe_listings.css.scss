@@ -31,9 +31,6 @@
 
 /* Detailed Recipes View */
 .detailed-recipes {
-	.large-10 {
-		max-width: 700px;
-	}
 	.recipe-item {
 		// border-top: 1px solid #dddddd;
 		&:hover {
@@ -252,7 +249,7 @@
 /* Common Recipe Styles */
 .recipe-listings {
 	// background: #f8f9fa;
-	padding-top: 30px;
+	// padding-top: 30px;
 }
 
 .invisible {
@@ -283,6 +280,13 @@
 		font-weight: 300;
 		.number { font-weight: 500 }
 	}	
+}
+
+.header-title {
+
+}
+.page-description {
+	font-weight: 300;
 }
 
 

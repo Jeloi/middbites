@@ -29,4 +29,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Load arrays of current_user's bites and fav ids
+  def set_user_votes
+    if logged_in?
+      @user_bites = current_user.bites.pluck(:recipe_id)
+      @user_favs = current_user.favorites.pluck(:recipe_id)
+    end
+  end
+
 end

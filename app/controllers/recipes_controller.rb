@@ -150,12 +150,6 @@ class RecipesController < ApplicationController
       @per_page = 24
     end
 
-    def set_user_votes
-      if logged_in?
-        @user_bites = current_user.bites.pluck(:recipe_id)
-        @user_favs = current_user.favorites.pluck(:recipe_id)
-      end
-    end
 
     def set_recipe_sort
       case params[:sort]

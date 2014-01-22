@@ -1,2 +1,64 @@
-<h1>Search#search</h1>
-<p>Find me in app/views/search/search.html.erb</p>
+<div class="row">
+	<div class="header-title text-center">
+		<h1>Search Results</h1>
+	</div>
+	<div class="medium-10 large-10 medium-centered large-centered columns text-center">
+		<div class="page-description">Your search for <em>"<%= params[:keywords] %>"</em> yielded <strong><%= @total_results %></strong> results.</div>
+	</div>
+</div>
+
+<% if params[:page].nil? || params[:page] == "1" %>
+<div class="row">
+	<% if !@tags.nil? %>
+	<div class="medium-10 large-9 xlarge-6 medium-centered xlarge-uncentered columns tags">
+		<h2>Tags</h2>
+		<% @tags.each do |tag| %>
+			<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
+			<%= link_to tag_text, root_path, class: "tag" %>
+		<% end %>
+	</div>
+	<% end -%>
+	<% if !@items.nil? %>
+	<div class="medium-10 large-9 xlarge-6 medium-centered xlarge-uncentered columns ingredients">
+		<h2>Ingredients</h2>
+		<% @items.each do |item| %>
+			<span><%= item.name %></span>
+		<% end -%>
+	</div>
+	<% end -%>
+</div>
+<% end -%>
+
+	<% if !@recipes.nil? %>
+	<div class="row recipe-listings">
+		<div class="medium-10 large-9 xlarge-12 medium-centered xlarge-uncentered columns search-results">
+			<h2>Recipes</h2>
+			
+		</div>
+		<% view = @view %>
+		<% if view == "detailed" || view.blank? %>
+		  <div class="detailed-recipes">
+		    <%= render  "recipes/detailed_recipes", recipes: @recipes %>
+		  </div>
+		<% elsif view == "tiles" %>
+		  <div class="tile-recipes">
+		    <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
+		      <%= render  "tile_recipes", recipes: @recipes %>
+		    </ul>
+		  </div>
+		<% elsif view == "list" %>
+		  <div class="list-recipes">
+		    <table class="">
+		      <tbody>
+		        <%= render  "list_recipes", recipes: @recipes %>
+		      </tbody>
+		    </table>
+		  </div>
+		<% end %>
+	</div>
+
+
+	<%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "row pagination", next_label: "Next", previous_label: "Prev" %>
+
+	<% end %>
+

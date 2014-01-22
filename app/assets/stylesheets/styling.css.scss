@@ -182,15 +182,23 @@ footer#footer {
 	.header-title h1 { font-size: 40px; }
 }
 
-// Global Styles
-
-.main-width {
-	max-width: 93%;
-	margin: 0 auto;
+// Search results
+.search-results {
+	@media #{$medium-only} {
+		max-width: 550px;
+	}
+	@media #{$large-only} {
+		max-width: 800px;
+	}
 }
 
-.padded-wrap {
-	padding: 10px 4%;
+// Global Styles
+
+// Fix foundation floating right problem
+@media #{$screen} and (max-width:#{upper-bound($large-range)}) {
+	[class*="column"] + [class*="column"]:last-child {
+		float: none !important;
+	}
 }
 
 .clrfix:after {
