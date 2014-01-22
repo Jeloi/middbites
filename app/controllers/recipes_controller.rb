@@ -2,12 +2,15 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]
   before_action :set_per_page, :set_user_votes, only: [:index, :popular, :recent, :top]
+  before_action :set_recipe_sort, only: [:index]
   before_action :user_logged_in?, only: [:edit, :create, :vote, :unvote, :destroy]
 
   def index
     @header = "All Recipes"
     @view = params[:view] || "tiles"
-    @recipes = Recipe.all.paginate(:page => params[:page], :per_page => @per_page)
+    order = (params[:order] == 'asc' ? :asc : :desc)
+    order = :asc if @sort == :title
+    @recipes = Recipe.order(@sort => order).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
       wants.js { render "recipes.js.erb" }
@@ -17,7 +20,6 @@ class RecipesController < ApplicationController
   def top
     @header = "Top Recipes"
     @view = params[:view] || "tiles"
-    order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
     @recipes = Recipe.order(score: :desc, created_at: :asc).limit(30)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
@@ -28,8 +30,7 @@ class RecipesController < ApplicationController
   def popular
     @header = "Popular Now"
     @view = params[:view] || "detailed"
-    order = (params[:order] == 'asc' ? 'ASC' : 'DESC')
-    @recipes = Recipe.popular_this_week(params[:page], @per_page, order)
+    @recipes = Recipe.popular_this_week(params[:page], @per_page)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
       wants.js { render "recipes.js.erb" }
@@ -153,6 +154,21 @@ class RecipesController < ApplicationController
       if logged_in?
         @user_bites = current_user.bites.pluck(:recipe_id)
         @user_favs = current_user.favorites.pluck(:recipe_id)
+      end
+    end
+
+    def set_recipe_sort
+      case params[:sort]
+      when "alphabetical"
+        @sort = :title
+      when "popularity"
+        @sort = :score
+      when "date"
+        @sort = :created_at
+      when "chatter"
+        @sort = :comments_count
+      else
+        @sort = :title
       end
     end
 

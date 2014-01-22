@@ -9,6 +9,6 @@
 #
 
 class TagCategory < ActiveRecord::Base
-	has_many :tags
+	has_many :tags, -> { order "taggings_count desc"}
 	validates_uniqueness_of :name, :on => :save, :message => "must be unique"
 end

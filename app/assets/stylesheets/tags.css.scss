@@ -28,3 +28,11 @@
 .tag {
 	@include tag-hollow($blue);
 }
+
+
+.grouped-tags {
+	h5 {
+		margin-top: 0.8em;
+		margin-bottom: 0.5em
+	}
+}

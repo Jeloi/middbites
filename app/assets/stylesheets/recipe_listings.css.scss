@@ -300,6 +300,17 @@
 	}
 }
 
+// Sort options (alphabetical, popularity, date created, chatter)
+.sort-options {
+	text-align: center;
+	padding: 0.5em 0;
+}
+#sort-options {
+	@include dropdown-container();
+	width: auto;
+	text-align: left;
+}
+
 @mixin flat-button($color) {
 	padding: 12px;
 	display: inline-block;

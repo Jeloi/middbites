@@ -32,8 +32,8 @@ Middbites::Application.routes.draw do
 
   # Tags routes
   # get 'tags/:tag', to: 'recipes#all', as: :tag
-  get "tags" => 'tags#all', as: 'all_tags'
-  get "tags/grouped", to: 'tags#grouped', as: 'grouped_tags'
+  get "tags/all" => 'tags#all', as: 'all_tags'
+  get "tags", to: 'tags#grouped', as: 'grouped_tags'
 
 
   # Omniauth routes

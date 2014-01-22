@@ -12,15 +12,29 @@
 </div>
 
 <% view = @view %>
-<div class="row display-options">
-  <%= link_to url_for(params.merge(view: "detailed")), class: "icon-font #{'active' if view == "detailed"}" do %>
-    <span class="icon-font">&#xf028</span>
-  <% end %>
-  <%= link_to url_for(params.merge(view: "tiles")), class: "icon-font #{'active' if view == "tiles"}" do %>
-    <span class="icon-font">&#xf026</span>
-  <% end %>
-  <%= link_to url_for(params.merge(view: "list")), class: "icon-font #{'active' if view == "list"}" do %>
-    <span class="icon-font">&#xf0A9</span>
+<div class="row">
+  <div class="display-options">
+    <%= link_to url_for(params.merge(view: "detailed")), class: "icon-font #{'active' if view == "detailed"}" do %>
+      <span class="icon-font">&#xf028</span>
+    <% end %>
+    <%= link_to url_for(params.merge(view: "tiles")), class: "icon-font #{'active' if view == "tiles"}" do %>
+      <span class="icon-font">&#xf026</span>
+    <% end %>
+    <%= link_to url_for(params.merge(view: "list")), class: "icon-font #{'active' if view == "list"}" do %>
+      <span class="icon-font">&#xf0A9</span>
+    <% end %>
+  </div>
+  <% if params[:action] == "index" %>
+  <div class="sort-options">
+    <span>Sort: </span>
+    <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= params[:sort] ? params[:sort].titlecase : "Alphabetical"   %></a>
+    <ul id="sort-options" class="f-dropdown" data-dropdown-content>
+      <li><%= link_to "Alphabetical", params.merge(sort: "alphabetical") %></li>
+      <li><%= link_to "Popularity", params.merge(sort: "popularity") %></li>
+      <li><%= link_to "Date", params.merge(sort: "date") %></li>
+      <li><%= link_to "Chatter", params.merge(sort: "chatter") %></li>
+    </ul>
+  </div>
   <% end %>
 </div>
 

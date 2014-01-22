@@ -4,6 +4,6 @@ class TagsController < ApplicationController
   end
 
   def grouped
-  	@tag_categories = TagCategory.all
+  	@tag_categories = TagCategory.includes(:tags)
   end
 end

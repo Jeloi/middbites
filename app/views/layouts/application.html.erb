@@ -35,8 +35,13 @@
               <ul id="main-nav" class="" >
                 <li class="nav-1"><%= link_to "recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
                 <li class="nav-2"><%= link_to "menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-                <li class="nav-3"><a href="">Other</a></li>
+                <li class="nav-3">
+                  <%= link_to "Tags", all_tags_path %>
+                </li>
                 <li class="nav-4">
+                  <%= link_to "Ingredients", all_items_path %>
+                </li>
+                <li class="nav-5">
                   <span class="icon-font search">&#xf094</span>
                   <%= link_to() do %>
                   <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
@@ -93,7 +98,7 @@
         <span class="nav-sep"></span>
         <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
         <li class="hide-small"><%= link_to "Create", new_recipe_path %><span class="nav-sep">・</span></li>
-        <li class="hide-small"><%= link_to "Tags", all_tags_path %><span class="nav-sep">・</span></li>
+        <li class="hide-small"><%= link_to "Tags", grouped_tags_path %><span class="nav-sep">・</span></li>
         <li class="hide-small"><%= link_to "Ingredients", all_items_path %><span class="nav-sep">・</span></li>
         <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
         <li><%= link_to "Contact", recipes_path %></li>

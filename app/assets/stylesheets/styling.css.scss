@@ -50,7 +50,7 @@ header#header {
 		}
 	}
 	.middbites {
-		font-weight: 500;
+		font-weight: 300;
 		font-family: "reklame-script";
 		color: black;
 		position: absolute;
@@ -86,12 +86,13 @@ nav.main-nav {
 	ul {
 		margin: 0 auto;
 		text-align: center;
-		width: 500px;
+		// width: 500px;
 		line-height: 50px;
 	}
 	ul > li {
 		// font-family: $header-font-family;
-		font-weight: 500;
+		a { font-size: 18px; }
+		font-weight: 300;
 		display: inline-block;
 		margin-right: 15px;
 		padding-right: 15px;

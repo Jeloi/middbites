@@ -1,3 +1,17 @@
-<div>
-	Hello World
+<div class="header-title text-center">
+  <h1>Tags</h1>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-10 large-8 small-centered columns grouped-tags">
+	<% @tag_categories.each do |category| %>
+		<h5><%= category.name %></h5>	
+		<div>
+			<% category.tags.each do |tag| %>
+				<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
+				<%= link_to tag_text, root_path, class: "tag" %>
+			<% end %>
+		</div>
+	<% end %>	
+	</div>
 </div>
