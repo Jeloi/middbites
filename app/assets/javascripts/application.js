@@ -21,7 +21,18 @@
 // require modernizr-2.6.2.min
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+// Foundation
+$(function(){ 
+	$(document).foundation();
+	$(document).foundation('reveal', {
+		animation: 'fade',
+		animation_speed: 100
+	});
+	$(document).on('opened', '#search-modal', function(event) {
+		$('#search-modal #search').focus();	
+	});
+});
+
 
 // var id; // Global variable
 // var screen_width = $(window).width();
@@ -73,35 +84,4 @@ $(function () {
 	     sticky_navigation();
 	});
 
-	// Vertically Center Content
-	// function verticalCenter() {
-	// 	if ($(window).width() >= 500) {
-	// 		$('.vert-align').each(function() {
-	// 			var $itemHeight = $(this).parent().outerHeight();
-	// 			var $itemTitleHeight = $(this).outerHeight();
-	// 			var $marginTop = ($itemHeight - $itemTitleHeight) / 2;
-	// 			$(this).css('margin-top', $marginTop + "px");
-	// 		});
-	// 	} else {
-	// 		$('.vert-align').css('margin-top', "0px");
-	// 	};
-	// }
-
-	// if($('.recipe-item').length) {
-	// 	verticalCenter();
-	// 	$(window).on('load resize facetwp-loaded', verticalCenter);
-	// }
-
-
-	// Initialize bamboo off-canvas nav
-	// var site = new Bamboo({
-	//     menu: true,
-	//     swipeToOpen: false,
-	//     breakpoint: 768,
-	//     menuWidth: 265,
-	//     headerHeight: 50,
-	//     resize: function(){
-	//         // function to call on page resize/orientation change
-	//     }
-	// });
 });

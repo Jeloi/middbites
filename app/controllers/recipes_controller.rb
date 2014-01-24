@@ -153,7 +153,7 @@ class RecipesController < ApplicationController
 
     def set_recipe_sort
       case params[:sort]
-      when "alphabetical"
+      when "name"
         @sort = :title
       when "popularity"
         @sort = :score

@@ -74,7 +74,7 @@ $primary-color: #3aafe3;
 // $include-html-type-classes: $include-html-classes;
 
 // // We use these to control header font styles
-// $header-font-family: "museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: "museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-family: "ff-enzo-web", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $header-font-weight: normal;
 // $header-font-style: normal;
@@ -817,7 +817,7 @@ $include-html-nav-classes: false;
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-// $reveal-overlay-bg: rgba(#000, .45);
+$reveal-overlay-bg: rgba(#fff, .9);
 // $reveal-overlay-bg-old: #000;
 
 // We use these to control the style of the modal itself.
