@@ -1,9 +1,14 @@
+<% count = 1 %>
 <% recipes.each do |recipe| %>
 <tr class="recipe-item invisible">
+	<% if params[:action] == "top" %>
+	<td class="rank-number"><%= count %>.</td>
+	<% end %>
 	<td class="title"><%= link_to recipe.title, recipe_path(recipe) %></td>
-	<td class="actions">
+	<td class="actions show-for-medium-up">
 		<%= render 'actions_mini', recipe: recipe %>
 	</td>
-	<td class="date"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
+	<td class="date show-for-large-up"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
 </tr>
+<% count += 1 %>
 <% end %>

@@ -1,3 +1,4 @@
+<% counter = 1 %>
 <% recipes.each do |recipe| %>
 	<div class="medium-10 large-9 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
 		<div class="clrfix recipe-item invisible">
@@ -7,6 +8,9 @@
 				<% img_url = "#{request.protocol}#{request.host_with_port}/assets/default_image.jpg" %>
 			<% end %>			
 			<div class="image" style="background-image: url('<%= img_url %>')">
+				<% if params[:action] == "top" %>
+					<span class="rank-number"><%= counter %></span>
+				<% end %>
 			</div>
 			<div class="info-wrapper">
 				<div class="cell">
@@ -31,4 +35,5 @@
 			</div>
 		</div>
 	</div>
+<% counter += 1 %>
 <% end -%>

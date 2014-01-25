@@ -3,6 +3,10 @@
 	width: 100%;
 	margin: 0 auto;
 	border: none;
+	td.rank-number {
+		width: 2em;
+		text-align: right;
+	}
 	td.title {
 		min-width: 90%;
 		font-size: 20px;
@@ -12,14 +16,9 @@
 		width: 180px;
 	}
 	td.date {
-		display: none;
 		text-align: right;
 		width: 110px;
 	}
-}
-
-@media #{$medium-up} {
-	td.date { display: table-cell !important; }
 }
 
 @media #{$large-up} {
@@ -37,12 +36,21 @@
 			background: white;
 		}
 		.image {
+			position: relative;
 			float: left;
 			width: 100%;
 			max-width: 300px;
 			min-height: 200px;
 			background-position: center center;
 			background-size: cover;
+			.rank-number {
+				padding: 0.3em 0.5em;
+				color: white;
+				background: rgba(0,0,0,0.5);	
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
 		}
 		.title {
 			font-size: 18px;
@@ -280,6 +288,7 @@
 		font-weight: 300;
 		.number { font-weight: 500 }
 	}	
+
 }
 
 .header-title {

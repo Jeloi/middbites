@@ -3,16 +3,12 @@
   <%= link_to "Recent", recent_recipes_path %>
   <%= link_to "Top", top_recipes_path %>
   <%= link_to "Popular", popular_recipes_path %>
-</div>
 
-<div class="row">
   <div class="header-title text-center">
     <h1><%= @header %></h1>
   </div>
-</div>
 
 <% view = @view %>
-<div class="row">
   <div class="display-options">
     <%= link_to url_for(params.merge(view: "detailed")), class: "icon-font #{'active' if view == "detailed"}" do %>
       <span class="icon-font">&#xf028</span>
