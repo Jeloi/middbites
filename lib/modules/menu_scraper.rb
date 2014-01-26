@@ -1,7 +1,7 @@
 require 'open-uri'
 
 module MenuScraper
-	HALL_SORT = [ "Proctor", "Ross", "Atwater"]
+	HALL_MEAL_SORT = [ "Proctor", "Ross", "Atwater", "Breakfast", "Lunch", "Dinner"]
 
 	# Visits the given base_url + date_param and scrapes middlebury menu info, optionally sorted by dining_hall
 	def self.scrape_midd_menus(base_url, date_param="", sort_by="")
@@ -51,13 +51,13 @@ module MenuScraper
 					meal_times[meal_time][hall] = meal
 				end
 			end
-			return meal_times
+			return sort_hash_by_array(meal_times)
 		end
 	end
 
 	# Sorts a given hash by its keys, on the given array. Keys that aren't in the array are put at the end
 	# note keys not in array are given 99 as sort value. Shouldn't be an issue with this data.
-	def self.sort_hash_by_array(hash, array=HALL_SORT)
+	def self.sort_hash_by_array(hash, array=HALL_MEAL_SORT)
 		Hash[hash.sort_by{|k, _| array.index(k) || 99 }]
 	end
 

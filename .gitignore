@@ -19,6 +19,7 @@
 
 # Ignore solr data folder
 /solr/data
+/solr/development/*
 
 # Ignore uploads
 /public/uploads

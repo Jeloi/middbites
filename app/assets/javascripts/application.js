@@ -31,6 +31,7 @@ $(function(){
 	$(document).on('opened', '#search-modal', function(event) {
 		$('#search-modal #search').focus();	
 	});
+	
 });
 
 
