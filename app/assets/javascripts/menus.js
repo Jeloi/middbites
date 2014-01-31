@@ -4,7 +4,7 @@ var pager_array;
 
 
 // // screen width variables for number of slides
-var oneSlide = 500;
+var oneSlide = 600;
 var twoSlides = 930;
 // // var 3slides = 800;
 
@@ -109,9 +109,9 @@ function reloadSlider (i) {
 			});
 	} else {
 		sliders_array[i].reloadSlider({
-			slideWidth: 400,
-			minSlides: 2,
-			maxSlides: 2,
+			slideWidth: 1000,
+			minSlides: 3,
+			maxSlides: 3,
 			moveSlides: 1,
 				// infiniteLoop: true,
 				controls: false,
@@ -131,9 +131,11 @@ function doneResizing(){
 	// if the width of the window changed only
 	if ($(window).width() != screen_width) {
 
-		// Find tab's slider index and reload slider
-		var i = $('#menu-tab-content .content.active').data('index');
-		reloadSlider(i);
+		if ($('#menu-tab-content').length) {
+			// Find tab's slider index and reload slider
+			var i = $('#menu-tab-content .content.active').data('index');
+			reloadSlider(i);
+		};
 
 		screen_width = $(window).width();
 	};

@@ -8,14 +8,14 @@
 	<div class="columns">
 		<dl class="tabs text-center" id="menu-tabs" data-numsliders="<%= @menus_hash.keys.size %>" data-tab>
 			<% @menus_hash.keys.each_with_index do |key, index| %>
-			<dd class="<%= 'active' if key == @current_meal %>" data-index="<%= index %>"><a href="#menu-tab-<%= index %>"><%= key %></a></dd>
+			<dd class="<%= 'active' if key == @current_meal || key == "Proctor" %>" data-index="<%= index %>"><a href="#menu-tab-<%= index %>"><%= key %></a></dd>
 			<% end -%>
 		</dl>
 		
 		
 		<div class="tabs-content" id="menu-tab-content">
 			<% @menus_hash.each_with_index do |(key, sub_hash), index| %>
-			<div class="content <%= "active" if key == @current_meal %>" data-index="<%= index %>" id="menu-tab-<%= index %>">
+			<div class="content <%= "active" if key == @current_meal || key == "Proctor" %>" data-index="<%= index %>" id="menu-tab-<%= index %>">
 				<div id="bxpager<%= index %>" class="pager">
 					<% ii = 0 %>
 					<% sub_hash.each_with_index do |(sub_key, value), i| %>
@@ -56,3 +56,14 @@
 	<%= link_to "Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
 </span>
 
+
+<div class="row">
+	<div class="detailed-recipes">
+	  <%= render  "recipes/detailed_recipes", recipes: @recent_recipes %>
+	</div>
+	<div class=" tile-recipes">
+		<ul class="small-block-grid-2 medium-block-grid-2">
+		  <%= render  "recipes/tile_recipes", recipes: @recent_recipes %>
+		</ul>
+	</div>
+</div>
