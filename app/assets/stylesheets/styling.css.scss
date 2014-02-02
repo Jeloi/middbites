@@ -251,7 +251,7 @@ footer#footer {
 // Global Styles
 
 // Fix foundation floating right problem
-@media #{$screen} and (max-width:#{upper-bound($large-range)}) {
+@media #{$screen} and (max-width:#{upper-bound($large-range)}) and (min-width:#{lower-bound($medium-range)}) {
 	[class*="column"] + [class*="column"]:last-child {
 		float: none !important;
 	}

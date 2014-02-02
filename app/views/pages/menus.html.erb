@@ -6,7 +6,7 @@
 
 <div class="row">
 	<div class="columns">
-		<dl class="tabs text-center" id="menu-tabs" data-numsliders="<%= @menus_hash.keys.size %>" data-tab>
+		<dl class="text-center" id="menu-tabs" data-numsliders="<%= @menus_hash.keys.size %>" data-tab>
 			<% @menus_hash.keys.each_with_index do |key, index| %>
 			<dd class="<%= 'active' if key == @current_meal || key == "Proctor" %>" data-index="<%= index %>"><a href="#menu-tab-<%= index %>"><%= key %></a></dd>
 			<% end -%>
