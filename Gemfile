@@ -50,6 +50,7 @@ group :development, :test do
   gem 'guard-zeus'
   gem 'zeus' 
   gem 'factory_girl_rails'
+  gem 'sunspot_test'
 
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-rails'

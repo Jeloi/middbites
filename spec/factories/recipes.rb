@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id               :integer          not null, primary key
+#  directions       :text
+#  title            :string(255)
+#  blurb            :string(255)
+#  user_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  slug             :string(255)
+#  bites_count      :integer          default(0)
+#  favorites_count  :integer          default(0)
+#  comments_count   :integer          default(0)
+#  image            :string(255)
+#  score            :decimal(18, 6)   default(0.0)
+#  ingredients_list :string(255)
+#
+
 FactoryGirl.define do
   factory :recipe do
 
@@ -27,6 +47,18 @@ FactoryGirl.define do
   			end
   		end
   	end	
+
+    trait :with_multiple_ingredients do
+      ignore do
+        ingredient_count 3
+      end
+      after(:build) do |recipe, evaluator|
+        item_list = build_list(Item, evaluator.ingredient_count)
+        item_list.each do |item|
+          recipe.ingredients << Ingredient.new(item: item)
+        end
+      end
+    end
 
     trait :with_taggings do
       after(:build) do |recipe|

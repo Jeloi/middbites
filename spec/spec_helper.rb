@@ -2,6 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'sunspot_test/rspec'
 # require 'rspec/autorun'
 require 'omniauth'
 

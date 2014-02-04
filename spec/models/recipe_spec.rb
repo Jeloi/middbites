@@ -2,20 +2,20 @@
 #
 # Table name: recipes
 #
-#  id              :integer          not null, primary key
-#  directions      :text
-#  title           :string(255)
-#  blurb           :string(255)
-#  user_id         :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  slug            :string(255)
-#  bites_count     :integer          default(0)
-#  favorites_count :integer          default(0)
-#  comments_count  :integer          default(0)
-#  image           :string(255)
-#  score           :float
-#  temperature     :float
+#  id               :integer          not null, primary key
+#  directions       :text
+#  title            :string(255)
+#  blurb            :string(255)
+#  user_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  slug             :string(255)
+#  bites_count      :integer          default(0)
+#  favorites_count  :integer          default(0)
+#  comments_count   :integer          default(0)
+#  image            :string(255)
+#  score            :decimal(18, 6)   default(0.0)
+#  ingredients_list :string(255)
 #
 
 require 'spec_helper'
@@ -59,6 +59,23 @@ describe Recipe do
   it { should have_many(:taggings) }
 	it { should have_many(:tags).through(:taggings) }
   it { should have_many(:comments) }
+
+  # Callbacks
+  describe "Recipe Callback: " do
+    describe "set_ingredient_list" do
+      it "properly creates ingredient_list with 3 ingredients" do
+        recipe = create(:recipe, :with_ingredients)
+        expect(recipe.ingredients.count).to eql(3)
+        expect(recipe.ingredients_list).to eql("Jelly, Peanut Butter, Bread")
+      end
+      it "properly creates ingredients_list with 7 ingredients" do
+        recipe = create(:recipe, :with_multiple_ingredients, ingredient_count: 7)
+        expect(recipe.ingredients.count).to eql(7)
+        expect(Item.count).to eql(7)
+        expect(recipe.ingredients_list).to eql("Item 1, Item 2, Item 3, Item 4, Item 5, Item 6...")
+      end
+    end
+  end
 
 
   # Instance Methods

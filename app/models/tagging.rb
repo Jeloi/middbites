@@ -13,5 +13,5 @@ class Tagging < ActiveRecord::Base
   belongs_to :tag, counter_cache: true
   belongs_to :recipe
 
-  validates :tag_id, :uniqueness => {scope: :recipe_id}
+  # validates :tag_id, :uniqueness => {scope: :recipe_id}
 end

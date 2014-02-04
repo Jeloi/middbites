@@ -7,7 +7,7 @@
 }
 
 body {
-	background: #fbfbfb;
+	// background: #fbfbfb;
 	transition: all .2s ease;
 	border-top: 5px solid $turq;
 }
@@ -95,7 +95,8 @@ nav.main-nav {
 	ul {
 		margin: 0 auto;
 		text-align: center;
-		// width: 500px;
+		width: 500px;
+		border-top: 1px solid #ddd;
 		line-height: 50px;
 	}
 	ul > li {

@@ -297,6 +297,8 @@ GEM
       rails (>= 3)
       sunspot (= 2.1.0)
     sunspot_solr (2.1.0)
+    sunspot_test (0.4.0)
+      sunspot_rails (>= 1.2.1)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     terminal-notifier-guard (1.5.3)
@@ -370,6 +372,7 @@ DEPENDENCIES
   sqlite3 (= 1.3.7)
   sunspot_rails
   sunspot_solr
+  sunspot_test
   terminal-notifier-guard
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)

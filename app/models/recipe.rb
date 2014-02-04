@@ -2,20 +2,20 @@
 #
 # Table name: recipes
 #
-#  id              :integer          not null, primary key
-#  directions      :text
-#  title           :string(255)
-#  blurb           :string(255)
-#  user_id         :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  slug            :string(255)
-#  bites_count     :integer          default(0)
-#  favorites_count :integer          default(0)
-#  comments_count  :integer          default(0)
-#  image           :string(255)
-#  score           :float
-#  temperature     :float
+#  id               :integer          not null, primary key
+#  directions       :text
+#  title            :string(255)
+#  blurb            :string(255)
+#  user_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  slug             :string(255)
+#  bites_count      :integer          default(0)
+#  favorites_count  :integer          default(0)
+#  comments_count   :integer          default(0)
+#  image            :string(255)
+#  score            :decimal(18, 6)   default(0.0)
+#  ingredients_list :string(255)
 #
 
 class Recipe < ActiveRecord::Base
@@ -56,6 +56,8 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients, :reject_if => lambda { |a| a[:item_id].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :taggings, :reject_if => lambda { |a| a[:tag_id].blank? }, :allow_destroy => true
 
+  # Callbacks
+  before_save  :set_ingredients_list
 
 	# Validations
 	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
@@ -70,7 +72,21 @@ class Recipe < ActiveRecord::Base
 
   # Verifies that a recipe does not have a reserved name for a title (for routing)
   def validate_reserved_names
-    errors.add(:title, "cannot have that name") if ["create","popular","recent"].include? title.downcase  
+    errors.add(:title, "cannot have that name") if ["create","popular","recent"].include? title.to_s.downcase  
+  end
+
+  # Callback to create ingredients_list attribtute from ingredients
+  def set_ingredients_list(n=6)
+    list = ""
+    ingredients_array = self.ingredients.slice(0,n)
+    length = ingredients_array.size
+    ingredients_array.each_with_index do |ingredient, i|
+      list << ingredient.item.name+ ", "
+    end
+    # Clean up punctuation
+    list = list.slice(0...-2)     
+    list << "..." if ingredients_array.size < self.ingredients.size
+    self.ingredients_list = list
   end
 
   # -- Score instance methods -- 

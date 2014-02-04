@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def index
     @header = "All Recipes"
-    @view = params[:view] || "tiles"
+    @view = params[:view] || "detailed"
     order = (params[:order] == 'asc' ? :asc : :desc)
     order = :asc if @sort == :title
     @recipes = Recipe.order(@sort => order).paginate(:page => params[:page], :per_page => @per_page)
@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   def top
     @header = "Top Recipes"
-    @view = params[:view] || "tiles"
+    @view = params[:view] || "detailed"
     @recipes = Recipe.order(score: :desc, created_at: :asc).limit(30)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }

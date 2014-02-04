@@ -2,26 +2,30 @@
 	<li class="recipe-item invisible">
 		<div class="image">
 			<%= link_to(recipe_path(recipe),  class: "overlay") do %>
-			<div class="content">
-				<div class="blurb"><%#= recipe.blurb %></div>
-			</div>
-			<% end %>
+				<div class="vert-center-table">
+					<div class="cell text-center">
+						<%= recipe.ingredients_list %>
+						<%# render 'recipes/actions_mini', recipe: recipe %>
+					</div>
+				</div>
+			<% end -%>	
 			
 			<% if !recipe.image_url(:thumb).nil? %>
 				<%= image_tag recipe.image_url(:thumb) %>
 			<% else %>
 				<%= image_tag "default_image.jpg" %>
 			<% end %>
-			<div class="meta">
-				<%= render 'recipes/actions_mini', recipe: recipe %>
-				<% if params[:action] == "popular" %>
+			<!-- <div class="meta">
+				<%#= render 'recipes/actions_mini', recipe: recipe %>
+				<% if params[:action] == "popualar" %>
 				<div class="recent-bites">
 					<%= recipe.recent_bites %> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
 				</div>
 				<% end %>
-			</div>
+			</div> -->
 		</div>
 		<%= link_to recipe.title, recipe_path(recipe), class: "title" %>
+		<%# render 'recipes/actions_mini', recipe: recipe %>
 
 	</li>
 <% end -%>	
