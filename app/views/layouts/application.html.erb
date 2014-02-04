@@ -23,7 +23,11 @@
        <%= image_tag "logo.png", class: "logo" %>
        <% end %>
     
-
+      <%= link_to(root_path, id: "user_icon") do %>
+      <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
+        &#xf170
+      </span>
+      <% end %>
 
       <div id="sticky_navigation_wrapper">
         <div id="sticky_navigation">
@@ -42,11 +46,6 @@
                 </li>
                 <li class="nav-5">
                   <a href="#" data-reveal-id="search-modal" class="icon-font search">&#xf094</a>
-                  <%= link_to() do %>
-                  <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
-                    &#xf170
-                  </span>
-                  <% end %>
                 </li>
               </ul>
             </nav>

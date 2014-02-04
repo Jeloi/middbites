@@ -74,8 +74,8 @@ $primary-color: #3aafe3;
 // $include-html-type-classes: $include-html-classes;
 
 // // We use these to control header font styles
-$header-font-family: "museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-family: "ff-enzo-web", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: $body-font-family;
+$recipe-header-font-family: "museo-slab", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $header-font-weight: normal;
 // $header-font-style: normal;
 $header-font-color: #464e54;
@@ -359,9 +359,9 @@ $block-grid-media-queries: true;
 // $f-dropdown-border-color: darken(#fff, 20%);
 
 // We use these to style the triangle pip.
-$f-dropdown-triangle-size: 0px;
-$f-dropdown-triangle-color: #fff;
-$f-dropdown-triangle-side-offset: 10px;
+// $f-dropdown-triangle-size: 0px;
+// $f-dropdown-triangle-color: #fff;
+// $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;

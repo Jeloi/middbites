@@ -1,16 +1,15 @@
 <div class="show-recipe">
 	<div class="row">
 		<div class="small-12 medium-10 large-8 small-centered columns recipe-item">
-			<h2 class="title"><%= @recipe.title %></h2>
-			<div class="create-info">
-				By <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
-			</div>	
-
 			<%- if @recipe.image? %>
 			<div class="image">
 				<%= image_tag @recipe.image_url %>
 			</div>
 			<% end -%>
+			<h2 class="title"><%= @recipe.title %></h2>
+			<div class="create-info">
+				By <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+			</div>	
 		</div>
 	</div>
 	

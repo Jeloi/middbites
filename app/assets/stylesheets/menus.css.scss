@@ -4,11 +4,20 @@
 
 #menu-tabs {
 	display: block;
+	margin: 0;
 	dd {
 		display: inline-block;
 		float: none;
+		margin: 0;
 		a {
 			display: inline;
+			@include tag-hollow($turq);
+		}
+		&.active {
+			a {
+				background: $turq;
+				color: white;
+			}
 		}
 	}
 }
@@ -16,6 +25,14 @@
 #menu-tab-content {
 	.content {
 		width: 100%;
+		padding: 0;
+		&.one_slider_only {
+			max-width: 340px;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			float: none;
+		}
 	}
 }
 
