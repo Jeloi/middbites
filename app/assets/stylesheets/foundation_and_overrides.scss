@@ -121,8 +121,9 @@ $paragraph-margin-bottom: rem-calc(15);
 
 // // We use these to style anchors
 // $anchor-text-decoration: none;
-$anchor-font-color: $primary-color;
-$anchor-font-color-hover: darken($primary-color, 10%);
+$anchor-font-color: $body-font-color;
+// $anchor-font-color-hover: darken($primary-color, 10%);
+$anchor-font-color-hover: $turq;
 
 // // We use these to style the hr element
 // $hr-border-width: 1px;

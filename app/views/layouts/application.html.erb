@@ -85,7 +85,9 @@
       <% end %>
     </ul>
     
-    <div class="main-content"><%= yield %></div>
+    <div class="main-content">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
     
     <footer id="footer">
       <h5>middbites</h5>

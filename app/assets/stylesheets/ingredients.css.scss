@@ -1,0 +1,46 @@
+ul.ingredients-page {
+	-moz-column-count:1; /* Firefox */
+	-webkit-column-count:1; /* Safari and Chrome */
+	column-count:1;
+
+	margin: 0;
+	list-style: none;
+	list-style-position: outside;
+	li {
+		text-indent: -0.8em;
+		padding-left: 0.8em;
+		font-weight: 300;
+	}
+	li.group-header {
+		font-weight: 700;
+		font-size: 2em;
+		// border-bottom: 2px solid $body-font-color;
+		margin: 12px 0;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	@media #{$medium-up} {
+		-moz-column-count:2; /* Firefox */
+		-webkit-column-count:2; /* Safari and Chrome */
+		column-count:2;
+	}
+	@media #{$screen} and (min-width: 1000px) {
+		-moz-column-count:3; /* Firefox */
+		-webkit-column-count:3; /* Safari and Chrome */
+		column-count:3;
+	}
+
+}
+
+
+.grouped-items {
+	h4 {
+		font-weight: 500;
+		margin-top: 0.8em;
+		margin-bottom: 0.5em;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}

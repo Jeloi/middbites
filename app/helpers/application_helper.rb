@@ -12,4 +12,10 @@ module ApplicationHelper
       render(association.to_s.singularize + "_fields", :f => builder)
     end
   end
+
+  # Returns formatted link for items on ingredient pages
+  def formatted_item_link(item)
+    item_text = item.ingredients_count > 0 ? item.name+" (#{item.ingredients_count})" : item.name
+    link_to item_text, item_path(item)
+  end
 end

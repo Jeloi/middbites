@@ -1,8 +1,10 @@
-<div class="header-title text-center">
-  <h1>Ingredients</h1>
-</div>
-
 <div class="row">
-	<div class="small-12 medium-10 large-8 small-centered columns grouped-tags">
+	<div class="small-12 medium-12 large-10 small-centered columns grouped-tags">
+		<ul class="ingredients-page">
+			<% @items.each do |item| %>
+				<% item_text = item.ingredients_count > 0 ? item.name+" (#{item.ingredients_count})" : item.name %>
+				<li><%= item_text %></li>
+			<% end %>
+		</ul>
 	</div>
 </div>

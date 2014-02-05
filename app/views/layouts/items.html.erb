@@ -1,0 +1,15 @@
+<% content_for :content do %>
+  <div class="header-title text-center">
+    <h1>Ingredients</h1>
+  </div>
+
+  <div class="section-nav text-center">
+    <%= link_to "Alphabetical", alphabetical_items_path %>
+    <%= link_to "Categorized", categorized_items_path %>
+    <%= link_to "Popular", root_path %>
+  </div>
+
+  <%= yield %>
+
+<% end %>
+<%= render template: "layouts/application" %>

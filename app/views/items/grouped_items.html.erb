@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="small-12 medium-12 large-10 small-centered columns grouped-tags">
+		<ul class="ingredients-page">
+			<% special_keys = [] %>
+			<% @groups.each do |group| %>
+				<!-- If the group key starts with A-Z, proceed. Otherwise add it to special_keys  -->
+				<%- if group =~ /\A[A-Z]/ -%> 
+					<li class="group-header"><%= group %></li>
+					<% @grouped_items[group].each do |item| %>
+						<li><%= formatted_item_link(item) %></li>
+					<% end %>
+				<%- else -%> 
+					<% special_keys << group %>				
+				<%- end -%> 
+			<% end %>
+			<% if !special_keys.empty? %>
+				<li class="group-header">#</li>
+				<% special_keys.each do |key| %>
+					<% @grouped_items[key].each do |item| %>
+						<li><%= formatted_item_link(item) %></li>
+					<% end %>
+				<% end -%>
+			<% end %>
+		</ul>
+	</div>
+</div>
