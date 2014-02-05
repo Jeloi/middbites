@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+	# layout 'items', except: :show #doesn't seem to perform correctly
 
   def alphabetical
   	# Group items in a hash with keys being the first char of item's name
@@ -10,21 +11,17 @@ class ItemsController < ApplicationController
   end
 
   def categorized
-  	# Could have used ItemCategory.includes(:items). Kept same format as alphabetical action instead
-  	# @grouped_items = Item.all.group_by { |item| item.item_category.name }
-  	# @groups = @grouped_items.keys
   	@item_categories = ItemCategory.includes(:items)
   end
 
   def popular
-  	
+  	@items = Item.where("ingredients_count> 0").order(ingredients_count: :desc)
   end
   
-  def all
-  	@items = Item.all.order(name: :asc)
-  end
-
   def show
   	@item = Item.find(params[:id])
+  	respond_to do |wants|
+  		wants.html { render :layout => 'application' }
+  	end
   end
 end

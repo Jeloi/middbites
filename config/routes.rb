@@ -26,9 +26,9 @@ Middbites::Application.routes.draw do
   resources :comments, only: [:create, :destroy]
 
   # Item routes
-  get "ingredients" => 'items#all', as: 'all_items'
+  get "ingredients" => 'items#categorized', as: "categorized_items"
   get "ingredients/alphabetical" => 'items#alphabetical', as: "alphabetical_items"
-  get "ingredients/categorized" => 'items#categorized', as: "categorized_items"
+  get "ingredients/popular" => 'items#popular', as: 'popular_items'
   get "ingredient/:id" => 'items#show', as: 'item'
 
   # Tags routes
