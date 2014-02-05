@@ -2,17 +2,18 @@
 #
 # Table name: items
 #
-#  id               :integer          not null, primary key
-#  name             :string(255)      not null
-#  item_category_id :integer          not null
-#  created_at       :datetime
-#  updated_at       :datetime
+#  id                :integer          not null, primary key
+#  name              :string(255)      not null
+#  item_category_id  :integer          not null
+#  created_at        :datetime
+#  updated_at        :datetime
+#  ingredients_count :integer          default(0)
 #
 
 class Item < ActiveRecord::Base
 	# Associations
-	has_many :items
 	has_many :recipes, through: :ingredients
+	has_many :ingredients
 	belongs_to :item_category
 	before_save :set_item_category
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204084848) do
+ActiveRecord::Schema.define(version: 20140205033224) do
 
   create_table "comments", force: true do |t|
     t.string   "title",            limit: 50, default: ""
@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(version: 20140204084848) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "name",             null: false
-    t.integer  "item_category_id", null: false
+    t.string   "name",                          null: false
+    t.integer  "item_category_id",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ingredients_count", default: 0
   end
 
   create_table "recipes", force: true do |t|
@@ -72,12 +73,14 @@ ActiveRecord::Schema.define(version: 20140204084848) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "bites_count",                               default: 0
-    t.integer  "favorites_count",                           default: 0
-    t.integer  "comments_count",                            default: 0
+    t.integer  "bites_count",                                default: 0
+    t.integer  "favorites_count",                            default: 0
+    t.integer  "comments_count",                             default: 0
     t.string   "image"
-    t.decimal  "score",            precision: 18, scale: 6, default: 0.0
+    t.decimal  "score",             precision: 18, scale: 6, default: 0.0
     t.string   "ingredients_list"
+    t.integer  "ingredients_count",                          default: 0
+    t.string   "tags_list"
   end
 
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", unique: true

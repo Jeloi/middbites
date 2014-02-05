@@ -2,20 +2,22 @@
 #
 # Table name: recipes
 #
-#  id               :integer          not null, primary key
-#  directions       :text
-#  title            :string(255)
-#  blurb            :string(255)
-#  user_id          :integer
-#  created_at       :datetime
-#  updated_at       :datetime
-#  slug             :string(255)
-#  bites_count      :integer          default(0)
-#  favorites_count  :integer          default(0)
-#  comments_count   :integer          default(0)
-#  image            :string(255)
-#  score            :decimal(18, 6)   default(0.0)
-#  ingredients_list :string(255)
+#  id                :integer          not null, primary key
+#  directions        :text
+#  title             :string(255)
+#  blurb             :string(255)
+#  user_id           :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  slug              :string(255)
+#  bites_count       :integer          default(0)
+#  favorites_count   :integer          default(0)
+#  comments_count    :integer          default(0)
+#  image             :string(255)
+#  score             :decimal(18, 6)   default(0.0)
+#  ingredients_list  :string(255)
+#  ingredients_count :integer          default(0)
+#  tags_list         :string(255)
 #
 
 require 'spec_helper'
@@ -72,7 +74,16 @@ describe Recipe do
         recipe = create(:recipe, :with_multiple_ingredients, ingredient_count: 7)
         expect(recipe.ingredients.count).to eql(7)
         expect(Item.count).to eql(7)
-        expect(recipe.ingredients_list).to eql("Item 1, Item 2, Item 3, Item 4, Item 5, Item 6...")
+        expect(recipe.ingredients_list).to eql("Item 1, Item 2, Item 3, Item 4, Item 5, Item 6, Item 7")
+      end
+    end
+
+    describe "set_tag_list" do
+      it "properly creates tags_list" do
+        recipe = create(:recipe, :with_ingredients, :with_taggings)
+        expect(recipe.tags.count).to eql 3
+        expect(recipe.taggings.count).to eql 3
+        expect(recipe.tags_list).to eql "Yummy, Breakfast, Chewy"
       end
     end
   end

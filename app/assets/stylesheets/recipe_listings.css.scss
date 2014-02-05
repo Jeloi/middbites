@@ -57,8 +57,28 @@
 			font-weight: 600;
 		}
 		.actions {
-			margin: 10px 0;
+			display: inline-block;
+			margin: 0.5em 0;
 			margin-bottom: 0;
+			vertical-align: bottom;
+		}
+		.ingredients {
+			margin-top: 0.3em;
+			.ingredients-hover {
+				// display: inline-block;
+				font-size: 0.7em;
+				font-weight: 300;
+				color: $turq;
+				// text-decoration: underline;
+				vertical-align: bottom;
+			}
+		}
+		.ingredients-dropdown {
+			// max-width: 300px;
+			font-size: 14px;
+			padding: 0.6em;
+			font-weight: 300;
+			background: white;
 		}
 		.info-wrapper {
 			float: left;
@@ -246,6 +266,11 @@
 		font-style: italic;
 		font-weight: 300;
 	}
+	.ingredients_list {
+		font-weight: 300;
+		margin-top: 3px;
+		font-size: 0.8em;
+	}
 	.recent-bites {
 		font-size: 10px;
 		color: $blue;
@@ -264,9 +289,8 @@
 			top: 0%;
 			left: 0%;
 			overflow: hidden;
-			// display: none;
 			background-color: #fff;
-			background-color: rgba(0,0,0,0.3);
+			background-color: rgba(0,0,0,0.4);
 			z-index: 1;
 			// -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 			opacity: 0;
@@ -288,7 +312,7 @@
 				.cell {
 					display: table-cell;
 					vertical-align: middle;
-					padding: 10px;
+					padding: 5px;
 				}
 			}
 		}

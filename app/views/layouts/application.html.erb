@@ -24,7 +24,7 @@
        <% end %>
     
       <%= link_to(root_path, id: "user_icon") do %>
-      <span class="icon-font" data-dropdown="user_hover" data-options="is_hover:true">
+      <span class="icon-font" data-dropdown="user_dropdown" data-options="is_hover:true">
         &#xf170
       </span>
       <% end %>
@@ -65,16 +65,8 @@
       <% end -%>
     </div>
     
-    <div class="hide-for-large" id="mobile-nav-wrapper">
-      <nav class="hide-for-large-up fixed">
-        <div id="mobile-nav">
-          
-        </div>
-        <a class="menu-btn" >Menu</a>
-      </nav>
-    </div>
     
-    <ul id="user_hover" class="f-dropdown" data-dropdown-content>
+    <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
       <% if !logged_in? %>
         <li><%= link_to "Sign up", "#" %></li>
         <li>

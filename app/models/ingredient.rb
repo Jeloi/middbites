@@ -13,15 +13,12 @@
 
 class Ingredient < ActiveRecord::Base
 	# Associations
-	belongs_to :recipe
-	belongs_to :item
+	belongs_to :recipe, counter_cache: true
+	belongs_to :item, counter_cache: true
+
 
 	# Callbacks
 	before_save :set_name
-
-
-	
-
 
 private
 	

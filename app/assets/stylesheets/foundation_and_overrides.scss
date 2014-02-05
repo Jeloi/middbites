@@ -35,7 +35,7 @@ $rem-base: 16px;
 
 // $include-html-grid-classes: $include-html-classes;
 
-$row-width: rem-calc(1000);
+$row-width: rem-calc(1100);
 // $column-gutter: rem-calc(30);
 // $total-columns: 12;
 
@@ -348,7 +348,7 @@ $block-grid-media-queries: true;
 // $f-dropdown-max-width: 200px;
 // $f-dropdown-height: auto;
 // $f-dropdown-max-height: none;
-// $f-dropdown-margin-top: 2px;
+$f-dropdown-margin-top: 5px;
 
 // We use this to control the background color
 // $f-dropdown-bg: #fff;

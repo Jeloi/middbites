@@ -25,7 +25,7 @@ FactoryGirl.define do
       association :tag_category
   	end
 
-  	factory :sweet do
+  	factory :chewy do
   		name "Chewy"
       association :tag_category
   	end

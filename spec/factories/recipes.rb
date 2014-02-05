@@ -2,20 +2,22 @@
 #
 # Table name: recipes
 #
-#  id               :integer          not null, primary key
-#  directions       :text
-#  title            :string(255)
-#  blurb            :string(255)
-#  user_id          :integer
-#  created_at       :datetime
-#  updated_at       :datetime
-#  slug             :string(255)
-#  bites_count      :integer          default(0)
-#  favorites_count  :integer          default(0)
-#  comments_count   :integer          default(0)
-#  image            :string(255)
-#  score            :decimal(18, 6)   default(0.0)
-#  ingredients_list :string(255)
+#  id                :integer          not null, primary key
+#  directions        :text
+#  title             :string(255)
+#  blurb             :string(255)
+#  user_id           :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  slug              :string(255)
+#  bites_count       :integer          default(0)
+#  favorites_count   :integer          default(0)
+#  comments_count    :integer          default(0)
+#  image             :string(255)
+#  score             :decimal(18, 6)   default(0.0)
+#  ingredients_list  :string(255)
+#  ingredients_count :integer          default(0)
+#  tags_list         :string(255)
 #
 
 FactoryGirl.define do
@@ -53,7 +55,7 @@ FactoryGirl.define do
         ingredient_count 3
       end
       after(:build) do |recipe, evaluator|
-        item_list = build_list(Item, evaluator.ingredient_count)
+        item_list = build_list(:item_sequence, evaluator.ingredient_count)
         item_list.each do |item|
           recipe.ingredients << Ingredient.new(item: item)
         end
@@ -62,7 +64,7 @@ FactoryGirl.define do
 
     trait :with_taggings do
       after(:build) do |recipe|
-        [:yummy, :breakfast, :sweet].each do |tag|
+        [:yummy, :breakfast, :chewy].each do |tag|
           recipe.taggings << Tagging.new(tag: FactoryGirl.build(tag))
         end
       end

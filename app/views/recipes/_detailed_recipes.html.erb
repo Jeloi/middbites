@@ -15,7 +15,9 @@
 				<%= link_to(recipe_path(recipe),  class: "overlay") do %>
 					<div class="vert-center-table">
 						<div class="cell text-center">
-							<%= recipe.ingredients_list %>
+							<% recipe.tags_list.split(", ").each do |tag| %>
+								<span class="overlay-tag"><%= tag %></span>	
+							<% end %>	
 						</div>
 					</div>
 				<% end -%>	
@@ -28,15 +30,24 @@
 							By <%= link_to recipe.user.handle, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
 						</div>
 						<div class="hide-for-medium">
-							<div class="blurb"><%= recipe.blurb %></div>
+							<div class="blurb">"<%= recipe.blurb %>"</div>
+						</div>
+						<div class="ingredients">
+							<span class="ingredients-hover" data-dropdown="ingredients_dropdown_<%= recipe.id %>" data-options="is_hover:true">
+								<%= recipe.ingredients_count %> Ingredients
+							</span>
 						</div>
 						<%= render 'recipes/actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>
 
 						<% if params[:action] == "popular" %>
 						<div class="recent-bites">
-							<%= recipe.recent_bites %> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
+							<strong><%= recipe.recent_bites %></strong> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
 						</div>
 						<% end %>
+
+						<div id="ingredients_dropdown_<%= recipe.id %>" data-dropdown-content class="ingredients-dropdown f-dropdown">
+							<%= recipe.ingredients_list %>
+						</div>
 
 					</div>
 				</div>
