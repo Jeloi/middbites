@@ -2,7 +2,24 @@
 	<a href="mailto:yourfriend@example.com?Subject=<%= @recipe.title %> - Middbites Recipe" target="_top">
 		<span class="socialico_plus mail" data-icon="m"></span>	
 	</a>
-	<span class="socialico facebook" data-icon="f"></span>
-	<span class="socialico twitter" data-icon="l"></span>
-	<span class="socialico_plus pinterest" data-icon="p"></span>
+	<span class="socialico facebook" data-icon="f" data-dropdown="social_facebook" data-options="is_hover:true"></span>
+	<span class="socialico twitter" data-icon="l" data-dropdown="social_twitter" data-options="is_hover:true"></span>
+	<span class="socialico_plus pinterest" data-icon="p" data-dropdown="social_pinterest" data-options="is_hover:true"></span>
 </div>
+
+<div id="social_facebook" class="social_dropdowns" data-icon="facebook"data-dropdown-content>
+	<%= like_button(ENV['FACEBOOK_APP_ID'], :layout => :button_count, :send => true) %>
+</div>
+
+<div id="social_twitter" class="social_dropdowns" data-icon="twitter"data-dropdown-content>
+	<%= tweet_button via: 'middbites', url: request.original_url, text: @recipe.title+" #recipe #middbites", count: 'horizontal' %>
+</div>
+
+<%- if @recipe.image? %>
+	<% image_link = url_encode(request.protocol+request.host + @recipe.image_url) %>
+<% end -%>
+
+<div id="social_pinterest" class="social_dropdowns" data-icon="pinterest"data-dropdown-content>
+	<%= pinit_button media: image_link, description: @recipe.title + "\n"+@recipe.blurb %>
+</div>
+
