@@ -28,7 +28,7 @@
 	}
 }
 
-/* Detailed Recipes View */
+/* detailed Recipes View */
 .detailed-recipes {
 	.recipe-item {
 		// border-top: 1px solid #dddddd;
@@ -62,29 +62,39 @@
 			margin-bottom: 0;
 			vertical-align: bottom;
 		}
-		.ingredients {
-			margin-top: 0.3em;
-			.ingredients-hover {
-				// display: inline-block;
-				font-size: 0.7em;
-				font-weight: 300;
-				color: $turq;
-				// text-decoration: underline;
-				vertical-align: bottom;
-			}
-		}
-		.ingredients-dropdown {
-			// max-width: 300px;
-			font-size: 14px;
-			padding: 0.6em;
+		.hover-labels {
+			margin-top: 8px;
+			font-size: 0.7em;
 			font-weight: 300;
-			background: white;
+			color: $turq;
+			.dot {
+				margin: 0 0.5em;
+				// display: inline !important;
+				// color: $body-font-color;
+			}
+			.ingredients-hover {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.tags-hover {
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.dot, .tags-hover {
+				@media #{$large-up} {
+					display: none;
+				}
+			}
 		}
 		.info-wrapper {
 			float: left;
 			width: 100%;
-			padding: 0 8px 8px 8px;
+			padding: 8px 8px 8px 8px;
 			display: table;
+			border: 1px solid $lines;
+			border-top: none;
 			.cell {
 				display: table-cell;
 				vertical-align: middle;
@@ -107,28 +117,32 @@
 	}
 
 	@media #{$small-only} {
-		width: 97%;
 		.columns {
 			padding: 0;
 		}
 		.recipe-item {
 			max-width: 270px;
 			margin: 0 auto;
-			margin-top: 10px;
+			margin-bottom: 20px;
 			text-align: center;
 		}
-		.info { padding: 0 !important; padding-top: 5px !important; }
+		// .info { padding: 0 !important; padding-top: 5px !important; }
 		.actions {
 			margin: 0 auto;
 		}
 	}
 	@media #{$medium-up} {
 		.image { width: 40% !important; }
-		.info-wrapper { width: 60% !important; min-height: 150px !important; padding: 0 0 0 15px !important; }
 		.image { min-height: 130px !important; }
 		.recipe-item {
-			border-top: 1px solid #dbddde;
+			border: none;
+			border-top: 1px solid $lines;
 			// padding-bottom: 20px;
+			.info-wrapper { 
+				width: 60% !important;
+				min-height: 150px !important; padding: 0 0 0 15px !important;
+				border: none;
+			}
 		}
 		.create-info {
 			font-weight: 100 !important;
@@ -140,12 +154,14 @@
 		.title {
 			font-size: 1.2em;
 		}
-		.info-wrapper {
-			padding-left: 30px !important;
-			min-height: 200px !important;
-		}
-		.image {
-			min-height: 180px !important;
+		.recipe-item {
+			.info-wrapper {
+				padding-left: 30px !important;
+				min-height: 200px !important;
+			}
+			.image {
+				min-height: 180px !important;
+			}
 		}
 	}
 } 
@@ -242,6 +258,19 @@
 .recipe-listings {
 	// background: #f8f9fa;
 	// padding-top: 30px;
+
+	// Fix foundation floating right problem
+	@media #{$screen} and (max-width:#{upper-bound($large-range)}) and (min-width:#{lower-bound($medium-range)}) {
+		[class*="column"] + [class*="column"]:last-child {
+			float: none !important;
+		}
+	}
+
+	@media #{$xlarge-up} {
+		[class*="column"] + [class*="column"]:last-child {
+			float: left !important;
+		}
+	}
 }
 
 .invisible {
@@ -302,8 +331,11 @@
 			font-size: 14px;
 			font-weight: 300;
 			line-height: 1.5em;
-			&:hover {
-				opacity: 1;
+			&.main {
+				z-index: 10;
+				&:hover {
+					opacity: 1;
+				}
 			}
 			.vert-center-table {
 				display: table;

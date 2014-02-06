@@ -1,7 +1,7 @@
 .show-recipe {
 	margin: 20px 0;
 	.title {
-		margin-top: 0.5em;
+		margin-top: 0;
 		margin-bottom: 8px;
 		text-align: center;
 		// background: $turq;
@@ -36,11 +36,12 @@
 		// padding: 10px;
 	}
 
-	article.recipe-info {
-		// background: #f8f9fa;	
+	.ingredient-list {
 		font-weight: 300;
-		p { font-weight: 300; }
+		margin-bottom: 2em;
 	}
+
+	p { font-weight: 300; }
 
 	.actions.main {
 		max-width: 250px;

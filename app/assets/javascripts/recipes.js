@@ -8,6 +8,20 @@ $(document).ready(function() {
 		setTimeout(5);
 		$.getScript(url);
 	});
+
+
+	// Hover shows ingredients list
+	$('.ingredients-hover').hover(function() {
+		$(this).closest('.recipe-item').find('.overlay.ingredient-list').css('opacity', '1');	
+	}, function() {
+		$(this).closest('.recipe-item').find('.overlay.ingredient-list').css('opacity', '0');
+	});
+	// Hover shows tags list
+	$('.tags-hover').hover(function() {
+		$(this).closest('.recipe-item').find('.overlay.main').css('opacity', '1');	
+	}, function() {
+		$(this).closest('.recipe-item').find('.overlay.main').css('opacity', '0');
+	});
 	
 });
 
