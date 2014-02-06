@@ -28,9 +28,13 @@ gem 'friendly_id', '5.0.0.beta4'
 gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
 
-
+# Search gems
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+ # Social media helper gem
+ gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
+
+gem 'figaro'
 
 gem 'mysql2'
 

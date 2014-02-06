@@ -22,6 +22,14 @@ $(document).ready(function() {
 	}, function() {
 		$(this).closest('.recipe-item').find('.overlay.main').css('opacity', '0');
 	});
+
+
+	// Show recipe, make other share-links inactive on hover
+	$('.share-links span').hover(function() {
+		$('.share-links span').not(this).addClass('inactive');
+	}, function() {
+		$('.share-links span').not(this).removeClass('inactive');
+	});
 	
 });
 

@@ -1,13 +1,5 @@
-@font-face {
-    font-family: 'Batch';
-    src: url(font-path('batch-icons-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('batch-icons-webfont.woff')) format('woff'), 
-         url(font-path('batch-icons-webfont.ttf'))  format('truetype'),
-         url(font-path('batch-icons-webfont.svg') + "#Batch") format('svg');
-}
-
 body {
-	// background: #fbfbfb;
+	// background: #f9f9f9;
 	transition: all .2s ease;
 	border-top: 5px solid $turq;
 }
@@ -298,56 +290,6 @@ footer#footer {
     line-height: 0
 }
 
-.ib-container:after {
-    content: '';
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0
-}
-
-.icon-font {
-	font-family: Batch;
-}
-
-.share-icons {
-	margin: 0 25px;
-	text-align: justify;
-	height: 40px;
-
-	img { width: 35px; height: 35px; }
-	.image-wrap { display: block; 
-		width: 35px;
-		height: 35px;
-
-		margin: 0 auto; position: relative }
-	.image-wrap:hover .overlay {
-		width:100%;
-		height:100%;
-		position: absolute;
-		background-color:#ffffff;
-		opacity:0.1;
-		-webkit-border-radius: 30px;
-		-moz-border-radius: 30px;
-		border-radius: 30px;
-	}
-}
-
-// Pushy styles
-
-// Container for Pushy 0ff-canvas nav
-#container { position: relative }
-.pushy {
-	background: $darkey;
-	.middbites h5 {
-		font-weight: 500;
-		color: white;
-		font-size: rem-calc(28px);
-		font-family: "reklame-script";
-		text-align: center;
-	}
-}
-
 
 // To disable iPhone form zoom
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
@@ -355,9 +297,47 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 
+// Font Families and Classes to use them
+@font-face {
+    font-family: 'Batch';
+    src: url(font-path('batch-icons-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('batch-icons-webfont.woff')) format('woff'), 
+         url(font-path('batch-icons-webfont.ttf'))  format('truetype'),
+         url(font-path('batch-icons-webfont.svg') + "#Batch") format('svg');
+}
 
+@font-face {
+    font-family: 'socialico';
+    src: url(font-path('socialico-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('socialico-webfont.woff')) format('woff'), 
+         url(font-path('socialico-webfont.ttf'))  format('truetype'),
+         url(font-path('socialico-webfont.svg') + "#socialicoregular") format('svg');
+}
 
-/* Below Variables added to make this work in Codepen, individually, without including Foundation
-* http://codepen.io/rvinay88/pen/Gbvua
-*/
+@font-face {
+    font-family: 'socialico-plus';
+    src: url(font-path('socialico_plus-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('socialico_plus-webfont.woff')) format('woff'), 
+         url(font-path('socialico_plus-webfont.ttf'))  format('truetype'),
+         url(font-path('socialico_plus-webfont.svg') + "#socialico_plusregular") format('svg');
+}
+
+.icon-font {
+	font-family: Batch;
+}
+
+.socialico {
+	font-family: "socialico";
+	&:before {
+		content: attr(data-icon);
+		
+	}
+}
+
+.socialico_plus {
+	font-family: "socialico-plus";
+	&:before {
+		content: attr(data-icon);
+	}
+}
 
