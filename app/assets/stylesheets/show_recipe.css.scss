@@ -41,7 +41,10 @@
 		margin-bottom: 2em;
 	}
 
-	p { font-weight: 300; }
+	p.directions {
+		font-weight: 300; 
+		margin-bottom: 1.5em;
+	}
 
 	// Actions,  big ones
 	.actions.main {
@@ -99,7 +102,7 @@
 			&.pinterest:hover {
 				color: #e24849;
 			}
-			@media #{$xlarge-up} {
+			@media #{$large-up} {
 				font-size: 50px;
 			}
 		}
@@ -123,11 +126,27 @@
 		}
 	}
 
-	h3 {
-		text-align: center;
+	.tag_icon {
+		font-size: 1.5em;
+		vertical-align: top;
+		margin-top: 8px;
+		margin-right: 10px;
 	}
+
+	.tags {
+		margin-bottom: 1em;
+	}
+
+	.side-col {
+		@media #{$xlarge-up} {
+			float: right !important;
+		}
+	}
+
 	#comments {
-		margin-top: 1em;
+		h4 {
+			text-align: center;
+		}
 		.comment {
 			padding: 18px 0px;
 			border-top: 1px solid #ddd;

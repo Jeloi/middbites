@@ -38,6 +38,7 @@ class Recipe < ActiveRecord::Base
     text :tags do
       tags.map { |tag| tag.name }
     end
+    text :ingredients_list
   end
 
   # Constants

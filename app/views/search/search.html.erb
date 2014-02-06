@@ -22,7 +22,7 @@
 	<div class="medium-10 large-9 xlarge-12 medium-centered xlarge-uncentered columns ingredients">
 		<h2>Ingredients</h2>
 		<% @items.each do |item| %>
-			<%= link_to "#{item.name} (18)", item_path(item) %>
+			<%= formatted_item_link item %>
 			<% unless @items.last == item %>
 			,
 			<% end -%>

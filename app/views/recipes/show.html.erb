@@ -14,9 +14,7 @@
 			<% end -%>
 
 			<p class="blurb">"<%= @recipe.blurb %>"</p>
-			<div class="ashow-for-xlarge-up">
-				<%= render 'share_links' %>
-			</div>
+			
 				
 		</div>
 		<div class="small-12 medium-10 large-8 xlarge-5 small-centered xlarge-uncentered columns side-col">
@@ -27,39 +25,39 @@
 				<% @recipe.ingredients.each do |ingredient| %>
 				<li class="clrfix">
 					<span class = "name"></span>
-					<%= ingredient.name %><% if !ingredient.quantity.blank? %>,<% end -%>
+					<%= link_to ingredient.item.name, item_path(ingredient.item) %><%= "," if !ingredient.quantity.blank? %>
 					<% if !ingredient.quantity.blank? %>
 						<span class="quantity"> 
 							<%= ingredient.quantity %></span>
 					<% end %>
-					
-			
 				</li>
 				<% end -%>
 			</ul>
+
 			<h4>Directions</h4>
 			<p class="directions"><%= @recipe.directions %></p>
-			
-<!-- 			<div class="hide-for-xlarge">
-				<%= render 'share_links' %>
-			</div> -->
 
+			<h4>Tags</h4>
+			<!-- <span class="icon-font tag">&#xf0ab;</span> -->
+			<div class="tags">
+				<% @recipe.tags.each do |tag| %>
+				<span class="tag"><%= tag.name %></span>
+				<% end %>
+			</div>
+			
 		</div>
 
-	</div>
 	
-	<div class="row">
 		<div class="small-12 medium-10 large-8 xlarge-7 small-centered xlarge-uncentered columns">
-			<h4>Tags</h4>
-			<!-- <span class="icon-font tag">&#xf0ab</span> -->
-			<% @recipe.tags.each do |tag| %>
-			<span class="tag"><%= tag.name %></span>
-			<% end %>
+			<div class="">
+				<%= render 'share_links' %>
+			</div>
+			
 			<div id="comments">
-				<h3>
+				<h4>
 					Comments ( <%= @recipe.comments_count %> )
 					<!-- <span class="icon-font">&#xf003</span> -->
-				</h3>
+				</h4>
 				<%= render 'comments/comments_form', comment: @comment %>
 				<% @recipe.comments.limit(10).order("created_at DESC").each do |comment| %>
 				<%= render 'comments/comment', comment: comment %>
