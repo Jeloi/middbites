@@ -1,13 +1,19 @@
 body {
 	// background: #f9f9f9;
-	transition: all .2s ease;
-	border-top: 5px solid $turq;
+	// transition: all .2s ease;
+	// border-top: 5px solid $turq;
+	// -webkit-text-size-adjust: none;
+	// -webkit-font-smoothing: antialiased;
+	// -webkit-overflow-scrolling: touch;
+	// overflow-y: auto;
+	// overflow-x: hidden;
+	// max-width: 100%;
 }
 
 // Header title
 header#header {
 	text-align: center;
-	// background: white;
+	background: white;
 	h1.middbites {
 		font-weight: 500;
 		font-family: "reklame-script";
@@ -124,7 +130,7 @@ ul#user_dropdown {
 	display: none;
 	position: fixed;
 	left: 50%;
-	top: 200px;
+	top: 80px;
 	z-index: 99;
 	height: auto;
 	width: 310px;
@@ -137,15 +143,16 @@ ul#user_dropdown {
 	@media #{$large-up} {
 		margin-left: -300px;
 		width: 600px;
+		top: 200px;
 
 	}
 	input#search {
 		float: left;
-		width: 86%;
+		width: 80%;
 		height: 60px;
 		padding: 0 5px;
 		line-height: 55px;
-		font-size: 34px;
+		font-size: 30px;
 		// border: 1px solid $darkey;
 		border: none;
 		box-shadow: none;
@@ -158,16 +165,24 @@ ul#user_dropdown {
 		&::-webkit-input-placeholder {
 			font-size: 0.7em;
 		}
+		@media #{$large-up} {
+			width: 86%;
+		}
+
 	}
 	button {
-		width: 13%;
+		width: 19%;
 		margin-left: 1%;
 		height: 60px;
 		background: $turq;
 		font-size: 34px;
 		padding: 0;
+		@media #{$large-up} {
+			width: 13%;
+		}
 	}
 }
+
 
 
 .main-content {
@@ -321,6 +336,15 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
          url(font-path('socialico_plus-webfont.ttf'))  format('truetype'),
          url(font-path('socialico_plus-webfont.svg') + "#socialico_plusregular") format('svg');
 }
+
+@font-face {
+    font-family: 'foundation-icons';
+    src: url(font-path('foundation-icons.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('foundation-icons.woff')) format('woff'), 
+         url(font-path('foundation-icons.ttf'))  format('truetype'),
+         url(font-path('foundation-icons.svg') + "#fontcustom") format('svg');
+}
+
 
 .icon-font {
 	font-family: Batch;

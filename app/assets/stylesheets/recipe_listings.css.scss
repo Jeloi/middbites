@@ -331,10 +331,12 @@
 			font-size: 14px;
 			font-weight: 300;
 			line-height: 1.5em;
-			&.main {
-				z-index: 10;
-				&:hover {
-					opacity: 1;
+			@media #{$medium-up} {
+				&.main {
+					z-index: 10;
+					&:hover {
+						opacity: 1;
+					}
 				}
 			}
 			.vert-center-table {

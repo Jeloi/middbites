@@ -24,35 +24,27 @@
 // Foundation
 $(function(){ 
 	$(document).foundation();
+
+	// Search reveal
 	$(document).foundation('reveal', {
 		animation: 'fade',
-		animation_speed: 100
+		animation_speed: 100,
+		close_on_background_click: true
 	});
 	$(document).on('opened', '#search-modal', function(event) {
-		$('#search-modal #search').focus();	
+		$('#search-modal #search').focus();
+		$('.search-button').addClass('active fi-x');
+	});
+	$(document).on('closed', '#search-modal', function () {
+		$('.search-button').removeClass('active fi-x');
+	});
+	$('.search-button').click(function(event) {
+		$('#search-modal').foundation('reveal', 'close');
 	});
 	
 });
 
 
-// var id; // Global variable
-// var screen_width = $(window).width();
-// $(window).resize(function() {
-//     clearTimeout(id);
-//     id = setTimeout(
-//     	doneResizing, 800);
-    
-// });
-
-// // Resize functionality after its done resizing
-// function doneResizing(){
-// 	// if the width of the window changed only
-// 	if ($(window).width() != screen_width) {
-// 		$('.ingredient-fields').css("transform","translateX("+0+"px)");
-// 		screen_width = $(window).width();
-// 	};
-// 	console.log("Window Resized");
-// }
 
 $(function () {
 
@@ -83,6 +75,29 @@ $(function () {
 	// and run it again every time you scroll
 	$(window).scroll(function() {
 	     sticky_navigation();
+	});
+	
+
+	//Off-canvas menu
+	$("#secondHeader .menu-button").on('touchstart click', function(e) {
+	   e.preventDefault();
+	   $("#page, #secondHeader").toggleClass("pageOpen");
+	   $("#headerWrapper").toggleClass("headerOpen");
+	   $(this).toggleClass("menu-button-active");
+	   // Close search if its open
+	   $('#search-modal').foundation('reveal', 'close');
+	   // $('#secondHeader .logo').fadeToggle('fast');
+	});
+	// Close canvas when touching the page wrap
+	$('.offcanvas-wrap').on('touchstart click', function() {
+	   $("#page, #secondHeader").removeClass("pageOpen");
+	   $('#headerWrapper').removeClass('headerOpen');
+	   $('#secondHeader .menu-button').toggleClass("menu-button-active");
+	});
+
+
+	$('.reveal-modal-bg').on('touchstart click', function() {
+	   $('#search-modal').foundation('reveal', 'close');
 	});
 
 });

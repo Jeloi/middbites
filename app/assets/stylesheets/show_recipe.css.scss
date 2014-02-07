@@ -4,10 +4,14 @@
 		margin-top: 0;
 		margin-bottom: 8px;
 		text-align: center;
+		font-size: 1.5em;
 		// background: $turq;
 		// color: white;
 		&:hover {
 			color: $body-font-color;
+		}
+		@media #{$large-up} {
+			font-size: 1.8em;
 		}
 
 	}
@@ -90,16 +94,16 @@
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3);
 				opacity: 0.3;
 			}
-			&.facebook:hover {
+			&.facebook:hover, &.facebook.hover {
 				color: $facebook;
 			}
-			&.mail:hover {
+			&.mail:hover, &.mail.hover {
 				color: $turq;
 			}
-			&.twitter:hover {
+			&.twitter:hover, &.twitter.hover {
 				color: #00aced;
 			}
-			&.pinterest:hover {
+			&.pinterest:hover, &.pinterest.hover {
 				color: #e24849;
 			}
 			@media #{$large-up} {

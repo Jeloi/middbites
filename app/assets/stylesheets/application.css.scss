@@ -11,7 +11,7 @@
  *
  *= require_self
  *= require chosen
- *= require pushy
+ *= require foundation-icons
  * require foundation_and_overrides
  * require_tree .
  */
@@ -24,4 +24,5 @@
  @import 'show_recipe';
  @import 'tags';
  @import 'ingredients';
+ @import 'offcanvas';
  @import 'menus';

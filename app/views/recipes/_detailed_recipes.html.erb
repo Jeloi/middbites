@@ -1,7 +1,7 @@
 <% counter = 1 %>
 <% recipes.each do |recipe| %>
 	<div class="medium-10 large-9 xlarge-6 medium-centered large-centered xlarge-uncentered columns">
-		<div class="clrfix recipe-item invisible">
+		<div class="clrfix recipe-item">
 			<% if !recipe.image_url(:thumb).nil? %>
 				<% img_url = "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}" %>
 			<% else %>

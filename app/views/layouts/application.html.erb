@@ -16,65 +16,115 @@
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>" >
-    <header id="header" class="show-for-large-up">
-       <%= link_to(root_path, class: "logo clrfix") do %>
-       <div class="header-logo"></div>
-       <!-- <h1 class="middbites"> middbites </h1> -->
-       <%= image_tag "logo.png", class: "logo" %>
-       <% end %>
     
-      <%= link_to(root_path, id: "user_icon") do %>
-      <span class="icon-font" data-dropdown="user_dropdown" data-options="is_hover:true">
-        &#xf170
-      </span>
-      <% end %>
 
-      <div id="sticky_navigation_wrapper">
-        <div id="sticky_navigation">
-          <div class="row">
-            <nav  class="main-nav columns">
-              <div class="middbites fixed-appear">middbites</div>
-              <div class="social-icons fixed-appear"></div>
-              <ul id="main-nav" class="" >
-                <li class="nav-1"><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-                <li class="nav-2"><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-                <li class="nav-3">
-                  <%= link_to "Tags", grouped_tags_path %>
-                </li>
-                <li class="nav-4">
-                  <%= link_to "Ingredients", categorized_items_path %>
-                </li>
-                <li class="nav-5">
-                  <a href="#" data-reveal-id="search-modal" class="icon-font search">&#xf094</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div> 
+    <header id="headerWrapper">
+      <div id="headerContent">
+        <nav class="side-nav">
+          <%= link_to(root_path) do %>
+            <%=  image_tag "white_logo.png", class: "logo" %>
+          <% end %>
+          <ul class="main">
+            <li><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+            <li><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+            <li>
+              <%= link_to "Tags", grouped_tags_path %>
+            </li>
+            <li>
+              <%= link_to "Ingredients", categorized_items_path %>
+            </li>
+          </ul>
+
+          <h4>Recipes</h4>
+          <ul class="sub">
+            <li><%= link_to "Popular", popular_recipes_path %></li>
+            <li><%= link_to "Top", top_recipes_path %></li>
+            <li><%= link_to "Recent", recent_recipes_path %></li>
+          </ul>
+          <h4>Account</h4>
+          <% if logged_in? %>
+            <ul class="sub">
+              <li><%= link_to "Profile", root_path %></li>
+              <li><%= link_to "Your Bites", root_path %></li>
+              <li><%= link_to "Your Favorites", root_path %></li>
+              <li><%= link_to "Log Out", signout_path %></li>
+            </ul>
+          <% else %>
+            <%= link_to "Log In", "/auth/facebook" %>/<%= link_to "Sign Up", root_path %>
+          <% end -%>
+            <%#= like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
+            <div class="fb-like" data-href="https://facebook.com/middbites" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+        </nav>
+      </div>
     </header>
 
-
-    <div id="search-modal" class="search-modal" data-reveal>
-      <%= form_tag(search_path, {method: :get, :class => "search-form"}) do %>
-        <%= text_field_tag :keywords, nil, placeholder: "Search recipes, tags, or ingredients...", id: "search" %>
-        <%#= select_tag :context,  options_for_select(["Everything", "Recipes", "Tags", "Ingredients"], "Everything")%>
-        <%= button_tag(type: "submit", class: "icon-font") do %>
-            &#xf094
-        <% end -%>
-      <% end -%>
+    <div id="secondHeader" class="hide-for-large-up">
+      <a class="menu-button icon-font" href="#">&#xf0aa;</a>
+      <%=  image_tag "new_logo.png", class: "logo" %>
+      <a href="#" data-reveal-id="search-modal" class="fi-magnifying-glass search-button"></a>
     </div>
-    
-    
-    <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
-      <% if !logged_in? %>
-        <li><%= link_to "Sign up", "#" %></li>
-        <li>
-          <%= link_to "/auth/facebook" do %>
+
+
+    <div id="page">
+      <header id="header" class="show-for-large-up">
+         <%= link_to(root_path, class: "logo clrfix") do %>
+         <div class="header-logo"></div>
+         <!-- <h1 class="middbites"> middbites </h1> -->
+         <%= image_tag "new_logo.png", class: "logo" %>
+         <% end %>
+      
+        <%= link_to(root_path, id: "user_icon") do %>
+        <span class="icon-font" data-dropdown="user_dropdown" data-options="is_hover:true">
+          &#xf170
+        </span>
+        <% end %>
+
+        <div id="sticky_navigation_wrapper">
+          <div id="sticky_navigation">
+            <div class="row">
+              <nav  class="main-nav columns">
+                <div class="middbites fixed-appear">middbites</div>
+                <div class="social-icons fixed-appear"></div>
+                <ul id="main-nav" class="" >
+                  <li class="nav-1"><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+                  <li class="nav-2"><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
+                  <li class="nav-3">
+                    <%= link_to "Tags", grouped_tags_path %>
+                  </li>
+                  <li class="nav-4">
+                    <%= link_to "Ingredients", categorized_items_path %>
+                  </li>
+                  <li class="nav-5">
+                    <a href="#" data-reveal-id="search-modal" class="fi-magnifying-glass search-button"></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div> 
+      </header>
+
+      <div class="offcanvas-wrap">
+
+      <div id="search-modal" class="search-modal" data-reveal>
+          <%= form_tag(search_path, {method: :get, :class => "search-form"}) do %>
+          <%= text_field_tag :keywords, nil, placeholder: "Search everything...", id: "search" %>
+          <%#= select_tag :context,  options_for_select(["Everything", "Recipes", "Tags", "Ingredients"], "Everything")%>
+          <%= button_tag(type: "submit", class: "fi-magnifying-glass") do %>
+          <% end -%>
+          <% end -%>
+        </div>
+
+
+        <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
+          <% if !logged_in? %>
+          <li><%= link_to "Sign up", "#" %></li>
+          <li>
+            <%= link_to "/auth/facebook" do %>
             Sign in with <span class="facebook_blue">Facebook</span>
-          <% end %>
-        </li>
-      <% else %>
+            <% end %>
+          </li>
+          <% else %>
           <li class="hello">Hello, <%= current_user.first_name %></li>
           <hr>
           <li><a href="">Account</a></li>
@@ -82,32 +132,35 @@
           <li><a href="">Bit Recipes</a></li>
           <hr>
           <li><%= link_to "Log Out", signout_path %></li>
-      <% end %>
-    </ul>
-    
-    <div class="main-content">
-      <%= content_for?(:content) ? yield(:content) : yield %>
-    </div>
-    
-    <footer id="footer">
-      <h5>middbites</h5>
-      <ul class="inline-nav">
-        <span class="nav-sep"></span>
-        <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
-        <li class="hide-small"><%= link_to "Create", new_recipe_path %><span class="nav-sep">・</span></li>
-        <li class="hide-small"><%= link_to "Tags", grouped_tags_path %><span class="nav-sep">・</span></li>
-        <li class="hide-small"><%= link_to "Ingredients", categorized_items_path %><span class="nav-sep">・</span></li>
-        <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
-        <li><%= link_to "Contact", recipes_path %></li>
-        <li></li>
-      </ul>
-      <div class="built-by">
-        Designed and built by Jeloi.
-      </div>
-      <div class="copyright">
-        © 2014 Middbites. All Rights Reserved.
-      </div>
-    </footer>
+          <% end %>
+        </ul>
 
-    </body>
+        <div class="main-content">
+          <%= content_for?(:content) ? yield(:content) : yield %>
+        </div>
+
+        <footer id="footer">
+          <h5>middbites</h5>
+          <ul class="inline-nav">
+            <span class="nav-sep"></span>
+            <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
+            <li class="hide-small"><%= link_to "Create", new_recipe_path %><span class="nav-sep">・</span></li>
+            <li class="hide-small"><%= link_to "Tags", grouped_tags_path %><span class="nav-sep">・</span></li>
+            <li class="hide-small"><%= link_to "Ingredients", categorized_items_path %><span class="nav-sep">・</span></li>
+            <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
+            <li><%= link_to "Contact", recipes_path %></li>
+            <li></li>
+          </ul>
+          <div class="built-by">
+            Designed and built by Jeloi.
+          </div>
+          <div class="copyright">
+            © 2014 Middbites. All Rights Reserved.
+          </div>
+        </footer>
+
+      </div>
+
+    </div>
+  </body>
 </html>
