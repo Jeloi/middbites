@@ -13,14 +13,14 @@
 
 <% view = @view %>
   <div class="display-options">
-    <%= link_to url_for(params.merge(view: "detailed")), class: "icon-font #{'active' if view == "detailed"}" do %>
-      <span class="icon-font">&#xf028</span>
+    <%= link_to url_for(params.merge(view: "detailed")), class: " #{'active' if view == "detailed"}" do %>
+      <span class="fa fa-th-list"></span>
     <% end %>
-    <%= link_to url_for(params.merge(view: "tiles")), class: "icon-font #{'active' if view == "tiles"}" do %>
-      <span class="icon-font">&#xf026</span>
+    <%= link_to url_for(params.merge(view: "tiles")), class: " #{'active' if view == "tiles"}" do %>
+      <span class="fa fa-th"></span>
     <% end %>
-    <%= link_to url_for(params.merge(view: "list")), class: "icon-font #{'active' if view == "list"}" do %>
-      <span class="icon-font">&#xf0A9</span>
+    <%= link_to url_for(params.merge(view: "list")), class: "fa #{'active' if view == "list"}" do %>
+      <span class="fa fa-list"></span>
     <% end %>
   </div>
   <% if params[:action] == "index" %>

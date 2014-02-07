@@ -33,10 +33,10 @@ $(function(){
 	});
 	$(document).on('opened', '#search-modal', function(event) {
 		$('#search-modal #search').focus();
-		$('.search-button').addClass('active fi-x');
+		$('.search-button').addClass('active fa fa-times');
 	});
 	$(document).on('closed', '#search-modal', function () {
-		$('.search-button').removeClass('active fi-x');
+		$('.search-button').removeClass('active fa fa-times');
 	});
 	$('.search-button').click(function(event) {
 		$('#search-modal').foundation('reveal', 'close');
@@ -70,12 +70,12 @@ $(function () {
 	// };
 	 
 	// run our function on load
-	sticky_navigation();
+	// sticky_navigation();
 	 
-	// and run it again every time you scroll
-	$(window).scroll(function() {
-	     sticky_navigation();
-	});
+	// // and run it again every time you scroll
+	// $(window).scroll(function() {
+	//      sticky_navigation();
+	// });
 	
 
 	//Off-canvas menu

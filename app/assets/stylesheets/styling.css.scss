@@ -1,3 +1,6 @@
+html {
+	overflow-x: hidden;
+}
 body {
 	// background: #f9f9f9;
 	// transition: all .2s ease;
@@ -5,9 +8,9 @@ body {
 	// -webkit-text-size-adjust: none;
 	// -webkit-font-smoothing: antialiased;
 	// -webkit-overflow-scrolling: touch;
-	// overflow-y: auto;
-	// overflow-x: hidden;
-	// max-width: 100%;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	max-width: 100%;
 }
 
 // Header title
@@ -341,6 +344,15 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
          url(font-path('socialico_plus-webfont.woff')) format('woff'), 
          url(font-path('socialico_plus-webfont.ttf'))  format('truetype'),
          url(font-path('socialico_plus-webfont.svg') + "#socialico_plusregular") format('svg');
+}
+
+
+@font-face {
+    font-family: 'fontawesome';
+    src: url(font-path('fontawesome-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('fontawesome-webfont.woff')) format('woff'), 
+         url(font-path('fontawesome-webfont.ttf'))  format('truetype'),
+         url(font-path('fontawesome-webfont.svg') + "#fontawesomeregular") format('svg');
 }
 
 @font-face {

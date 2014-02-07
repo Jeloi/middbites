@@ -2,6 +2,6 @@
 	$(".actions[data-recipe-id='<%= @recipe.id %>'] .bite ").replaceWith('<%= j link_to "", unvote_recipe_path(@recipe.id, association: "bites"), remote: true, method: :delete, class: "bite icon voted" %>');
 	$(".actions[data-recipe-id='<%= @recipe.id %>'] .bite + .number ").html('<%= j @recipe.bites_count.to_s %>');
 <% elsif @association == "favorites" %>
-	$(".actions[data-recipe-id='<%= @recipe.id %>'] .fav ").replaceWith("<%= j link_to '', unvote_recipe_path(@recipe.id, association: "favorites"), remote: true, method: :delete, class: 'fav icon-font icon voted' %>");
+	$(".actions[data-recipe-id='<%= @recipe.id %>'] .fav ").replaceWith("<%= j link_to '', unvote_recipe_path(@recipe.id, association: "favorites"), remote: true, method: :delete, class: 'fav fa icon voted' %>");
 	$(".actions[data-recipe-id='<%= @recipe.id %>'] .fav + .number ").html('<%= j @recipe.favorites_count.to_s %>');
 <% end %>

@@ -66,9 +66,9 @@
     </header>
 
     <div id="secondHeader" class="hide-for-large-up">
-      <a class="menu-button icon-font" href="#">&#xf0aa;</a>
+      <a class="menu-button fa fa-bars" href="#"></a>
       <%=  image_tag "new_logo.png", class: "logo" %>
-      <a href="#" data-reveal-id="search-modal" class="fi-magnifying-glass search-button"></a>
+      <a href="#" data-reveal-id="search-modal" class="search-button socialico_plus" data-icon="O"></a>
     </div>
 
 
@@ -146,7 +146,7 @@
           <%= content_for?(:content) ? yield(:content) : yield %>
         </div>
 
-        <a href="#page" title="back-to-top" class="back-to-top icon-font">&#xf148;</a>
+        <a href="#page" title="back-to-top" class="back-to-top fa fa-arrow-circle-o-up"></a>
 
         <footer id="footer">
           <%=  image_tag "white_logo.png", class: "logo" %>

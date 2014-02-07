@@ -495,15 +495,20 @@ ul.pagination {
 		}
 	}
 	.fav {
+		font-weight: 700;
 		color: rgba(237, 30, 121,0.7);
-		&:after { content: "\f04b"; }
+		&:after { content: "\f08a"; }
 		&.voted:after {
-			content: "\f049";
+			content: "\f004";
 			color: rgba(237, 30, 121,0.7);
 		}
 		&:hover:after {
-			content: "\f049";
+			content: "\f004";
 		}
+	}
+	.comment a {
+		font-weight: 700;
+		margin-top: -5px;
 	}
 	.icon {
 		display: inline-block;
