@@ -34,13 +34,25 @@
             <%=  image_tag "white_logo.png", class: "logo" %>
           <% end %>
           <ul class="main">
-            <li><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-            <li><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
             <li>
-              <%= link_to "Tags", grouped_tags_path %>
+            <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
+            <span class="icon foodie-bowl"></span><span>Recipes</span>
+            <% end -%>
             </li>
             <li>
-              <%= link_to "Ingredients", categorized_items_path %>
+              <%= link_to menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") do %>
+              <span class="icon foodie-utensils"></span><span>Menus</span>
+              <% end -%>
+            </li>
+            <li>
+              <%= link_to grouped_tags_path do %>
+                <span class="fa fa-tag"></span><span>Tags</span>
+              <% end -%>
+            </li>
+            <li>
+              <%= link_to categorized_items_path do %>
+                <span class="icon foodie-cherries"></span><span>Ingredients</span>
+              <% end -%>
             </li>
           </ul>
 
@@ -93,12 +105,12 @@
                 <ul id="main-nav" class="" >
                   <li>
                   <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
-                    <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Recipes</span></button>
+                    <button class="bitn bitn-5 bitn-5a foodie-bowl"><span>Recipes</span></button>
                   <% end -%>
                   </li>
                   <li>
                   <%= link_to menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") do %>
-                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Menus</span></button>
+                      <button class="bitn bitn-5 bitn-5a foodie-utensils"><span>Menus</span></button>
                     <% end -%>
                   </li>
                   <li>
@@ -108,7 +120,7 @@
                   </li>
                   <li>
                     <%= link_to categorized_items_path do %>
-                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Ingredients</span></button>
+                      <button class="bitn bitn-5 bitn-5a foodie-cherries"><span>Ingredients</span></button>
                     <% end -%>
                   </li>
                   <li>

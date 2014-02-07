@@ -38,20 +38,28 @@
    -webkit-transition: -webkit-transform 0.2s ease-out;
    transition: transform 0.2s ease-out;
    .side-nav {
-      text-indent: 15px;
       .logo {
          height: 30px;
-         margin: 10px 0 8px 25px;
+         margin: 10px 0 8px 40px;
       }
       h4 {
          margin-top: 15px;
          color: #666;
-         // padding-left: 15px;
+         padding-left: 15px;
       }
       ul{
          margin: 0;
+
          li {
             list-style-type: none;
+            padding-left: 15px;
+            span.icon {
+               width: 30px;
+               margin-right: 10px;
+            }
+            span.fa {
+               margin-right: 13px;
+            }
             // border-bottom: 1px solid $lines;
             &:hover {
                background: $turq;

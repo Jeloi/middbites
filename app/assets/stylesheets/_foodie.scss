@@ -1,0 +1,46 @@
+//
+// Icon Font: foodie
+//
+
+@font-face {
+  font-family: "foodie";
+  src: font-url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.eot");
+  src: font-url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.eot?#iefix") format("embedded-opentype"),
+       font-url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.woff") format("woff"),
+       font-url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.ttf") format("truetype"),
+       font-url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.svg#foodie") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "foodie";
+    src: url("foodie_cfcf0e04f88ca8786d7b88e8d9e3b685.svg#foodie") format("svg");
+  }
+}
+
+// [data-icon]:before { content: attr(data-icon); }
+
+
+.foodie-bowl:before,
+.foodie-bread:before,
+.foodie-cherries:before,
+.foodie-hat:before,
+.foodie-utensils:before {
+  display: inline-block;
+  font-family: "foodie";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.foodie-bowl:before { content: "\f100"; }
+.foodie-bread:before { content: "\f101"; }
+.foodie-cherries:before { content: "\f102"; }
+.foodie-hat:before { content: "\f103"; }
+.foodie-utensils:before { content: "\f104"; }
