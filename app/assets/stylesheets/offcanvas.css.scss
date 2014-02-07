@@ -82,6 +82,14 @@
             
          }
       }
+      span.log_in {
+         padding-left: 15px;
+         font-size: 0.9em;
+         a {color: white;}
+         a:hover {
+            color: $turq;
+         }
+      }
    }
 }
 

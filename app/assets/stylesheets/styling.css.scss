@@ -323,14 +323,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 // Font Families and Classes to use them
 @font-face {
-    font-family: 'Batch';
-    src: url(font-path('batch-icons-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('batch-icons-webfont.woff')) format('woff'), 
-         url(font-path('batch-icons-webfont.ttf'))  format('truetype'),
-         url(font-path('batch-icons-webfont.svg') + "#Batch") format('svg');
-}
-
-@font-face {
     font-family: 'socialico';
     src: url(font-path('socialico-webfont.eot') + "?#iefix") format('embedded-opentype'),
          url(font-path('socialico-webfont.woff')) format('woff'), 
@@ -347,26 +339,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 
-@font-face {
-    font-family: 'fontawesome';
-    src: url(font-path('fontawesome-webfont.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('fontawesome-webfont.woff')) format('woff'), 
-         url(font-path('fontawesome-webfont.ttf'))  format('truetype'),
-         url(font-path('fontawesome-webfont.svg') + "#fontawesomeregular") format('svg');
-}
 
-@font-face {
-    font-family: 'foundation-icons';
-    src: url(font-path('foundation-icons.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('foundation-icons.woff')) format('woff'), 
-         url(font-path('foundation-icons.ttf'))  format('truetype'),
-         url(font-path('foundation-icons.svg') + "#fontcustom") format('svg');
-}
-
-
-.icon-font {
-	font-family: Batch;
-}
 
 .socialico {
 	font-family: "socialico";

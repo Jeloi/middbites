@@ -19,6 +19,8 @@ gem 'rmagick'
 
 gem 'jquery-turbolinks'
 
+gem 'font-awesome-rails'
+
 gem 'foundation-rails', github: 'Jeloi/foundation-rails'
 # gem 'foundation-rails'  # use this when commented xlarge columns is resolved
 gem 'omniauth-facebook', '1.4.0'

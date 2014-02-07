@@ -34,8 +34,8 @@
             <%=  image_tag "white_logo.png", class: "logo" %>
           <% end %>
           <ul class="main">
-            <li><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
             <li><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
+            <li><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
             <li>
               <%= link_to "Tags", grouped_tags_path %>
             </li>
@@ -59,7 +59,7 @@
               <li><%= link_to "Log Out", signout_path %></li>
             </ul>
           <% else %>
-            <%= link_to "Log In", "/auth/facebook" %>/<%= link_to "Sign Up", root_path %>
+            <span class="log_in"><%= link_to "Log In / Sign Up", "/auth/facebook" %></span>
           <% end -%>
         </nav>
       </div>
@@ -81,9 +81,7 @@
          <% end %>
       
         <%= link_to(root_path, id: "user_icon") do %>
-        <span class="icon-font" data-dropdown="user_dropdown" data-options="is_hover:true">
-          &#xf170
-        </span>
+        <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
         <% end %>
 
         <div id="sticky_navigation_wrapper">
