@@ -198,7 +198,12 @@ ul#user_dropdown {
 	}
 }
 
-
+a.back-to-top {
+	font-size: 30px;
+	display: block;
+	margin: 30px auto;
+	width: 30px;
+}
 
 footer#footer {
 	background: $darkey;
@@ -206,13 +211,11 @@ footer#footer {
 	font-weight: 200;
 	color: #E0E4E9;
 	padding: 1em 0;
-	ul { margin-bottom: 0.7em; }
-	h5 {
-		font-weight: 500;
-		color: white;
-		font-size: rem-calc(28px);
-		font-family: "reklame-script";
+	.logo {
+		height: 25px;
+		margin: 10px auto;
 	}
+	ul { margin-bottom: 0.7em; }
 	a { color: #E0E4E9; font-size: rem-calc(14px); &:hover { color: $blue } }
 	text-align: center;
 	.inline-nav {
@@ -235,6 +238,9 @@ footer#footer {
 		font-size: rem-calc(12px);
 		text-align: center;
 		color: #888;
+	}
+	.fb-like {
+		margin-bottom: 10px;
 	}
 	.built-by {
 		font-size: rem-calc(12px);

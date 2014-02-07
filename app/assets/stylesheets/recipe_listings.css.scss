@@ -175,7 +175,14 @@
 	}
 	li.recipe-item {
 		padding-bottom: 10px !important;
-
+		.rank-number {
+			padding: 0.3em 0.6em;
+			color: white;
+			background: rgba(0,0,0,0.5);	
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 
 		.recent-bites {
 			text-align: center;
@@ -426,6 +433,7 @@ a.red-button {
 div.pagination {
 	padding: 20px 15px;
 	max-width: 600px;
+	margin: 0 auto;
 }
 ul.pagination {
 	margin: 0 auto;

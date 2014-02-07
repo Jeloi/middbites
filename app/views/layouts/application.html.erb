@@ -16,7 +16,16 @@
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>" >
-    
+    <!-- Facebook JS SDK stuff -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=318107781637293";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script> 
 
     <header id="headerWrapper">
       <div id="headerContent">
@@ -52,8 +61,6 @@
           <% else %>
             <%= link_to "Log In", "/auth/facebook" %>/<%= link_to "Sign Up", root_path %>
           <% end -%>
-            <%#= like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
-            <div class="fb-like" data-href="https://facebook.com/middbites" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
         </nav>
       </div>
     </header>
@@ -139,8 +146,10 @@
           <%= content_for?(:content) ? yield(:content) : yield %>
         </div>
 
+        <a href="#page" title="back-to-top" class="back-to-top icon-font">&#xf148;</a>
+
         <footer id="footer">
-          <h5>middbites</h5>
+          <%=  image_tag "white_logo.png", class: "logo" %>
           <ul class="inline-nav">
             <span class="nav-sep"></span>
             <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
@@ -151,6 +160,8 @@
             <li><%= link_to "Contact", recipes_path %></li>
             <li></li>
           </ul>
+          <%= like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
+
           <div class="built-by">
             Designed and built by Jeloi.
           </div>

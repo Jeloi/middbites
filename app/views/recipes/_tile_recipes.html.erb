@@ -1,7 +1,11 @@
+<% counter = 1 %>
 <% recipes.each do |recipe| %>
 	<li class="recipe-item">
 		<div class="image">
-			<%= link_to(recipe_path(recipe),  class: "overlay") do %>
+			<% if params[:action] == "top" %>
+			<span class="rank-number"><%= counter %></span>
+			<% end %>
+			<%= link_to(recipe_path(recipe),  class: "overlay main") do %>
 				<div class="vert-center-table">
 					<div class="cell text-center">
 						<%= recipe.ingredients_list %>
@@ -28,4 +32,5 @@
 		<%# render 'recipes/actions_mini', recipe: recipe %>
 
 	</li>
+	<% counter += 1 %>
 <% end -%>	
