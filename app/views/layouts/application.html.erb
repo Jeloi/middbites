@@ -91,16 +91,28 @@
                 <div class="middbites fixed-appear">middbites</div>
                 <div class="social-icons fixed-appear"></div>
                 <ul id="main-nav" class="" >
-                  <li class="nav-1"><%= link_to "Recipes", recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) %></li>
-                  <li class="nav-2"><%= link_to "Menus", menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") %></li>
-                  <li class="nav-3">
-                    <%= link_to "Tags", grouped_tags_path %>
+                  <li>
+                  <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
+                    <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Recipes</span></button>
+                  <% end -%>
                   </li>
-                  <li class="nav-4">
-                    <%= link_to "Ingredients", categorized_items_path %>
+                  <li>
+                  <%= link_to menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") do %>
+                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Menus</span></button>
+                    <% end -%>
                   </li>
-                  <li class="nav-5">
-                    <a href="#" data-reveal-id="search-modal" class="fi-magnifying-glass search-button"></a>
+                  <li>
+                    <%= link_to grouped_tags_path do %>
+                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Tags</span></button>
+                    <% end -%>
+                  </li>
+                  <li>
+                    <%= link_to categorized_items_path do %>
+                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Ingredients</span></button>
+                    <% end -%>
+                  </li>
+                  <li>
+                    <a href="#" data-reveal-id="search-modal" class="socialico_plus search-button" data-icon="O"></a>
                   </li>
                 </ul>
               </nav>
@@ -115,7 +127,7 @@
           <%= form_tag(search_path, {method: :get, :class => "search-form"}) do %>
           <%= text_field_tag :keywords, nil, placeholder: "Search everything...", id: "search" %>
           <%#= select_tag :context,  options_for_select(["Everything", "Recipes", "Tags", "Ingredients"], "Everything")%>
-          <%= button_tag(type: "submit", class: "fi-magnifying-glass") do %>
+          <%= button_tag(type: "submit", class: "socialico_plus", "data-icon" => "O") do %>
           <% end -%>
           <% end -%>
         </div>

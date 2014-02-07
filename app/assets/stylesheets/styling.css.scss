@@ -17,18 +17,6 @@ body {
 header#header {
 	text-align: center;
 	background: white;
-	h1.middbites {
-		font-weight: 500;
-		font-family: "reklame-script";
-		color: black;
-		// color: $turq;
-		padding-top: 20px;
-		margin-bottom: 0;
-		// line-height: 2em;
-		span {
-			color: #A2DAC2;
-		}
-	}
 	.logo {
 		width: 200px;
 		margin-top: 30px;
@@ -57,19 +45,6 @@ header#header {
 			top: 0;
 			left: 0;
 		}
-	}
-	.middbites {
-		font-weight: 300;
-		font-family: "reklame-script";
-		color: black;
-		position: absolute;
-		line-height: 50px;
-		font-size: 30px;
-		left: $column-gutter/2;
-	}
-	.social-icons {
-		position: absolute; 
-		right: $column-gutter/2;
 	}
 	.fixed-appear { display: none; }
 	@media #{$xlarge-up} {
@@ -105,14 +80,21 @@ nav.main-nav {
 		a { font-size: 18px; }
 		font-weight: 300;
 		display: inline-block;
-		margin-right: 15px;
-		padding-right: 15px;
+		// margin-right: 15px;
+		// padding-right: 15px;
+		height: 58px;
 		// text-transform: uppercase;
 		&:last-child {
 			margin-right: 0;
 			padding-right: 0;
 		}
 		span.search { margin-right: 20px; }
+	 }
+	 .search-button {
+	 	font-size: 30px;
+	 	display: inline-block;
+	 	margin-bottom: -5px;
+	 	vertical-align: top;
 	 }
 
 }
@@ -182,6 +164,7 @@ ul#user_dropdown {
 		padding: 0;
 		@media #{$large-up} {
 			width: 13%;
+			font-size: 50px;
 		}
 	}
 }
@@ -339,8 +322,6 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 
 
-
-
 .socialico {
 	font-family: "socialico";
 	&:before {
@@ -354,5 +335,98 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	&:before {
 		content: attr(data-icon);
 	}
+}
+
+// Codrops Creative Buttons Styling for Main Nav
+.bitn {
+	border: none;
+	color: $body-font-color;
+	background: none;
+	cursor: pointer;
+	padding:  20px;
+	display: inline-block;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	span {
+		font-family: $body-font-family;
+		font-weight: 300;
+		color: #444444;
+	}
+}
+
+.bitn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.bitn-5 {
+	background: none;
+	color: $body-font-color;
+	// padding: 0;
+	font-size: 18px;
+	font-weight: 300;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	&:hover {
+		background: none;
+	}
+}
+
+.bitn-5:active {
+	background: #9053a9;
+	top: 2px;
+}
+
+.bitn-5 span {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 0.3s;
+	-webkit-backface-visibility: hidden;
+	-moz-transition: all 0.3s;
+	-moz-backface-visibility: hidden;
+	transition: all 0.3s;
+	backface-visibility: hidden;
+}
+
+.bitn-5:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	line-height: 2.5;
+	font-size: 150%;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.bitn-5:active:before {
+	color: $body-font-color;
+}
+
+/* Button 5a */
+.bitn-5a:hover span {
+	-webkit-transform: translateY(300%);
+	-moz-transform: translateY(300%);
+	-ms-transform: translateY(300%);
+	transform: translateY(300%);
+}
+
+.bitn-5a:before {
+	left: 0;
+	top: -100%;
+}
+
+.bitn-5a:hover:before {
+	top: 0;
 }
 
