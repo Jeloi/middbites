@@ -32,24 +32,34 @@ header#header {
 }
 
 // Main Nav bar
-#sticky_navigation_wrapper {
+#sticky_navigation {
 	width: 100%;
-	height: 58px;
-	#sticky_navigation {
-		width: 100%;
-		z-index: 1000;
-		background: white;
-		&.fixed {
-			border-bottom: 1px solid #ddd;
-			position: fixed;
-			top: 0;
-			left: 0;
+	z-index: 1000;
+	background: white;
+	&.stuck {
+		#main-nav {
+			// border: none !important;
 		}
+		border-bottom: 1px solid #ddd;
+		position: fixed;
+		top: 0;
+		left: 0;
 	}
 	.fixed-appear { display: none; }
-	@media #{$xlarge-up} {
-		.social-icons { right: 0 }
-		.middbites { left: 0 }
+	@media #{$large-up} {
+		.fa-user {
+			position: absolute;
+			top: 23px;
+			right: 12px;
+		}
+		.middbites { 
+			.small-logo {
+				height: 32px;
+			}
+			position: absolute;	
+			left: 10px;
+			top: 13px;
+		}
 	}
 }
 
@@ -91,10 +101,15 @@ nav.main-nav {
 		span.search { margin-right: 20px; }
 	 }
 	 .search-button {
-	 	font-size: 30px;
+	 	font-size: 40px;
 	 	display: inline-block;
 	 	margin-bottom: -5px;
 	 	vertical-align: top;
+	 	&.active {
+	 		vertical-align: initial;
+	 		margin-bottom: 0;
+	 		font-size: 20px;
+	 	}
 	 }
 
 }

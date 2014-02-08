@@ -13,6 +13,7 @@
 
     <script type="text/javascript" src="//use.typekit.net/fgh0qas.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+   
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>" >
@@ -89,48 +90,52 @@
          <%= link_to(root_path, class: "logo clrfix") do %>
          <div class="header-logo"></div>
          <!-- <h1 class="middbites"> middbites </h1> -->
-         <%= image_tag "new_logo.png", class: "logo" %>
+         <%= link_to root_path do %>
+           <%= image_tag "new_logo.png", class: "logo" %>
+         <% end -%>
          <% end %>
       
         <%= link_to(root_path, id: "user_icon") do %>
-        <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
+        <!-- <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span> -->
         <% end %>
 
-        <div id="sticky_navigation_wrapper">
-          <div id="sticky_navigation">
-            <div class="row">
-              <nav  class="main-nav columns">
-                <div class="middbites fixed-appear">middbites</div>
-                <div class="social-icons fixed-appear"></div>
-                <ul id="main-nav" class="" >
-                  <li>
-                  <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
-                    <button class="bitn bitn-5 bitn-5a foodie-bowl"><span>Recipes</span></button>
-                  <% end -%>
-                  </li>
-                  <li>
-                  <%= link_to menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") do %>
-                      <button class="bitn bitn-5 bitn-5a foodie-utensils"><span>Menus</span></button>
-                    <% end -%>
-                  </li>
-                  <li>
-                    <%= link_to grouped_tags_path do %>
-                      <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Tags</span></button>
-                    <% end -%>
-                  </li>
-                  <li>
-                    <%= link_to categorized_items_path do %>
-                      <button class="bitn bitn-5 bitn-5a foodie-cherries"><span>Ingredients</span></button>
-                    <% end -%>
-                  </li>
-                  <li>
-                    <a href="#" data-reveal-id="search-modal" class="socialico_plus search-button" data-icon="O"></a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div> 
+        <div id="sticky_navigation">
+           <div class="row">
+             <nav  class="main-nav columns">
+               <div class="middbites fixed-appear">
+                 <%= link_to root_path do %>
+                   <%= image_tag "new_logo.png", class: "small-logo" %>
+                 <% end -%>
+               </div>
+               <span class="fa fa-user fixed-appear" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
+               <ul id="main-nav" class="" >
+                 <li>
+                 <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
+                   <button class="bitn bitn-5 bitn-5a foodie-bowl"><span>Recipes</span></button>
+                 <% end -%>
+                 </li>
+                 <li>
+                 <%= link_to menus_path, class: ("active" if params[:controller] == "pages" and params[:action] == "menus") do %>
+                     <button class="bitn bitn-5 bitn-5a foodie-utensils"><span>Menus</span></button>
+                   <% end -%>
+                 </li>
+                 <li>
+                   <%= link_to grouped_tags_path do %>
+                     <button class="bitn bitn-5 bitn-5a fa fa-tag"><span>Tags</span></button>
+                   <% end -%>
+                 </li>
+                 <li>
+                   <%= link_to categorized_items_path do %>
+                     <button class="bitn bitn-5 bitn-5a foodie-cherries"><span>Ingredients</span></button>
+                   <% end -%>
+                 </li>
+                 <li>
+                   <a href="#" data-reveal-id="search-modal" class="socialico_plus search-button" data-icon="O"></a>
+                 </li>
+               </ul>
+             </nav>
+           </div>
+         </div>
       </header>
 
       <div class="offcanvas-wrap">
@@ -193,7 +198,7 @@
         </footer>
 
       </div>
-
     </div>
+
   </body>
 </html>
