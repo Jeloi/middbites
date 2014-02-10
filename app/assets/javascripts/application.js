@@ -16,9 +16,9 @@
 //= require foundation
 //= require bxslider/jquery.bxslider
 //= require chosen-jquery
-//= require jquery.sticky
-//= require waypoints.min
-//= require waypoints-sticky.min
+// require jquery.sticky
+// require waypoints.min
+// require waypoints-sticky.min
 // require modernizr-2.6.2.min
 //= require_tree .
 //= require turbolinks

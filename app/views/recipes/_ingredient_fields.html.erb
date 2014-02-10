@@ -1,15 +1,17 @@
 <div class="ingredient-fields clrfix" >
 	<div class="wrap">
 		<%= f.hidden_field :_destroy, data: {:attribute => "destroy"} %>
-		<span class="remove icon-font custom-action">&#xf14d</span>
+		<span class="remove fa fa-minus-circle custom-action"></span>
 		<%= f.hidden_field :item_id, data: {:attribute => "destroy"}, class: "item_id" %>
 		<% f.fields_for :tag do |tag_form| %>
 		<% end %>
 		<span class="ingredient-text"></span>
 	</div>
 
-	<div class="slide down icon-font custom-action"></div>
+	<i class="fa info <%=  !f.object.quantity.blank? ? "showing" : "hidden" %>"></i>
 	
-	<%= f.text_field :quantity, class: :quantity, placeholder: "Three Scoops" %>
+	<% not_showing = "display: none" if f.object.quantity.blank? %>
+
+	<%= f.text_field :quantity, class: :quantity, placeholder: "additional info (e.g measurements)", style: not_showing, maxlength: Ingredient::QUANTITY_LENGTH %>
 
 </div>	

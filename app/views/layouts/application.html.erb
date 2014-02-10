@@ -60,8 +60,11 @@
           <h4>Recipes</h4>
           <ul class="sub">
             <li><%= link_to "Popular", popular_recipes_path %></li>
-            <li><%= link_to "Top", top_recipes_path %></li>
             <li><%= link_to "Recent", recent_recipes_path %></li>
+            <li><%= link_to "Top", top_recipes_path %></li>
+            <br>
+            <li><%= link_to "Create", new_recipe_path %></li>
+
           </ul>
           <h4>Account</h4>
           <% if logged_in? %>
@@ -96,7 +99,7 @@
          <% end %>
       
         <%= link_to(root_path, id: "user_icon") do %>
-        <!-- <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span> -->
+        <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
         <% end %>
 
         <div id="sticky_navigation">

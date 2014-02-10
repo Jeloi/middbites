@@ -10,7 +10,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require chosen
+ * require chosen
  *= require font-awesome
  *= require _foodie
  * require foundation_and_overrides
@@ -25,5 +25,7 @@
  @import 'show_recipe';
  @import 'tags';
  @import 'ingredients';
+ @import 'form_recipe';
  @import 'offcanvas';
+ @import 'chosen';
  @import 'menus';

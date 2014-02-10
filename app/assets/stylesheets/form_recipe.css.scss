@@ -1,0 +1,89 @@
+.recipe-form {
+	
+	input {
+		margin-bottom: 15px; 
+	}
+	#ingredients-section {
+		.selector_container {
+			margin-bottom: 1em;
+		}
+
+		#list-container {
+			margin-bottom: 1em;
+		}
+
+		.ingredient-fields {
+			margin-top: 0.4em;
+			line-height: 1.3em;
+			span.remove {
+				font-size: 20px;
+				vertical-align: middle;
+				&:hover {
+					cursor: pointer;
+					color: $turq;
+				}
+			}
+			span.ingredient-text {
+				margin-left: 0.4em;
+				vertical-align: middle;
+			}
+			.wrap {
+				float: left;
+				width: 90%;
+			}
+			i.info {
+				float: right;
+				width: 10%;
+				text-align: center;
+				cursor: pointer;
+				&.showing:before {
+					// content: "\f148"
+					content: "\f141";
+					color: $turq;
+				}
+				&.hidden:before {
+					content: "\f141"
+				}
+			}
+			input.quantity {
+				margin-left: 30px;
+				padding: 3px;
+				line-height: 1;
+				height: 20px;
+				font-size: 12px;
+				font-style: italic;
+				border: none;
+				margin-bottom: 0;
+			}
+
+		}
+		@media #{$large-up} {
+			#list-container {
+				padding-left: 1em;
+			}
+		}
+	}
+
+	.all-actions {
+		margin-bottom: 1em;
+		#remove-all {
+			cursor: pointer;
+			.fa {
+				font-size: 25px;
+				vertical-align: middle;
+			}
+			span {
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.directions textarea {
+		height: 150px;
+		margin-bottom: 1em;
+	}
+
+	select {
+		height: 2.5em;
+	}
+}

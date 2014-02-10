@@ -55,7 +55,7 @@
 			
 			<div id="comments">
 				<h4>
-					Comments ( <%= @recipe.comments_count %> )
+					<%= @recipe.comments_count %> Comments 
 					<!-- <span class="icon-font">&#xf003</span> -->
 				</h4>
 				<%= render 'comments/comments_form', comment: @comment %>

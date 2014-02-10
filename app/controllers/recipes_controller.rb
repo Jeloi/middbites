@@ -143,7 +143,8 @@ class RecipesController < ApplicationController
       @grouped_item_options = ItemCategory.all. map do |cat|
         [cat.name, cat.items.collect {|i| [i.name, i.id]}]
       end
-      @grouped_item_options.unshift ["", ["",""]] # add a blank pair at the beginning
+      # @grouped_item_options.unshift ["", [""]] # add a blank pair at the beginning
+      # logger.debug { @grouped_item_options }
     end
 
     def set_per_page

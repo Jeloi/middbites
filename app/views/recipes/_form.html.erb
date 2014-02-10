@@ -1,82 +1,89 @@
-<div class="recipe-form">
-  <div class="padded-wrap round-box">
-  <h2><%= heading %></h2>
+<div class="header-title text-center">
+  <h1><%= heading %></h1>
+</div>
 
-  <%= form_for @recipe, :html => {:multipart => true}  do |f| %>
-  <% if @recipe.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class="row">
+  <div class="small-12 medium-10 large-7 xlarge-6 small-centered columns recipe-form">
 
-        <ul>
+
+
+    <%= form_for @recipe, :html => {:multipart => true}  do |f| %>
+    <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
         <% @recipe.errors.each do |attribute, msg| %>
 
-          <li><%= attribute.to_s.capitalize + "-" + msg %></li>
+        <li><%= attribute.to_s.capitalize + "-" + msg %></li>
         <% end %>
-        </ul>
-      </div>
-  <% end %>
-    
-  <div class="field title">
+      </ul>
+    </div>
+    <% end %>
+
+    <div class="field title">
       <%= f.label :title do %>
-    <h4>title</h4>
+      <h4>Title</h4>
       <% end -%>
-      <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH %>
-  </div>  
+      <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH, placeholder: "Give it a unique and creative title!" %>
+    </div>  
 
     <div class="field blurb">
       <%= f.label :blurb do %>
-      <h4>blurb</h4>
+      <h4>Blurb</h4>
       <% end -%>
-      <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH %>
+      <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH, placeholder: "What's this recipe all about?" %>
     </div>
 
 
 
-  <h4 class="ingredients">ingredients</h4>
+    <h4 class="ingredients">Ingredients</h4>
     <div id="ingredients-section" class="field" >
 
-    
-    <%# select_tag :ingredient_selector, options_for_select(Item.all.collect {|i| [i.name, i.id]}), :prompt => 'Add an Ingredient' %>
-    <div class="selector_container"><%= select_tag :ingredient_selector, grouped_options_for_select(@grouped_item_options), data: {:placeholder =>'Add an Ingredient'} -%></div>
-    <%#= grouped_collection_select "", "", ItemCategory.all, :items, :name, :id, :name, {}, {multiple: true, id: 'ingredient_selector'} -%>
-    <div class="all-actions clrfix">
-      <span id="remove-all"><span class="icon-font">&#xf14d</span> Remove All </span>
-      
-      <span class="up" id="slide-all">Show Quantities<span class="icon-font toggle-all">&#xf149</span></span>
-    </div>
 
-    <div id="list-container">
-    <!-- For redirected to page with ingredients (edit) -->
-    <%= f.fields_for :ingredients do |ingredient_form| %>
-      <%= render 'ingredient_fields', f: ingredient_form %>
-    <% end -%>
-    </div>
+      <div class="selector_container"><%= select_tag :ingredient_selector, "<option value="" disabled selected>Add an Ingredient</option>".html_safe+grouped_options_for_select(@grouped_item_options), data: {:placeholder =>'Add an Ingredient'}, placeholder: "Add an Ingredient" -%></div>
+
+
+      <div id="list-container">
+        <!-- For redirected to page with ingredients (edit) -->
+        <%= f.fields_for :ingredients do |ingredient_form| %>
+        <%= render 'ingredient_fields', f: ingredient_form %>
+        <% end -%>
+      </div>
+
+      <div class="all-actions clrfix">
+        <span id="remove-all"><span class="fa fa-times"></span> <span>Remove All</span> </span>
+
+        <!-- <span class="up" id="slide-all">Show Quantities<span class="fa toggle-all">&#xf149</span></span> -->
+      </div>
+
     </div>
     <div class="field directions">
       <%= f.label :directions do %>
-      <h4>directions</h4>
+      <h4>Directions</h4>
       <% end -%>
-        <%= f.text_area :directions, rows: 7 %>
+      <%= f.text_area :directions, placeholder: "Describe how to go about creating this meal." %>
     </div>
     <div class="field tags">
-      <h4 class="tags">tags</h4>
-      <div><%= f.grouped_collection_select "tag_ids", TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector'} -%></div>
+      <h4 class="tags">Tags</h4>
+      <div><%= f.grouped_collection_select "tag_ids", TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector', title: "Tags", :"data-placeholder" => "Select up to 6 Tags"} -%></div>
       <div id="tag_field_container">
         <%= f.fields_for :taggings do |tag_form| %>
         <%= render 'tagging_fields', f: tag_form -%>      
         <% end -%>
       </div>
+
     </div>
-  <% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
-  <% @tag_fields_content = add_fields_helper(f, :taggings) %>
-
-  
-  <%= f.file_field :image %>
-  <%= f.check_box :remove_image %>
+    <% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
+    <% @tag_fields_content = add_fields_helper(f, :taggings) %>
 
 
-  <%= f.submit submit_text, id: :create_recipe %>
-  <% end %>
+    <%= f.file_field :image %>
+    <%= f.check_box :remove_image %>
+
+
+    <%= f.submit submit_text, id: :create_recipe %>
+    <% end %>
 
   </div>
 </div>
@@ -84,18 +91,41 @@
 <script>
   // Enable Chosen Plugin for ingredients and tags
   $('#ingredient_selector').chosen({
-    no_results_text: 'No ingredients matched'
+    no_results_text: 'No ingredients matched',
+    width: "100%"
   });
   $('#tag_selector').chosen({
-    no_results_text: 'No tags matched'
+    no_results_text: 'No tags matched',
+    width: "100%",
+    max_selected_options: 6
   });
 
 
   var chosen_items = [];
   $(document).ready(function() {
 
+    // hack for iPhone 7.0.3 multiselects bug
+    // https://discussions.apple.com/thread/5548742
+    if(navigator.userAgent.match(/iPhone/i)) {
+        $('select[multiple]').each(function(){
+            var select = $(this).on({
+                "focusout": function(){
+                    var values = select.val() || [];
+                    setTimeout(function(){
+                        select.val(values.length ? values : ['']).change();
+                    }, 1000);
+                }
+            });
+            var firstOption = '<option value="" disabled="disabled"';
+            firstOption += (select.val() || []).length > 0 ? '' : ' selected="selected"';
+            firstOption += '>Select ' + (select.attr('title') || 'Options') + '';
+            firstOption += '</option>';
+            select.prepend(firstOption);
+        });
+    }
+
     $('#tag_selector').on('change', function(evt, params) {
-      if (params["selected"]) {
+      if (params["selected"] && !(0 == params["selected"].length)) {
         console.log(params["selected"]);
         var val = params["selected"];
         create_tag_fields(this, "text", val);
@@ -106,7 +136,7 @@
         var val = params["deselected"];
         tag_field_destroy(val);
       };
-     });
+    });
 
     // Setup: Fix displaying ingredient text in edit/rerendered form page
     $('.ingredient-fields').show(); 
@@ -133,10 +163,12 @@
       var text = $("#ingredient_selector option:selected").text();
       var value = $("#ingredient_selector option:selected").val();
       console.log(text + value);
-      if (value != null && chosen_items.indexOf(value) == -1) {
+      if (value != null && value != "disabled" && chosen_items.indexOf(value) == -1) {
         create_ingredient_fields(this, text, value);
         chosen_items.push(value);
       };
+      // console.log(chosen_items);
+
     });
 
     function create_ingredient_fields (link, text, value) {
@@ -171,36 +203,17 @@
       $(input_selector).prev("input.destroy_tag[type=hidden][data-attribute=destroy]").val("1");
     }
 
-    // Add ingredient using link functionality - Old
-    // $('#ingredients-section').on("click", ".add-ingredient", function() {
-    //  add_fields(this, "ingredients", "<%= escape_javascript(@ingredient_fields_content) %>")
-    //     return false;
-    //   });
 
-    function add_fields(link, association, content) {
-      var new_id = new Date().getTime();
-      var regexp = new RegExp("new_" + association, "g")
-      $(link).after(content.replace(regexp, new_id));
-    };
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).after(content.replace(regexp, new_id));
+};
 
-    // function recursive_remove (element, selector) {
-    //   console.log(element);
-    //   element.hide();
-    //   var prev = element.prev(".ingredient-fields");
-    //   // recursive_remove(prev);
-    // }
-
-    // // Fancy recursive remove all ingredients functionality
-    // $('#ingredients-section').on("click", "#remove-all", function() {
-    //   console.log("clicked #remove-all");
-    //   console.log($("#ingredients-section"));
-    //   var last = $(".ingredient-fields").last();
-    //   recursive_remove(last, ".ingredient-fields");
-    //   return false;
-    // });
 
     // Remove all ingredients functionality
     $('#ingredients-section').on("click", "#remove-all", function() {
+      console.log("remove all");
       $("input[type=hidden][data-attribute=destroy]").val("1");
       $('.ingredient-fields').slideUp("fast");
       chosen_items = [];
@@ -215,64 +228,44 @@
       var val = $(this).next("input.item_id").val()
       var index = chosen_items.indexOf(val);
       if ( index > -1) {
-          chosen_items.splice(index, 1);
+        chosen_items.splice(index, 1);
       }
+      // console.log(chosen_items);
       return false;
     });
 
     // Show/hide quantity dropdown section
-    $('#ingredients-section').on("click", ".slide", function() {
+    $('#ingredients-section').on("click", ".info", function() {
         // allPanels.slideUp();
         // if it is pointed down
-        if ($(this).hasClass('down')) {
-          $(this).parent().next('div.wrap.quantity').slideDown("fast");
-          $(this).removeClass('down');
-          $(this).addClass('up');
+        if ($(this).hasClass('hidden')) {
+          $(this).next('input.quantity').show('').focus();
+          $(this).removeClass('hidden');
+          $(this).addClass('showing');
         }
-        else if ($(this).hasClass('up')) {
-          $(this).parent().next('div.wrap.quantity').slideUp("fast");
-          $(this).removeClass('up');
-          $(this).addClass('down');
+        else if ($(this).hasClass('showing')) {
+          $(this).next('input.quantity').hide('');
+          $(this).removeClass('showing');
+          $(this).addClass('hidden');
         };
         return false;
       });
 
-    // Show/hide quantity dropdown section
-    $('#ingredients-section').on("click", "#slide-all", function() {
-        // allPanels.slideUp();
-        // if it is pointed down
-        if ($(this).hasClass('down')) {
-          $('input.quantity').slideDown("800").addClass('up').removeClass('down');
-          $(this).removeClass('down');
-          $(this).addClass('up');
-        }
-        else if ($(this).hasClass('up')) {
-          $('input.quantity').slideUp("800").addClass('down').removeClass('up');
-          $(this).removeClass('up');
-          $(this).addClass('down');
-        };
-        return false;
-      });
-
-    // Individual sliding functionality 
-    // $("#ingredients-section").on("click", ".go-right", function() {
-    //  var wrap = $('#ingredients-section').width()
-    //  $(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
-    // });
-
-    // $("#ingredients-section").on("click", ".go-left", function() {
-    //  var wrap = $('#ingredients-section').width()
-    //  $(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
-    // });
-    // // All Ingredients sliding functionality
-    // $("#ingredients-section").on("click", ".all-right", function() {
-    //  var wrap = $('#ingredients-section').width()
-    //  $(this).closest('.ingredient-fields').css("transform","translateX("+-wrap+"px)");
-    // });
-
-    // $("#ingredients-section").on("click", ".all-left", function() {
-    //  var wrap = $('#ingredients-section').width()
-    //  $(this).closest('.ingredient-fields').css("transform","translateX("+0+"px)");
-    // });
-  });
+    // Show/hide all quantity dropdown section
+    // $('#ingredients-section').on("click", "#slide-all", function() {
+    //     // allPanels.slideUp();
+    //     // if it is pointed down
+    //     if ($(this).hasClass('down')) {
+    //       $('input.quantity').slideDown("800");
+    //       $(this).removeClass('down');
+    //       $(this).addClass('up');
+    //     }
+    //     else if ($(this).hasClass('up')) {
+    //       $('input.quantity').slideUp("800");
+    //       $(this).removeClass('up');
+    //       $(this).addClass('down');
+    //     };
+    //     return false;
+    //   });
+});
 </script>

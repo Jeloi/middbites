@@ -16,6 +16,7 @@ class Ingredient < ActiveRecord::Base
 	belongs_to :recipe, counter_cache: true
 	belongs_to :item, counter_cache: true
 
+	QUANTITY_LENGTH = 30
 
 	# Callbacks
 	before_save :set_name
