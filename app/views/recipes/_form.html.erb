@@ -51,8 +51,8 @@
         <% end -%>
       </div>
 
-      <div class="all-actions clrfix">
-        <span id="remove-all"><span class="fa fa-times"></span> <span>Remove All</span> </span>
+      <div class="all-actions clrfix" style="display: none">
+        <span id="remove-all"><span class="fa fa-times"></span> Remove All </span>
 
         <!-- <span class="up" id="slide-all">Show Quantities<span class="fa toggle-all">&#xf149</span></span> -->
       </div>
@@ -82,7 +82,7 @@
     <%= f.check_box :remove_image %>
 
 
-    <%= f.submit submit_text, id: :create_recipe %>
+    <%= f.submit "Create!", id: :create_recipe, class: "button-thick" %>
     <% end %>
 
   </div>
@@ -100,8 +100,10 @@
     max_selected_options: 6
   });
 
-
+  // Initialize array to hold items that have been selected
   var chosen_items = [];
+
+
   $(document).ready(function() {
 
     // hack for iPhone 7.0.3 multiselects bug
@@ -124,20 +126,6 @@
         });
     }
 
-    $('#tag_selector').on('change', function(evt, params) {
-      if (params["selected"] && !(0 == params["selected"].length)) {
-        console.log(params["selected"]);
-        var val = params["selected"];
-        create_tag_fields(this, "text", val);
-        console.log($('#tag_selector').val());
-      };
-      if (params["deselected"]) {
-        console.log(params["deselected"]);
-        var val = params["deselected"];
-        tag_field_destroy(val);
-      };
-    });
-
     // Setup: Fix displaying ingredient text in edit/rerendered form page
     $('.ingredient-fields').show(); 
     $('.ingredient-text').each(function() {
@@ -158,114 +146,125 @@
     // $('#tag_selector').val(initial_chosen_tag_vals);
     $('#tag_selector').trigger("chosen:updated");
 
-    //Add ingredient using select_tag
-    $('#ingredients-section').on("change", "#ingredient_selector", function() {
-      var text = $("#ingredient_selector option:selected").text();
-      var value = $("#ingredient_selector option:selected").val();
-      console.log(text + value);
-      if (value != null && value != "disabled" && chosen_items.indexOf(value) == -1) {
-        create_ingredient_fields(this, text, value);
-        chosen_items.push(value);
-      };
-      // console.log(chosen_items);
 
-    });
 
-    function create_ingredient_fields (link, text, value) {
-      var content = "<%= escape_javascript(@ingredient_fields_content) %>"
-      add_ingredient_fields(link, "ingredients", content);
-      // console.log($('#ingredient_selector').siblings('.ingredient-fields .name input').attr('name'));
-      $('#list-container input.item_id').first().val(value);
-      $('#list-container .ingredient-text').first().text(text);
-      // $(link).find('.ingredient-fields').first().show();
+  });
+
+  function create_ingredient_fields (link, text, value) {
+    var content = "<%= escape_javascript(@ingredient_fields_content) %>"
+    add_ingredient_fields(link, "ingredients", content);
+    // console.log($('#ingredient_selector').siblings('.ingredient-fields .name input').attr('name'));
+    $('#list-container input.item_id').first().val(value);
+    $('#list-container .ingredient-text').first().text(text);
+    // $(link).find('.ingredient-fields').first().show();
+  }
+
+  function add_ingredient_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $("#list-container").prepend(content.replace(regexp, new_id));
+  };
+
+  function create_tag_fields (link, text, value) {
+    var content = "<%= escape_javascript(@tag_fields_content) %>"
+    add_tag_fields(link, "taggings", content);
+    $('#tag_field_container input.tag_id').first().val(value);
+  }
+
+  function add_tag_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $("#tag_field_container").prepend(content.replace(regexp, new_id));
+  }
+
+  function tag_field_destroy(val){
+    var input_selector = '#tag_field_container input.tag_id[value='+val+']';
+    $(input_selector).prev("input.destroy_tag[type=hidden][data-attribute=destroy]").val("1");
+  }
+
+
+  function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g")
+    $(link).after(content.replace(regexp, new_id));
+  };
+
+
+  // Remove all ingredients functionality
+  $('#ingredients-section').on("click", "#remove-all", function() {
+    console.log("remove all");
+    $("input[type=hidden][data-attribute=destroy]").val("1");
+    $('.ingredient-fields').slideUp("fast");
+    chosen_items = [];
+    $('.all-actions').hide('');
+    return false;
+  });
+
+
+  // Remove single Ingredient functionality
+  $('#ingredients-section').on("click", ".remove", function() {
+    $(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
+    $(this).closest(".ingredient-fields").hide();
+    var val = $(this).next("input.item_id").val()
+    var index = chosen_items.indexOf(val);
+    if ( index > -1) {
+      chosen_items.splice(index, 1);
     }
-
-    function add_ingredient_fields(link, association, content) {
-      var new_id = new Date().getTime();
-      var regexp = new RegExp("new_" + association, "g")
-      $("#list-container").prepend(content.replace(regexp, new_id));
-    };
-
-    function create_tag_fields (link, text, value) {
-      var content = "<%= escape_javascript(@tag_fields_content) %>"
-      add_tag_fields(link, "taggings", content);
-      $('#tag_field_container input.tag_id').first().val(value);
+    if (chosen_items.length > 0) {
+      $('.all-actions').show('');
+    } else {
+      $('.all-actions').hide('');
     }
+    // console.log(chosen_items);
+    return false;
+  });
 
-    function add_tag_fields(link, association, content) {
-      var new_id = new Date().getTime();
-      var regexp = new RegExp("new_" + association, "g")
-      $("#tag_field_container").prepend(content.replace(regexp, new_id));
-    }
-
-    function tag_field_destroy(val){
-      var input_selector = '#tag_field_container input.tag_id[value='+val+']';
-      $(input_selector).prev("input.destroy_tag[type=hidden][data-attribute=destroy]").val("1");
-    }
-
-
-function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).after(content.replace(regexp, new_id));
-};
-
-
-    // Remove all ingredients functionality
-    $('#ingredients-section').on("click", "#remove-all", function() {
-      console.log("remove all");
-      $("input[type=hidden][data-attribute=destroy]").val("1");
-      $('.ingredient-fields').slideUp("fast");
-      chosen_items = [];
-      return false;
-    });
-
-
-    // Remove single Ingredient functionality
-    $('#ingredients-section').on("click", ".remove", function() {
-      $(this).prev("input[type=hidden][data-attribute=destroy]").val("1");
-      $(this).closest(".ingredient-fields").hide();
-      var val = $(this).next("input.item_id").val()
-      var index = chosen_items.indexOf(val);
-      if ( index > -1) {
-        chosen_items.splice(index, 1);
+  // Show/hide quantity dropdown section
+  $('#ingredients-section').on("click", ".info", function() {
+      // allPanels.slideUp();
+      // if it is pointed down
+      if ($(this).hasClass('hidden')) {
+        $(this).next('input.quantity').show('').focus();
+        $(this).removeClass('hidden');
+        $(this).addClass('showing');
       }
-      // console.log(chosen_items);
+      else if ($(this).hasClass('showing')) {
+        $(this).next('input.quantity').hide('');
+        $(this).removeClass('showing');
+        $(this).addClass('hidden');
+      };
       return false;
     });
 
-    // Show/hide quantity dropdown section
-    $('#ingredients-section').on("click", ".info", function() {
-        // allPanels.slideUp();
-        // if it is pointed down
-        if ($(this).hasClass('hidden')) {
-          $(this).next('input.quantity').show('').focus();
-          $(this).removeClass('hidden');
-          $(this).addClass('showing');
-        }
-        else if ($(this).hasClass('showing')) {
-          $(this).next('input.quantity').hide('');
-          $(this).removeClass('showing');
-          $(this).addClass('hidden');
-        };
-        return false;
-      });
+  //Add ingredient using select_tag
+  $('#ingredients-section').on("change", "#ingredient_selector", function() {
+    var text = $("#ingredient_selector option:selected").text();
+    var value = $("#ingredient_selector option:selected").val();
+    // console.log(text + value);
+    if (value != null && value != "disabled" && chosen_items.indexOf(value) == -1) {
+      create_ingredient_fields(this, text, value);
+      chosen_items.push(value);
+    };
+    if (chosen_items.length > 0) {
+      $('.all-actions').show('');
+    } else {
+      $('.all-actions').hide('');
+    }
+    // console.log(chosen_items);
+    });
 
-    // Show/hide all quantity dropdown section
-    // $('#ingredients-section').on("click", "#slide-all", function() {
-    //     // allPanels.slideUp();
-    //     // if it is pointed down
-    //     if ($(this).hasClass('down')) {
-    //       $('input.quantity').slideDown("800");
-    //       $(this).removeClass('down');
-    //       $(this).addClass('up');
-    //     }
-    //     else if ($(this).hasClass('up')) {
-    //       $('input.quantity').slideUp("800");
-    //       $(this).removeClass('up');
-    //       $(this).addClass('down');
-    //     };
-    //     return false;
-    //   });
-});
+    $("#tag_selector").on("change", function(evt, params) {
+      if (params["selected"] && !(0 == params["selected"].length)) {
+        var val = params["selected"];
+        create_tag_fields(this, "text", val);
+        // console.log($('#tag_selector').val());
+      };
+      if (params["deselected"]) {
+        // console.log(params["deselected"]);
+        var val = params["deselected"];
+        // console.log($('#tag_selector').val());
+        tag_field_destroy(val);
+      };
+    });
+
 </script>

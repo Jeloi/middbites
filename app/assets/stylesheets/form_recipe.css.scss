@@ -1,8 +1,9 @@
 .recipe-form {
 	
-	input {
-		margin-bottom: 15px; 
+	h4 {
+		margin-top: 15px; 
 	}
+
 	#ingredients-section {
 		.selector_container {
 			margin-bottom: 1em;
@@ -85,5 +86,9 @@
 
 	select {
 		height: 2.5em;
+	}
+
+	input[type="submit"] {
+		// @include tag-hollow($blue);
 	}
 }
