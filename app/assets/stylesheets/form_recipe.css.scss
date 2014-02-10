@@ -83,12 +83,41 @@
 		height: 150px;
 		margin-bottom: 1em;
 	}
+	
+	#image-holder {
+		margin-bottom: 15px;
+	}
+
+	#upload_button {
+		margin-bottom: 10px;
+		cursor: pointer;
+		text-align: center;
+		div.fa-camera {
+			display: block;
+			font-size: 40px;
+		}
+		.meta {
+			font-weight: 300;
+			font-style: italic;
+			font-size: 0.9em;
+		}
+		&:hover {
+			.fa-camera {
+				color: $turq;
+			}
+		}
+	}
+
+	label#delete_image {
+		display: inline-block;
+	}
 
 	select {
 		height: 2.5em;
 	}
 
 	input[type="submit"] {
-		// @include tag-hollow($blue);
+		display: block;
+		margin: 0 auto;
 	}
 }

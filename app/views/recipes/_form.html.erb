@@ -77,12 +77,31 @@
     <% @ingredient_fields_content = add_fields_helper(f, :ingredients) %>
     <% @tag_fields_content = add_fields_helper(f, :taggings) %>
 
+    <h4>Image</h4>
+    <img src="<%= @recipe.image_url if !@recipe.image.nil? %>" alt="" id="image-holder">
+    <div id="upload_button" >
+      <div class="fa fa-camera"></div>
+      <div class="text">
+        <%- if !@recipe.image? -%> 
+                 Upload a Photo
+        <%- else -%> 
+                 Upload a Different Photo
+        <%- end -%> 
+        <br>
+        <span class="meta">4:3 (Horizontal on Mobile Devices)</span>
+      </div>
+    </div>
 
-    <%= f.file_field :image %>
-    <%= f.check_box :remove_image %>
+    <%= f.file_field :image, id: :file_input %>
 
+      <%= f.label :remove_image, "Delete Image", id: :delete_image %>
+      <%= f.check_box :remove_image %>
+     
+    <br>
+    
+    <% submit_text =  %>
+    <%= f.submit params[:action] == "new" ? "Create" : "Save", id: :create_recipe, class: "button-thick" %>
 
-    <%= f.submit "Create!", id: :create_recipe, class: "button-thick" %>
     <% end %>
 
   </div>
@@ -145,6 +164,37 @@
     // });
     // $('#tag_selector').val(initial_chosen_tag_vals);
     $('#tag_selector').trigger("chosen:updated");
+
+
+    // Image uploading button and preview functionality
+    var wrapper = $('<div/>').css({height:0,width:0,'overflow':'hidden'});
+    var fileInput = $(':file').wrap(wrapper);
+
+    // fileInput.change(function(){
+    //     $this = $(this);
+    //     $('#file').text("File attached");
+    // })
+
+    $('#upload_button').click(function(){
+        fileInput.click();
+    }).show();
+
+    function readURL(input) {
+     if (input.files && input.files[0]) {
+       var reader = new FileReader();
+       reader.onload = function(e) {
+         $('#image-holder').attr('src', e.target.result);
+       }
+
+       reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#file_input").change(function() {
+        readURL(this);
+        console.log("file_input changed");
+    });
+
 
 
 
