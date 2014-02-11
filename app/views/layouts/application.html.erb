@@ -36,7 +36,7 @@
           <% end %>
           <ul class="main">
             <li>
-            <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
+            <%= link_to popular_recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
             <span class="icon foodie-bowl"></span><span>Recipes</span>
             <% end -%>
             </li>
@@ -61,6 +61,7 @@
           <ul class="sub">
             <li><%= link_to "Popular", popular_recipes_path %></li>
             <li><%= link_to "Recent", recent_recipes_path %></li>
+            <li><%= link_to "All", recipes_path %></li>
             <li><%= link_to "Top", top_recipes_path %></li>
             <br>
             <li><%= link_to "Create", new_recipe_path %></li>
@@ -155,7 +156,6 @@
 
         <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
           <% if !logged_in? %>
-          <li><%= link_to "Sign up", "#" %></li>
           <li>
             <%= link_to "/auth/facebook" do %>
             Sign in with <span class="facebook_blue">Facebook</span>
@@ -190,7 +190,7 @@
             <li><%= link_to "Contact", recipes_path %></li>
             <li></li>
           </ul>
-          <%= like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
+          <%# like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
 
           <div class="built-by">
             Designed and built by Jeloi.

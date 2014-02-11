@@ -2,7 +2,7 @@
   <h1>Tags</h1>
 </div>
 
-<div class="section-nav text-center">
+<div class="section-nav text-center ingredients">
 	<nav>
 		<%= link_to "All", all_tags_path, class: ("active" if params[:action] == "all") %>
 		<span class="nav-sep">・</span>
@@ -14,7 +14,7 @@
 	<div class="small-12 medium-10 large-8 small-centered columns grouped-tags">
 	<% @tag_categories.each do |category| %>
 		<h4><%= category.name %></h4>	
-		<div>
+		<div class="tag_group">
 			<% category.tags.each do |tag| %>
 				<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
 				<%= link_to tag_text, root_path, class: "tag" %>
