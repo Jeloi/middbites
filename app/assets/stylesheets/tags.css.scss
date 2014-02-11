@@ -86,3 +86,22 @@
 .button-thick {
 	@include button-thick(#ff6b57);
 }
+
+@mixin wire-button($color) {
+	padding: 12px 16px;
+	display: inline-block;
+	vertical-align: middle;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 14px !important;
+	transition: .3s;
+	-webkit-transition: .3s;
+	border: 2px solid $color;
+	color: darken($color, 5);
+	// a { color: darken($color, 5) }
+	// &:hover {
+	// 	color: darken($color, 5);
+	// 	border: 2px solid darken($color, 5);
+	// }
+}

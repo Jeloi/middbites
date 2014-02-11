@@ -113,7 +113,7 @@
                <span class="fa fa-user fixed-appear" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
                <ul id="main-nav" class="" >
                  <li>
-                 <%= link_to recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
+                 <%= link_to popular_recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
                    <button class="bitn bitn-5 bitn-5a foodie-bowl"><span>Recipes</span></button>
                  <% end -%>
                  </li>

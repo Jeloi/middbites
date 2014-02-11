@@ -18,7 +18,7 @@ $(function(){
 	$('.search-button').click(function(event) {
 		$('#search-modal').foundation('reveal', 'close');
 	});
-	
+
 });
 
 

@@ -1,40 +1,49 @@
 <div class="row">
 
-  <div class="section-nav text-center">
-    <%= link_to "All", recipes_path %>
-    <%= link_to "Recent", recent_recipes_path %>
-    <%= link_to "Top", top_recipes_path %>
-    <%= link_to "Popular", popular_recipes_path %>
-  </div>
-
   <div class="header-title text-center">
     <h1><%= @header %></h1>
+    <!-- <div class="page-blurb"><%= @blurb %></div> -->
+  </div>
+
+  <div class="section-nav text-center">
+  <nav>
+    <%= link_to "Popular", popular_recipes_path, class: ("active" if params[:action] == "popular") %>
+    <span class="nav-sep">・</span>
+    <%= link_to "Latest", recent_recipes_path, class: ("active" if params[:action] == "recent") %>
+    <span class="nav-sep">・</span>
+    <%= link_to "Top", top_recipes_path, class: ("active" if params[:action] == "top") %>
+    <span class="nav-sep">・</span>
+    <%= link_to "All", recipes_path, class: ("active" if params[:action] == "index") %>
+  </nav>
   </div>
 
 <% view = @view %>
-  <div class="display-options">
-    <%= link_to url_for(params.merge(view: "detailed")), class: " #{'active' if view == "detailed"}" do %>
+  <div class="options-wrapper">
+    <div class="page-number hide-for-small"><%# @recipes.current_page %></div>
+    <div class="display-options">
+      <%= link_to url_for(params.merge(view: "detailed")), class: " #{'active' if view == "detailed"}" do %>
       <span class="fa fa-th-list"></span>
-    <% end %>
-    <%= link_to url_for(params.merge(view: "tiles")), class: " #{'active' if view == "tiles"}" do %>
+      <% end %>
+      <%= link_to url_for(params.merge(view: "tiles")), class: " #{'active' if view == "tiles"}" do %>
       <span class="fa fa-th"></span>
-    <% end %>
-    <%= link_to url_for(params.merge(view: "list")), class: "fa #{'active' if view == "list"}" do %>
+      <% end %>
+      <%= link_to url_for(params.merge(view: "list")), class: "fa #{'active' if view == "list"}" do %>
       <span class="fa fa-list"></span>
+      <% end %>
+    </div>
+    <% if params[:action] == "index" %>
+    <div class="sort-options">
+      <span>Sort by: </span>
+      <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= params[:sort] ? params[:sort].titlecase : "Name"   %></a>
+      <ul id="sort-options" class="f-dropdown" data-dropdown-content>
+        <li><%= link_to "Name", params.merge(sort: "name") %></li>
+        <li><%= link_to "Popularity", params.merge(sort: "popularity") %></li>
+        <li><%= link_to "Date", params.merge(sort: "date") %></li>
+        <li><%= link_to "Chatter", params.merge(sort: "chatter") %></li>
+      </ul>
+    </div>
     <% end %>
   </div>
-  <% if params[:action] == "index" %>
-  <div class="sort-options">
-    <span>Sort by: </span>
-    <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= params[:sort] ? params[:sort].titlecase : "Name"   %></a>
-    <ul id="sort-options" class="f-dropdown" data-dropdown-content>
-      <li><%= link_to "Name", params.merge(sort: "name") %></li>
-      <li><%= link_to "Popularity", params.merge(sort: "popularity") %></li>
-      <li><%= link_to "Date", params.merge(sort: "date") %></li>
-      <li><%= link_to "Chatter", params.merge(sort: "chatter") %></li>
-    </ul>
-  </div>
-  <% end %>
 </div>
 
 <div class="row recipe-listings">
@@ -60,13 +69,15 @@
 <% end %>
 
 
+
 <% unless params[:action] == "top" %>
+  <%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "pagination", next_label: "", previous_label: "" %>
+  
   <%# page_entries_info @recipes %>
   <% if @recipes.total_pages > 1 %>
   <a href="#" id="load_more">Load More</a>
   <% end -%>
 
-  <%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "pagination", next_label: "Next", previous_label: "Prev" %>
 <% end -%>
 
 

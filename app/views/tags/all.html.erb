@@ -2,6 +2,14 @@
   <h1>Tags</h1>
 </div>
 
+<div class="section-nav text-center">
+	<nav>
+		<%= link_to "All", all_tags_path, class: ("active" if params[:action] == "all") %>
+		<span class="nav-sep">・</span>
+		<%= link_to "Categorized", grouped_tags_path, class: ("active" if params[:action] == "grouped") %>
+	</nav>
+</div>
+
 <div class="row">
 	<div class="small-12 medium-10 large-8 small-centered columns grouped-tags">
 	<% @tags.each do |tag| %>

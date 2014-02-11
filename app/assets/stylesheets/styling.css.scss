@@ -196,8 +196,23 @@ ul#user_dropdown {
 		font-family: $recipe-header-font-family;
 		color: black;
 		font-weight: 600;
-		line-height: 2em;
+		// line-height: 2em;
 		margin: 0;
+		margin-top: 16px;
+		margin-bottom: 5px;
+	}
+	.page-blurb {
+		font-weight: 300;
+		font-style: italic;
+		margin-bottom: 10px;
+	}
+}
+
+.section-nav {
+	margin: 10px 0;
+	font-weight: 300;
+	a.active {
+		color: $turq;
 	}
 }
 

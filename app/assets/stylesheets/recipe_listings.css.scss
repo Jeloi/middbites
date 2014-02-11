@@ -93,6 +93,8 @@
 			width: 100%;
 			padding: 8px 8px 8px 8px;
 			display: table;
+			table-layout: fixed;
+			position: relative;
 			border: 1px solid $lines;
 			border-top: none;
 			.cell {
@@ -133,14 +135,14 @@
 	}
 	@media #{$medium-up} {
 		.image { width: 40% !important; }
-		.image { min-height: 130px !important; }
+		.image { min-height: 130px !important; height: 130px }
 		.recipe-item {
 			border: none;
 			border-top: 1px solid $lines;
 			// padding-bottom: 20px;
 			.info-wrapper { 
 				width: 60% !important;
-				min-height: 150px !important; padding: 0 0 0 15px !important;
+				min-height: 150px !important; padding: 0 0 0 15px !important; height: 150px;
 				border: none;
 			}
 		}
@@ -158,9 +160,11 @@
 			.info-wrapper {
 				padding-left: 30px !important;
 				min-height: 200px !important;
+				height: 200px;
 			}
 			.image {
 				min-height: 180px !important;
+				height: 180px;
 			}
 		}
 	}
@@ -289,14 +293,14 @@
 	}
 	.title {
 		font-family: $recipe-header-font-family;
-		color: #555;
-		a { color: #555; }
-		font-weight: 400;
-		display: block;
-		&:hover {
-			color: $blue;
-			a { color: $blue; }
-		}
+		// color: #555;
+		// a { color: #555; }
+		// font-weight: 400;
+		// display: block;
+		// &:hover {
+		// 	color: $blue;
+		// 	a { color: $blue; }
+		// }
 	}
 	.blurb {
 		font-style: italic;
@@ -360,24 +364,27 @@
 	}
 }
 
-.header-title {
 
-}
 .page-description {
 	font-weight: 300;
 }
 
 
-// View selection options (e.g grid, detailed, list)
-.display-options {
-	font-size: rem-calc(30);
-	text-align: center;
-	// line-height: 1.5em;
-	padding: 8px 0;
-	a {
-		color: $body-font-color;
-		&:hover, &.active {
-			color: $turq;
+.options-wrapper {
+	margin-bottom: 20px;
+	margin-top: 15px;
+	position: relative;
+	// View selection options (e.g grid, detailed, list)
+	.display-options {
+		font-size: 1.5em;
+		text-align: center;
+		// line-height: 1.5em;
+		// padding: 8px 0;
+		a {
+			color: $body-font-color;
+			&:hover, &.active {
+				color: $turq;
+			}
 		}
 	}
 }
@@ -425,15 +432,25 @@ a.red-button {
 
 // Load More button
 #load_more {
-	max-width: 600px;
-	@include flat-button($red);
+	@include flat-button($turq);
+	max-width: 270px;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 }
 
 // Pagination
 div.pagination {
-	padding: 20px 15px;
-	max-width: 600px;
-	margin: 0 auto;
+	width: 270px;
+	margin: 15px auto;
+	@media #{$medium-up} {
+		max-width: 600px;
+		width: 100%;
+		li {
+			display: inline-block;
+		}
+	}
 }
 ul.pagination {
 	margin: 0 auto;
@@ -442,11 +459,25 @@ ul.pagination {
 	font-size: 20px;
 	li.prev {
 		position: absolute; left: 0; display: inline-block !important;
-		a { @include flat-button($turq); }
+		padding: 10px;
+		a { 
+			// @include wire-button($body-font-color);
+			font-family: "FontAwesome";
+			&:before {
+				content: "\f053"
+			}
+		}
 	}	
 	li.next {
 		position: absolute; right: 0; display: inline-block !important;
-		a { @include flat-button($turq); }
+		padding: 10px;
+		a { 
+			// @include wire-button($body-font-color);
+			font-family: "FontAwesome";
+			&:before {
+				content: "\f054"
+			}
+		}
 	}
 	li {
 		display: none;
@@ -454,18 +485,30 @@ ul.pagination {
 		text-align: center;
 		font-weight: 100;
 		margin-left: 10px;
-		a { color: black; }
+		a { color: $body-font-color; }
 		&.active{
-			a {color: $turq;}
+			// a {color: $turq;}
 			font-weight: 700;
 		}
 		&:hover {
-			font-weight: 700;
+			a {
+				color: $turq;
+
+			}
+			// &.prev, &.next {
+			// 	a {
+			// 		border: 2px solid $turq;
+			// 	}
+			// }
 		}
 
 	}
 	li.active {
 		display: inline-block;
+	}
+
+	li:first-child {
+		margin-left: 0;
 	}
 
 	@media #{$medium-up} {

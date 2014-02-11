@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def index
     @header = "All Recipes"
+    @blurb = "Showing all #{Recipe.all.count} Recipes"
     @view = params[:view] || "detailed"
     order = (params[:order] == 'asc' ? :asc : :desc)
     order = :asc if @sort == :title
@@ -19,6 +20,7 @@ class RecipesController < ApplicationController
 
   def top
     @header = "Top Recipes"
+    @blurb = "The Top 30 highest rated recipes of all time"
     @view = params[:view] || "detailed"
     @recipes = Recipe.order(score: :desc, created_at: :asc).limit(30)
     respond_to do |wants|
@@ -29,6 +31,7 @@ class RecipesController < ApplicationController
 
   def popular
     @header = "Popular Now"
+    @blurb = "Popular recipes receiving bites right now"
     @view = params[:view] || "detailed"
     @recipes = Recipe.popular_this_week(params[:page], @per_page)
     respond_to do |wants|
@@ -39,6 +42,7 @@ class RecipesController < ApplicationController
 
   def recent
     @header = "Recent Recipes"
+    @blurb = "The latest recipes created in the last month"
     @view = params[:view] || "detailed"
     @recipes = Recipe.in_last_month.order(created_at: :desc).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|

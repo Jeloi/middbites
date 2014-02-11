@@ -11,7 +11,7 @@
 $('.invisible').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0}).removeClass('invisible');
 
 <% if @recipes.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate @recipes, inner_window: 2, outer_window: -1, class: "row pagination", next_label: "Next", previous_label: "Prev" %>');
+  $('.pagination').replaceWith('<%= j will_paginate @recipes, inner_window: 2, outer_window: -1, class: "pagination", next_label: "", previous_label: "" %>');
   $('#load_more').text('Load More');
 <% else %>
   $('#load_more').remove();
