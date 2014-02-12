@@ -72,11 +72,11 @@ nav.main-nav {
 	width: 100%;
 	height: 58px;
 	a { 
-		color: #444444;
+		// color: #444444;
 		font-size: rem-calc(14);
-		&:hover {
-			color: $blue;
-		}
+		// &:hover {
+		// 	color: $blue;
+		// }
 	}
 	ul {
 		margin: 0 auto;
@@ -153,6 +153,8 @@ ul#user_dropdown {
 		padding: 0 5px;
 		line-height: 55px;
 		font-size: 30px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 		// border: 1px solid $darkey;
 		border: none;
 		box-shadow: none;
@@ -171,6 +173,9 @@ ul#user_dropdown {
 
 	}
 	button {
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		cursor: pointer;
 		width: 19%;
 		margin-left: 1%;
 		height: 60px;
@@ -183,6 +188,51 @@ ul#user_dropdown {
 			width: 13%;
 			font-size: 50px;
 		}
+	}
+}
+
+.sign-in-modal {
+	visibility: hidden;
+	display: none;
+	position: fixed;
+	left: 50%;
+	z-index: 99;
+	width: 310px;
+	margin-left: -155px;
+	background-color: white;
+	padding: 1.25rem;
+	border: solid 1px #666666;
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	top: 80px;
+	text-align: center;
+	.logo {
+		width: 200px;
+	}
+	p {
+		font-weight: 300;
+		// font-style: italic;
+	}
+	.close {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+
+	@media #{$large-up} {
+		top: 200px;
+
+	}
+}
+
+.facebook_sign_in {
+	@include flat-button($facebook);
+	.socialico {
+		font-size: 22px;
+		margin-right: 5px;
+	}
+	span {
+		vertical-align: middle;
 	}
 }
 

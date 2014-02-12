@@ -30,7 +30,26 @@
 	</div>
 </div>
 <% else %>
-<div class="actions main">
-
+<div class="actions main clrfix">
+	<!-- Bite -->
+	<div class="action">
+		<%= link_to "", "#", class: "bite icon", data: {:"reveal-id" => "sign_in_modal"} %>
+		<div class="number"><%= recipe.bites_count %></div>
+		<div class="word">bites</div>
+	</div>
+		<!-- Favorite -->
+	<div class="action">
+		<%= link_to '', "#", class: "fav fa icon", data: {:"reveal-id" => "sign_in_modal"} %>
+		<div class="number"><%= recipe.favorites_count %></div>
+		<div class="word">favs</div>
+	</div>
+		<!-- Comment -->
+	<div class="action">
+		<div class="comment icon">
+			<%= link_to "", recipe_path(recipe)+"#comments", class: "fa fa-comment-o" %>
+		</div>
+		<div class="number"><%= recipe.comments_count %></div>
+		<div class="word">cmts</div>
+	</div>
 </div>
 <% end -%>

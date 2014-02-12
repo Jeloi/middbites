@@ -22,6 +22,13 @@
 </div>
 <% else %>
 <div class="actions mini">
-
+	<%= link_to "", "#", class: "bite icon", data: {:"reveal-id" => "sign_in_modal"} %>
+	<div class="number"><%= recipe.bites_count %></div>
+	<%= link_to '', "#", class: "fav fa icon", data: {:"reveal-id" => "sign_in_modal"} %>
+	<div class="number"><%= recipe.favorites_count %></div>
+	<div class="comment icon">
+		<%= link_to '', recipe_path(recipe), class: "fa fa-comment-o" %>
+	</div>
+	<div class="number"><%= recipe.comments_count %></div>
 </div>
 <% end -%>

@@ -5,6 +5,8 @@ class RecipesController < ApplicationController
   before_action :set_recipe_sort, only: [:index]
   before_action :user_logged_in?, only: [:edit, :create, :vote, :unvote, :destroy]
 
+  skip_before_action :set_session_return_path, only: [:create, :update, :destroy, :vote, :unvote]
+
   def index
     @header = "All Recipes"
     @blurb = "Showing all #{Recipe.all.count} Recipes"

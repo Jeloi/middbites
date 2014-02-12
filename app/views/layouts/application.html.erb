@@ -61,7 +61,7 @@
           <ul class="sub">
             <li><%= link_to "Popular", popular_recipes_path %></li>
             <li><%= link_to "Recent", recent_recipes_path %></li>
-            <li><%= link_to "All", recipes_path %></li>
+            <!-- <li><%#= link_to "All", recipes_path %></li> -->
             <li><%= link_to "Top", top_recipes_path %></li>
             <br>
             <li><%= link_to "Create", new_recipe_path %></li>
@@ -84,20 +84,16 @@
 
     <div id="secondHeader" class="hide-for-large-up">
       <a class="menu-button fa fa-bars" href="#"></a>
-      <%=  image_tag "new_logo.png", class: "logo" %>
+      <%= image_tag "new_logo.png", class: "logo" %>
       <a href="#" data-reveal-id="search-modal" class="search-button socialico_plus" data-icon="O"></a>
     </div>
 
 
     <div id="page">
       <header id="header" class="show-for-large-up">
-         <%= link_to(root_path, class: "logo clrfix") do %>
-         <div class="header-logo"></div>
-         <!-- <h1 class="middbites"> middbites </h1> -->
          <%= link_to root_path do %>
            <%= image_tag "new_logo.png", class: "logo" %>
          <% end -%>
-         <% end %>
       
         <%= link_to(root_path, id: "user_icon") do %>
         <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
@@ -144,7 +140,7 @@
 
       <div class="offcanvas-wrap">
 
-      <div id="search-modal" class="search-modal" data-reveal>
+        <div id="search-modal" class="search-modal" data-reveal>
           <%= form_tag(search_path, {method: :get, :class => "search-form"}) do %>
           <%= text_field_tag :keywords, nil, placeholder: "Search everything...", id: "search" %>
           <%#= select_tag :context,  options_for_select(["Everything", "Recipes", "Tags", "Ingredients"], "Everything")%>
@@ -153,13 +149,21 @@
           <% end -%>
         </div>
 
+        <div id="sign_in_modal" class="sign-in-modal" data-reveal>
+           <%#= image_tag "new_logo.png", class: "logo" %>
+          <h3>Sign In</h3>
+          <p>Sign in to create, comment, and vote on recipes!</p>
+          <%= link_to("/auth/facebook", class: "facebook_sign_in") do %>
+            <span class="socialico">F</span> <span>Sign in with Facebook</span>
+          <% end %>
+          <a class="close fa fa-times"></a>
+        </div>
+
 
         <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
           <% if !logged_in? %>
           <li>
-            <%= link_to "/auth/facebook" do %>
-            Sign in with <span class="facebook_blue">Facebook</span>
-            <% end %>
+            <%= link_to "Sign In", "#", data: {:"reveal-id" => "sign_in_modal"} %>
           </li>
           <% else %>
           <li class="hello">Hello, <%= current_user.first_name %></li>

@@ -12,9 +12,11 @@
 
 <div class="row">
 	<div class="small-12 medium-10 large-8 small-centered columns grouped-tags">
-	<% @tags.each do |tag| %>
-		<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
-		<%= link_to tag_text, root_path, class: "tag" %>
-	<% end %>
+		<div class="tag_group">
+		<% @tags.each do |tag| %>
+			<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
+			<%= link_to tag_text, root_path, class: "tag" %>
+		<% end %>
+		</div>
 	</div>
 </div>

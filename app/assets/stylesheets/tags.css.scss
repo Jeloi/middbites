@@ -56,6 +56,9 @@
 
 .tag_group {
 	margin-bottom: 0.8em;
+	@media #{$small-only} {
+		text-align: center;
+	}
 }
 
 
@@ -107,4 +110,27 @@
 	// 	color: darken($color, 5);
 	// 	border: 2px solid darken($color, 5);
 	// }
+}
+
+@mixin flat-button($color) {
+	padding: 12px;
+	display: inline-block;
+	vertical-align: middle;
+	// border: 2px solid $black;
+	// color: black;
+	font-weight: 700;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 4px;
+	font-size: 14px !important;
+	transition: .3s;
+	-webkit-transition: .3s;
+	// border: 2px solid $turq;
+	background: $color;
+	color: white;
+	a { color: white }
+	&:hover {
+		color: white;
+		background: darken($color, 5)
+	}
 }

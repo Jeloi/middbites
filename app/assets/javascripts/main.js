@@ -8,18 +8,20 @@ $(function(){
 		animation_speed: 100,
 		close_on_background_click: true
 	});
-	$(document).on('opened', '#search-modal', function(event) {
-		$('#search-modal #search').focus();
-		$('.search-button').addClass('active fa fa-times');
-	});
-	$(document).on('closed', '#search-modal', function () {
-		$('.search-button').removeClass('active fa fa-times');
-	});
-	$('.search-button').click(function(event) {
-		$('#search-modal').foundation('reveal', 'close');
-	});
 
 });
+
+// Search modal effects
+$(document).on('opened', '#search-modal', function(event) {
+	$('#search-modal #search').focus();
+	$('.search-button').addClass('active fa fa-times');
+});
+$(document).on('closed', '#search-modal', function () {
+	$('.search-button').removeClass('active fa fa-times');
+});
+
+
+
 
 
 
@@ -53,6 +55,16 @@ $(function () {
 		$('html,body').animate({
 		scrollTop: 0}, 500);
 		return	false;
+	});
+
+	// Search modal close button
+	$('.search-button').click(function(event) {
+		$('#search-modal').foundation('reveal', 'close');
+	});
+
+	// Sign in modal close button
+	$('#sign_in_modal a.close').click(function(event) {
+		$('#sign_in_modal').foundation('reveal', 'close');
 	});
 
 });

@@ -292,6 +292,8 @@ $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
 /* @group Active  */
 .chosen-container-active{
   .chosen-single {
+    border: 2px solid $turq;
+    
     // box-shadow: 0 0 5px rgba(#000,.3);
   }
   &.chosen-with-drop{

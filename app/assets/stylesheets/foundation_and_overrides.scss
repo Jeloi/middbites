@@ -55,7 +55,8 @@ $body-font-family: "museo-sans", "Helvetica Neue", "Helvetica", Helvetica, Arial
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #3aafe3;
+// $primary-color: #3aafe3;
+$primary-color: $turq;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -818,8 +819,8 @@ $include-html-nav-classes: false;
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-$reveal-overlay-bg: rgba(#fff, .9);
-// $reveal-overlay-bg-old: #000;
+// $reveal-overlay-bg: rgba(#fff, .9);
+$reveal-overlay-bg: rgba(#000, .7);
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: #fff;

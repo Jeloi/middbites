@@ -196,6 +196,7 @@
 			font-weight: 600;
 			margin-top: 3px;
 			height: 2.4em;
+			display: block;
 			line-height: 1.1em;
 			text-align: center;
 		}
@@ -400,31 +401,6 @@
 	text-align: left;
 }
 
-@mixin flat-button($color) {
-	padding: 12px;
-	display: inline-block;
-	vertical-align: middle;
-	// border: 2px solid $black;
-	// color: black;
-	font-weight: 700;
-	text-transform: uppercase;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 4px;
-	font-size: 14px !important;
-	transition: .3s;
-	-webkit-transition: .3s;
-	// border: 2px solid $turq;
-	background: $color;
-	color: white;
-	a { color: white }
-	&:hover {
-		color: white;
-		background: darken($color, 5)
-	}
-}
-
-
 
 a.red-button {
 	@include flat-button($red);
@@ -532,7 +508,7 @@ ul.pagination {
 	.bite {
 		background: url(/assets/bite-outline.svg);
 		background-size: cover;
-		&.voted, &:hover {
+		&.voted {
 			background: url(/assets/bite-fill.svg);
 			background-size: cover;
 		}
@@ -545,9 +521,9 @@ ul.pagination {
 			content: "\f004";
 			color: rgba(237, 30, 121,0.7);
 		}
-		&:hover:after {
-			content: "\f004";
-		}
+		// &:hover:after {
+		// 	content: "\f004";
+		// }
 	}
 	.comment a {
 		font-weight: 700;

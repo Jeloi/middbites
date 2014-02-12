@@ -12,11 +12,11 @@
 		margin: 0;
 		a {
 			display: inline;
-			@include tag-hollow($turq);
+			@include tag-hollow($blue);
 		}
 		&.active {
 			a {
-				background: $turq;
+				background: $blue;
 				color: white;
 			}
 		}
@@ -41,9 +41,9 @@
 	text-align: center;
 	margin-bottom: 5px; 
 	a {
-		@include tag-hollow($turq);
+		@include tag-hollow($blue);
 		&.active {
-			background: $turq;
+			background: $blue;
 			color: white;
 		}
 	}
@@ -80,6 +80,7 @@ ul.bxslider {
 		padding-left: 1.3em;
 		margin: 0;
 		font-size: 18px !important;
+		font-weight: 300;
 		a {
 			color: $body-font-color;
 			font-size: 18px !important;

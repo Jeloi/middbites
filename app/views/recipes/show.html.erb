@@ -24,8 +24,9 @@
 			<ul class="ingredient-list">
 				<% @recipe.ingredients.each do |ingredient| %>
 				<li class="clrfix">
-					<span class = "name"></span>
-					<%= link_to ingredient.item.name, item_path(ingredient.item) %><%= "," if !ingredient.quantity.blank? %>
+					<span class = "name">
+						<%= link_to ingredient.item.name, item_path(ingredient.item) %><%= "," if !ingredient.quantity.blank? %>
+					</span>
 					<% if !ingredient.quantity.blank? %>
 						<span class="quantity"> 
 							<%= ingredient.quantity %></span>
