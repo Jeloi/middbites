@@ -61,7 +61,7 @@ group :development, :test do
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-rails'
   gem 'capistrano-bundler', '>= 1.1.0'
-  gem 'capistrano-rvm', git: 'git@github.com:capistrano/rvm.git'
+  gem 'capistrano-rvm'
 
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'

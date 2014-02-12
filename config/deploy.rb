@@ -1,19 +1,23 @@
 set :domain, 'middbites.com'
-set :user, 'deployer' # i made this
+set :user, 'rails' # i made this
 set :application, fetch(:domain)
-set :repo_url, 'git@bitbucket.org:jeloibit/middbites.git'
+set :repo_url, 'git@github.com:Jeloi/middbites.git'
 set :branch, 'live'
+
+# My options
+set :port, '1026'
+
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to,    "/var/rails/#{fetch(:domain)}"
+set :deploy_to,    "/home/rails/#{fetch(:domain)}"
 set :scm, :git
 
 set :format, :pretty
 set :log_level, :debug
 # set :pty, true
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,7 +44,7 @@ namespace :deploy do
   desc "Sets permissions for Rails Application"
   task :set_permissions do
     puts "\n\n=== Setting Permissions! ===\n\n"
-    run "chown -R www-data:www-data #{deploy_to}"
+    run "chown -R #{fetch(:user)}:www-data #{fetch(:deploy_to)}"
   end
 
   namespace :db do
@@ -52,7 +56,13 @@ namespace :deploy do
         puts "There is no config/database.yml.\n "
         exit
       end
-      system "rsync -vr -e 'ssh -p 1026' --exclude='.DS_Store' config/database.yml  #{fetch(:user)}@#{fetch(:application)}:/var/rails/middbites.com/shared/config/"
+      system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/database.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
+      puts "\n\n=== Syncing application yaml to the production server! ===\n\n"
+      unless File.exist?("config/application.yml")
+        puts "There is no config/application.yml.\n "
+        exit
+      end
+      system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/application.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
     end
     
     desc "Create Production Database"

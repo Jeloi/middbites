@@ -19,7 +19,7 @@ quiet: false
 # --------------------------------------------------------------------------- #
 
 input:
-  vectors: /Users/jeloi/Projects/middbites/lib/assets/foodie_svgs         # required
+  vectors: /Users/jeloi/Projects/middbites/app/assets/foodie_svgs         # required
   # templates: app/assets/fonts/fontcustom/templates
 
 
