@@ -15,7 +15,7 @@
 		<div class="tag_group">
 		<% @tags.each do |tag| %>
 			<% tag_text = tag.taggings_count > 0 ? tag.name+"・"+tag.taggings_count.to_s : tag.name %>
-			<%= link_to tag_text, root_path, class: "tag" %>
+			<%= link_to tag_text, tag_path(tag), class: "tag" %>
 		<% end %>
 		</div>
 	</div>

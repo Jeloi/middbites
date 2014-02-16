@@ -2,9 +2,10 @@
 
   <div class="header-title text-center">
     <h1><%= @header %></h1>
-    <!-- <div class="page-blurb"><%= @blurb %></div> -->
+    <div class="page-blurb"><%= @blurb %></div>
   </div>
 
+  <% if params[:controller] == "recipes" %>
   <div class="section-nav text-center">
   <nav>
     <%= link_to "Popular", popular_recipes_path, class: ("active" if params[:action] == "popular") %>
@@ -16,10 +17,13 @@
     <%= link_to "All", recipes_path, class: ("active" if params[:action] == "index") %>
   </nav>
   </div>
+  <% end %>
+
 
 <% view = @view %>
   <div class="options-wrapper">
     <div class="page-number hide-for-small"><%# @recipes.current_page %></div>
+    
     <div class="display-options">
       <%= link_to url_for(params.merge(view: "detailed")), class: " #{'active' if view == "detailed"}" do %>
       <span class="fa fa-th-list"></span>
@@ -31,7 +35,7 @@
       <span class="fa fa-list"></span>
       <% end %>
     </div>
-    <% if params[:action] == "index" %>
+    <% unless %w(popular top recent).include? params[:action] %>
     <div class="sort-options">
       <span>Sort: </span>
       <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= (params[:sort] ? params[:sort].titlecase : "Name")   %></a>
@@ -56,19 +60,19 @@
   
 <% if view == "detailed" || view.blank? %>
   <div class="detailed-recipes clrfix">
-    <%= render  "detailed_recipes", recipes: @recipes %>
+    <%= render  "recipes/detailed_recipes", recipes: @recipes %>
   </div>
 <% elsif view == "tiles" %>
   <div class="tile-recipes">
     <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
-      <%= render  "tile_recipes", recipes: @recipes %>
+      <%= render  "recipes/tile_recipes", recipes: @recipes %>
     </ul>
   </div>
 <% elsif view == "list" %>
   <div class="list-recipes">
     <table class="">
       <tbody>
-        <%= render  "list_recipes", recipes: @recipes %>
+        <%= render  "recipes/list_recipes", recipes: @recipes %>
       </tbody>
     </table>
   </div>
@@ -80,7 +84,7 @@
   <%= will_paginate @recipes, inner_window: 2, outer_window: -1, class: "pagination", next_label: "", previous_label: "" %>
   
   <%# page_entries_info @recipes %>
-  <% if @recipes.total_pages > 1 %>
+  <% if @recipes.next_page %>
   <a href="#" id="load_more">Load More</a>
   <% end -%>
 

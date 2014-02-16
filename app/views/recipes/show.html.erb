@@ -42,7 +42,7 @@
 			<!-- <span class="icon-font tag">&#xf0ab;</span> -->
 			<div class="tags">
 				<% @recipe.tags.each do |tag| %>
-				<span class="tag"><%= tag.name %></span>
+				<%= link_to tag.name, tag_path(tag), class: "tag" %>
 				<% end %>
 			</div>
 			
@@ -59,10 +59,22 @@
 					<%= @recipe.comments_count %> Comments 
 					<!-- <span class="icon-font">&#xf003</span> -->
 				</h4>
-				<%= render 'comments/comments_form', comment: @comment %>
-				<% @recipe.comments.limit(10).order("created_at DESC").each do |comment| %>
-				<%= render 'comments/comment', comment: comment %>
+				<div id="comments-container">
+				<% @recipe.comments.order(:created_at => :desc).limit(10).each do |comment| %>
+					<%= render	'comments/comment', comment: comment %>				
 				<% end %>
+				</div>
+				<% if @recipe.comments_count > 10 %>
+					<%= link_to "Load all #{@recipe.comments_count} comments", load_comments_path(@recipe), remote: true, id: "load-more" %>
+				<% end %>
+				<h4>Leave a Comment</h4>
+				<div class="comment-response text-center"></div>
+				<%- if logged_in? -%> 
+					<%= render 'comments/comments_form', comment: @comment %>
+				<%- else -%> 
+				        <div class="please-sign-in text-center">Please <%= link_to "sign in", "#", class: "sign-in", data: {:"reveal-id" => "sign_in_modal"} %> to leave a comment!</div>
+				<%- end -%> 
+				 
 			</div>
 		</div>
 	</div>

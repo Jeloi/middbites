@@ -42,4 +42,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_per_page
+    @per_page = 24
+  end
+
+
+  def set_recipe_sort
+    case params[:sort]
+    when "name"
+      @sort = :title
+    when "popularity"
+      @sort = :score
+    when "date"
+      @sort = :created_at
+    when "chatter"
+      @sort = :comments_count
+    else
+      @sort = :title
+    end
+  end
+
 end

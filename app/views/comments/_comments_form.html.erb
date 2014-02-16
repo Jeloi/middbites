@@ -2,5 +2,5 @@
   <%= f.hidden_field :commentable_id, value: comment.commentable_id %>
   <%= f.hidden_field :commentable_type, value: comment.commentable_type %>
   <%= f.text_area :comment %>
-  <%= f.submit "Comment" %>
+  <%= f.submit "Comment", id: :create_comment, class: "comment-button" %>
 <% end -%>

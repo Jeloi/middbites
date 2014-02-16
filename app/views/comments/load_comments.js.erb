@@ -1,0 +1,5 @@
+$('#load-more').hide();
+<% @comments.each do |comment| %>
+$('<%= escape_javascript render("comments/comment", comment: comment) %>').appendTo('#comments-container');
+<%- end -%>
+// $('<%= escape_javascript render("comments/comments", comments: @comments) %>').prependTo('#comments-container');

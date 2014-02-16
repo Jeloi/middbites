@@ -151,27 +151,59 @@
 		h4 {
 			text-align: center;
 		}
+
+		#comments-container {
+			margin-top: 15px;
+		}
+
 		.comment {
+			font-size: 0.7em;
 			padding: 18px 0px;
 			border-top: 1px solid #ddd;
 			.comment-body {
 				margin-top: 0.625em;
 				margin-bottom: 0;
+				font-weight: 300;
 			}
 			.meta {
-				font-family: "omnes-pro";
 				.user-name {
-					font-size: 0.9em;
 					float: left;
+					font-weight: 700;
 					// color: $grapefruit;
 				}
 				.time-ago {
 					float: right;
 					margin-top: 0.3em;
-					font-size: 0.7em;
+					font-weight: 300;
 					color: #818181;
 				}
 			}
 		}
+		.please-sign-in {
+			font-weight: 300;
+			.sign-in {
+				color: $blue;
+				font-size: 1em;
+			}
+		}
+		.comment-response {
+			font-weight: 300;
+		}
+
+		#load-more {
+			color: $blue;
+			display: inline-block;
+			margin-bottom: 1em;
+		}
 	}
+	.comment-button {
+		@include button-thick($turq);
+		padding: 10px;
+		text-transform: none;
+		text-align: center;
+		margin-top: 10px;
+		display: block;
+	}
+
+
 }

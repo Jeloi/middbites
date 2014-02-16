@@ -1,2 +1,3 @@
 $('#new_comment').hide();
-$('<%= escape_javascript render("comments/comment", comment: @comment) %>').prependTo('#comments-section');
+$('.comment-response').html("Your comment has been added!");
+$('<%= escape_javascript render("comments/comment", comment: @comment) %>').prependTo('#comments-container');

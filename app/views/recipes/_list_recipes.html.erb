@@ -6,7 +6,7 @@
 	<% end %>
 	<td class="title"><%= link_to recipe.title, recipe_path(recipe) %></td>
 	<td class="actions show-for-medium-up">
-		<%= render 'actions_mini', recipe: recipe %>
+		<%= render 'recipes/actions_mini', recipe: recipe %>
 	</td>
 	<td class="date show-for-large-up"><%= recipe.created_at.strftime('%b %e, %Y') %></td>
 </tr>

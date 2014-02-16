@@ -19,22 +19,26 @@ Middbites::Application.routes.draw do
   delete 'recipes/:id/unvote' => 'recipes#unvote', as: 'unvote_recipe'
   post 'recipes/:id/vote' => 'recipes#vote', as: 'vote_recipe'
 
+
+
   # Search Routes
   get "search", to: 'search#search', as: 'search'
 
   # Comment Routes
   resources :comments, only: [:create, :destroy]
+  get 'load_comments/:id' => 'comments#load_comments', as: 'load_comments'
 
   # Item routes
   get "ingredients" => 'items#categorized', as: "categorized_items"
   get "ingredients/alphabetical" => 'items#alphabetical', as: "alphabetical_items"
   get "ingredients/popular" => 'items#popular', as: 'popular_items'
-  get "ingredient/:id" => 'items#show', as: 'item'
+  get "ingredients/:id" => 'items#show', as: 'item'
 
   # Tags routes
   # get 'tags/:tag', to: 'recipes#all', as: :tag
   get "tags/all" => 'tags#all', as: 'all_tags'
   get "tags", to: 'tags#grouped', as: 'grouped_tags'
+  get "tags/:id" => 'tags#show', as: 'tag'
 
 
   # Omniauth routes

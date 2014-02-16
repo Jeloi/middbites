@@ -21,7 +21,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, :polymorphic => true, counter_cache: true
 
-  default_scope -> { order('created_at ASC') }
+  # default_scope -> { order('created_at desc') }
 
   # Callbacks
   before_save	:set_user_handle

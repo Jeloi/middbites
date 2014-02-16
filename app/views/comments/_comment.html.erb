@@ -1,8 +1,7 @@
 <div class="comment">
 	<div class="meta clrfix">
-		<%= link_to comment.user_handle, root_path, class: "user-handle" %>
+		<%= link_to comment.user.handle, root_path, class: "user-handle" %>
 		<span class="time-ago"><%= time_ago_in_words(comment.created_at) %> ago</span>
 	</div>
 	<p class="comment-body"><%= comment.comment %></p>
-
 </div>

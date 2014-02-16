@@ -1,5 +1,11 @@
 class ItemsController < ApplicationController
-	# layout 'items', except: :show #doesn't seem to perform correctly
+  layout nil
+	layout 'items', :except => :show #doesn't seem to perform correctly
+
+  before_action :set_recipe_sort, only: [:show]
+  before_action :set_per_page, :set_user_votes, only: [:show]
+
+
 
   def alphabetical
   	# Group items in a hash with keys being the first char of item's name
@@ -20,8 +26,16 @@ class ItemsController < ApplicationController
   
   def show
   	@item = Item.find(params[:id])
+    @header = @item.name
+    @blurb = "#{@item.recipes.count} recipes for this ingredient"
+    @view = params[:view] || "detailed"
+    order = (params[:order] == 'asc' ? :asc : :desc)
+    logger.debug { @sort }
+    @recipes = @item.recipes.order(@sort => order).paginate(:page => params[:page], :per_page => @per_page)
   	respond_to do |wants|
-  		wants.html { render :layout => 'application' }
+  		wants.html { render "recipes/recipes.html.erb", layout: "application.html.erb" }
   	end
   end
+
+
 end

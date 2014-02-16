@@ -11,8 +11,8 @@ class RecipesController < ApplicationController
     @header = "All Recipes"
     @blurb = "Showing all #{Recipe.all.count} Recipes"
     @view = params[:view] || "detailed"
-    logger.debug { params[:order].class }
     order = (params[:order] == 'asc' ? :asc : :desc)
+    logger.debug { order } 
     @recipes = Recipe.order(@sort => order).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
 
   def popular
     @header = "Popular Now"
-    @blurb = "Popular recipes receiving bites right now"
+    @blurb = "Recipes that have been receiving votes recently"
     @view = params[:view] || "detailed"
     @recipes = Recipe.popular_this_week(params[:page], @per_page)
     respond_to do |wants|
@@ -153,25 +153,6 @@ class RecipesController < ApplicationController
       # logger.debug { @grouped_item_options }
     end
 
-    def set_per_page
-      @per_page = 24
-    end
-
-
-    def set_recipe_sort
-      case params[:sort]
-      when "name"
-        @sort = :title
-      when "popularity"
-        @sort = :score
-      when "date"
-        @sort = :created_at
-      when "chatter"
-        @sort = :comments_count
-      else
-        @sort = :title
-      end
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params

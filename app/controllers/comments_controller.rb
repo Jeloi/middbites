@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-	skip_before_filter :can_can_can
 
   def create
   	@comment = current_user.comments.build(comment_params)
@@ -9,6 +8,13 @@ class CommentsController < ApplicationController
   		end
   	end
   	
+  end
+
+  def load_comments
+    @recipe = Recipe.friendly.find(params[:id])
+    @comments = @recipe.comments.order(:created_at => :desc).offset(10)
+    logger.debug { @comments.size }
+    logger.debug { @comments }
   end
 
   def destroy

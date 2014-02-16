@@ -93,6 +93,8 @@
 	@include button-thick(#ff6b57);
 }
 
+
+
 @mixin wire-button($color) {
 	padding: 12px 16px;
 	display: inline-block;
@@ -134,3 +136,4 @@
 		background: darken($color, 5)
 	}
 }
+
