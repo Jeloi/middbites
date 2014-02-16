@@ -20,7 +20,7 @@ header#header {
 	.logo {
 		width: 200px;
 		margin-top: 30px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 	}
 
 	#user_icon {
@@ -114,14 +114,7 @@ nav.main-nav {
 
 }
 ul#user_dropdown {
-	margin: 0;
 	z-index: 1001;
-	.hello {
-		padding: 0.25rem;
-	}
-	hr {
-		margin: 2px 0;
-	}
 }
 
 //  Search modal

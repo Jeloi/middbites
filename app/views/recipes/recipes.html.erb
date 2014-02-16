@@ -33,8 +33,14 @@
     </div>
     <% if params[:action] == "index" %>
     <div class="sort-options">
-      <span>Sort by: </span>
-      <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= params[:sort] ? params[:sort].titlecase : "Name"   %></a>
+      <span>Sort: </span>
+      <a href="#" data-dropdown="sort-options" data-options="is_hover:true"><%= (params[:sort] ? params[:sort].titlecase : "Name")   %></a>
+      <%- if params[:order] == 'asc' -%> 
+               <%= link_to "", params.merge(order: ""), class: "fa fa-chevron-up" %>
+      <%- else -%> 
+               <%= link_to "", params.merge(order: "asc"), class: "fa fa-chevron-down" %>
+      <%- end -%> 
+       
       <ul id="sort-options" class="f-dropdown" data-dropdown-content>
         <li><%= link_to "Name", params.merge(sort: "name") %></li>
         <li><%= link_to "Popularity", params.merge(sort: "popularity") %></li>
