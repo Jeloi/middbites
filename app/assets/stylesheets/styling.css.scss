@@ -113,6 +113,36 @@ nav.main-nav {
 	 }
 
 }
+
+.flash {
+	padding: 5px 8px;
+	padding-right: 24px;
+	display: block;
+	margin: 2px auto;
+	width: 100%;
+	max-width: 500px;
+	text-align: center;
+	font-weight: 400;
+	position: relative;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 4px;
+	font-size: 14px !important;
+	border: 2px solid $blue;
+	color: $blue;
+	&.error {
+		border: 2px solid $red;
+		color: $red;
+	}
+	.fa-times {
+		position: absolute;
+		right: 7px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+}
 ul#user_dropdown {
 	z-index: 1001;
 }
