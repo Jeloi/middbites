@@ -68,15 +68,15 @@
 
           </ul>
           <h4>Account</h4>
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <ul class="sub">
               <li><%= link_to "Profile", root_path %></li>
               <li><%= link_to "Your Bites", root_path %></li>
               <li><%= link_to "Your Favorites", root_path %></li>
-              <li><%= link_to "Log Out", signout_path %></li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
-            <span class="log_in"><%= link_to "Log In / Sign Up", "/auth/facebook" %></span>
+            <span class="log_in"><%= link_to "Log In / Sign Up", user_omniauth_authorize_path(:facebook) %></span>
           <% end -%>
         </nav>
       </div>
@@ -153,31 +153,39 @@
            <%#= image_tag "new_logo.png", class: "logo" %>
           <h3>Sign In</h3>
           <p>Sign in to create, comment, and vote on recipes!</p>
-          <%= link_to("/auth/facebook", class: "facebook_sign_in") do %>
+          <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
             <span class="socialico">F</span> <span>Sign in with Facebook</span>
           <% end %>
           <a class="close fa fa-times"></a>
         </div>
 
-
         <ul id="user_dropdown" class="f-dropdown" data-dropdown-content>
-          <% if !logged_in? %>
+          <% if !user_signed_in? %>
           <li>
             <%= link_to "Sign In", "#", data: {:"reveal-id" => "sign_in_modal"} %>
           </li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <% else %>
-          <li class="hello">Hello, <%= current_user.first_name %></li>
-          <hr>
+          <div class="hello">Hello, <%= current_user.handle_name %></div>
           <li><a href="">Account</a></li>
           <li><a href="">Favorited Recipes</a></li>
           <li><a href="">Bit Recipes</a></li>
-          <hr>
-          <li><%= link_to "Log Out", signout_path %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
 
         <div class="main-content">
+          <div id="flash_messages">
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, :class => "flash #{key}") %>
+            <% end %>
+          </div>
+
           <%= content_for?(:content) ? yield(:content) : yield %>
+
+          <%=  debug params %>
+          <%=  debug flash %>
+
         </div>
 
         <a href="#page" title="back-to-top" class="back-to-top fa fa-arrow-circle-o-up"></a>
@@ -207,5 +215,6 @@
       </div>
     </div>
 
+
   </body>
-</html>
+</html> 

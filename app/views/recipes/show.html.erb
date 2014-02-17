@@ -4,7 +4,7 @@
 			<h3 class="title"><%= @recipe.title %></h3>
 
 			<div class="create-info">
-				By: <%= link_to @recipe.user.handle, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+				By: <%= link_to @recipe.user.handle_name, root_path %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
 			</div>
 
 			<%- if @recipe.image? %>
@@ -69,7 +69,7 @@
 				<% end %>
 				<h4>Leave a Comment</h4>
 				<div class="comment-response text-center"></div>
-				<%- if logged_in? -%> 
+				<%- if user_signed_in? -%> 
 					<%= render 'comments/comments_form', comment: @comment %>
 				<%- else -%> 
 				        <div class="please-sign-in text-center">Please <%= link_to "sign in", "#", class: "sign-in", data: {:"reveal-id" => "sign_in_modal"} %> to leave a comment!</div>

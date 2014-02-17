@@ -12,6 +12,9 @@ gem 'nokogiri'
 gem 'acts_as_commentable'
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'devise'
+
 # gem 'fog'
 # gem 'carrierwave_direct'
 # gem 'sidekiq'

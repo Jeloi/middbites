@@ -9,34 +9,41 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_session_return_path
 
+  before_filter :update_sanitized_params, if: :devise_controller?
+
+  def update_sanitized_params
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:handle, :password)}
+    devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:handle, :password)}
+  end
+
   private
 
   def set_session_return_path
     session[:return_to] = request.fullpath
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
+  # def current_user
+  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  # end
 
-  def logged_in?
-    current_user != nil
-  end
+  # def logged_in?
+  #   current_user != nil
+  # end
 
-  def user_logged_in?
-    unless logged_in?
-      respond_to do |wants|
-        logger.debug { "message" } 
-        wants.html { redirect_to root_path, notice: "You must be signed in to do that!" }
-        wants.js { render :js => "window.location.href = '#{recipes_path}'" }
-      end
+  # def user_logged_in?
+  #   unless logged_in?
+  #     respond_to do |wants|
+  #       logger.debug { "message" } 
+  #       wants.html { redirect_to root_path, notice: "You must be signed in to do that!" }
+  #       wants.js { render :js => "window.location.href = '#{recipes_path}'" }
+  #     end
 
-    end
-  end
+  #   end
+  # end
 
   # Load arrays of current_user's bites and fav ids
   def set_user_votes
-    if logged_in?
+    if user_signed_in?
       @user_bites = current_user.bites.pluck(:recipe_id)
       @user_favs = current_user.favorites.pluck(:recipe_id)
     end

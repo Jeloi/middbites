@@ -20,6 +20,10 @@
 #
 
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 	# Associations
 	has_many :recipes
 	has_many :comments
@@ -29,11 +33,20 @@ class User < ActiveRecord::Base
 	has_many :favorite_recipes, through: :favorites, source: :recipe
 	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
-	validates_presence_of :name, message: "can't be blank"
+	validates_presence_of :handle, :message => "can't be blank", :if => :not_omniauth?
+	validates_uniqueness_of :handle, :message => "that handle is already taken"
+
+	def not_omniauth?
+		self.uid.blank?
+	end
 
 	# Instance Methods
-	def handle
-		self.read_attribute(:handle) || self.name
+	def handle_name
+		if !self.read_attribute(:handle).blank?
+			self.handle
+		else
+			self.name
+		end
 	end
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####
@@ -65,18 +78,21 @@ class User < ActiveRecord::Base
 	# Class Methods
 
 	# Omniauth
-	def self.from_omniauth(auth)
+	def self.find_for_facebook_oauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	    user.provider = auth.provider
 	    user.uid = auth.uid
 	    user.name = auth.info.name
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-	    user.first_name = auth.info.first_name
-	    user.last_name = auth.info.last_name
 	    user.image = auth.info.image
 	    user.save!
 	  end
+	end
+
+	protected
+	def confirmation_required?
+	  false
 	end
 
 end

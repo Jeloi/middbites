@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 	skip_before_filter :set_session_return_path
 
 	def create
-		user = User.from_omniauth(env["omniauth.auth"])
+		user = User.find_for_facebook_oauth(env["omniauth.auth"])
 		# render :text => request.env["omniauth.auth"].to_yaml
 		session[:user_id] = user.id
 		flash[:notice] = "Succesfully signed in through Facebook!"

@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
 <div class="actions mini" data-recipe-id="<%= recipe.id %>">
 	<!-- Bite -->
 	<% if @user_bites.include? recipe.id %>
