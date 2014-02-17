@@ -1,0 +1,24 @@
+#pages-home {
+	#header {
+		padding-top: 180px;
+	}
+}
+
+.home-page {
+	.phrase {
+		font-family: $recipe-header-font-family;
+		font-weight: 500;
+		font-size: rem-calc(22px);
+		text-align: center;
+		margin-top: 1em;
+	}
+	.detailed-recipes {
+		// margin-top: 1.2em;
+	}
+	h5 {
+		font-weight: 300;
+		margin-top: 1.2em;
+		text-align: center;
+	}
+
+}

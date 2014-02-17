@@ -1,0 +1,61 @@
+<div class="clrfix recipe-item">
+	<% if !recipe.image_url(:thumb).nil? %>
+		<% img_url = "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}" %>
+	<% else %>
+		<% img_url = "#{request.protocol}#{request.host_with_port}/assets/default_image.jpg" %>
+	<% end %>			
+	<div class="image" style="background-image: url('<%= img_url %>')">
+		<% if params[:action] == "top" %>
+			<span class="rank-number"><%= counter %></span>
+		<% end %>
+
+		<%= link_to(recipe_path(recipe),  class: "overlay main") do %>
+			<div class="vert-center-table">
+				<div class="cell text-center">
+					<% tag_array = recipe.tags_list.split(", ") %>
+					<% @tag_count = tag_array.size %>
+					<% tag_array.each do |tag| %>
+						<span class="overlay-tag"><%= tag %></span>	
+					<% end %>	
+				</div>
+			</div>
+		<% end -%>
+		<div class="overlay ingredient-list">
+			<div class="vert-center-table">
+				<div class="cell text-center">
+					<%= recipe.ingredients_list %>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="info-wrapper">
+		<div class="cell">
+			<div class="info vert-align">
+				<%= link_to recipe.title, recipe_path(recipe), class: "small-font-secondary title" %>
+				<div class="create-info">
+					By <%= link_to recipe.user.handle_name, root_path %> <span class="dot">•</span> <%= recipe.created_at.strftime('%b %e, %Y') %>
+				</div>
+				<div class="hide-for-medium">
+					<div class="blurb">"<%= recipe.blurb %>"</div>
+				</div>
+				<div class="hover-labels">
+					<span class="ingredients-hover">
+						<%= recipe.ingredients_count %> Ingredients
+					</span>
+					<span class="dot">•</span>
+					<span class="tags-hover">
+						<%= @tag_count %> Tags
+					</span>
+				</div>
+				<%= render 'recipes/actions_mini', recipe: recipe, user_bites: @user_bites, user_favs: @user_favs %>
+
+				<% if params[:action] == "popular" %>
+				<div class="recent-bites">
+					<strong><%= recipe.recent_bites %></strong> recent <%= recipe.recent_bites > 1 ? "bites" :  "bite" %>
+				</div>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
