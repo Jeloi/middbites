@@ -10,10 +10,25 @@ class ApplicationController < ActionController::Base
   before_filter :set_session_return_path
 
   before_filter :update_sanitized_params, if: :devise_controller?
+  
+  before_filter :cancan_bug_fix
 
+  # For Devise's strong parameters
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:handle, :password)}
     devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:handle, :password)}
+  end
+
+  # Can can rescue exception with
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, :alert => exception.message
+  end
+
+  # CanCan and Rails 4 bug workaround
+  def cancan_bug_fix
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
   end
 
   private

@@ -17,6 +17,7 @@ Middbites::Application.routes.draw do
   get 'recipes/top' => 'recipes#top', as: 'top_recipes'
 
   resources :recipes, except: :new 
+  delete 'recipes/:id' => 'recipes#destroy', as: 'destroy_recipe'
   delete 'recipes/:id/unvote' => 'recipes#unvote', as: 'unvote_recipe'
   post 'recipes/:id/vote' => 'recipes#vote', as: 'vote_recipe'
 

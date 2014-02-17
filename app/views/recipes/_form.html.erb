@@ -99,7 +99,10 @@
      
     <br>
     
-    <% submit_text =  %>
+
+    <% if params[:action] == "edit" %>
+      <%= link_to "Delete this Recipe", destroy_recipe_path(@recipe), method: :delete, data: {confirm: "Are you sure you want to permanently delete this recipe?"} %>
+    <% end %>
     <%= f.submit params[:action] == "new" ? "Create" : "Save", id: :create_recipe, class: "button-thick" %>
 
     <% end %>

@@ -65,7 +65,7 @@
 				<% end %>
 				</div>
 				<% if @recipe.comments_count > 10 %>
-					<%= link_to "Load all #{@recipe.comments_count} comments", load_comments_path(@recipe), remote: true, id: "load-more" %>
+					<%= link_to "Load all #{@recipe.comments_count} comments", load_comments_path(recipe_id: @recipe), remote: true, id: "load-more" %>
 				<% end %>
 				<h4>Leave a Comment</h4>
 				<div class="comment-response text-center"></div>

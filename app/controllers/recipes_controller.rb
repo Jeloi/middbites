@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource find_by: :slug
+
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]
   before_action :set_per_page, :set_user_votes, only: [:index, :popular, :recent, :top]
@@ -105,7 +107,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url }
+      format.html { redirect_to recipes_path, notice: 'Your recipe was successfully deleted.' }
       format.json { head :no_content }
     end
   end
