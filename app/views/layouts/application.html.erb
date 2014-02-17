@@ -190,9 +190,10 @@
           <%#  debug flash %>
 
         </div>
-
+        
+        <% unless params[:action] == "home" %>
         <a href="#page" title="back-to-top" class="back-to-top fa fa-arrow-circle-o-up"></a>
-
+        
         <footer id="footer">
           <%=  image_tag "white_logo.png", class: "logo" %>
           <ul class="inline-nav">
@@ -214,6 +215,9 @@
             © 2014 Middbites. All Rights Reserved.
           </div>
         </footer>
+        <% end -%>
+
+        <%= render 'shared/google_analytics' %>
 
       </div>
     </div>
