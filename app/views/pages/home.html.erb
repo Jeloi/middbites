@@ -1,6 +1,10 @@
-<div class="recipe-box box">
-	<div class="title">
-		<h2>Pages#home</h2>
+<div class="row">
+  <div class="small-12 medium-10 large-7 xlarge-6 small-centered columns home-page">
+	<div class="phrase">
+		Discover and share the best bites at midd.
 	</div>
-	<p>Find me in app/views/pages/home.html.erb</p>
+	
+	<h5>Featured</h5>
+	<div class="detailed-recipes"><%= render 'recipes/detailed_recipe', recipe: @featured_recipe %></div>
+  </div>
 </div>

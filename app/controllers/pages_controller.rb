@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   before_action :set_meal, only: [:menus]
-  before_action :set_user_votes, only: [:menus]
+  before_action :set_user_votes, only: [:menus, :home]
 
   def home
-  	
+  	@featured_recipe = Recipe.popular_this_month.first
   end
 
   def about
