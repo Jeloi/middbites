@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:username, :password)}
     devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:username, :password)}
+    devise_parameter_sanitizer.for(:account_update) << [:email, :username]
   end
 
   # Devise - redirect to a specific page on successful sign in 

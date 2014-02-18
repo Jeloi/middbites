@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
 			t.datetime "oauth_expires_at"
 			t.datetime "created_at",                           :null => false
 			t.datetime "updated_at",                           :null => false
-			t.string   "email", default: ""
+			t.string   "email", :null => false, :default => ""
       t.timestamps
     end
   end
