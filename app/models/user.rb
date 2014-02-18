@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
 
  	# Accept a recipe and association (votes), and create a new vote for this user on the recipe
  	def vote recipe, association
- 		if ["bites", "favorites"].include? association
+ 		if (["bites", "favorites"].include? association) && !self.voted_on?(recipe, association)
  			self.send(association).create(recipe_id: recipe.id, recipe_owner_id: recipe.user_id)
  		else
  			raise "Wrong type of association provided"
@@ -80,7 +80,7 @@ class User < ActiveRecord::Base
 
  	# Accept a recipe and association (votes), and deletes the vote for this user on the recipe
  	def unvote recipe, association
- 		if ["bites", "favorites"].include? association
+ 		if (["bites", "favorites"].include? association) && self.voted_on?(recipe, association)
  			self.send(association).where(recipe_id: recipe.id).destroy_all
  		else
  			raise "Wrong type of association provided"

@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @comment
     @comment = Comment.find(params[:id])
     @comment.destroy
-    authorize! :destroy, @comment
   end
 
   private

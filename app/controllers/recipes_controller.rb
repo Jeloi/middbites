@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug, except: [:vote, :unvote, :create]
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]
@@ -74,6 +74,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
+    authorize! :create, Recipe
     @recipe = current_user.recipes.build(recipe_params)
 
     respond_to do |format|
@@ -113,6 +114,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes/1/vote
   def vote
+    authorize! :vote, Recipe
     @association = params[:association]
     respond_to do |format|
       if current_user.vote(@recipe, @association)
@@ -124,6 +126,7 @@ class RecipesController < ApplicationController
 
   # DELETE /
   def unvote
+    authorize! :unvote, Recipe
     @association = params[:association]
     respond_to do |format|
       if current_user.unvote(@recipe, @association)
