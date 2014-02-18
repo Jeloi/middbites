@@ -3,9 +3,17 @@ Middbites::Application.routes.draw do
  
 
   
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'pages#home'
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  # Users controller routes
+  get "users/show"
+  get "users/bites"
+  get "users/favorites"
+  get "users/recipes"
+
+  # Pages controller routes
   get "pages/home"
   get "pages/about"
   get "menus(/:date)", to: 'pages#menus', as: 'menus'

@@ -262,7 +262,9 @@ ul#user_dropdown {
 
 
 .main-content {
-	// min-height: 600px;
+	@media #{$large-up} {
+		min-height: 450px;
+	}
 }
 .header-title {
 	h1 {

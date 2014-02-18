@@ -24,11 +24,11 @@ class Comment < ActiveRecord::Base
   # default_scope -> { order('created_at desc') }
 
   # Callbacks
-  before_save	:set_user_handle
+  # before_save	:set_user_handle
 
-  # Set the user_name attribute for this comment
-  def set_user_handle
-  	self.user_handle = self.user.handle
-  end
+  # # Set the user_name attribute for this comment
+  # def set_user_handle
+  # 	self.user_handle = self.user.handle
+  # end
 
 end

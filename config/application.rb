@@ -28,5 +28,11 @@ module Middbites
 
     config.autoload_paths += Dir["#{Rails.root}/lib/classes"]
     config.autoload_paths += Dir["#{Rails.root}/lib/modules"]
+
+    # Devise
+    config.to_prepare do
+        Devise::SessionsController.skip_before_filter :set_session_return_path
+        Devise::RegistrationsController.skip_before_filter :set_session_return_path
+    end
   end
 end

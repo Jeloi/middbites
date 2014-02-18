@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_session_return_path
   before_filter :update_sanitized_params, if: :devise_controller?
-  before_filter :cancan_bug_fix
+  # before_filter :cancan_bug_fix
 
   # For Devise's strong parameters
   def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:handle, :password)}
-    devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:handle, :password)}
+    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:username, :password)}
+    devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:username, :password)}
   end
 
   # Devise - redirect to a specific page on successful sign in 

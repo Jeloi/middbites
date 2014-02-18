@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  load_and_authorize_resource find_by: :slug
+  load_and_authorize_resource
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :vote, :unvote]
   before_action :set_items, only: [:new, :create, :update, :edit]

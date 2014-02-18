@@ -2,21 +2,34 @@
 #
 # Table name: users
 #
-#  id                :integer          not null, primary key
-#  provider          :string(255)
-#  uid               :string(255)
-#  name              :string(255)
-#  oauth_token       :string(255)
-#  oauth_expires_at  :datetime
-#  created_at        :datetime
-#  updated_at        :datetime
-#  confirmation_code :string(255)
-#  confirmed         :boolean          default(FALSE)
-#  email             :string(255)
-#  first_name        :string(255)
-#  last_name         :string(255)
-#  image             :string(255)
-#  handle            :string(255)
+#  id                     :integer          not null, primary key
+#  provider               :string(255)
+#  uid                    :string(255)
+#  name                   :string(255)
+#  oauth_token            :string(255)
+#  oauth_expires_at       :datetime
+#  created_at             :datetime
+#  updated_at             :datetime
+#  confirmation_code      :string(255)
+#  confirmed              :boolean          default(FALSE)
+#  email                  :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
+#  image                  :string(255)
+#  username               :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -25,25 +38,25 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 	# Associations
-	has_many :recipes
-	has_many :comments
-	has_many :votes
-	has_many :bites
-	has_many :favorites
+	has_many :recipes, dependent: :destroy
+	has_many :comments, dependent: :destroy
+	has_many :votes, dependent: :destroy
+	has_many :bites, dependent: :destroy
+	has_many :favorites, dependent: :destroy
 	has_many :favorite_recipes, through: :favorites, source: :recipe
 	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
-	validates_presence_of :handle, :message => "can't be blank", :if => :not_omniauth?
-	validates_uniqueness_of :handle, :message => "that handle is already taken"
+	validates_presence_of :username, :message => "can't be blank", :if => :not_omniauth?
+	validates_uniqueness_of :username, :message => "that username is already taken"
 
 	def not_omniauth?
-		self.uid.blank?
+		self.uid.nil?
 	end
 
 	# Instance Methods
 	def handle_name
-		if !self.read_attribute(:handle).blank?
-			self.handle
+		if !self.read_attribute(:username).blank?
+			self.username
 		else
 			self.name
 		end
