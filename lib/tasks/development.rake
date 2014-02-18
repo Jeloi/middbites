@@ -1,4 +1,4 @@
-desc "Update counter_cache column for items and recipes (ingredients_count)"
+
 task :update_ingredients_count => [:environment] do
 	Item.reset_column_information
 	Item.all.each do |item|

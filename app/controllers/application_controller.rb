@@ -2,21 +2,21 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
-  # Helper methods made available in views
-  helper_method :current_user, :logged_in?
-  
   protect_from_forgery with: :exception
 
   before_filter :set_session_return_path
-
   before_filter :update_sanitized_params, if: :devise_controller?
-  
   before_filter :cancan_bug_fix
 
   # For Devise's strong parameters
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:handle, :password)}
     devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:handle, :password)}
+  end
+
+  # Devise - redirect to a specific page on successful sign in 
+  def after_sign_in_path_for(resource)
+     session[:return_to] || root_path
   end
 
   # Can can rescue exception with
@@ -35,26 +35,8 @@ class ApplicationController < ActionController::Base
 
   def set_session_return_path
     session[:return_to] = request.fullpath
+    logger.debug { session[:return_to] }
   end
-
-  # def current_user
-  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  # end
-
-  # def logged_in?
-  #   current_user != nil
-  # end
-
-  # def user_logged_in?
-  #   unless logged_in?
-  #     respond_to do |wants|
-  #       logger.debug { "message" } 
-  #       wants.html { redirect_to root_path, notice: "You must be signed in to do that!" }
-  #       wants.js { render :js => "window.location.href = '#{recipes_path}'" }
-  #     end
-
-  #   end
-  # end
 
   # Load arrays of current_user's bites and fav ids
   def set_user_votes
