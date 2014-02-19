@@ -35,6 +35,11 @@ $(document).on('opened', '#sign_in_modal', function(event) {
 
 
 $(function () {
+	$('input[data-tooltip]').on('focus', function(event) {
+		$(this).mouseenter();
+	}).on('blur', function(event) {
+		$(this).mouseout();
+	});
 
 	//Off-canvas menu
 	$("#secondHeader .menu-button").on('touchstart click', function(e) {

@@ -17,7 +17,9 @@ class ApplicationController < ActionController::Base
 
   # Devise - redirect to a specific page on successful sign in 
   def after_sign_in_path_for(resource)
-     session[:return_to] || root_path
+    root_path
+     # session[:return_to] || root_path
+     # logger.debug { session[:return_to] }
   end
 
   # Can can rescue exception with
@@ -36,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def set_session_return_path
     session[:return_to] = request.fullpath
-    logger.debug { session[:return_to] }
+    # logger.debug { session[:return_to] }
   end
 
   # Load arrays of current_user's bites and fav ids

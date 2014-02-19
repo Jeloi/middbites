@@ -285,7 +285,14 @@ ul#user_dropdown {
 	a.sign {
 		color: $turq;
 	}
-	input#user_username, input#user_password, input#user_password_confirmation {
+
+	.info {
+		width: 90%;
+		float: right;
+		font-size: 0.8em;
+		font-weight: 300;
+	}
+	input#user_username, input#user_password, input#user_password_confirmation, input#user_email {
 		float: left;
 		width: 90%;
 	}

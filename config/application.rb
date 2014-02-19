@@ -34,6 +34,7 @@ module Middbites
         Devise::SessionsController.skip_before_filter :set_session_return_path
         Devise::RegistrationsController.skip_before_filter :set_session_return_path
         Devise::PasswordsController.skip_before_filter :set_session_return_path
+        Devise::ConfirmationsController.skip_before_filter :set_session_return_path
     end
   end
 end

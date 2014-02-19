@@ -47,12 +47,7 @@ class User < ActiveRecord::Base
 	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
 	validates_presence_of :username, :message => "can't be blank"
-	validates_presence_of :password, :message => "can't be blank", :if => :not_omniauth?
 	validates_uniqueness_of :username, :message => "is already taken", case_sensitive: false
-
-	def not_omniauth?
-		self.uid.nil?
-	end
 
 	# Instance Methods
 	def handle_name
@@ -117,21 +112,21 @@ class User < ActiveRecord::Base
 
 	# Devise helpers
 
-	# def update_with_password(params, *options)
-	#   if encrypted_password.blank?
-	#     update_attributes(params, *options)
-	#   else
-	#     super
-	#   end
-	# end
+	def update_with_password(params, *options)
+	  if encrypted_password.blank?
+	    update_attributes(params, *options)
+	  else
+	    super
+	  end
+	end
 
 	def password_required?
 		super && provider.blank?
 	end
 	
-	# def confirmation_required?
-	#   false
-	# end
+	def confirmation_required?
+	  false
+	end
 
 	def resource_name
 	  :user
