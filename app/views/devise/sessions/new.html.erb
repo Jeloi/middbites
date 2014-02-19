@@ -1,17 +1,34 @@
-<h2>Sign in</h2>
+<div class="row">
+  <div class="small-12 medium-10 large-7 xlarge-6 small-centered columns recipe-form">
+  	<div class="sign-in-container">
+  	   <%#= image_tag "new_logo.png", class: "logo" %>
+  	  <h3>Sign In</h3>
+  	  <p>Sign in to create, comment, and vote on recipes!</p>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label "Username" %><br />
-  <%= f.text_field :username, :autofocus => true %></div>
+      <%= form_for resource, as: resource_name, id: "sign-in-form", :url => session_path(resource_name)  do |f| %>
+            <div class="other"><span>New user? </span><%= link_to "Sign up", new_user_registration_path, class: "sign" %></div>
+  	        <div class="section clrfix">
+  	          <%= f.label :username, "&#xf007;".html_safe, class: "fa inline" %>
+  	          <%= f.text_field :username, placeholder: "Username", class: "" %>
+  	        </div>
+  	        <div class="clrfix">
+  	          <%= f.label :password, "&#xf023".html_safe, class: "fa inline" %>
+  	          <%= f.password_field :password, placeholder: "Password" %>
+  	        </div>
+  	        <div class="clrfix">
+  	          <div class="other"><%= link_to "Forgot your password?", new_password_path(:user)%></div>
+  	          <%= f.submit 'Sign in', class: "button-thick" %>
+  	        </div>
+  	  <% end %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  	  <h5>
+  	    <span>OR</span>
+  	  </h5>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  	  <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
+  	    <span class="socialico">F</span> <span>Sign in with Facebook</span>
+  	  <% end %>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  	</div>
+  </div>
+</div>  

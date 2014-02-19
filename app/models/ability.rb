@@ -16,14 +16,19 @@ class Ability
         # user ||= User.new # guest user (not logged in)
 
         # can :read, Recipe
-    if user
+    if user && user.confirmed?
+        # unauthorized_message(:edit)
         # All registered users
+
         can [:create, :vote, :unvote], Recipe
 
-        can [:edit, :update, :destroy], Recipe, :user_id => user.id
+        can [:edit, :update, :destroy], Recipe, :user_id => user.id 
+            # raise CanCan::AccessDenied.new("can't edit someone else's stuff dude", :read, Recipe)
 
         can [:create, :load_comments], Comment
         can :destroy, Comment, :user_id => user.id
+    else
+
     end
 
 

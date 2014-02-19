@@ -24,6 +24,10 @@ $(document).on('opened', '#search-modal', function(event) {
 $(document).on('closed', '#search-modal', function () {
 	$('.search-button').removeClass('active fa fa-times');
 });
+// Sign in modal
+$(document).on('opened', '#sign_in_modal', function(event) {
+	$('input#user_username').focus();
+});
 
 
 

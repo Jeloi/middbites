@@ -228,17 +228,13 @@ ul#user_dropdown {
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 	top: 80px;
-	text-align: center;
 	.logo {
 		width: 200px;
 	}
-	p {
-		font-weight: 300;
-		// font-style: italic;
-	}
+
 	.close {
 		position: absolute;
-		right: 10px;
+		right: 15px;
 		top: 10px;
 	}
 
@@ -247,6 +243,60 @@ ul#user_dropdown {
 
 	}
 }
+
+.sign-in-container {
+	text-align: center;
+	p {
+		font-weight: 300;
+		// font-style: italic;
+	}
+	label.fa {
+		color: $body-font-color;
+		float: left;
+		width: 10%;
+		text-align: left;
+		margin-bottom: 0;
+	}
+	form {
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	h5 {
+		border-top: 1px solid $lines;
+		margin-top: 20px;
+		span {
+			text-align: center;
+			top: -9px;
+			position: relative;
+			padding: 0 10px;
+			background: white;
+		}
+	}
+	.section {
+		margin-bottom: 15px;
+	}
+	.other {
+		font-size: 0.8em;
+		margin: 3px;
+		margin-bottom: 5px;
+		text-align: right;
+	}
+	a.sign {
+		color: $turq;
+	}
+	input#user_username, input#user_password, input#user_password_confirmation {
+		float: left;
+		width: 90%;
+	}
+	input#user_password {
+		// margin
+	}
+	input[type="submit"] {
+		@include form-submit;
+	}
+}
+
 
 .facebook_sign_in {
 	@include flat-button($facebook);
@@ -405,6 +455,15 @@ select, input[type="text"], input[type="password"], input[type="date"], input[ty
 // To disable iPhone form zoom
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
 	font-size: 16px;
+}
+
+// Disable weird styling on iphone
+input[type="submit"] {
+	display: block;
+	margin: 0 auto;
+	-webkit-appearance: none;
+	  -moz-appearance: none;
+	  appearance: none;  
 }
 
 

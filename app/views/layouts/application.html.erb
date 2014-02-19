@@ -76,7 +76,10 @@
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
-            <span class="log_in"><%= link_to "Log In / Sign Up", user_omniauth_authorize_path(:facebook) %></span>
+          <ul class="sub">
+            <li> <span class=""><%= link_to "Sign In", new_user_session_path %></span> </li>
+            <!-- <li> <span class=""><%#= link_to "Sign Up", new_user_registration_path %></span> </li> -->
+          </ul>
           <% end -%>
         </nav>
       </div>
@@ -149,10 +152,31 @@
           <% end -%>
         </div>
 
-        <div id="sign_in_modal" class="sign-in-modal" data-reveal>
+        <div id="sign_in_modal" class="sign-in-container sign-in-modal" data-reveal>
            <%#= image_tag "new_logo.png", class: "logo" %>
           <h3>Sign In</h3>
           <p>Sign in to create, comment, and vote on recipes!</p>
+
+          <div class="other"><span>New user? </span><%= link_to "Sign up", new_user_registration_path, class: "sign" %></div>
+          <%= form_for :user, id: "sign-in-form", :url => session_path(:user)  do |f| %>
+                <div class="section clrfix">
+                  <%= f.label :username, "&#xf007;".html_safe,  class: "fa inline" %>
+                  <%= f.text_field :username, placeholder: "Username",  class: "" %>
+                </div>
+                <div class="clrfix">
+                  <%= f.label :password, "&#xf023".html_safe, class: "fa inline" %>
+                  <%= f.password_field :password, placeholder: "Password" %>
+                </div>
+                <div class="clrfix">
+                  <div class="other"><%= link_to "Forgot your password?", new_password_path(:user)%></div>
+                  <%= f.submit 'Sign in', class: "button-thick" %>
+                </div>
+          <% end %>
+
+          <h5>
+            <span>OR</span>
+          </h5>
+
           <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
             <span class="socialico">F</span> <span>Sign in with Facebook</span>
           <% end %>
@@ -175,24 +199,26 @@
         </ul>
 
         <div class="main-content">
-          <div id="flash_messages">
-            <% flash.each do |key, value| %>
-              <div class="flash <%= key %>">
-              <%= value %>
-              <span class="fa fa-times"></span>
+          <div class="row">
+            <div class="small-12 columns">
+              <div id="flash_messages">
+                <% flash.each do |key, value| %>
+                  <div class="flash <%= key %>">
+                  <%= value %>
+                  <span class="fa fa-times"></span>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+              
+              
+              </div>
           </div>
-
           <%= content_for?(:content) ? yield(:content) : yield %>
-
-          <%#  debug params %>
-          <%#  debug flash %>
 
         </div>
         
         <% unless params[:action] == "home" %>
-        <a href="#page" title="back-to-top" class="back-to-top fa fa-arrow-circle-o-up"></a>
+        <a href="#page" title="back-to-top" class="back-to-top fa fa-chevron-up"></a>
         
         <footer id="footer">
           <%=  image_tag "white_logo.png", class: "logo" %>

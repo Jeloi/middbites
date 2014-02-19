@@ -137,3 +137,16 @@
 	}
 }
 
+@mixin form-submit {
+	margin-top: 10px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background: $turq;
+	transition: .3s;
+	-webkit-transition: .3s;
+	padding: 10px 20px;
+	&:hover {
+		background: darken($turq, 3%);
+	}
+}
