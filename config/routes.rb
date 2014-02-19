@@ -5,7 +5,7 @@ Middbites::Application.routes.draw do
   
   root 'pages#home'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
 
   # Users controller routes
   get "users/show"

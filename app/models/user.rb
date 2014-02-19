@@ -46,8 +46,12 @@ class User < ActiveRecord::Base
 	has_many :favorite_recipes, through: :favorites, source: :recipe
 	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
+	validates_format_of :username, :with => /\A[a-zA-Z0-9.-_]+\Z/, message: "may only contain: a-z, A-Z, 0-9 and ._-"
 	validates_presence_of :username, :message => "can't be blank"
 	validates_uniqueness_of :username, :message => "is already taken", case_sensitive: false
+
+	# Send confirmation email after create
+	after_create :send_confirmation_instructions
 
 	# Instance Methods
 	def handle_name
@@ -91,7 +95,7 @@ class User < ActiveRecord::Base
 	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	    user.provider = auth.provider
 	    user.uid = auth.uid
-	    user.username = auth.info.name
+	    user.username = auth.info.name.downcase.tr!(" ", "_")
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	    user.image = auth.info.image
@@ -110,7 +114,7 @@ class User < ActiveRecord::Base
 	end
 
 
-	# Devise helpers
+	# --- Devise helpers ---
 
 	def update_with_password(params, *options)
 	  if encrypted_password.blank?

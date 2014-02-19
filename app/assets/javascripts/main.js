@@ -11,7 +11,6 @@ $(function(){
 
 	$('.flash .fa-times').click(function(event) {
 		$(this).closest('.flash').fadeOut('400');
-		console.log("got here!");
 	});
 
 });
