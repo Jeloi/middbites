@@ -16,7 +16,7 @@ class Ability
         # user ||= User.new # guest user (not logged in)
 
         # can :read, Recipe
-    if user && user.confirmed?
+    if user #&& user.confirmed?
         # unauthorized_message(:edit)
         # All registered users
 

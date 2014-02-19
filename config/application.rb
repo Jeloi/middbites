@@ -33,6 +33,7 @@ module Middbites
     config.to_prepare do
         Devise::SessionsController.skip_before_filter :set_session_return_path
         Devise::RegistrationsController.skip_before_filter :set_session_return_path
+        Devise::PasswordsController.skip_before_filter :set_session_return_path
     end
   end
 end

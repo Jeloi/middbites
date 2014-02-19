@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
 	# Associations
 	has_many :recipes, dependent: :destroy
 	has_many :comments, dependent: :destroy
@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 	has_many :favorite_recipes, through: :favorites, source: :recipe
 	has_many :bit_recipes, through: :bites, source: :recipe
 	# Validations
-	validates_presence_of :username, :message => "can't be blank", :if => :not_omniauth?
+	validates_presence_of :username, :message => "can't be blank"
 	validates_presence_of :password, :message => "can't be blank", :if => :not_omniauth?
 	validates_uniqueness_of :username, :message => "is already taken", case_sensitive: false
 
@@ -92,25 +92,46 @@ class User < ActiveRecord::Base
 	# Class Methods
 
 	# Omniauth
-	def self.find_for_facebook_oauth(auth)
-	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+	def self.from_omniauth(auth)
+	  where(auth.slice(:provider, :uid)).first_or_create do |user|
 	    user.provider = auth.provider
 	    user.uid = auth.uid
-	    user.name = auth.info.name
+	    user.username = auth.info.name
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	    user.image = auth.info.image
-	    user.save!
 	  end
 	end
 
-	protected
+	def self.new_with_session(params, session)
+	  if session["devise.user_attributes"]
+	    new(session["devise.user_attributes"], without_protection: true) do |user|
+	      user.attributes = params
+	      user.valid?
+	    end
+	  else
+	    super
+	  end
+	end
+
 
 	# Devise helpers
-	
-	def confirmation_required?
-	  false
+
+	# def update_with_password(params, *options)
+	#   if encrypted_password.blank?
+	#     update_attributes(params, *options)
+	#   else
+	#     super
+	#   end
+	# end
+
+	def password_required?
+		super && provider.blank?
 	end
+	
+	# def confirmation_required?
+	#   false
+	# end
 
 	def resource_name
 	  :user
