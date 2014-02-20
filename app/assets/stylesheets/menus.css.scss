@@ -4,22 +4,26 @@
 
 #menu-tabs {
 	display: block;
-	margin: 0;
-	margin-top: 15px;
+	margin: 0 auto;
 	dd {
 		display: inline-block;
 		float: none;
 		margin: 0;
+		
 		a {
 			display: inline;
-			@include tag-hollow($blue);
+			// @include tag-hollow($blue);
 		}
 		&.active {
 			a {
-				background: $blue;
-				color: white;
+				// background: $blue;
+				color: $turq;
 			}
 		}
+	}
+	@media #{$medium-up} {
+		margin: 0 auto;
+		width: 410px;
 	}
 }
 
@@ -39,13 +43,67 @@
 
 .pager {
 	text-align: center;
-	margin-bottom: 5px; 
+	margin: 5px auto;
+	display: none;
 	a {
-		@include tag-hollow($blue);
+		// @include tag-hollow($blue);
 		&.active {
-			background: $blue;
-			color: white;
+			// background: $blue;
+			// color: white;
 		}
+	}
+	&.active {
+		display: block;
+	}
+}
+
+//Fixed mobile pager
+.fixed-pager {
+	font-size: 1.2em;
+	text-align: center;
+	padding-right: 40px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	height: 30px;
+	background: $darkey;
+	height: 50px;
+	// border: 1px solid $lines;
+	line-height: 50px;
+	a {
+		height: 50px;
+		font-weight: 300;
+		color: white;
+		&.active {
+			color: $turq;
+		}
+	}
+	a.link {
+		margin-right: 6px;
+	}
+	.slider-next {
+		position: absolute;
+		right: 0;
+		top: 0;
+		// padding: 10px;
+		height: 50px;
+		width: 40px;
+
+	}
+	a.bx-next {
+		height: 50px;
+		line-height: 50px;
+		width: 40px;
+		display: block;
+	}
+}
+
+//Give body padding on this page for mobile view so fixed-pager has space
+body#pages-menus {
+	@media #{$small-only} {
+		padding-bottom: 50px;
 	}
 }
 
@@ -96,4 +154,12 @@ ul.bxslider > li {
 // .bx-clone {	// fix, hopefully
 // 	display: none;
 // }
+
+.view_by {
+	text-align: center;
+	font-weight: 300;
+	a.active {
+		color: $turq;
+	}
+}
 

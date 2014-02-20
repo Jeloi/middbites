@@ -17,14 +17,17 @@ initializeSliders = function() {
 	if ($(window).width() < oneSlide) {
 		for (var i = 0; i < numSliders; i++) {
 			var slider = '#bxslider' + i;
-			var pager = '#bxpager' + i;
+			var pager = '.bxpager' + i;
+			var next_selector = '#slider-next'+i;
 			var slider_obj = $(slider).bxSlider({
 				slideWidth: 1000,
 				minSlides: 1,
 				maxSlides: 1,
 				moveSlides: 1,
-				// infiniteLoop: true,
-				controls: false,
+				nextSelector: next_selector,
+				nextText: "&#xf078;",
+				infiniteLoop: true,
+				// controls: false,
 				pagerCustom: pager,
 				mode: "vertical",
 				// slideMargin: 10,
@@ -37,14 +40,17 @@ initializeSliders = function() {
 	} else if ($(window).width() < twoSlides) {
 		for (var i = 0; i < numSliders; i++) {
 			var slider = '#bxslider' + i;
-			var pager = '#bxpager' + i;
+			var pager = '.bxpager' + i;
+			var next_selector = '#slider-next'+i;
 			var slider_obj = $(slider).bxSlider({
 				slideWidth: 1000,
 				minSlides: 2,
 				maxSlides: 2,
 				moveSlides: 1,
-				// infiniteLoop: true,
-				controls: false,
+				nextSelector: next_selector,
+				nextText: "&#xf078;",
+				infiniteLoop: true,
+				// controls: false,
 				pagerCustom: pager,
 				mode: "horizontal",
 				// slideMargin: 10,
@@ -57,14 +63,17 @@ initializeSliders = function() {
 	} else {
 		for (var i = 0; i < numSliders; i++) {
 			var slider = '#bxslider' + i;
-			var pager = '#bxpager' + i;
+			var pager = '.bxpager' + i;
+			var next_selector = '#slider-next'+i;
 			var slider_obj = $(slider).bxSlider({
 				slideWidth: 1000,
 				minSlides: 3,
 				maxSlides: 3,
 				moveSlides: 1,
-				// infiniteLoop: true,
-				controls: false,
+				nextSelector: next_selector,
+				nextText: "&#xf078;",
+				infiniteLoop: true,
+				// controls: false,
 				pagerCustom: pager,
 				mode: "horizontal",
 				// slideMargin: 10,
@@ -80,13 +89,17 @@ initializeSliders = function() {
 
 function reloadSlider (i) {
 	if ($(window).width() < oneSlide) {
+		var next_selector = '#slider-next'+i;
+
 		sliders_array[i].reloadSlider({
 			slideWidth: 1000,
 			minSlides: 1,
 			maxSlides: 1,
 			moveSlides: 1,
+			nextText: "&#xf078;",
+			nextSelector: next_selector,
 				// infiniteLoop: true,
-				controls: false,
+				// controls: false,
 				pagerCustom: pager_array[i],
 				mode: "vertical",
 				// slideMargin: 10,
@@ -94,13 +107,16 @@ function reloadSlider (i) {
 				// adaptiveHeight: true
 			});
 	} else if ($(window).width() < twoSlides) {
+		var next_selector = '#slider-next'+i;
 		sliders_array[i].reloadSlider({
 			slideWidth: 1000,
 			minSlides: 2,
 			maxSlides: 2,
 			moveSlides: 1,
+			nextText: "&#xf078;",
+			nextSelector: next_selector,
 				// infiniteLoop: true,
-				controls: false,
+				// controls: false,
 				pagerCustom: pager_array[i],
 				mode: "horizontal",
 				// slideMargin: 10,
@@ -108,19 +124,22 @@ function reloadSlider (i) {
 				// adaptiveHeight: true
 			});
 	} else {
+		var next_selector = '#slider-next'+i;
 		sliders_array[i].reloadSlider({
 			slideWidth: 1000,
 			minSlides: 3,
 			maxSlides: 3,
 			moveSlides: 1,
-				// infiniteLoop: true,
-				controls: false,
-				pagerCustom: pager_array[i],
-				mode: "horizontal",
-				// slideMargin: 10,
-				touchEnabled: false,
-				// adaptiveHeight: true
-			});
+			nextText: "&#xf078;",
+			nextSelector: next_selector,
+			// infiniteLoop: true,
+			// controls: false,
+			pagerCustom: pager_array[i],
+			mode: "horizontal",
+			// slideMargin: 10,
+			touchEnabled: false,
+			// adaptiveHeight: true
+		});
 	}
 }
 
@@ -156,7 +175,11 @@ $(window).resize(function() {
 $(document).ready(function() {
 	$('#menu-tabs').on('toggled', function (event, tab) {
 		var i = tab.data('index');
-		reloadSlider(i);
+		reloadSlider(i);	//reload slider
+		// show only the pager for the given tab
+		$('.pager').hide();	
+		$('#bxpager'+i).show();
+		$('.bxpager'+i).show();
 	});
 	
 });

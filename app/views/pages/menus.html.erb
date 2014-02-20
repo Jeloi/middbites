@@ -13,9 +13,12 @@
 			end
 		 %>
 
-		<dl class="text-center" id="menu-tabs" data-numsliders="<%= @menus_hash.keys.size %>" data-tab>
+		<dl class="text-center section-nav" id="menu-tabs" data-numsliders="<%= @menus_hash.keys.size %>" data-tab>
 			<% @menus_hash.keys.each_with_index do |key, index| %>
 			<dd class="<%= 'active' if active_index == index %>" data-index="<%= index %>"><a href="#menu-tab-<%= index %>"><%= key %></a></dd>
+				<% if index < @menus_hash.keys.size - 1 %>
+				<span class="nav-sep">・</span>
+				<% end %>
 			<% end -%>
 		</dl>
 		
@@ -26,13 +29,16 @@
 			<% 	one_slider_only = "one_slider_only"  %>
 			<% end -%>
 			<div class="content <%= 'active' if active_index == index %> <%= one_slider_only %>" data-index="<%= index %>" id="menu-tab-<%= index %>">
-				<div id="bxpager<%= index %>" class="pager">
+				<div id="bxpager<%= index %>" class="pager section-nav show-for-medium-up bxpager<%= index %> <%= 'active' if active_index == index %>">
 					<% ii = 0 %>
 					<% sub_hash.each_with_index do |(sub_key, value), i| %>
-						<% if !value.empty? %>
-							<a data-slide-index="<%= ii %>" href="#"><%= sub_key %></a>
-							<% ii = ii + 1 %>
-						<% end -%>
+					<% if !value.empty? %>
+					<a data-slide-index="<%= ii %>" href="#"><%= sub_key %></a>
+					<% if i < sub_hash.keys.size - 1 %>
+					<span class="nav-sep">・</span>
+					<% end %>
+					<% ii = ii + 1 %>
+					<% end -%>
 					<% end -%>
 				</div>
 				<ul id="bxslider<%= index %>" class="bxslider">
@@ -54,26 +60,48 @@
 						<% end -%>
 					<% end -%>
 				</ul>
+
+				<div id="bxpager<%= index %>" class="fixed-pager show-for-small-only bxpager<%= index %> <%= 'active' if active_index == index %>">
+					<% ii = 0 %>
+					<% sub_hash.each_with_index do |(sub_key, value), i| %>
+					<% if !value.empty? %>
+					<a data-slide-index="<%= ii %>" href="#" class="link">
+						<%- if sub_key[0..1] == "La" -%> 
+						       Lang 
+						<%- else -%> 
+						       <%= sub_key %>
+						<%- end -%> 
+						 
+					</a>
+					<% ii = ii + 1 %>
+					<% end -%>
+					<% end -%>
+
+					<span id="slider-next<%= index %>" class="slider-next fa">
+					</span>
+				</div>
+
 			</div>
 			<% end -%>
 		</div>
+
 	</div>
 </div>
 
-<span class="sort_by">
+<div class="view_by">
 	<span>View by: </span>
 	<%= link_to "Meal", params.merge(sort_by: ""), class: ("active" unless params[:sort_by] == "dining_hall") %>
 	<%= link_to "Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
-</span>
+</div>
 
 
-<div class="row">
+<!-- <div class="row">
 	<div class="detailed-recipes">
 	  <%#= render  "recipes/detailed_recipes", recipes: @recent_recipes %>
 	</div>
 	<div class=" tile-recipes">
 		<ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
-		  <%= render  "recipes/tile_recipes", recipes: @recent_recipes %>
+		  <%#= render  "recipes/tile_recipes", recipes: @recent_recipes %>
 		</ul>
 	</div>
-</div>
+</div> -->
