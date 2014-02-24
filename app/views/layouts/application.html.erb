@@ -222,18 +222,27 @@
         <a href="#page" title="back-to-top" class="back-to-top fa fa-chevron-up"></a>
         
         <footer id="footer">
-          <%=  image_tag "white_logo.png", class: "logo" %>
+          <%= link_to(root_path) do %>
+            <%=  image_tag "new_logo.png", class: "logo" %>
+          <% end %>
           <ul class="inline-nav">
             <span class="nav-sep"></span>
             <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
-            <li class="hide-small"><%= link_to "Create", new_recipe_path %><span class="nav-sep">・</span></li>
-            <li class="hide-small"><%= link_to "Tags", grouped_tags_path %><span class="nav-sep">・</span></li>
-            <li class="hide-small"><%= link_to "Ingredients", categorized_items_path %><span class="nav-sep">・</span></li>
+            <li class="hide-small"><%= link_to "Recipes", recipes_path %><span class="nav-sep">・</span></li>
             <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
-            <li><%= link_to "Contact", recipes_path %></li>
+            <li><%= link_to "Feedback", recipes_path %></li>
             <li></li>
           </ul>
           <%# like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
+          
+
+          <ul class="inline-nav social-links">
+            <li><a href="" class="socialico">F</a></li>
+            <li><a href="" class="socialico">L</a></li>
+            <li class="insta"><a href="" class="fa fa-instagram"></a></li>
+          </ul>
+
+          <div class="support">Please support middbites!</div>
 
           <div class="built-by">
             Designed and built by Jeloi.

@@ -25,7 +25,7 @@ class Ability
         can [:edit, :update, :destroy], Recipe, :user_id => user.id 
             # raise CanCan::AccessDenied.new("can't edit someone else's stuff dude", :read, Recipe)
 
-        can [:create, :load_comments], Comment
+        can [:create], Comment
         can :destroy, Comment, :user_id => user.id
     else
 

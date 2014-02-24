@@ -1,36 +1,54 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <div class="small-12 medium-10 large-7 xlarge-6 small-centered columns recipe-form">
+    <div class="edit-user-container">
+       <%#= image_tag "new_logo.png", class: "logo" %>
+      <h3>Edit User Account</h3>
+      <p>Change your username, bio, email or password</p>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for resource, as: resource_name, id: "edit-user-form", :url => registration_path(resource_name), :html => { :method => :put }  do |f| %>
+            <%= devise_error_messages! %>
+            <div class="field-unit">
+              <%= f.label :username %>
+              <%= f.text_field :username, placeholder: "Username", class: "" %>
+            </div>
+            <div class="field-unit">
+              <%= f.label :bio  %>
+              <%= f.text_field :bio, placeholder: "Say a little about yourself", class: "" %>
+            </div>
+            <div class="field-unit">
+              <%= f.label :email %>
+              <%= f.email_field :email %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div class="info">Currently waiting on confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+            </div>
 
-  <div>
-    <%= f.label :username, "Username" %> <br>
-    <%= f.text_field :username %>
+            <div class="field-unit">
+              <%= f.label :password %>
+              <%= f.password_field :password, maxlength: User::BIO_LENGTH, placeholder: "Leave blank unless you want to create/change your password" %>
+            </div>
+            <div class="field-unit">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, placeholder: "Leave blank unless you want to create/change your password" %>
+            </div>
+            <% if f.object.encrypted_password.present? %>
+            <div class="field-unit">
+            <%= f.label :current_password %> 
+            <%= f.password_field :current_password %>
+            <div class="info">We need your current password to confirm your changes.</div>
+            </div>
+            <% end -%>
+
+            <div class="field-unit">
+              <!-- <div class="other"><%#= link_to "Forgot your password?", new_password_path(:user)%></div> -->
+              <%= f.submit 'Update Account', class: "button-thick" %>
+            </div>
+      <% end %>
+
+      <h3>Unhappy?</h3>
+
+      <p>Click here to <%= link_to "Cancel Your Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "cancel-account" %></p>
+
+    </div>
   </div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <% if f.object.encrypted_password.present? %>
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-  <% end -%>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>  

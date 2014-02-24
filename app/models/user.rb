@@ -36,7 +36,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable :validatable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+  :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+
+  # Constants
+  BIO_LENGTH = 140
+
 	# Associations
 	has_many :recipes, dependent: :destroy
 	has_many :comments, dependent: :destroy
@@ -45,6 +49,7 @@ class User < ActiveRecord::Base
 	has_many :favorites, dependent: :destroy
 	has_many :favorite_recipes, through: :favorites, source: :recipe
 	has_many :bit_recipes, through: :bites, source: :recipe
+
 	# Validations
 	validates_format_of :username, :with => /\A[a-zA-Z0-9.-_]+\Z/, message: "may only contain: a-z, A-Z, 0-9 and ._-"
 	validates_presence_of :username, :message => "can't be blank"
