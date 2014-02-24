@@ -34,8 +34,8 @@ gem 'chosen-rails'
 gem 'compass-rails', github: 'Compass/compass-rails'
 
 # Search gems
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'sunspot_solr', github: 'sunspot/sunspot', branch: 'master'
+gem 'sunspot_rails', github: 'sunspot/sunspot', branch: 'master'
  # Social media helper gem
  gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 
