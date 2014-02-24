@@ -13,7 +13,6 @@ class RecipesController < ApplicationController
     @blurb = "Showing all #{Recipe.all.count} Recipes"
     @view = params[:view] || "detailed"
     order = (params[:order] == 'asc' ? :asc : :desc)
-    logger.debug { order } 
     @recipes = Recipe.order(@sort => order).paginate(:page => params[:page], :per_page => @per_page)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }

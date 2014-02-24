@@ -1,2 +1,62 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="header-title text-center">
+  <h1><%= @user.username %>'s profile</h1>
+</div>
+
+
+
+<div class="row">
+	<div class="small-12 medium-10 large-8 small-centered columns user-show">
+
+		<div class="info section row ">
+			<div class="columns small-12 medium-6 stats">
+				<div><span class="number-big"><%= @user.recipes.count %></span> <%= link_to "Recipes", user_recipes_path(@user) %></div>
+				<div><span class="number-small"><%= @user.bites.count %></span> <%= link_to "Bites", user_bites_path(@user) %></div>
+				<div><span class="number-small"><%= @user.favorites.count %></span> <%= link_to "Favorites", user_favorites_path(@user) %></div>	
+			</div>
+			<div class="columns small-12 medium-6 other">
+				<div class="joined">
+					Joined: <span class="date"><%= @user.created_at.strftime('%b %e, %Y') %> </span>
+				</div>
+				<% unless @user.bio.blank? %>
+				<div class="bio">
+					<%= @user.bio %>
+				</div>
+				<% end -%>
+			</div>
+		</div>		
+
+		<div class="section">
+			<h4>Top Recipes</h4>
+			<% if !@top_recipes.empty? %>
+			<div class="detailed-recipes"><%= render 'recipes/detailed_recipe', recipe: @top_recipes.first %></div>
+			<div class="list-recipes">
+				<table class="">
+					<tbody>
+						<%= render  "recipes/list_recipes", recipes: @top_recipes[1..-1] %>
+					</tbody>
+				</table>
+			</div>
+			<%= link_to "View All", user_recipes_path(@user, sort: "popularity"), class: "view-more" %>
+			<% else %>
+			<div class="no-recipes">No Recipes Yet</div>
+			<% end -%>
+		</div>
+
+		<div class="section">
+			<h4>Recent Recipes</h4>
+			<% if !@recent_recipes.empty? %>
+			<div class="list-recipes">
+				<table class="">
+					<tbody>
+						<%= render  "recipes/list_recipes", recipes: @recent_recipes %>
+					</tbody>
+				</table>
+			</div>
+			<%= link_to "View All", user_recipes_path(@user, sort: "date"), class: "view-more" %>
+			<% else %>
+			<div class="no-recipes">No Recipes Yet</div>
+			<% end -%>
+		</div>
+
+	</div>
+</div>

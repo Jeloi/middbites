@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_session_return_path
   before_filter :update_sanitized_params, if: :devise_controller?
+
   # before_filter :cancan_bug_fix
 
   # For Devise's strong parameters
@@ -35,6 +36,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  # --- Before filters ---
+
+  def restrict_unconfirmed_users
+    if user_signed_in? && !current_user.confirmed?
+      redirect_to edit_user_registration_path, error: "You must confirm your account to do that."
+    end  
+  end
 
   def set_session_return_path
     session[:return_to] = request.fullpath

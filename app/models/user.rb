@@ -54,12 +54,24 @@ class User < ActiveRecord::Base
 	after_create :send_confirmation_instructions
 
 	# Instance Methods
+
+	# Return the user's username if exists, otherwise return the name (from omniauth)
 	def handle_name
 		if !self.read_attribute(:username).blank?
 			self.username
 		else
 			self.name
 		end
+	end
+
+	# Return the user's recipes, ordered by score with highest rated first
+	def top_recipes
+		self.recipes.order(score: :desc)
+	end
+
+	# Return the user's recipes, ordered by most recent
+	def recent_recipes
+		self.recipes.order(created_at: :desc)
 	end
 
  ####### UNTESTED METHODS FOR USERS' SCORES #####

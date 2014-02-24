@@ -1,3 +1,63 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user-show {
+
+	.section {
+		h4 {
+			text-align: center;
+		}
+		margin-bottom: 20px;
+	}
+
+	.info {
+		div > div {
+			margin-bottom: 5px;
+		}
+
+		.stats {
+			.number-big {
+				font-size: 1.5em;
+			}
+
+			.number-small {
+				font-size: 1.2em;
+			}
+			@media #{$small-only} {
+				margin-bottom: 10px;
+			}
+		}
+
+		.date {
+			font-weight: 300;
+		}
+		.joined {
+			margin-bottom: 10px;
+		}
+		.bio {
+			font-weight: 300;
+			font-style: italic;
+		}
+		@media #{$small-only} {
+			text-align: center;
+		}
+	}
+
+	.view-more {
+		color: $blue;
+		display: inline-block;
+		// float: right;
+		margin-top: 0.5em;
+	}
+
+	.list-recipes {
+		td.title {
+			font-size: 1em;
+		}
+	}
+
+
+	
+}

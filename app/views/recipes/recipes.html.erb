@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="header-title text-center">
+  <div class="header-title text-center columns">
     <h1><%= @header %></h1>
     <div class="page-blurb"><%= @blurb %></div>
   </div>
@@ -10,7 +10,7 @@
   <nav>
     <%= link_to "Popular", popular_recipes_path, class: ("active" if params[:action] == "popular") %>
     <span class="nav-sep">・</span>
-    <%= link_to "Latest", recent_recipes_path, class: ("active" if params[:action] == "recent") %>
+    <%= link_to "Recent", recent_recipes_path, class: ("active" if params[:action] == "recent") %>
     <span class="nav-sep">・</span>
     <%= link_to "Top", top_recipes_path, class: ("active" if params[:action] == "top") %>
     <span class="nav-sep">・</span>

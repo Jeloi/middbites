@@ -8,10 +8,10 @@ Middbites::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "users/sessions" }
 
   # Users controller routes
-  get "users/show"
-  get "users/bites"
-  get "users/favorites"
-  get "users/recipes"
+  get "users/:id/show", to: 'users#show', as: 'user_show'
+  get "users/:id/bites", to: 'users#bites', as: 'user_bites'
+  get "users/:id/favorites", to: 'users#favorites', as: 'user_favorites'
+  get "users/:id/recipes", to: 'users#recipes', as: 'user_recipes'
 
   # Pages controller routes
   get "pages/home"

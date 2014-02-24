@@ -1,10 +1,10 @@
 <% view = @view %>
 <% if view == "detailed" || view.blank? %>
-	$('.detailed-recipes').append('<%= j render "detailed_recipes", recipes: @recipes %>');
+	$('.detailed-recipes').append('<%= j render "recipes/detailed_recipes", recipes: @recipes %>');
 <% elsif view == "tiles" %>
-	$('.tile-recipes ul').append('<%= j render "tile_recipes", recipes: @recipes %>');
+	$('.tile-recipes ul').append('<%= j render "recipes/tile_recipes", recipes: @recipes %>');
 <% elsif view == "list" %>
-	$('.list-recipes tbody').append('<%= j render "list_recipes", recipes: @recipes %>');
+	$('.list-recipes tbody').append('<%= j render "recipes/list_recipes", recipes: @recipes %>');
 <% end %>
 
 

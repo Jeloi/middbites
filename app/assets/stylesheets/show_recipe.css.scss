@@ -85,25 +85,28 @@
 		margin-bottom: 1.5em;
 		.socialico, .socialico_plus {
 			font-size: 40px;
-			color: #a9a9a9;
+			// color: #a9a9a9;
 			-webkit-transition: color 0.4s,opacity 0.4s;
 			-moz-transition: color 0.4s,opacity 0.4s;
 			transition: color 0.4s,opacity 0.4s;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+			filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+			opacity: 0.8;
 			&.inactive {
 				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3)";
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0.3);
 				opacity: 0.3;
 			}
-			&.facebook:hover, &.facebook.hover {
+			&.facebook:hover, &.facebook.hover, &.facebook {
 				color: $facebook;
 			}
-			&.mail:hover, &.mail.hover {
+			&.mail:hover, &.mail.hover, &.mail {
 				color: $turq;
 			}
-			&.twitter:hover, &.twitter.hover {
+			&.twitter:hover, &.twitter.hover, &.twitter {
 				color: #00aced;
 			}
-			&.pinterest:hover, &.pinterest.hover {
+			&.pinterest:hover, &.pinterest.hover, &.pinterest {
 				color: #e24849;
 			}
 			@media #{$large-up} {

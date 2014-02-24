@@ -98,10 +98,6 @@
            <%= image_tag "new_logo.png", class: "logo" %>
          <% end -%>
       
-        <%= link_to(root_path, id: "user_icon") do %>
-        <span class="fa fa-user" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
-        <% end %>
-
         <div id="sticky_navigation">
            <div class="row">
              <nav  class="main-nav columns">
@@ -110,8 +106,8 @@
                    <%= image_tag "new_logo.png", class: "small-logo" %>
                  <% end -%>
                </div>
-               <span class="fa fa-user fixed-appear" data-dropdown="user_dropdown" data-options="is_hover:true"></span>
                <ul id="main-nav" class="" >
+
                  <li>
                  <%= link_to popular_recipes_path, class: ("active" if params[:controller] == "recipes" and !current_page?(new_recipe_path)) do %>
                    <button class="bitn bitn-5 bitn-5a foodie-bowl"><span>Recipes</span></button>
@@ -132,8 +128,14 @@
                      <button class="bitn bitn-5 bitn-5a foodie-cherries"><span>Ingredients</span></button>
                    <% end -%>
                  </li>
+                 
                  <li>
                    <a href="#" data-reveal-id="search-modal" class="socialico_plus search-button" data-icon="O"></a>
+                 </li>
+                 <li>
+                   <%= link_to(root_path, id: "user_icon") do %>
+                   <span class="fa fa-user" data-dropdown="user_dropdown" ></span>
+                   <% end %>
                  </li>
                </ul>
              </nav>
@@ -190,10 +192,10 @@
           </li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
           <% else %>
-          <div class="hello">Hello, <%= current_user.handle_name %></div>
-          <li><a href="">Account</a></li>
-          <li><a href="">Favorited Recipes</a></li>
-          <li><a href="">Bit Recipes</a></li>
+          <li class="hello">Hello, <%= current_user.handle_name %></li>
+          <li><%= link_to "User Profile", user_show_path(current_user) %></li>
+          <li><%= link_to "Your Favorites", user_favorites_path(current_user) %></li>
+          <li><%= link_to "Edit User Account", edit_user_registration_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>

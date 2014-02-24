@@ -23,12 +23,12 @@ header#header {
 		margin-bottom: 10px;
 	}
 
-	#user_icon {
-		position: absolute;
-		z-index: 1001;
-		top: 10px;
-		right: 10px;
-	}
+	// #user_icon {
+	// 	position: absolute;
+	// 	z-index: 1001;
+	// 	top: 10px;
+	// 	right: 10px;
+	// }
 }
 
 // Main Nav bar
@@ -46,21 +46,21 @@ header#header {
 		left: 0;
 	}
 	.fixed-appear { display: none; }
-	@media #{$large-up} {
-		.fa-user {
-			position: absolute;
-			top: 23px;
-			right: 12px;
-		}
-		.middbites { 
-			.small-logo {
-				height: 32px;
-			}
-			position: absolute;	
-			left: 10px;
-			top: 13px;
-		}
-	}
+	// @media #{$large-up} {
+	// 	.fa-user {
+	// 		position: absolute;
+	// 		top: 23px;
+	// 		right: 12px;
+	// 	}
+	// 	.middbites { 
+	// 		.small-logo {
+	// 			height: 32px;
+	// 		}
+	// 		position: absolute;	
+	// 		left: 10px;
+	// 		top: 13px;
+	// 	}
+	// }
 }
 
 nav.main-nav {
@@ -110,6 +110,14 @@ nav.main-nav {
 	 		margin-bottom: 0;
 	 		font-size: 20px;
 	 	}
+	 	color: #5D5D5D;
+	 	padding-right: 20px;
+	 }
+	 .fa-user {
+	 	color: #5D5D5D;
+	 	font-size: 20px;
+	 	display: inline-block;
+
 	 }
 
 }
@@ -146,6 +154,14 @@ nav.main-nav {
 }
 ul#user_dropdown {
 	z-index: 1001;
+	.hello {
+		padding: 0.25em;
+		// text-align: center;
+		// font-weight: 300;
+	}
+	li a {
+		font-weight: 300;
+	}
 }
 
 //  Search modal
@@ -246,6 +262,9 @@ ul#user_dropdown {
 }
 
 .sign-in-container {
+	h3 {
+		margin-top: 16px;
+	}
 	text-align: center;
 	p {
 		font-weight: 300;
@@ -337,7 +356,10 @@ ul#user_dropdown {
 	.page-blurb {
 		font-weight: 300;
 		font-style: italic;
-		margin: 10px 0px 25px 0;
+		margin: 10px 0px 10px 0;
+	}
+	@media #{$medium-up} {
+		margin-bottom: 15px;
 	}
 }
 
@@ -421,19 +443,6 @@ footer#footer {
 }
 
 // Global Styles
-
-// Fix foundation floating right problem
-@media #{$screen} and (max-width:#{upper-bound($large-range)}) and (min-width:#{lower-bound($medium-range)}) {
-	[class*="column"] + [class*="column"]:last-child {
-		float: none !important;
-	}
-}
-
-@media #{$xlarge-up} {
-	[class*="column"] + [class*="column"]:last-child {
-		float: left !important;
-	}
-}
 
 .clrfix:after {
 	content: ".";
@@ -523,7 +532,7 @@ input[type="submit"] {
 	transition: all 0.3s;
 	span {
 		font-family: $body-font-family;
-		font-weight: 300;
+		font-weight: 500;
 		color: #444444;
 	}
 }
@@ -543,7 +552,6 @@ input[type="submit"] {
 	margin: 0;
 	// padding: 0;
 	font-size: 18px;
-	font-weight: 300;
 	overflow: hidden;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;

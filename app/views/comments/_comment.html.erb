@@ -1,6 +1,6 @@
 <div class="comment" data-id="<%= comment.id %>">
 	<div class="meta clrfix">
-		<%= link_to comment.user.handle_name, root_path, class: "user-handle" %>
+		<%= link_to comment.user.handle_name, user_show_path(comment.user), class: "user-handle" %>
 		<% if can? :destroy, comment %>
 		<%= link_to "", comment_path(comment), method: :delete, class: "fa fa-times", data: { confirm: "Delete this comment?"}, remote: true %>
 		<% end -%>
