@@ -4,6 +4,15 @@ Middbites::Application.configure do
   # Action mailer
   config.action_mailer.default_url_options = { :host => "middbites.com" }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    user_name:            ENV["EMAIL_ADDRESS"],
+    password:             ENV["EMAIL_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
