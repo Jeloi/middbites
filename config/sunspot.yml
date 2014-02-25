@@ -5,6 +5,8 @@ production:
     log_level: WARNING
     path: /solr/collection1
     solr_home: /usr/share/solr
+    user: tomcat
+    password: gic0vut8ep6as9gu
     # read_timeout: 2
     # open_timeout: 0.5
 

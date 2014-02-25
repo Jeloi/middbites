@@ -25,14 +25,14 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  # desc 'Restart Unicorn'
-  # task :restart do
-  #   on roles(:web) do
-  #     puts "==== Restarting Unicorn ===="
-  #     execute "service unicorn stop"
-  #     execute "service unicorn restart"
-  #   end
-  # end
+  desc 'Restart Unicorn'
+  task :restart do
+    on roles(:web) do
+      puts "==== Restarting Unicorn ===="
+      # execute "service unicorn stop"
+      execute "service unicorn restart"
+    end
+  end
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
