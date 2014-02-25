@@ -12,6 +12,7 @@ Middbites::Application.routes.draw do
   get "users/:id/bites", to: 'users#bites', as: 'user_bites'
   get "users/:id/favorites", to: 'users#favorites', as: 'user_favorites'
   get "users/:id/recipes", to: 'users#recipes', as: 'user_recipes'
+  get "users/:id/preconfirm", to: 'users#preconfirm', as: 'preconfirm'
 
   # Pages controller routes
   get "pages/home"

@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def preconfirm
+    @resource = @user
+    @token = params[:token]
+    @email = params[:email]
+    respond_to do |wants|
+      wants.html { render "preconfirm", layout: false }
+    end
+  end
+
   private
     def set_user
       @user = User.find(params[:id])

@@ -14,7 +14,7 @@
   	        </div>
             <div class="section clrfix">
               <%= f.label :email, "&#xf0e0;".html_safe, class: "fa inline" %>
-              <%= f.text_field :email, placeholder: "Middlebury Email", class: "", title: "We need this to send you a confirmation email", data: {tooltip: ""} %>
+              <%= f.text_field :email, placeholder: "Middlebury Email", class: "", title: "We need this to send you a confirmation email", data: {tooltip: "", options: "disable_for_touch:true"} %>
               <div class="info"></div>
             </div>
             <% if f.object.password_required? %>

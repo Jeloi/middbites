@@ -25,10 +25,11 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  desc 'Restart Passenger'
+  desc 'Restart Unicorn'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, current_path.join('tmp/restart.txt')
+    on roles(:web) do
+      puts "==== Restarting Unicorn ===="
+      execute "service unicorn restart"
     end
   end
 
@@ -49,22 +50,6 @@ namespace :deploy do
 
   namespace :db do
   
-    desc "Syncs the database.yml file from the local machine to the remote machine"
-    task :sync_yaml do
-      puts "\n\n=== Syncing database yaml to the production server! ===\n\n"
-      unless File.exist?("config/database.yml")
-        puts "There is no config/database.yml.\n "
-        exit
-      end
-      system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/database.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
-      puts "\n\n=== Syncing application yaml to the production server! ===\n\n"
-      unless File.exist?("config/application.yml")
-        puts "There is no config/application.yml.\n "
-        exit
-      end
-      system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/application.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
-    end
-    
     desc "Create Production Database"
     task :create do
       puts "\n\n=== Creating the Production Database! ===\n\n"
@@ -111,6 +96,36 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
+end
+
+namespace :sync do
+  desc "Sync database.yml"
+  task :db_yml do
+    puts "\n\n=== Syncing database yaml to the production server! ===\n\n"
+    unless File.exist?("config/database.yml")
+      puts "There is no config/database.yml.\n "
+      exit
+    end
+    system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/database.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
+  end
+
+  desc "Sync application.yml"
+  task :app_yml do
+    puts "\n\n=== Syncing application yaml to the production server! ===\n\n"
+    unless File.exist?("config/application.yml")
+      puts "There is no config/application.yml.\n "
+      exit
+    end
+    system "rsync -vr -e 'ssh -p #{fetch(:port)}' --exclude='.DS_Store' config/application.yml  #{fetch(:user)}@#{fetch(:application)}:/#{fetch(:deploy_to)}/shared/config/"
+  end
+end
+
+
+namespace :sunspot do
+  desc "Start sunspot on server"
+  task :start do
+    
+  end
 end
 
 
