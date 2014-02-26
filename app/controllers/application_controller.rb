@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
 
   # --- Before filters ---
 
+  # Not used currently
   def restrict_unconfirmed_users
     if user_signed_in? && !current_user.confirmed?
       redirect_to edit_user_registration_path, error: "You must confirm your account to do that."

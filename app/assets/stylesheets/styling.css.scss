@@ -261,7 +261,7 @@ ul#user_dropdown {
 	}
 }
 
-.sign-in-container {
+.sign-in-container, .devise-page {
 	h3 {
 		margin-top: 16px;
 	}
@@ -276,13 +276,14 @@ ul#user_dropdown {
 		width: 10%;
 		text-align: left;
 		margin-bottom: 0;
+		margin-top: 0;
 	}
 	form {
 		max-width: 400px;
 		margin: 0 auto;
 	}
 
-	h5 {
+	h5.or {
 		border-top: 1px solid $lines;
 		margin-top: 20px;
 		span {
@@ -312,15 +313,30 @@ ul#user_dropdown {
 		font-size: 0.8em;
 		font-weight: 300;
 	}
+
+	label {
+		margin-top: 1em;
+	}
+
+	input[type="submit"] {
+		@include form-submit;
+	}
+
+	h4.more {
+		padding-top: 3em;
+	}
+	.devise_links {
+		font-weight: 300;
+	}
+}
+
+.sign-in-container {
 	input#user_username, input#user_password, input#user_password_confirmation, input#user_email {
 		float: left;
 		width: 90%;
 	}
 	input#user_password {
 		// margin
-	}
-	input[type="submit"] {
-		@include form-submit;
 	}
 }
 

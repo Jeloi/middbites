@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :username, :message => "is already taken", case_sensitive: false
 
 	# Send confirmation email after create
-	after_create :send_confirmation_instructions
+	# after_create :send_confirmation_instructions
 
 	# Instance Methods
 
@@ -145,9 +145,9 @@ class User < ActiveRecord::Base
 		super && provider.blank?
 	end
 	
-	def confirmation_required?
-	  false
-	end
+	# def confirmation_required?
+	#   false
+	# end
 
 	def resource_name
 	  :user

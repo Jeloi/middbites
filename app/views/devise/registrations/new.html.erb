@@ -32,16 +32,30 @@
   	        </div>
   	  <% end %>
 
-  	  <h5>
+  	  <h5 class="or">
   	    <span>OR</span>
   	  </h5>
 
   	  <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
-  	    <span class="socialico">F</span> <span>Sign in with Facebook</span>
+  	    <span class="socialico">F</span> <span>Sign Up with Facebook</span>
   	  <% end %>
+
+
+
+      <h4 class="more">Help</h4>
+
+      <div class="devise_links">
+        
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <% end -%>
+
+      <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+      <% end -%>
+      </div>
 
   	</div>
   </div>
 </div>  
 
-<%= render "devise/shared/links" %>
