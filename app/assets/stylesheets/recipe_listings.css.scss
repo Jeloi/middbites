@@ -512,10 +512,10 @@ ul.pagination {
 		// height: 1em;
 	}
 	.bite {
-		background: url(/assets/bite-outline.svg);
+		background: image-url("/assets/bite-outline.svg");
 		background-size: cover;
 		&.voted {
-			background: url(/assets/bite-fill.svg);
+			background: image-url("/assets/bite-fill.svg");
 			background-size: cover;
 		}
 	}
