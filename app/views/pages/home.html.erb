@@ -4,6 +4,7 @@
 		Discover and share the best bites at midd.
 	</div>
 	
+	<% if !@featured_recipe.nil? %>
 	<h5>Featured Recipe</h5>
 	<% if !@featured_recipe.nil? %>
 	<div class="detailed-recipes"><%= render 'recipes/detailed_recipe', recipe: @featured_recipe %></div>
