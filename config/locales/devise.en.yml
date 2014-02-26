@@ -7,7 +7,7 @@ en:
           user:
             attributes:
               email: 
-                invalid: "is not a middlebury email address"
+                invalid: "must be a proper middlebury email address"
   devise:
     confirmations:
       confirmed: "Your account was successfully confirmed. Welcome to middbites!"
