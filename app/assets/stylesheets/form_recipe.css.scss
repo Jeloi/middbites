@@ -130,5 +130,12 @@
 		height: 2.5em;
 	}
 
+	.delete-recipe {
+		display: inline-block;
+		margin-top: 1em;
+		&:hover { color: $orange; }
+		text-align: center;
+	}
+
 
 }

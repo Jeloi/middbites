@@ -4,7 +4,11 @@
 			<h3 class="title"><%= @recipe.title %></h3>
 
 			<div class="create-info">
-				By: <%= link_to @recipe.user.handle_name, user_show_path(@recipe.user) %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+				By: <%= link_to @recipe.user.handle_name, user_show_path(@recipe.user), class: "user-link" %> <span class="dot">・</span> <%= @recipe.created_at.strftime('%b %e, %Y') %>
+				<% if @recipe.user == current_user %>
+					<span class="dot">・</span>
+					<%= link_to "Edit Your Recipe", edit_recipe_path(@recipe), class: "edit-link" %>
+				<% end %>
 			</div>
 
 			<%- if @recipe.image? %>
@@ -78,9 +82,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<%= link_to "Edit", edit_recipe_path(@recipe) %>
 
 </div>
 

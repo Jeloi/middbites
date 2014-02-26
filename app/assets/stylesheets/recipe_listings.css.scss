@@ -285,6 +285,10 @@
 	}
 }
 
+.user-link, .user-link:hover {
+	color: $blue;
+}
+
 .invisible {
 	visibility: hidden;
 }

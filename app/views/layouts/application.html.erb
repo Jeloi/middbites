@@ -70,9 +70,8 @@
           <h4>Account</h4>
           <% if user_signed_in? %>
             <ul class="sub">
-              <li><%= link_to "Profile", root_path %></li>
-              <li><%= link_to "Your Bites", root_path %></li>
-              <li><%= link_to "Your Favorites", root_path %></li>
+              <li><%= link_to "Profile", user_show_path(current_user) %></li>
+              <li><%= link_to "Your Favorites", user_favorites_path(current_user) %></li>
               <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
@@ -219,30 +218,38 @@
         </div>
         
         <% unless params[:action] == "home" %>
+
+        <% unless params[:action] == "menus" %>
         <a href="#page" title="back-to-top" class="back-to-top fa fa-chevron-up"></a>
-        
+        <% end -%>
+
+        <% unless (params[:controller] == "recipes") && (["edit", "new"].include? params[:action]) %>
+        <div class="create-section"><%= link_to "Create a Recipe", new_recipe_path, class: "create-button" %></div>        
+        <% end -%>
+
         <footer id="footer">
           <%#= link_to(root_path) do %>
             <%#=  image_tag "new_logo.png", class: "logo" %>
           <%# end %>
+
           <ul class="inline-nav">
             <span class="nav-sep"></span>
             <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
             <li class="hide-small"><%= link_to "Recipes", recipes_path %><span class="nav-sep">・</span></li>
             <li><%= link_to "About", recipes_path %><span class="nav-sep">・</span></li>
-            <li><%= link_to "Feedback", recipes_path %></li>
+            <li><a href="mailto:middbites@gmail.com?Subject=Middbites%20Feedback" target="_top">Feedback</a></li>
             <li></li>
           </ul>
-          <div class="copyright">
-            © 2014 Middbites. All Rights Reserved.
-          </div>
+          <div class="copyright"> © 2014 Middbites. All Rights Reserved.</div>
+          
+
           <%# like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
           
 
           <ul class="inline-nav social-links">
-            <li><a href="" class="socialico">F</a></li>
-            <li><a href="" class="socialico">L</a></li>
-            <li class="insta"><a href="" class="fa fa-instagram"></a></li>
+            <li><a href="https://www.facebook.com/middbites" class="socialico">F</a></li>
+            <li><a href="https://twitter.com/middbites" class="socialico">L</a></li>
+            <li class="insta"><a href="http://instagram.com/middbites" class="fa fa-instagram"></a></li>
           </ul>
 
           <div class="support">Please support middbites!</div>

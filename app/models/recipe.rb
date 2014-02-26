@@ -43,7 +43,7 @@ class Recipe < ActiveRecord::Base
 
   # Constants
   BITE_WEIGHT = 1.0
-  FAV_WEIGHT = 1.8
+  FAV_WEIGHT = 1.4
   TITLE_LENGTH = 40
   BLURB_LENGTH = 100
 

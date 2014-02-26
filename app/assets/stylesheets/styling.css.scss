@@ -122,6 +122,13 @@ nav.main-nav {
 
 }
 
+#flash_messages {
+	margin-top: 10px;
+	@media #{$large-up} {
+		margin-top: 0;
+	}
+}
+
 .flash {
 	padding: 5px 8px;
 	padding-right: 24px;
@@ -393,6 +400,31 @@ a.back-to-top {
 	margin: 30px auto;
 	width: 30px;
 }
+.create-section {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+	.create-button {
+		padding: 8px 15px;
+		border: 2px solid $body-font-color;
+		font-weight: 700;
+		display: inline-block;
+		font-size: 14px;
+		text-transform: uppercase;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		transition: .3s;
+		-webkit-transition: .3s;
+		-moz-transition: .3s;
+		&:hover {
+			color: white;
+			border: 2px solid $orange;
+			background: $orange;
+		}
+	}
+}
 
 footer#footer {
 	// background: $darkey;
@@ -409,6 +441,8 @@ footer#footer {
 		height: 25px;
 		margin: 10px auto;
 	}
+
+
 	text-align: center;
 	.inline-nav {
 		margin-bottom: 0;
