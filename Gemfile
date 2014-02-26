@@ -102,5 +102,4 @@ end
 group :production do
   # gem 'pg', '0.15.1'
   gem 'rails_12factor'
-  gem 'sunspot-rails-http-basic-auth'
 end
