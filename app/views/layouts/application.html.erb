@@ -222,9 +222,9 @@
         <a href="#page" title="back-to-top" class="back-to-top fa fa-chevron-up"></a>
         
         <footer id="footer">
-          <%= link_to(root_path) do %>
-            <%=  image_tag "new_logo.png", class: "logo" %>
-          <% end %>
+          <%#= link_to(root_path) do %>
+            <%#=  image_tag "new_logo.png", class: "logo" %>
+          <%# end %>
           <ul class="inline-nav">
             <span class="nav-sep"></span>
             <li><%= link_to "Home", root_path %><span class="nav-sep">・</span></li>
@@ -233,6 +233,9 @@
             <li><%= link_to "Feedback", recipes_path %></li>
             <li></li>
           </ul>
+          <div class="copyright">
+            © 2014 Middbites. All Rights Reserved.
+          </div>
           <%# like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
           
 
@@ -247,9 +250,7 @@
           <div class="built-by">
             Designed and built by Jeloi.
           </div>
-          <div class="copyright">
-            © 2014 Middbites. All Rights Reserved.
-          </div>
+         
         </footer>
         <% end -%>
 

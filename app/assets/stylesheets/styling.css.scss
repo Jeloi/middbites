@@ -437,18 +437,21 @@ footer#footer {
 		text-align: center;
 		color: #888;
 		margin-bottom: 3px;
+		margin-top: 3px;
 	}
 	.fb-like {
 		margin-bottom: 10px;
 	}
 	.support {
 		font-size: 12px;
-		margin: 3px 0 10px 0;
-		font-style: italic;
+		color: #888;
+		margin: 6px 0 10px 0;
+		// font-style: italic;
 	}
 	.built-by {
 		font-size: rem-calc(12px);
 		margin-bottom: 3px;
+
 		// color: white;
 	}
 	@media #{$small-only} {
@@ -639,5 +642,29 @@ input[type="submit"] {
 
 .bitn-5a:hover:before {
 	top: 0;
+}
+
+// Preconfirm page
+#users-preconfirm {
+	.logo {
+		width: 200px;
+		margin: 0 auto;
+		margin-top: 4em;
+		margin-bottom: 1em;
+		display: block;
+		
+	}
+	.text {
+		text-align: center;
+		p {
+			margin-bottom: 1em;
+			.bold {
+				font-weight: 700;
+			}
+		}
+		.confirm {
+			@include flat-button($turq);
+		}
+	}
 }
 

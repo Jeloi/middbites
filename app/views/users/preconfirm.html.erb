@@ -1,1 +1,5 @@
-<%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %>
+<%=  image_tag "new_logo.png", class: "logo" -%>
+<div class="text">
+	<p>Confirm account <span class="bold"><%= @resource.username %></span> using <span class="bold"><%= @email %></span>?</p>
+	<%= link_to 'CONFIRM!', confirmation_url(@resource, :confirmation_token => @token), class: "confirm" %>
+</div>

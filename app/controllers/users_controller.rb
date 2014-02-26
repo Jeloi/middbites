@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @token = params[:token]
     @email = params[:email]
     respond_to do |wants|
-      wants.html { render "preconfirm", layout: false }
+      wants.html { render "preconfirm", layout: "bare" }
     end
   end
 
