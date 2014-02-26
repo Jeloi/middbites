@@ -2,7 +2,7 @@
 	<% if !recipe.image_url(:thumb).nil? %>
 		<% img_url = "#{request.protocol}#{request.host_with_port}#{recipe.image_url(:thumb)}" %>
 	<% else %>
-		<% img_url = "#{request.protocol}#{request.host_with_port}/assets/default_image.jpg" %>
+		<% img_url = image_url "default_image.jpg" %>
 	<% end %>			
 	<div class="image" style="background-image: url('<%= img_url %>')">
 		<% if params[:action] == "top" %>
