@@ -31,7 +31,7 @@ task :delete_tag_categories => [:environment] do
 end
 
 desc "Import ingredients form lib/csvs/ingredients.csv"
-task :import_ingredients_csv do
+task :import_ingredients_csv => [:environment] do
 	csv = CSV.read('lib/csvs/ingredients.csv', headers: true, :encoding => 'windows-1251:utf-8', skip_blanks: true)		
 	
 	csv.headers.each do |header|

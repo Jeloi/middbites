@@ -74,7 +74,7 @@ namespace :deploy do
     desc "Destroys Production Database"
     task :drop do
       puts "\n\n=== Destroying the Production Database! ===\n\n"
-      run "cd #{current_path}; rake db:drop RAILS_ENV=production"
+      execute "cd #{current_path}; rake db:drop RAILS_ENV=production"
       system "cap deploy:set_permissions"
     end
 
