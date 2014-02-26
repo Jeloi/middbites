@@ -9,15 +9,15 @@
 
     <%= form_for @recipe, :html => {:multipart => true}  do |f| %>
     <% if @recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+    <div id="errors_count">
+      <h4><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved!</h4>
 
-      <ul>
-        <% @recipe.errors.each do |attribute, msg| %>
+<!--       <ul>
+        <%# @recipe.errors.each do |attribute, msg| %>
 
-        <li><%= attribute.to_s.capitalize + "-" + msg %></li>
-        <% end %>
-      </ul>
+        <li><%#= attribute.to_s.capitalize + "-" + msg %></li>
+        <%# end %>
+      </ul> -->
     </div>
     <% end %>
 
@@ -26,6 +26,9 @@
       <h4>Title</h4>
       <% end -%>
       <%= f.text_field :title, maxlength: Recipe::TITLE_LENGTH, placeholder: "Give it a unique and creative title!" %>
+      <% if !@recipe.errors[:title].blank? %>
+        <div class="error-explanation"><%= @recipe.errors[:title].first.to_s %></div>
+      <% end %>
     </div>  
 
     <div class="field blurb">
@@ -33,11 +36,17 @@
       <h4>Blurb</h4>
       <% end -%>
       <%= f.text_field :blurb, maxlength: Recipe::BLURB_LENGTH, placeholder: "What's this recipe all about?" %>
+      <% if !@recipe.errors[:blurb].blank? %>
+        <div class="error-explanation"><%=  "Blurb " + @recipe.errors[:blurb].first.to_s %></div>
+      <% end %>
     </div>
 
 
 
     <h4 class="ingredients">Ingredients</h4>
+    <% if @recipe.errors[:ingredient].size > 0 %>
+      <div class="error-explanation"><%= @recipe.errors[:ingredient].first.to_s %></div>
+    <% end %>
     <div id="ingredients-section" class="field" >
 
 
@@ -62,14 +71,22 @@
       <%= f.label :directions do %>
       <h4>Directions</h4>
       <% end -%>
+      <% if !@recipe.errors[:directions].blank? %>
+        <div class="error-explanation"><%= :directions.to_s.capitalize + " " + @recipe.errors[:directions].first.to_s %></div>
+      <% end %>
       <%= f.text_area :directions, placeholder: "Describe how to go about creating this meal." %>
     </div>
     <div class="field tags">
       <h4 class="tags">Tags</h4>
-      <div><%= f.grouped_collection_select "tag_ids", TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector', title: "Tags", :"data-placeholder" => "Select up to 6 Tags"} -%></div>
+      <div><%= f.grouped_collection_select :tag_ids, TagCategory.all, :tags, :name, :id, :name, {}, {multiple: true, id: 'tag_selector', title: "Tags", :"data-placeholder" => "Select Tags"} -%></div>
+
       <div id="tag_field_container">
+      <% seen_tags = [] %>
         <%= f.fields_for :taggings do |tag_form| %>
-        <%= render 'tagging_fields', f: tag_form -%>      
+          <% if !seen_tags.include? tag_form.object.tag_id  %>
+          <%= render 'tagging_fields', f: tag_form -%>      
+          <% seen_tags << tag_form.object.tag_id %>
+          <% end -%>
         <% end -%>
       </div>
 
@@ -107,20 +124,13 @@
 
     <% end %>
 
+    <%= debug(params) %>
+
   </div>
 </div>
 
 <script>
-  // Enable Chosen Plugin for ingredients and tags
-  $('#ingredient_selector').chosen({
-    no_results_text: 'No ingredients matched',
-    width: "100%"
-  });
-  $('#tag_selector').chosen({
-    no_results_text: 'No tags matched',
-    width: "100%",
-    max_selected_options: 6
-  });
+
 
   // Initialize array to hold items that have been selected
   var chosen_items = [];
@@ -159,14 +169,14 @@
       $(this).text(text);
     });
 
-    // Setup: Fix displaying selected tags in chosen after edit/rerendering form page
+    // // Setup: Fix displaying selected tags in chosen after edit/rerendering form page
     // var initial_chosen_tag_vals = []
     // $('#tag_selector').val().each(function() {
     //   var val = $(this).val();
     //   initial_chosen_tag_vals.push(val);
     // });
     // $('#tag_selector').val(initial_chosen_tag_vals);
-    $('#tag_selector').trigger("chosen:updated");
+    // $('#tag_selector').trigger("chosen:updated");
 
 
     // Image uploading button and preview functionality
@@ -318,6 +328,25 @@
         // console.log($('#tag_selector').val());
         tag_field_destroy(val);
       };
+    });
+
+    // Field with errors style changing
+    $(document).on('focus', '.field_with_errors input, .field_with_errors textarea', function(event) {
+      // $(this).closest('.field_with_errors').remove('.error-explanation');
+      $(this).closest('.field_with_errors').siblings('.error-explanation').remove();
+      $(this).closest('.field_with_errors').removeClass('field_with_errors');
+      console.log("got here!");
+    });
+
+    // Enable Chosen Plugin for ingredients and tags
+    $('#ingredient_selector').chosen({
+      no_results_text: 'No ingredients matched',
+      width: "100%"
+    });
+    $('#tag_selector').chosen({
+      no_results_text: 'No tags matched',
+      width: "100%",
+      max_selected_options: 6
     });
 
 </script>

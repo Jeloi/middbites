@@ -90,7 +90,7 @@
 }
 
 .button-thick {
-	@include button-thick(#ff6b57);
+	@include button-thick($orange);
 }
 
 

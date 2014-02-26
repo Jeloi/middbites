@@ -64,13 +64,14 @@ class Recipe < ActiveRecord::Base
 
 	# Validations
 	validates_uniqueness_of :title, message: "That name is already taken!", case_sensitive: false
-	validates_presence_of :title, :blurb, :directions, message: "can't be blank"
+  validates_presence_of :title, message: "Your recipe needs a title!"
+  validates_presence_of :blurb, :directions, message: "can't be blank."
   validate :validate_ingredients_count, :validate_reserved_names
 
   # Validates that
   def validate_ingredients_count
-    errors.add(:ingredient, "too many!") if ingredients.size > 10
-    errors.add(:ingredient, "recipe needs at least one ingredient") if ingredients.size == 0
+    errors.add(:ingredient, "A maximum of 15 ingredients are allowed") if ingredients.size > 15
+    errors.add(:ingredient, "Recipes must contain at least 1 ingredient") if ingredients.size == 0
   end
 
   # Verifies that a recipe does not have a reserved name for a title (for routing)

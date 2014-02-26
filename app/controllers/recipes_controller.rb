@@ -63,6 +63,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+
     # logger.debug { @grouped_item_options }
   end
 
@@ -75,12 +76,15 @@ class RecipesController < ApplicationController
   def create
     authorize! :create, Recipe
     @recipe = current_user.recipes.build(recipe_params)
-
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Your recipe was successfully created.' }
         format.json { render action: 'show', status: :created, location: @recipe }
       else
+        # Recreate tag_ids artifically through taggings_attributes (for redirecting to form)
+        tag_ids = recipe_params["taggings_attributes"].values.map { |x| x["tag_id"] if (x["_destroy"] == "false") }.compact if recipe_params["taggings_attributes"]
+        @recipe.tag_ids = tag_ids
+        logger.debug { @recipe.taggings }
         format.html { render action: 'new' }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
@@ -159,6 +163,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:remove_image, :image, :directions, :title, :blurb, :tag_list, ingredients_attributes: [:item_id, :quantity, :_destroy, :id], taggings_attributes: [:_destroy, :tag_id, :id])
+      params.require(:recipe).permit(:remove_image, :image, :directions, :title, :blurb, ingredients_attributes: [:item_id, :quantity, :_destroy, :id], taggings_attributes: [:_destroy, :tag_id, :id])
     end
 end

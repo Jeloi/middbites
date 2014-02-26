@@ -1,4 +1,18 @@
 .recipe-form {
+
+	.field_with_errors {
+		input, textarea {
+			border-color: $orange;
+		}
+	}
+	#errors_count {
+		h4 { color: $orange; text-align: center; }
+	}
+	.error-explanation {
+		font-size: 0.8em;
+		color: $orange;
+		margin: 3px;
+	}
 	
 	h4 {
 		margin-top: 15px; 
