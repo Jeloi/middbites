@@ -15,6 +15,8 @@ gem 'rmagick'
 
 gem 'devise'
 
+gem 'autoprefixer-rails'
+
 # gem 'fog'
 # gem 'carrierwave_direct'
 # gem 'sidekiq'
