@@ -61,6 +61,7 @@
 //Fixed mobile pager
 .fixed-pager {
 	font-size: 1.2em;
+	z-index: 99999;
 	text-align: center;
 	padding-right: 40px;
 	position: fixed;
@@ -162,5 +163,10 @@ ul.bxslider > li {
 	a.active {
 		color: $turq;
 	}
+}
+
+h3.subtitle {
+	text-align: center;
+
 }
 

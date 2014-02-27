@@ -122,18 +122,18 @@
 		.columns {
 			padding: 0;
 		}
-		.recipe-item {
-			max-width: 270px;
-			margin: 0 auto;
-			margin-bottom: 20px;
-			text-align: center;
-		}
-		// .info { padding: 0 !important; padding-top: 5px !important; }
-		.actions {
-			margin: 0 auto;
-		}
+		// .recipe-item {
+		// 	max-width: 270px;
+		// 	margin: 0 auto;
+		// 	margin-bottom: 20px;
+		// 	text-align: center;
+		// }
+		// // .info { padding: 0 !important; padding-top: 5px !important; }
+		// .actions {
+		// 	margin: 0 auto;
+		// }
 	}
-	@media #{$medium-up} {
+	@media #{$small-up} {
 		.image { width: 40% !important; }
 		.image { min-height: 130px !important; height: 130px }
 		.recipe-item {

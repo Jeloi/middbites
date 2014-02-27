@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 		# logger.debug { @menus_hash }
   #   logger.debug { @menus_hash.keys }
   #   logger.debug { @current_meal }
-    @recent_recipes = Recipe.order(created_at: :desc).limit(4)
+    @recent_recipes = Recipe.order(created_at: :desc).limit(4). offset(2)
     
   end
 

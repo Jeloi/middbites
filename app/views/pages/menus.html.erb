@@ -92,20 +92,22 @@ Menus
 	</div>
 </div>
 
-<div class="view_by">
-	<span>View by: </span>
-	<%= link_to "Meal", params.merge(sort_by: ""), class: ("active" unless params[:sort_by] == "dining_hall") %>
-	<%= link_to "Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
-</div>
 
 
-<!-- <div class="row">
+<h3 class="subtitle">Recent Recipes</h3>
+<div class="row">
 	<div class="detailed-recipes">
-	  <%#= render  "recipes/detailed_recipes", recipes: @recent_recipes %>
+	  <%= render  "recipes/detailed_recipes", recipes: @recent_recipes %>
 	</div>
-	<div class=" tile-recipes">
+<!-- 	<div class=" tile-recipes">
 		<ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-3">
 		  <%#= render  "recipes/tile_recipes", recipes: @recent_recipes %>
 		</ul>
-	</div>
-</div> -->
+	</div> -->
+</div>
+
+<div class="view_by">
+	<span>View Menus By: </span>
+	<%= link_to "Meal", params.merge(sort_by: ""), class: ("active" unless params[:sort_by] == "dining_hall") %>
+	<%= link_to "Hall", params.merge(sort_by: "dining_hall"), class: ("active" if params[:sort_by] == "dining_hall") %>
+</div>

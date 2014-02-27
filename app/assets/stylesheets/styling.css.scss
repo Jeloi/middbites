@@ -738,3 +738,22 @@ input[type="submit"] {
 	}
 }
 
+// About page
+.about-page {
+	h4 {
+		text-align: center;
+	}
+	p {
+		font-weight: 300;
+		text-indent: 1em;
+		a{
+			color: $turq;
+		}
+	}
+	img {
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
