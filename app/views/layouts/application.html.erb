@@ -13,7 +13,8 @@
 
     <script type="text/javascript" src="//use.typekit.net/fgh0qas.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-   
+    
+    <%= yield :meta_tags %>
   </head>
 
   <body id="<%= params[:controller] + '-' + params[:action] %>" >

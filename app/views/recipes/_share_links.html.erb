@@ -1,3 +1,5 @@
+
+
 <div class="share-links">
 	<a href="mailto:yourfriend@example.com?Subject=<%= @recipe.title %> - Middbites Recipe" target="_top">
 		<span class="socialico_plus mail" data-icon="m"></span>	
@@ -22,4 +24,11 @@
 <div id="social_pinterest" class="social_dropdowns" data-icon="pinterest"data-dropdown-content>
 	<%= pinit_button media: image_link, description: @recipe.title + "\n"+@recipe.blurb %>
 </div>
+
+<% content_for :meta_tags do %>
+<meta property="og:title" content="<%= @recipe.title %>"/>
+<meta property="og:image" content="<%= image_link.html_safe %>"/>
+<meta property="og:site_name" content="middbites"/>
+<meta property="og:description" content="<%= @recipe.blurb %>"/>
+<% end %>
 
