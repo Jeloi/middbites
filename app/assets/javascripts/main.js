@@ -28,6 +28,16 @@ $(document).on('opened', '#sign_in_modal', function(event) {
 	$('input#user_username').focus();
 });
 
+// Spinner for turbolinks effect
+$(document).on('page:fetch', function() {
+$('.main-content').fadeOut('fast');
+$('#spinner').fadeIn('slow');
+});
+$(document).on('page:change', function() {
+$('#spinner').hide();
+$('.main-content').fadeIn('fast');
+});
+
 
 
 

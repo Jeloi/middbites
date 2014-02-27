@@ -363,7 +363,7 @@ ul#user_dropdown {
 
 .main-content {
 	@media #{$large-up} {
-		// min-height: 450px;
+		min-height: 450px;
 	}
 }
 .header-title {
@@ -527,6 +527,18 @@ footer#footer {
 }
 
 // Global Styles
+
+#spinner {
+	min-height: 200px;
+	i {
+		display: block;
+		font-size: 40px;
+		width: 40px;
+		text-align: center;
+		margin: 3em auto;
+		color: #888;
+	}
+}
 
 .clrfix:after {
 	content: ".";

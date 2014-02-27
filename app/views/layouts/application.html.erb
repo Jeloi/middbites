@@ -217,6 +217,8 @@
           <%= content_for?(:content) ? yield(:content) : yield %>
 
         </div>
+
+        <div id="spinner" style="display: none"><i class="fa fa-spinner fa-spin"></i></div>
         
         <% unless params[:action] == "home" %>
 
