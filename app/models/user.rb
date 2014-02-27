@@ -145,6 +145,10 @@ class User < ActiveRecord::Base
 		super && provider.blank?
 	end
 	
+	# def reconfirmation_required?
+	# 	true
+	# end	
+
 	# def confirmation_required?
 	#   false
 	# end

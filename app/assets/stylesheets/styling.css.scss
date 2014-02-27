@@ -718,3 +718,11 @@ input[type="submit"] {
 	}
 }
 
+// Wrong Email page
+.wrong-email {
+	.facebook_sign_in {
+		@include button-thick($blue);
+		background: $facebook !important;
+	}
+}
+
