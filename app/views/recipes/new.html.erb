@@ -1,1 +1,9 @@
+<% unless user_signed_in? %>
+	<div id="flash_messages">
+	    <div class="flash notice">
+	    Hello and welcome to middbites! You can play around on this page all you want, but to post a recipe you will need to sign up. Signing up only takes a minute!
+	    <span class="fa fa-times"></span>
+	    </div>
+	</div>
+<% end %>
 <%= render 'form', heading: "Create a Recipe", submit_text: "Create" %>

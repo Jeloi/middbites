@@ -150,3 +150,14 @@
 		background: darken($turq, 3%);
 	}
 }
+
+.form-submit {
+	@include form-submit;
+	color: white;
+	display: block;
+	margin: 0 auto;
+	&:hover {
+		color: white;
+	}
+	text-align: center;
+}

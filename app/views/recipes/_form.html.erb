@@ -1,5 +1,12 @@
-<div class="header-title text-center">
+<div class="header-title text-center" style="margin-bottom: 0">
   <h1><%= heading %></h1>
+  <% if params[:action] == "new" %>
+  <div class="row">
+    <div class="small-12 medium-10 large-7 xlarge-6 small-centered columns">
+    <div class="page-blurb ">This is your chance to create and share your favorite Middlebury dining hall recipes! </div>
+    </div>
+  </div>
+  <% end %>
 </div>
 
 <div class="row">
@@ -116,8 +123,12 @@
      
     <br>
     
-
+    <% if user_signed_in? %>
     <%= f.submit params[:action] == "new" ? "Create" : "Save", id: :create_recipe, class: "button-thick" %>
+    <% else %>
+      <%= link_to "Sign In Now!", new_user_session_path, class: "form-submit", data: {:"reveal-id" => "sign_in_modal"} %>
+    <% end %>
+
 
     <% end %>
     <% if params[:action] == "edit" %>
