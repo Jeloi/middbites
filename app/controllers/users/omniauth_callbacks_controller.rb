@@ -4,9 +4,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     logger.debug { @user }
     if @user.persisted?
-      if !resource.confirmed?
+      if !resource.confirmed? && session[:tmp_user_email]
+        email = session[:tmp_user_email]
+        session.delete(:tmp_user_email)
+        @user.email = email
+        @user.save
+        flash[:notice] = "A confirmation has been sent to your newly specified email address: #{email}"
         redirect_to new_user_session_path
-        flash[:alert] = "Your account has not been confirmed yet! See below if you need help confirming your account."
       else
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?

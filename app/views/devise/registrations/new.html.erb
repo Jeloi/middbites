@@ -11,7 +11,7 @@
           <div id="errors_count">
             <% unless flash[:notice] %>
             <h4><%= pluralize(resource.errors.count, "error") %> prohibited this recipe from being saved!</h4>
-            <% end -%>
+            
 
                 <ul>
                   <% resource.errors.each do |attribute, msg| %>
@@ -21,6 +21,7 @@
                 </ul>
             </div>
             <% end -%>
+          <% end -%>
 
             <div class="other"><span>Already a user? </span><%= link_to "Sign in", new_user_session_path, class: "sign" %></div>
   	        <div class="section clrfix">
@@ -68,6 +69,9 @@
       <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
         <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
       <% end -%>
+
+      <%= link_to "Entered the wrong email during sign up?", users_wrong_email_path %>
+      
       </div>
 
   	</div>

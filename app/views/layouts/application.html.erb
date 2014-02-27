@@ -168,6 +168,7 @@
                   <%= f.label :password, "&#xf023".html_safe, class: "fa inline" %>
                   <%= f.password_field :password, placeholder: "Password" %>
                 </div>
+                <div class="other"><%= link_to "Need Help?", new_user_session_path %></div>
                 <div class="clrfix">
                   <!-- <div class="other"><%# link_to "Forgot your password?", new_password_path(:user)%></div> -->
                   <%= f.submit 'Sign in', class: "button-thick" %>
@@ -240,7 +241,6 @@
             <li><a href="mailto:middbites@gmail.com?Subject=Middbites%20Feedback" target="_top">Feedback</a></li>
             <li></li>
           </ul>
-          <div class="copyright"> © 2014 Middbites. All Rights Reserved.</div>
           
 
           <%# like_button(ENV['FACEBOOK_APP_ID'],href: "http://www.facebook.com/middbites") %>
@@ -257,7 +257,8 @@
           <div class="built-by">
             Designed and built by Jeloi.
           </div>
-         
+          <div class="copyright"> © 2014 Middbites. All Rights Reserved.</div>
+
         </footer>
         <% end -%>
 

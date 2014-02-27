@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action :set_user, :set_user_votes
+	before_action :set_user, except: [:unconfirmed_email_change, :unconfirmed_omniauth_email_change, :wrong_email]
+  before_action :set_user_votes
   before_action :set_recipe_sort, only: [:recipes]
 
   def show
@@ -45,8 +46,32 @@ class UsersController < ApplicationController
     end
   end
 
-  def change_email
-    
+  def wrong_email
+  end
+
+  def unconfirmed_email_change
+    @user = User.find_by(username: params[:username])
+    if !@user.nil? && @user.valid_password?(params[:password])
+      logger.debug { "correct password" }
+      @user.email = params[:email]
+      if @user.save
+        redirect_to new_user_session_path, notice: "A confirmation has been sent to your newly specified email address: #{params[:email]}"
+      else
+        redirect_to :back, flash: {error: "#{params[:email]} is not a valid middlebury email address."}
+      end
+    else
+      redirect_to :back, flash: {error: "Incorrect username/password combination"}
+    end
+  end
+
+  def unconfirmed_omniauth_email_change
+    @user = User.new(email: params[:email])
+    unless !@user.errors.get(:email).nil?
+      session[:tmp_user_email] = params[:email]
+      redirect_to user_omniauth_authorize_path(:facebook)
+    else
+      redirect_to :back, flash: {error: "#{params[:email]} is not a valid middlebury email address."}
+    end
   end
 
   private

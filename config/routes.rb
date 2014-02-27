@@ -13,6 +13,9 @@ Middbites::Application.routes.draw do
   get "users/:id/favorites", to: 'users#favorites', as: 'user_favorites'
   get "users/:id/recipes", to: 'users#recipes', as: 'user_recipes'
   get "users/:id/preconfirm", to: 'users#preconfirm', as: 'preconfirm'
+  get "users/wrong_email"
+  put "users/unconfirmed_email_change"
+  get "users/unconfirmed_omniauth_email_change"
 
   # Pages controller routes
   get "pages/home"
