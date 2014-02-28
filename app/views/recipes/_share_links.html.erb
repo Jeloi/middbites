@@ -27,7 +27,9 @@
 
 <% content_for :meta_tags do %>
 <meta property="og:title" content="<%= @recipe.title %>"/>
-<meta property="og:image" content="<%= image_link.html_safe %>"/>
+<% if @recipe.image? %>
+<meta property="og:image" content="<%= image_link %>"/>
+<% end %>
 <meta property="og:site_name" content="middbites"/>
 <meta property="og:description" content="<%= @recipe.blurb %>"/>
 <% end %>
