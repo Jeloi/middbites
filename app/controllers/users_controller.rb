@@ -64,15 +64,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def unconfirmed_omniauth_email_change
-    @user = User.new(email: params[:email])
-    unless !@user.errors.get(:email).nil?
-      session[:tmp_user_email] = params[:email]
-      redirect_to user_omniauth_authorize_path(:facebook)
-    else
-      redirect_to :back, flash: {error: "#{params[:email]} is not a valid middlebury email address."}
-    end
-  end
+  # def unconfirmed_omniauth_email_change
+  #   @user = User.new(email: params[:email])
+  #   unless !@user.errors.get(:email).nil?
+  #     session[:tmp_user_email] = params[:email]
+  #     redirect_to user_omniauth_authorize_path(:facebook)
+  #   else
+  #     redirect_to :back, flash: {error: "#{params[:email]} is not a valid middlebury email address."}
+  #   end
+  # end
 
   private
     def set_user

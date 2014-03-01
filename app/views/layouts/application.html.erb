@@ -158,6 +158,13 @@
            <%#= image_tag "new_logo.png", class: "logo" %>
           <h3>Sign In</h3>
           <p>Sign in to create, comment, and vote on recipes!</p>
+          <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
+            <span class="socialico">F</span> <span>Sign in with Facebook</span>
+          <% end %>
+          
+          <h5 class="or">
+            <span>OR</span>
+          </h5>
 
           <div class="other"><span>New user? </span><%= link_to "Sign up", new_user_registration_path, class: "sign" %></div>
           <%= form_for :user, id: "sign-in-form", :url => session_path(:user)  do |f| %>
@@ -176,13 +183,7 @@
                 </div>
           <% end %>
 
-          <h5 class="or">
-            <span>OR</span>
-          </h5>
 
-          <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
-            <span class="socialico">F</span> <span>Sign in with Facebook</span>
-          <% end %>
           <a class="close fa fa-times"></a>
         </div>
 

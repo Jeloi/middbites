@@ -109,14 +109,24 @@ class User < ActiveRecord::Base
 
 	# Omniauth
 	def self.from_omniauth(auth)
-	  where(auth.slice(:provider, :uid)).first_or_create do |user|
+		# Figure out if username of their name is taken. Append uid if it is
+		u = auth.info.name.downcase.tr!(" ", "_")
+		if User.exists?(username: u)
+			u = u + "_" + auth.uid
+		end
+		# Find or initialize user by provider and uid
+	  user = User.where(auth.slice(:provider, :uid)).first_or_initialize do |user|
 	    user.provider = auth.provider
 	    user.uid = auth.uid
-	    user.username = auth.info.name.downcase.tr!(" ", "_")
+	    user.username = u
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	    user.image = auth.info.image
 	  end
+	  puts user.username
+	  user.skip_confirmation!
+	  user.save
+	  return user
 	end
 
 	def self.new_with_session(params, session)
@@ -142,6 +152,10 @@ class User < ActiveRecord::Base
 	end
 
 	def password_required?
+		super && provider.blank?
+	end
+
+	def email_required?
 		super && provider.blank?
 	end
 	

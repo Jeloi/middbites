@@ -84,7 +84,8 @@ class RecipesController < ApplicationController
         # Recreate tag_ids artifically through taggings_attributes (for redirecting to form)
         tag_ids = recipe_params["taggings_attributes"].values.map { |x| x["tag_id"] if (x["_destroy"] == "false") }.compact if recipe_params["taggings_attributes"]
         @recipe.tag_ids = tag_ids
-        logger.debug { @recipe.taggings }
+        # logger.debug { @recipe.taggings }
+        logger.debug { @recipe.errors }
         format.html { render action: 'new' }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end

@@ -2,7 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   skip_before_filter :set_session_return_path
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    logger.debug { @user }
+    logger.debug { @user.errors.first }
     if @user.persisted?
       if !resource.confirmed? && session[:tmp_user_email]
         email = session[:tmp_user_email]

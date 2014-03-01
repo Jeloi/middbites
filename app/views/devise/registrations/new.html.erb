@@ -23,6 +23,15 @@
             <% end -%>
           <% end -%>
 
+          <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
+            <span class="socialico">F</span> <span>Sign Up with Facebook</span>
+          <% end %>
+
+          <h5 class="or">
+            <span>OR</span>
+          </h5>
+
+
             <div class="other"><span>Already a user? </span><%= link_to "Sign in", new_user_session_path, class: "sign" %></div>
   	        <div class="section clrfix">
   	          <%= f.label :username, "&#xf007;".html_safe, class: "fa inline" %>
@@ -48,13 +57,7 @@
   	        </div>
   	  <% end %>
 
-  	  <h5 class="or">
-  	    <span>OR</span>
-  	  </h5>
 
-  	  <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
-  	    <span class="socialico">F</span> <span>Sign Up with Facebook</span>
-  	  <% end %>
 
 
 
