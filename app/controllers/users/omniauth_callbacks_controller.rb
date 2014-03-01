@@ -4,6 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
     logger.debug { @user.errors.first }
     if @user.persisted?
+      # This was old logic for confirming omniauth accounts with a new email
       if !resource.confirmed? && session[:tmp_user_email]
         email = session[:tmp_user_email]
         session.delete(:tmp_user_email)

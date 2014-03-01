@@ -87,7 +87,9 @@
 
     <div id="secondHeader" class="hide-for-large-up">
       <a class="menu-button fa fa-bars" href="#"></a>
-      <%= image_tag "new_logo.png", class: "logo" %>
+      <%= link_to(root_path) do %>
+        <%= image_tag "new_logo.png", class: "logo" %>
+      <% end %>
       <a href="#" data-reveal-id="search-modal" class="search-button socialico_plus" data-icon="O"></a>
     </div>
 
@@ -161,7 +163,7 @@
           <%= link_to(user_omniauth_authorize_path(:facebook), class: "facebook_sign_in") do %>
             <span class="socialico">F</span> <span>Sign in with Facebook</span>
           <% end %>
-          
+
           <h5 class="or">
             <span>OR</span>
           </h5>
