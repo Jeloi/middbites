@@ -17,6 +17,7 @@ set :format, :pretty
 set :log_level, :debug
 # set :pty, true
 
+# Files and dirs linked between release
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
@@ -25,23 +26,30 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  desc 'Restart Unicorn'
+  desc 'Restart Task'
   task :restart do
-    on roles(:web) do
-      puts "==== Restarting Unicorn ===="
-      # execute "service unicorn stop"
-      execute "service unicorn restart"
-    end
+    invoke 'deploy:restart:unicorn'
   end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  namespace :restart do
+    desc "Restart unicorn"
+    task :unicorn do
+      on roles(:web) do
+        execute "service unicorn stop"
+        execute "service unicorn start"
+      end
     end
+
   end
+
+  # after :restart, :clear_cache do
+  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
+  #     # Here we can do anything such as:
+  #     # within release_path do
+  #     #   execute :rake, 'cache:clear'
+  #     # end
+  #   end
+  # end
 
   desc "Sets permissions for Rails Application"
   task :set_permissions do

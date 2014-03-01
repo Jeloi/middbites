@@ -65,8 +65,10 @@ group :development, :test do
 
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-rails'
-  gem 'capistrano-bundler', '>= 1.1.0'
+  gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
+
 
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'
