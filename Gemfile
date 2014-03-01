@@ -67,8 +67,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
-  gem 'capistrano3-unicorn'
-
 
   # Performance testing gems. Need to troubleshoot
   # gem 'rails-perftest'
