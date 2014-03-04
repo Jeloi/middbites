@@ -22,9 +22,9 @@ class RecipesController < ApplicationController
 
   def top
     @header = "Top Recipes"
-    @blurb = "The Top 30 highest rated recipes of all time"
+    @blurb = "The Top 10 highest rated recipes of all time"
     @view = params[:view] || "detailed"
-    @recipes = Recipe.order(score: :desc, created_at: :asc).limit(30)
+    @recipes = Recipe.order(score: :desc, created_at: :asc).limit(10)
     respond_to do |wants|
       wants.html { render "recipes.html.erb" }
       wants.js { render "recipes.js.erb" }

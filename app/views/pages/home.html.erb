@@ -8,5 +8,6 @@
 	<h5>Featured Recipe</h5>
 	<div class="detailed-recipes"><%= render 'recipes/detailed_recipe', recipe: @featured_recipe %></div>
 	<% end -%>
+	<div class="create-section"><%= link_to "Create a Recipe", new_recipe_path, class: "create-button" %></div>
   </div>
 </div>

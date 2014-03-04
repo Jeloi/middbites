@@ -13,8 +13,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         flash[:notice] = "A confirmation has been sent to your newly specified email address: #{email}"
         redirect_to new_user_session_path
       else
-      sign_in_and_redirect @user
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+        flash[:welcome] = "Successfully signed up. You can now vote on and create recipes. Welcome to Middbites!" if (@user.sign_in_count == 1)
+        sign_in_and_redirect @user
+        set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
       end
     else
       session["devise.user_attributes"] = @user.attributes

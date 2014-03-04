@@ -46,7 +46,13 @@
 	-webkit-transition: .3s;
 	border: 1px solid white;
 	color: white;
+	@media #{$small-only} {
+		padding: 2px 4px;
+		margin-right: 2px;
+		// margin-bottom: 2px;	
+	}
 }
+
 
 .grouped-tags {
 	h4 {

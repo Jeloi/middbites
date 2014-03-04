@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
   # Devise - redirect to a specific page on successful sign in 
   def after_sign_in_path_for(resource)
     if resource.sign_in_count == 1
-      edit_user_registration_path
+      flash[:welcome] = "Successfully signed up. You can now vote on and create recipes. Welcome to Middbites!"
+      new_recipe_path
     else
       root_path
      # session[:return_to] || root_path
