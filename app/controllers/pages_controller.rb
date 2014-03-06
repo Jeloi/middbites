@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :set_user_votes, only: [:menus, :home]
 
   def home
-  	@featured_recipe = Recipe.first
+  	@featured_recipe = ( Recipe.exists?(id: 12) ? Recipe.find(12) :  Recipe.first )
   end
 
   def about
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     popular = Recipe.popular_this_week.slice(0,5) # one of the top 5 popular recipes this week
     max = popular.size
     logger.debug { max }
-    @popular_recipe = popular[rand(max)]
+    @popular_recipe = (popular[rand(max)] || Recipe.last )
   end
 
 

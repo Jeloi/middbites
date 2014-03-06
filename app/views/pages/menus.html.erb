@@ -98,9 +98,9 @@ Menus
 	<div class="detailed-recipes recipe-listings">
 	  <%#= render  "recipes/detailed_recipes", recipes: @recent_recipes %>
 	  <div class="medium-10 large-9 xlarge-7 medium-centered large-centered columns">
-	  	<h3 class="subtitle">Popular</h3>
+	  	<h3 class="subtitle"><%= link_to "Popular", popular_recipes_path %></h3>
 	  	<%= render 'recipes/detailed_recipe', recipe: @popular_recipe %>
-	  	<h3 class="subtitle">Recent</h3>
+	  	<h3 class="subtitle"><%= link_to "Recent", recent_recipes_path %></h3>
 	  	<div class="list-recipes">
 	  	  <table class="">
 	  	    <tbody>

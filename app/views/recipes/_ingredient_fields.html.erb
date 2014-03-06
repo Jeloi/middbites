@@ -8,10 +8,10 @@
 		<span class="ingredient-text"></span>
 	</div>
 
-	<i class="fa info <%=  !f.object.quantity.blank? ? "showing" : "hidden" %>"></i>
+	<i class="fa info <%=  (!f.object.quantity.blank? || params[:action] == "new") ? "showing" : "hidden" %>"></i>
 	
-	<% not_showing = "display: none" if f.object.quantity.blank? %>
+	<% not_showing = "display: none" if (f.object.quantity.blank? && params[:action] == "edit") %>
 
-	<%= f.text_field :quantity, class: :quantity, placeholder: "additional info (e.g measurements)", style: not_showing, maxlength: Ingredient::QUANTITY_LENGTH %>
+	<%= f.text_field :quantity, class: :quantity, placeholder: "additional info/measurements", style: not_showing, maxlength: Ingredient::QUANTITY_LENGTH %>
 
 </div>	

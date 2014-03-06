@@ -18,6 +18,12 @@
 		margin-top: 15px; 
 	}
 
+	.tip {
+		font-size: 12px;
+		font-weight: 300;
+		margin-bottom: 4px;
+	}
+
 	#ingredients-section {
 		.selector_container {
 			margin-bottom: 1em;
@@ -26,7 +32,7 @@
 		#list-container {
 			margin-bottom: 1em;
 		}
-
+		
 		.ingredient-fields {
 			margin-top: 0.4em;
 			line-height: 1.3em;
@@ -65,10 +71,12 @@
 				padding: 3px;
 				line-height: 1;
 				height: 20px;
-				font-size: 12px;
 				font-style: italic;
 				border: none;
 				margin-bottom: 0;
+				@media #{$medium-up} {
+					font-size: 12px;
+				}
 			}
 
 		}
